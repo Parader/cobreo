@@ -1,0 +1,112 @@
+{
+    "meta": {
+        "siteName": "Cobreo",
+        "defaultTitle": "Cobreo — Solutions applicatives pour vos opérations",
+        "defaultDescription": "Nous analysons vos processus, identifions les meilleures opportunités et développons des solutions qui génèrent un impact mesurable.",
+        "ogLocale": "fr_CA"
+    },
+    "nav": {
+        "services": "Services",
+        "about": "À propos",
+        "contact": "Contact",
+        "diagnostic": "Outil d'analyse",
+        "cta": "Parlez-nous de votre projet",
+        "lang": "EN"
+    },
+    "home": {
+        "heroTitle": "Des solutions applicatives conçues pour améliorer vos opérations.",
+        "heroSubtitle": "Nous analysons vos processus, identifions les meilleures opportunités et développons des solutions qui génèrent un impact mesurable.",
+        "heroCta": "Parlez-nous de votre projet",
+        "processTitle": "Des outils sur mesure pour soutenir votre croissance.",
+        "processSubtitle": "Simplifiez vos opérations en libérant vos équipes et en automatisant les tâches répétitives.",
+        "processCta": "Découvrir des opportunités d'amélioration",
+        "identify": "Identifier",
+        "validate": "Valider",
+        "develop": "Développer",
+        "evolve": "Faire évoluer",
+        "valueTitle": "Comment nous créons de la valeur.",
+        "value1Title": "Simplifier les opérations",
+        "value1Body": "Nous cartographions vos processus pour éliminer la friction et clarifier les responsabilités.",
+        "value2Title": "Automatiser les tâches",
+        "value2Body": "Les tâches répétitives deviennent des flux fiables, mesurables et évolutifs.",
+        "value3Title": "Centraliser l'information",
+        "value3Body": "Une source de vérité unique pour vos équipes, vos clients et vos décisions.",
+        "value4Title": "Améliorer l'expérience client",
+        "value4Body": "Des parcours plus fluides qui renforcent la confiance et la rétention.",
+        "value5Title": "Accélérer la prise de décision",
+        "value5Body": "Des indicateurs clairs pour agir rapidement sans sacrifier la qualité.",
+        "value6Title": "Créer de l'agilité",
+        "value6Body": "Des outils conçus pour évoluer avec votre organisation.",
+        "valueCtaPrompt": "Prêt à améliorer vos opérations ?",
+        "valueCta": "Parlez-nous de votre projet",
+        "philosophyTitle": "Aller plus vite, sans prendre de raccourcis.",
+        "philosophyBody": "Nous combinons une approche design-first et un développement rigoureux. L'IA accélère notre travail, sans jamais remplacer le jugement et la qualité.",
+        "philosophyLink": "À propos de Cobreo",
+        "testimonialTitle": "Ce qu'en disent nos clients",
+        "testimonialQuote": "La rapidité d'exécution nous a particulièrement impressionnés. L'équipe Cobreo a su transformer une vision floue en un outil concret, utile dès les premières semaines.",
+        "testimonialName": "Adrian",
+        "testimonialRole": "Directeur de l'innovation",
+        "diagnosticTitle": "Découvrez vos opportunités d'amélioration",
+        "diagnosticBody": "Répondez à quelques questions pour identifier les défis opérationnels de votre entreprise.",
+        "diagnosticCta": "Commencer l'analyse"
+    },
+    "footer": {
+        "services": "Services",
+        "contact": "Contact",
+        "about": "À propos",
+        "projects": "Projets",
+        "cta": "Parlez-nous de votre projet",
+        "rights": "© {year} Cobreo. Tous droits réservés.",
+        "terms": "CGU",
+        "privacy": "Confidentialité",
+        "cookies": "Cookies"
+    },
+    "contact": {
+        "title": "Parlez-nous de votre projet",
+        "subtitle": "Décrivez votre contexte — nous vous répondons rapidement.",
+        "name": "Nom",
+        "email": "Courriel",
+        "company": "Entreprise",
+        "phone": "Téléphone",
+        "message": "Message",
+        "submit": "Envoyer",
+        "success": "Merci — votre message a bien été reçu.",
+        "error": "Une erreur est survenue. Réessayez ou écrivez-nous directement."
+    },
+    "diagnostic": {
+        "title": "Outil d'analyse",
+        "subtitle": "Un questionnaire court pour cerner vos opportunités d'optimisation.",
+        "step": "Étape {current} sur {total}",
+        "next": "Continuer",
+        "back": "Retour",
+        "submit": "Soumettre",
+        "success": "Merci — vos réponses ont été enregistrées. Nous vous recontacterons sous peu.",
+        "q1": "Quel est le nom de votre entreprise ?",
+        "q2": "Combien d'employés compte votre organisation ?",
+        "q3": "Quel est votre principal défi opérationnel aujourd'hui ?",
+        "q4": "Quels outils utilisez-vous actuellement pour gérer vos opérations ?",
+        "q5": "Quel est votre courriel pour recevoir le suivi ?",
+        "size1": "1–10",
+        "size2": "11–50",
+        "size3": "51–200",
+        "size4": "200+"
+    },
+    "about": {
+        "title": "À propos de Cobreo",
+        "body": "Cobreo conçoit des solutions applicatives sur mesure pour améliorer les opérations des entreprises. Nous allions analyse, design et développement pour livrer un impact mesurable."
+    },
+    "services": {
+        "title": "Services",
+        "body": "Analyse opérationnelle, conception d'applications, automatisation et accompagnement évolutif."
+    },
+    "admin": {
+        "loginTitle": "Connexion",
+        "email": "Courriel",
+        "password": "Mot de passe",
+        "submit": "Se connecter",
+        "leads": "Demandes",
+        "contacts": "Contacts",
+        "logout": "Déconnexion",
+        "empty": "Aucune entrée pour le moment."
+    }
+}

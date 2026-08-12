@@ -1,0 +1,112 @@
+{
+    "meta": {
+        "siteName": "Cobreo",
+        "defaultTitle": "Cobreo — Application solutions for your operations",
+        "defaultDescription": "We analyze your processes, identify the best opportunities, and build solutions that deliver measurable impact.",
+        "ogLocale": "en_CA"
+    },
+    "nav": {
+        "services": "Services",
+        "about": "About",
+        "contact": "Contact",
+        "diagnostic": "Analysis tool",
+        "cta": "Tell us about your project",
+        "lang": "FR"
+    },
+    "home": {
+        "heroTitle": "Application solutions designed to improve your operations.",
+        "heroSubtitle": "We analyze your processes, identify the best opportunities, and build solutions that deliver measurable impact.",
+        "heroCta": "Tell us about your project",
+        "processTitle": "Custom tools to support your growth.",
+        "processSubtitle": "Simplify your operations by freeing your teams and automating repetitive work.",
+        "processCta": "Discover improvement opportunities",
+        "identify": "Identify",
+        "validate": "Validate",
+        "develop": "Build",
+        "evolve": "Evolve",
+        "valueTitle": "How we create value.",
+        "value1Title": "Simplify operations",
+        "value1Body": "We map your processes to remove friction and clarify ownership.",
+        "value2Title": "Automate tasks",
+        "value2Body": "Repetitive work becomes reliable, measurable, and scalable flows.",
+        "value3Title": "Centralize information",
+        "value3Body": "A single source of truth for your teams, customers, and decisions.",
+        "value4Title": "Improve customer experience",
+        "value4Body": "Smoother journeys that strengthen trust and retention.",
+        "value5Title": "Accelerate decision-making",
+        "value5Body": "Clear indicators so you can act quickly without sacrificing quality.",
+        "value6Title": "Build agility",
+        "value6Body": "Tools designed to evolve with your organization.",
+        "valueCtaPrompt": "Ready to improve your operations?",
+        "valueCta": "Tell us about your project",
+        "philosophyTitle": "Move faster without cutting corners.",
+        "philosophyBody": "We combine a design-first approach with rigorous engineering. AI speeds us up — it never replaces judgment or quality.",
+        "philosophyLink": "About Cobreo",
+        "testimonialTitle": "What our clients say",
+        "testimonialQuote": "The speed of execution particularly impressed us. The Cobreo team turned a fuzzy vision into a concrete tool that was useful within the first few weeks.",
+        "testimonialName": "Adrian",
+        "testimonialRole": "Director of Innovation",
+        "diagnosticTitle": "Discover your improvement opportunities",
+        "diagnosticBody": "Answer a few questions to identify operational challenges in your business.",
+        "diagnosticCta": "Start the analysis"
+    },
+    "footer": {
+        "services": "Services",
+        "contact": "Contact",
+        "about": "About",
+        "projects": "Projects",
+        "cta": "Tell us about your project",
+        "rights": "© {year} Cobreo. All rights reserved.",
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "cookies": "Cookies"
+    },
+    "contact": {
+        "title": "Tell us about your project",
+        "subtitle": "Share your context — we'll get back to you quickly.",
+        "name": "Name",
+        "email": "Email",
+        "company": "Company",
+        "phone": "Phone",
+        "message": "Message",
+        "submit": "Send",
+        "success": "Thank you — your message has been received.",
+        "error": "Something went wrong. Please try again or email us directly."
+    },
+    "diagnostic": {
+        "title": "Analysis tool",
+        "subtitle": "A short questionnaire to surface optimization opportunities.",
+        "step": "Step {current} of {total}",
+        "next": "Continue",
+        "back": "Back",
+        "submit": "Submit",
+        "success": "Thank you — your answers were saved. We'll follow up shortly.",
+        "q1": "What is your company name?",
+        "q2": "How many employees does your organization have?",
+        "q3": "What is your main operational challenge today?",
+        "q4": "Which tools do you currently use to manage operations?",
+        "q5": "What email should we use for follow-up?",
+        "size1": "1–10",
+        "size2": "11–50",
+        "size3": "51–200",
+        "size4": "200+"
+    },
+    "about": {
+        "title": "About Cobreo",
+        "body": "Cobreo builds custom application solutions to improve business operations. We combine analysis, design, and engineering to deliver measurable impact."
+    },
+    "services": {
+        "title": "Services",
+        "body": "Operational analysis, application design, automation, and ongoing evolution support."
+    },
+    "admin": {
+        "loginTitle": "Sign in",
+        "email": "Email",
+        "password": "Password",
+        "submit": "Sign in",
+        "leads": "Leads",
+        "contacts": "Contacts",
+        "logout": "Sign out",
+        "empty": "No entries yet."
+    }
+}
