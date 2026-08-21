@@ -901,7 +901,8 @@ function ProcessRow({
 }) {
     const reduce = usePreferSimpleMotion();
     const media = mediaReveal(reduce);
-    const copy = childReveal(reduce, side === "left" ? "left" : "right");
+    // Vertical only — horizontal slide looked "décalé" on narrow phones when motion stuck.
+    const copy = childReveal(reduce, "up");
     const stagger = staggerContainer(reduce, 0.12, 0.06);
 
     return (
@@ -922,7 +923,7 @@ function ProcessRow({
             </motion.div>
             <motion.p
                 variants={copy}
-                className="min-w-0 max-w-full font-display text-[22px] font-light leading-[1.35] text-pretty text-[#efedea] md:py-6 md:text-[30px] md:leading-[1.4]"
+                className="min-w-0 max-w-full font-display text-[22px] font-light leading-[1.35] text-[#efedea] md:py-6 md:text-[30px] md:leading-[1.4] md:text-pretty"
             >
                 <span className="md:whitespace-nowrap">
                     <span className="font-bold">{bold} </span>
