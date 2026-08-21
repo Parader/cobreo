@@ -19,9 +19,14 @@ async function notifyInternal(subject: string, text: string) {
     }
 
     try {
+        const from = process.env.RESEND_FROM_EMAIL?.trim();
+        if (!from) {
+            console.warn("[notifyInternal] skipped — missing RESEND_FROM_EMAIL");
+            return;
+        }
         const resend = new Resend(apiKey);
         const { data, error } = await resend.emails.send({
-            from: process.env.RESEND_FROM_EMAIL?.trim() || "Cobreo <derick@cobreo.ca>",
+            from,
             to: [to],
             subject,
             text,

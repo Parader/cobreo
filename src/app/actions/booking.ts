@@ -63,7 +63,9 @@ type EmailSendResult =
 
 function resendFromAddress() {
     ensureServerEnv();
-    return process.env.RESEND_FROM_EMAIL?.trim() || "Cobreo <derick@cobreo.ca>";
+    const from = process.env.RESEND_FROM_EMAIL?.trim();
+    if (!from) throw new Error("Missing RESEND_FROM_EMAIL");
+    return from;
 }
 
 function emailConfigIssues(): string[] {
@@ -421,9 +423,8 @@ export async function confirmBooking(
 
         const icsUid = `${crypto.randomUUID()}@cobreo.ca`;
         const organizerEmail =
-            process.env.BOOKING_ORGANIZER_EMAIL?.trim() ||
-            process.env.CONTACT_NOTIFY_EMAIL?.trim() ||
-            "derick@cobreo.ca";
+            process.env.BOOKING_ORGANIZER_EMAIL?.trim() || process.env.CONTACT_NOTIFY_EMAIL?.trim();
+        if (!organizerEmail) throw new Error("Missing BOOKING_ORGANIZER_EMAIL");
         const meetLink = process.env.BOOKING_MEET_LINK?.trim() || null;
 
         const eventTitle = `Cobreo — échange de 15 min avec ${company || name}`;

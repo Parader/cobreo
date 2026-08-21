@@ -7,7 +7,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
-  # NEXT_PUBLIC_* values are intentionally inlined into the client bundle.
-  # Omit them from secrets scanning so deploy is not blocked by false positives.
-  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SITE_URL,NEXT_PUBLIC_ADMIN_PATH_SECRET,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST"
-  SECRETS_SCAN_OMIT_PATHS = ".env.example"
+  # Public Next vars + email/booking vars are inlined into the server/client build by Next.
+  # Omit them so Netlify secrets scan does not fail on intentional env injection.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SITE_URL,NEXT_PUBLIC_ADMIN_PATH_SECRET,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST,RESEND_FROM_EMAIL,CONTACT_NOTIFY_EMAIL,BOOKING_ORGANIZER_EMAIL,BOOKING_MEET_LINK"
+  SECRETS_SCAN_OMIT_PATHS = ".env.example,scripts/resend-last-booking.ts"

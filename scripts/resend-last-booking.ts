@@ -39,12 +39,9 @@ loadEnvFile(path.join(process.cwd(), ".env.local"));
 
 async function main() {
     const apiKey = process.env.RESEND_API_KEY?.trim();
-    const from = process.env.RESEND_FROM_EMAIL?.trim() || "Cobreo <derick@cobreo.ca>";
+    const from = process.env.RESEND_FROM_EMAIL?.trim();
     const notifyTo = process.env.CONTACT_NOTIFY_EMAIL?.trim();
-    const organizer =
-        process.env.BOOKING_ORGANIZER_EMAIL?.trim() ||
-        notifyTo ||
-        "derick@cobreo.ca";
+    const organizer = process.env.BOOKING_ORGANIZER_EMAIL?.trim() || notifyTo;
     const meetLink = process.env.BOOKING_MEET_LINK?.trim() || null;
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
     const supabaseKey =
@@ -53,6 +50,14 @@ async function main() {
 
     if (!apiKey) {
         console.error("RESEND_API_KEY missing — aborting");
+        process.exit(1);
+    }
+    if (!from) {
+        console.error("RESEND_FROM_EMAIL missing — aborting");
+        process.exit(1);
+    }
+    if (!organizer) {
+        console.error("BOOKING_ORGANIZER_EMAIL (or CONTACT_NOTIFY_EMAIL) missing — aborting");
         process.exit(1);
     }
     if (!supabaseUrl || !supabaseKey) {
