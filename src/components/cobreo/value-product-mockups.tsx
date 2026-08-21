@@ -686,19 +686,26 @@ function PhoneChrome({ children, brandLabel }: { children: ReactNode; brandLabel
     return (
         <div
             data-cobreo-mock
-            className={cx(
-                "pointer-events-none mx-auto w-full max-w-[300px] select-none",
-                "[filter:drop-shadow(0_18px_36px_rgba(77,107,151,0.28))]",
-            )}
+            className="pointer-events-none mx-auto w-full max-w-[300px] select-none"
         >
-            <div className="overflow-hidden rounded-[2rem] border-[5px] border-[#171718] bg-primary ring-1 ring-brand/25">
-                <div className="relative flex h-11 items-center justify-between bg-brand-primary px-5">
+            {/*
+              Use box-shadow (not filter:drop-shadow) so overflow+radius clip reliably on iOS.
+              Inner radius accounts for the 5px bezel so mock content follows the phone curve.
+            */}
+            <div
+                className={cx(
+                    "overflow-hidden rounded-[2rem] border-[5px] border-[#171718] bg-primary",
+                    "shadow-[0_18px_36px_rgba(77,107,151,0.28)] ring-1 ring-brand/25",
+                    "isolate [transform:translateZ(0)]",
+                )}
+            >
+                <div className="relative z-10 flex h-11 items-center justify-between overflow-hidden rounded-t-[1.625rem] bg-brand-primary px-5">
                     <span className="text-[11px] font-semibold tabular-nums text-brand-secondary">9:41</span>
                     <span className="absolute left-1/2 top-2 h-5 w-20 -translate-x-1/2 rounded-full bg-[#171718]/90" aria-hidden />
                     <span className="text-[10px] font-semibold tracking-wide text-brand-secondary">{brandLabel.slice(0, 6)}</span>
                 </div>
-                <div className="h-[34rem] overflow-hidden bg-secondary">{children}</div>
-                <div className="flex justify-center bg-primary pb-2.5 pt-1.5">
+                <div className="relative z-0 h-[34rem] overflow-hidden bg-secondary">{children}</div>
+                <div className="relative z-10 flex justify-center overflow-hidden rounded-b-[1.625rem] bg-primary pb-2.5 pt-1.5">
                     <span className="h-1 w-28 rounded-full bg-[#171718]/20" aria-hidden />
                 </div>
             </div>
