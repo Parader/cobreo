@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HomePage } from "@/components/cobreo/home-page";
 import { buildPageMetadata, organizationJsonLd } from "@/lib/seo";
@@ -22,7 +23,12 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <Script
+                id="cobreo-organization-jsonld"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <HomePage />
         </>
     );

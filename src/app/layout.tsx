@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -8,6 +9,15 @@ export const metadata: Metadata = {
         template: "%s · Cobreo",
     },
     applicationName: "Cobreo",
+    manifest: "/site.webmanifest",
+    icons: {
+        icon: [
+            { url: "/favicon.ico" },
+            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        ],
+        apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
 };
 
 export const viewport: Viewport = {
@@ -15,10 +25,7 @@ export const viewport: Viewport = {
     colorScheme: "light",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <html lang="fr" suppressHydrationWarning>
-            <body className="bg-primary antialiased">{children}</body>
-        </html>
-    );
+/** Locale layout owns `<html>` / `<body>` so `lang` matches the active locale. */
+export default function RootLayout({ children }: { children: ReactNode }) {
+    return children;
 }

@@ -1,49 +1,95 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/base/buttons/button";
+import { MessageChatSquare } from "@untitledui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import { getAdminSlug } from "@/lib/admin-path";
+import { CobreoButton } from "@/components/cobreo/cobreo-button";
 
 export function SiteFooter() {
     const t = useTranslations("footer");
     const pathname = usePathname();
-    const year = new Date().getFullYear();
+    const [mounted, setMounted] = useState(false);
+    const year = 2026;
 
-    if (pathname?.includes(getAdminSlug())) {
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Avoid SSR/client pathname mismatches on admin routes
+    if (mounted && pathname?.includes(getAdminSlug())) {
         return null;
     }
 
     return (
-        <footer className="bg-cobreo-ink text-[#efedea]">
-            <div className="mx-auto flex max-w-container flex-col gap-8 px-4 py-12 md:px-8">
-                <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-                    <div className="relative h-7 w-[76px]">
-                        <Image src="/images/logo-footer.svg" alt="Cobreo" fill className="object-contain object-left" />
+        <footer className="relative overflow-hidden bg-[#171718] text-[#efedea]" style={{ fontFamily: '"SN Pro", ui-sans-serif, sans-serif' }}>
+            <div className="relative z-10 mx-auto flex max-w-container flex-col gap-12 px-4 pb-24 pt-20 md:px-8 md:pt-24">
+                <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-start">
+                    <div className="flex flex-col gap-8">
+                        <div className="relative h-5 w-[76px]">
+                            <Image src="/images/logo-footer.svg" alt="Cobreo" fill className="object-contain object-left" />
+                        </div>
+                        <nav className="flex flex-wrap items-center gap-x-9 gap-y-4 text-sm font-semibold text-[#efedea]" aria-label="Footer">
+                            <Link
+                                href="/services"
+                                className="opacity-90 transition duration-100 ease-linear hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                            >
+                                {t("services")}
+                            </Link>
+                            <Link
+                                href="/a-propos"
+                                className="opacity-90 transition duration-100 ease-linear hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                            >
+                                {t("about")}
+                            </Link>
+                            <Link
+                                href="/contact"
+                                className="opacity-90 transition duration-100 ease-linear hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                            >
+                                {t("contact")}
+                            </Link>
+                            <Link
+                                href="/confidentialite"
+                                className="opacity-90 transition duration-100 ease-linear hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                            >
+                                {t("privacy")}
+                            </Link>
+                        </nav>
                     </div>
-                    <nav className="flex flex-wrap items-center gap-4 text-sm font-semibold" aria-label="Footer">
-                        <Link href="/services" className="hover:opacity-80">
-                            {t("services")}
-                        </Link>
-                        <Link href="/contact" className="hover:opacity-80">
-                            {t("contact")}
-                        </Link>
-                        <Link href="/a-propos" className="hover:opacity-80">
-                            {t("about")}
-                        </Link>
-                    </nav>
-                    <Button href="/contact" color="primary" size="md">
+                    <CobreoButton
+                        href="/contact"
+                        variant="primary"
+                        size="xl"
+                        iconLeading={<MessageChatSquare className="size-5" />}
+                        analytics={{ ctaId: "footer_contact", destination: "contact", surface: "footer" }}
+                    >
                         {t("cta")}
-                    </Button>
+                    </CobreoButton>
                 </div>
                 <hr className="border-white/10" />
-                <div className="flex flex-col justify-between gap-4 text-sm text-white/60 md:flex-row">
-                    <p>{t("rights", { year })}</p>
-                    <div className="flex gap-4">
-                        <span>{t("terms")}</span>
-                        <span>{t("privacy")}</span>
-                        <span>{t("cookies")}</span>
+                <div className="flex flex-col justify-between gap-4 text-sm text-white/50 md:flex-row">
+                    <p suppressHydrationWarning>{t("rights", { year })}</p>
+                    <div className="flex gap-6">
+                        <Link
+                            href="/conditions"
+                            className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                        >
+                            {t("terms")}
+                        </Link>
+                        <Link
+                            href="/confidentialite"
+                            className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                        >
+                            {t("privacy")}
+                        </Link>
+                        <Link
+                            href="/cookies"
+                            className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                        >
+                            {t("cookies")}
+                        </Link>
                     </div>
                 </div>
             </div>

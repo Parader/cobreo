@@ -1,0 +1,2039 @@
+{
+  "meta": {
+    "product": "Cobreo Opportunity Diagnostic",
+    "version": "6.6",
+    "status": "preproduction_robustness_candidate",
+    "source_language": "fr",
+    "generated_for": "Cursor integration — V6.6 robustness",
+    "principles": [
+      "mobile_first",
+      "progressive_exploration",
+      "neutral_observable_language",
+      "situation_is_not_friction",
+      "discover_existing_frictions_and_emerging_capabilities",
+      "absence_plus_intent_can_be_an_opportunity",
+      "no_problem_invention",
+      "no_technology_assumption",
+      "process_maturity_is_local_not_company_wide",
+      "declared_priority_sets_start_not_stop",
+      "minimum_discovery_coverage_before_global_conclusion",
+      "contextual_qualification_only",
+      "measure_frequency_effort_and_desire_when_decision_relevant",
+      "tools_are_context_not_problems",
+      "declared_priority_is_first_class_intent_signal",
+      "existence_does_not_imply_fit",
+      "priority_alignment_influences_ranking_not_truth",
+      "measure_fit_against_intended_outcome",
+      "detected_solution_requires_fit_check_when_relevant",
+      "measurement_copy_must_be_grammatically_contextualized",
+      "pilot_with_real_prospects_before_further_structural_expansion",
+      "healthy_does_not_mean_no_optimization",
+      "optimization_without_pain_is_valid",
+      "recommendations_require_evidence_chain",
+      "confidence_controls_result_prominence",
+      "never_force_an_opportunity_for_conversion"
+    ],
+    "experimental_items": [
+      "exact wording of current-priority question",
+      "goal choice count",
+      "neutral situation wording by topic",
+      "emerging-capability thresholds",
+      "early-exit timing",
+      "optional free-text placement",
+      "lead form conversion behavior"
+    ]
+  },
+  "flow": {
+    "steps": [
+      "context",
+      "current_priority",
+      "reality",
+      "qualification",
+      "optional_context",
+      "results",
+      "optional_lead"
+    ],
+    "progress_ui": {
+      "mode": "stage_based",
+      "never_show_question_total": true,
+      "never_show_questions_remaining": true,
+      "never_show_question_percentage": true,
+      "stages": [
+        {
+          "id": "context",
+          "label_fr": "Votre entreprise"
+        },
+        {
+          "id": "priority",
+          "label_fr": "Ce qui compte maintenant"
+        },
+        {
+          "id": "reality",
+          "label_fr": "Votre réalité"
+        },
+        {
+          "id": "qualification",
+          "label_fr": "À approfondir"
+        },
+        {
+          "id": "results",
+          "label_fr": "Résultats"
+        }
+      ],
+      "mobile": "show_active_stage_with_segmented_progress"
+    },
+    "ux_rules": {
+      "default_substantive_choices_budget": 5,
+      "multi_select_instruction_required": true,
+      "free_text_optional_only": true,
+      "none_is_exclusive": true
+    }
+  },
+  "context": [
+    {
+      "id": "context_stage",
+      "kind": "single_select",
+      "required": true,
+      "question_fr": "Où en êtes-vous avec votre entreprise aujourd’hui?",
+      "answers": [
+        {
+          "id": "testing",
+          "label_fr": "Je teste encore mon idée ou mon offre"
+        },
+        {
+          "id": "early",
+          "label_fr": "J’ai commencé, mais mon activité est encore limitée"
+        },
+        {
+          "id": "regular",
+          "label_fr": "Mon activité fonctionne régulièrement"
+        },
+        {
+          "id": "established",
+          "label_fr": "Mon entreprise est bien établie"
+        }
+      ]
+    },
+    {
+      "id": "context_business_type",
+      "kind": "single_select",
+      "required": true,
+      "question_fr": "Que fournissez-vous principalement?",
+      "answers": [
+        {
+          "id": "services",
+          "label_fr": "Des services"
+        },
+        {
+          "id": "products",
+          "label_fr": "Des produits"
+        },
+        {
+          "id": "both",
+          "label_fr": "Les deux"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    },
+    {
+      "id": "context_work_model",
+      "kind": "multi_select",
+      "required": true,
+      "question_fr": "Comment votre activité se déroule-t-elle généralement?",
+      "answers": [
+        {
+          "id": "appointments",
+          "label_fr": "Par rendez-vous"
+        },
+        {
+          "id": "projects",
+          "label_fr": "Par projets ou mandats"
+        },
+        {
+          "id": "orders",
+          "label_fr": "Par commandes"
+        },
+        {
+          "id": "recurring",
+          "label_fr": "En continu ou de façon récurrente"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "selection": {
+        "min": 1,
+        "max": null
+      }
+    }
+  ],
+  "current_priority": {
+    "id": "current_priority",
+    "kind": "single_select",
+    "required": true,
+    "question_fr": "Qu’est-ce qui correspond le mieux à ce que vous cherchez à faire actuellement?",
+    "answers": [
+      {
+        "id": "test_offer",
+        "label_fr": "Tester ou améliorer ce que j’offre"
+      },
+      {
+        "id": "sell_more",
+        "label_fr": "Trouver des clients ou vendre davantage"
+      },
+      {
+        "id": "serve_clients",
+        "label_fr": "Mieux servir mes clients"
+      },
+      {
+        "id": "organize_work",
+        "label_fr": "Mieux organiser mon travail"
+      },
+      {
+        "id": "save_time",
+        "label_fr": "Gagner du temps dans mes opérations"
+      },
+      {
+        "id": "visibility_growth",
+        "label_fr": "Mieux suivre ce qui se passe ou préparer une croissance"
+      },
+      {
+        "id": "nothing_specific",
+        "label_fr": "Rien de particulier pour l’instant"
+      },
+      {
+        "id": "other",
+        "label_fr": "Autre"
+      }
+    ],
+    "usage": [
+      "choose_where_to_start",
+      "allocate_more_exploration_depth_to_aligned_topics",
+      "rank_supported_opportunities",
+      "explain_result_relevance",
+      "must_not_create_an_opportunity_without_supporting_evidence",
+      "must_not_prevent_cross_business_discovery_scan"
+    ],
+    "interpretation_rule": "Treat as explicit respondent intent, not as a requested solution."
+  },
+  "discovery_engine": {
+    "modes": [
+      "existing_process",
+      "emerging_capability"
+    ],
+    "mode_rule": "Determine mode per topic/process, never globally for the whole company.",
+    "existing_process_chain": [
+      "situation",
+      "fit_or_friction",
+      "consequence",
+      "improvement",
+      "value"
+    ],
+    "emerging_capability_chain": [
+      "situation",
+      "next_step_intent",
+      "capability_needed",
+      "current_absence_or_method",
+      "simple_improvement",
+      "value"
+    ],
+    "core_rules": [
+      "A situation is not a friction.",
+      "A missing capability is not an opportunity unless it connects to a real upcoming intention or next step.",
+      "Not applicable today must never automatically mean no opportunity.",
+      "If the current way works well, close the friction branch.",
+      "Never recommend custom software directly from a situation or missing capability.",
+      "A mature company may have an emerging process; a young company may have a real operational friction."
+    ]
+  },
+  "reality_questions": [
+    {
+      "id": "reality_offer_testing",
+      "topic": "offer_testing",
+      "display_if": {
+        "current_priority": [
+          "test_offer"
+        ]
+      },
+      "kind": "multi_select",
+      "question_fr": "Dans vos essais actuels, qu’est-ce qui fait partie de votre réalité?",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "different_versions",
+          "label_fr": "J’essaie différentes versions"
+        },
+        {
+          "id": "people_test",
+          "label_fr": "Des personnes testent ce que j’offre"
+        },
+        {
+          "id": "collect_reactions",
+          "label_fr": "Je recueille leurs réactions"
+        },
+        {
+          "id": "change_from_learning",
+          "label_fr": "Je modifie mon offre selon ce que j’apprends"
+        },
+        {
+          "id": "show_new_people",
+          "label_fr": "Je commence à montrer mon offre à de nouvelles personnes"
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "taxonomy_gap_candidate": true
+        }
+      ],
+      "next_if": {
+        "any_of": [
+          "different_versions",
+          "collect_reactions",
+          "change_from_learning"
+        ],
+        "next": "testing_trace_method"
+      }
+    },
+    {
+      "id": "testing_trace_method",
+      "topic": "offer_testing",
+      "kind": "single_select",
+      "question_fr": "Comment gardez-vous une trace de vos essais et de ce que vous apprenez?",
+      "answers": [
+        {
+          "id": "not_tracking",
+          "label_fr": "Je n’en garde pas vraiment pour l’instant"
+        },
+        {
+          "id": "memory",
+          "label_fr": "Je m’en souviens surtout de mémoire"
+        },
+        {
+          "id": "notes",
+          "label_fr": "Je prends des notes"
+        },
+        {
+          "id": "several_places",
+          "label_fr": "J’utilise quelques notes, messages ou documents"
+        },
+        {
+          "id": "structured",
+          "label_fr": "J’ai déjà une façon claire de suivre tout ça"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "next_if_needed": "testing_trace_fit"
+    },
+    {
+      "id": "testing_trace_fit",
+      "topic": "offer_testing",
+      "kind": "single_select",
+      "question_fr": "Quand vous revenez sur vos essais, arrivez-vous facilement à retrouver les versions testées et les commentaires reçus?",
+      "answers": [
+        {
+          "id": "easy",
+          "label_fr": "Oui, facilement",
+          "classification": "healthy_close"
+        },
+        {
+          "id": "mostly",
+          "label_fr": "La plupart du temps",
+          "classification": "likely_healthy"
+        },
+        {
+          "id": "sometimes_hard",
+          "label_fr": "Pas toujours",
+          "classification": "friction_candidate"
+        },
+        {
+          "id": "hard",
+          "label_fr": "Non",
+          "classification": "friction_candidate"
+        },
+        {
+          "id": "too_early",
+          "label_fr": "Trop tôt pour le dire",
+          "classification": "exploration_candidate"
+        }
+      ]
+    },
+    {
+      "id": "reality_sales_path",
+      "topic": "sales_orders",
+      "display_if": {
+        "current_priority": [
+          "sell_more",
+          "test_offer",
+          "nothing_specific"
+        ]
+      },
+      "kind": "multi_select",
+      "question_fr": "Si quelqu’un voulait acheter ce que vous offrez aujourd’hui, comment pourrait-il procéder?",
+      "answers": [
+        {
+          "id": "contact_me",
+          "label_fr": "Me contacter directement"
+        },
+        {
+          "id": "ask_how",
+          "label_fr": "Me demander comment procéder"
+        },
+        {
+          "id": "existing_order_method",
+          "label_fr": "Passer une commande d’une façon déjà prévue"
+        },
+        {
+          "id": "online_order",
+          "label_fr": "Commander en ligne"
+        },
+        {
+          "id": "not_decided",
+          "label_fr": "Je n’ai pas encore défini comment ça fonctionnerait"
+        },
+        {
+          "id": "not_taking_orders",
+          "label_fr": "Je ne prends pas encore de commandes"
+        },
+        {
+          "id": "not_relevant",
+          "label_fr": "Ce n’est pas pertinent pour mon activité",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "branching": {
+        "not_decided": "sales_near_term_need",
+        "not_taking_orders": "sales_near_term_need",
+        "not_relevant": "close"
+      },
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "selection": {
+        "min": 1,
+        "max": null
+      }
+    },
+    {
+      "id": "sales_near_term_need",
+      "topic": "sales_orders",
+      "kind": "single_select",
+      "question_fr": "Est-ce quelque chose dont vous pensez avoir besoin prochainement?",
+      "answers": [
+        {
+          "id": "yes",
+          "label_fr": "Oui",
+          "classification": "emerging_capability_candidate"
+        },
+        {
+          "id": "maybe",
+          "label_fr": "Peut-être",
+          "classification": "exploration_candidate"
+        },
+        {
+          "id": "no",
+          "label_fr": "Non",
+          "classification": "close_no_opportunity"
+        },
+        {
+          "id": "unknown",
+          "label_fr": "Je ne sais pas",
+          "classification": "low_confidence_exploration"
+        }
+      ]
+    },
+    {
+      "id": "reality_product_information",
+      "topic": "product_information",
+      "display_if": {
+        "current_priority": [
+          "sell_more",
+          "test_offer",
+          "serve_clients"
+        ]
+      },
+      "kind": "multi_select",
+      "question_fr": "Quand quelqu’un veut comprendre ce que vous offrez, où peut-il trouver l’information?",
+      "answers": [
+        {
+          "id": "direct_explanation",
+          "label_fr": "Je lui explique directement"
+        },
+        {
+          "id": "send_info",
+          "label_fr": "Je lui envoie de l’information"
+        },
+        {
+          "id": "page_profile",
+          "label_fr": "Une page ou un profil présente mon offre"
+        },
+        {
+          "id": "website",
+          "label_fr": "Mon site Web présente mon offre"
+        },
+        {
+          "id": "not_planned",
+          "label_fr": "Je n’ai pas encore vraiment prévu ça"
+        },
+        {
+          "id": "not_relevant",
+          "label_fr": "Ce n’est pas pertinent pour mon activité",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "branching": {
+        "if_contains": "not_planned",
+        "action": "close",
+        "next": "product_information_fit",
+        "if_contains_any": [
+          "direct_explanation",
+          "send_info",
+          "page_profile",
+          "website",
+          "other"
+        ]
+      },
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "selection": {
+        "min": 1,
+        "max": null
+      }
+    },
+    {
+      "id": "product_information_fit",
+      "topic": "product_information",
+      "kind": "single_select",
+      "question_fr": "Les façons dont vous présentez votre offre aujourd’hui répondent-elles bien à vos besoins?",
+      "contextual_variants": {
+        "sell_more": "Les façons dont vous présentez votre offre aujourd’hui vous aident-elles suffisamment à trouver des clients ou à vendre?",
+        "serve_clients": "Les façons dont vous présentez votre offre permettent-elles à vos clients de trouver facilement l’information dont ils ont besoin?",
+        "test_offer": "Les façons dont vous présentez votre offre vous permettent-elles de bien la faire comprendre aux personnes qui la découvrent?"
+      },
+      "answers": [
+        {
+          "id": "fully",
+          "label_fr": "Oui, tout à fait",
+          "classification": "healthy_close"
+        },
+        {
+          "id": "mostly",
+          "label_fr": "En bonne partie",
+          "classification": "likely_healthy"
+        },
+        {
+          "id": "not_really",
+          "label_fr": "Pas vraiment",
+          "classification": "fit_gap_candidate"
+        },
+        {
+          "id": "no",
+          "label_fr": "Non",
+          "classification": "fit_gap_candidate"
+        },
+        {
+          "id": "unknown",
+          "label_fr": "Difficile à dire",
+          "classification": "exploration_candidate"
+        }
+      ]
+    },
+    {
+      "id": "product_information_near_term_need",
+      "topic": "product_information",
+      "kind": "single_select",
+      "question_fr": "Est-ce important pour vous que de nouvelles personnes puissent comprendre votre offre sans devoir vous parler directement?",
+      "answers": [
+        {
+          "id": "yes",
+          "label_fr": "Oui",
+          "classification": "emerging_capability_candidate"
+        },
+        {
+          "id": "maybe",
+          "label_fr": "Peut-être",
+          "classification": "exploration_candidate"
+        },
+        {
+          "id": "no",
+          "label_fr": "Non",
+          "classification": "close_no_opportunity"
+        },
+        {
+          "id": "unknown",
+          "label_fr": "Je ne sais pas encore",
+          "classification": "low_confidence_exploration"
+        }
+      ]
+    }
+  ],
+  "qualification": {
+    "policy": "Use contextual qualification questions defined by topic. Never render a generic repeated 'Qu’est-ce qui vous gêne surtout?' block.",
+    "rules": [
+      "Every follow-up must identify the specific information still missing.",
+      "Every follow-up must be capable of changing the analysis or branch.",
+      "Use concrete referents; avoid ça/cela/cette façon de faire when the referent is on a previous screen.",
+      "Consequence questions must offer a neutral exit such as 'Rien d’important pour le moment' when appropriate.",
+      "If current functioning is clearly healthy, close the branch.",
+      "Do not ask for a consequence if situation, friction and consequence are already sufficiently known."
+    ],
+    "neutral_exit": {
+      "id": "nothing_important_now",
+      "label_fr": "Rien d’important pour le moment",
+      "exclusive": true,
+      "classification": "low_friction_close"
+    }
+  },
+  "opportunity_types": {
+    "friction_improvement": "Existing process with supported friction/consequence.",
+    "emerging_capability": "Missing capability tied to real near-term intent.",
+    "fit_gap": "Existing solution/process does not sufficiently meet the current need.",
+    "optimization": "Current approach works reasonably well, but credible improvement desire and value evidence exist.",
+    "exploration": "Relevant signal with insufficient evidence.",
+    "healthy": "Approach is appropriate and no meaningful improvement desire is supported."
+  },
+  "opportunity_taxonomy": [
+    "simplify_process",
+    "clarify_process",
+    "centralize_information",
+    "reduce_duplicate_entry",
+    "improve_visibility",
+    "improve_followup",
+    "reduce_manual_coordination",
+    "standardize_work",
+    "automate_repetitive_step",
+    "integrate_systems",
+    "improve_customer_experience",
+    "improve_continuity",
+    "improve_reporting",
+    "review_tool_fit",
+    "reduce_tool_cost",
+    "explore_new_process",
+    "structure_testing_feedback",
+    "prepare_order_intake",
+    "make_offer_information_accessible"
+  ],
+  "emerging_capability_rules": {
+    "minimum_evidence": [
+      "explicit_or_context_supported_near_term_intent",
+      "capability_currently_missing_or_undefined"
+    ],
+    "prohibited_inferences": [
+      "startup implies website",
+      "product business implies ecommerce",
+      "new company implies CRM",
+      "manual process implies automation",
+      "missing capability implies custom software"
+    ],
+    "solution_order": [
+      "simplify_or_define_process",
+      "use_existing_simple_tool",
+      "configure_existing_tool",
+      "integration_or_automation_if_justified",
+      "custom_software_only_if_later_evidence_supports_it"
+    ]
+  },
+  "optional_free_text": {
+    "principle": "Free text supplements structured answers and is never required for a useful result.",
+    "dimension_note": {
+      "display": "collapsed_secondary_action",
+      "trigger_fr": "Quelque chose à ajouter?",
+      "label_fr": "Y a-t-il quelque chose d’important que les choix précédents ne vous ont pas permis d’exprimer?",
+      "required": false,
+      "max_chars": 400
+    },
+    "final_note": {
+      "position": "before_results",
+      "label_fr": "Y a-t-il autre chose que vous aimeriez préciser?",
+      "hint_fr": "Une situation particulière, une façon de travailler ou un irritant que nous n’avons pas abordé.",
+      "required": false,
+      "max_chars": 600
+    },
+    "analysis_rules": {
+      "free_text_inference_confidence_default": "low",
+      "never_directly_trigger_custom_software": true,
+      "never_invent_unstated_consequence": true
+    }
+  },
+  "result_generation": {
+    "prospect_sections": [
+      "what_we_noticed",
+      "opportunity",
+      "potential_gain",
+      "why"
+    ],
+    "rules": [
+      "Only describe explored topics.",
+      "Never mention the questionnaire, diagnostic engine, or meeting in the analytical result.",
+      "Never jump directly from friction or missing capability to custom software.",
+      "Distinguish improvement opportunities from emerging capabilities.",
+      "For emerging capabilities, explain why the capability matters now based on the respondent's stated next step.",
+      "Do not present generic startup recommendations.",
+      "Allow healthy/no-opportunity results.",
+      "Never state a global low-opportunity conclusion unless minimum discovery coverage is met.",
+      "When coverage is partial, say only that the explored aspects appear to work well.",
+      "Never use a meeting or discussion as a caveat for incomplete analysis.",
+      "Do not include 'Ces pistes sont indicatives. Une discussion permet de les valider et de les prioriser.' or equivalent.",
+      "Use declared priority as the organizing thread of the result when at least one supported opportunity aligns with it.",
+      "State the declared priority near the beginning of the result without implying Cobreo has proven a solution.",
+      "Rank opportunities using both priority alignment and discovered operational value.",
+      "Do not suppress a strong off-priority opportunity.",
+      "Do not promote a weak opportunity solely because it matches declared priority.",
+      "When useful, explain whether an opportunity supports the declared priority directly or indirectly.",
+      "Healthy functioning must not automatically imply no optimization potential.",
+      "Optimization may be presented without describing the current process as problematic.",
+      "After adequate coverage and eligible optimization probes, a genuinely healthy result is valid.",
+      "Never imply everything in the business is good; healthy conclusions are limited to explored evidence.",
+      "Main recommendations require medium or high internal confidence.",
+      "Do not expose artificial numeric confidence percentages."
+    ],
+    "labels_fr": {
+      "improvement": "À améliorer",
+      "emerging": "À préparer",
+      "exploration": "À explorer",
+      "healthy": "Fonctionne bien",
+      "optimization": "À optimiser"
+    },
+    "prohibited_copy": [
+      "Peu de friction prioritaire",
+      "Ces pistes sont indicatives. Une discussion permet de les valider et de les prioriser.",
+      "Le questionnaire détecte",
+      "La rencontre permet de comprendre et de prioriser",
+      "Tout est bon pour votre business",
+      "Tout semble bon pour votre entreprise",
+      "Il n’y a rien à optimiser"
+    ],
+    "result_intro": {
+      "when_priority_known": {
+        "template_fr": "Vous cherchez surtout à {priority_result_phrase}. Voici les pistes qui semblent les plus pertinentes compte tenu de votre réalité actuelle.",
+        "priority_result_phrases": {
+          "test_offer": "tester ou améliorer ce que vous offrez",
+          "sell_more": "trouver des clients ou vendre davantage",
+          "serve_clients": "mieux servir vos clients",
+          "organize_work": "mieux organiser votre travail",
+          "save_time": "gagner du temps dans vos opérations",
+          "visibility_growth": "mieux suivre ce qui se passe ou préparer une croissance",
+          "nothing_specific": "faire le point sur votre fonctionnement actuel",
+          "other": "avancer sur votre priorité actuelle"
+        }
+      }
+    }
+  },
+  "lead_capture": {
+    "optional": true,
+    "placement": "after_results",
+    "show_primary_variant_if": "at_least_one_credible_opportunity",
+    "primary": {
+      "title_fr": "Vous voulez en discuter?",
+      "body_fr": "Si vous le souhaitez, on peut reprendre vos résultats avec vous et regarder quelles pistes valent réellement la peine d’être approfondies.",
+      "fields": [
+        {
+          "id": "name",
+          "label_fr": "Nom",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "id": "contact",
+          "label_fr": "Courriel ou téléphone",
+          "required": true,
+          "type": "email_or_phone"
+        },
+        {
+          "id": "company",
+          "label_fr": "Entreprise",
+          "required": false,
+          "type": "text"
+        }
+      ],
+      "cta_fr": "Me contacter au sujet de mes résultats",
+      "privacy_fr": "Vos coordonnées serviront à vous contacter au sujet de cette analyse."
+    },
+    "healthy_result_variant": {
+      "mode": "secondary_link_only",
+      "label_fr": "Une question sur vos résultats? Parlez-nous."
+    }
+  },
+  "implementation_notes": [
+    "V6.2 replaces symptom-first radars with neutral situation questions.",
+    "Do not end the diagnostic merely because two topics are currently not applicable.",
+    "Use near-term intent to decide whether a missing capability is irrelevant or emerging.",
+    "Never infer friction directly from a descriptive situation answer.",
+    "Determine existing_process vs emerging_capability per topic, not per company.",
+    "Progress is stage-based, never question-count-based.",
+    "Render explicit selection instructions for every multi-select with a limit.",
+    "Optional free text must remain optional and contextual.",
+    "Keep result analysis separate from lead-conversion UI.",
+    "Audit every single_select: keep it single only for mutually exclusive states or scales.",
+    "The operational scan is a discovery safety net, not a mandatory long questionnaire.",
+    "Ask frequency, effort and desire only when they can materially affect prioritization.",
+    "Tools are context until an observable limitation, handoff, cost or friction is confirmed.",
+    "Remove generic repeated consequence blocks and replace them with topic-specific follow-ups.",
+    "Do not globally conclude 'nothing to report' from narrow coverage.",
+    "Treat current_priority as explicit intent and persist it through result generation.",
+    "Do not close a branch because a website/tool/process exists; assess fit when relevant.",
+    "Product-information channels are multi-select.",
+    "All measurement questions require an explicit activity referent.",
+    "Display 'Tableurs (Excel, Google Sheets, etc.)' instead of bare 'Tableurs'.",
+    "Priority alignment affects exploration depth and ranking but never creates evidence.",
+    "V6.5 is the candidate for real-prospect testing; avoid further structural expansion until pilot observations justify it.",
+    "Whenever a relevant existing solution is detected and fit is unknown, ask a short contextual fit/satisfaction question.",
+    "Satisfaction means fit for the respondent's need or goal, not generic liking of the tool.",
+    "All frequency measurement copy must be authored/generated as a conjugated clause.",
+    "V6.6 adds optimization-without-pain as a first-class path.",
+    "Good fit closes friction discovery; eligible topics may receive one lightweight optimization probe.",
+    "Never repeat an optimization probe after an explicit no.",
+    "Main prospect recommendations require a supported evidence chain and medium/high internal confidence.",
+    "Never force an opportunity for conversion; a credible healthy result is valid.",
+    "Use the preproduction quality gate before broad client rollout."
+  ],
+  "acceptance_tests": [
+    {
+      "id": "friend_health_cube_testing_stage",
+      "description": "Real-world regression: very early health beverage cube project in test phase.",
+      "given": {
+        "context_stage": "testing",
+        "context_business_type": "products",
+        "current_priority": "test_offer",
+        "reality_offer_testing": [
+          "different_versions",
+          "people_test",
+          "collect_reactions",
+          "change_from_learning"
+        ],
+        "testing_trace_method": "several_places",
+        "testing_trace_fit": "partly",
+        "reality_sales_path": "not_taking_orders",
+        "sales_near_term_need": "yes",
+        "reality_product_information": "not_planned",
+        "product_information_near_term_need": "yes"
+      },
+      "expect": [
+        "testing/feedback organization opportunity",
+        "emerging order-intake opportunity",
+        "emerging product-information accessibility opportunity",
+        "results appropriate for test stage"
+      ],
+      "must_not_generate": [
+        "custom CRM recommendation",
+        "automatic ecommerce build recommendation",
+        "automatic custom website recommendation",
+        "generic startup checklist",
+        "nothing to report"
+      ]
+    },
+    {
+      "id": "testing_stage_not_ready_to_sell",
+      "given": {
+        "context_stage": "testing",
+        "current_priority": "test_offer",
+        "reality_sales_path": "not_taking_orders",
+        "sales_near_term_need": "no"
+      },
+      "expect": [
+        "sales/orders branch closes without opportunity"
+      ],
+      "must_not_generate": [
+        "order system recommendation",
+        "ecommerce recommendation"
+      ]
+    },
+    {
+      "id": "mature_company_new_process",
+      "given": {
+        "context_stage": "established",
+        "current_priority": "test_offer"
+      },
+      "expect": [
+        "emerging-capability questions remain allowed for the new process"
+      ]
+    },
+    {
+      "id": "young_company_existing_friction",
+      "given": {
+        "context_stage": "early",
+        "current_priority": "organize_work",
+        "generic_fit_check": "no"
+      },
+      "expect": [
+        "existing-process friction branch remains allowed despite young company stage"
+      ]
+    },
+    {
+      "id": "situation_not_problem",
+      "given": {
+        "situation_answer": "uses_several_notes_or_documents",
+        "fit_check": "yes"
+      },
+      "expect": [
+        "branch closes healthy"
+      ],
+      "must_not_generate": [
+        "information-fragmentation opportunity solely from the situation"
+      ]
+    },
+    {
+      "id": "financial_advisor_healthy_sales_but_hidden_ops",
+      "given": {
+        "priority_branches": {
+          "demand_intake": "healthy",
+          "offer_presentation": "healthy"
+        },
+        "coverage_units_completed": 2
+      },
+      "expect": [
+        "operational scan opens",
+        "manual/repetitive work explored",
+        "tools context explored",
+        "followup/memory or visibility sampled"
+      ],
+      "must_not_generate": [
+        "Peu de friction prioritaire",
+        "global no-opportunity conclusion"
+      ]
+    },
+    {
+      "id": "multi_select_work_model",
+      "given": {
+        "context_work_model": [
+          "appointments",
+          "projects",
+          "recurring"
+        ]
+      },
+      "expect": [
+        "all selected work modes retained"
+      ]
+    },
+    {
+      "id": "multi_select_sales_path",
+      "given": {
+        "reality_sales_path": [
+          "contact_me",
+          "ask_how",
+          "existing_order_method"
+        ]
+      },
+      "expect": [
+        "combination retained as descriptive journey"
+      ],
+      "must_not_generate": [
+        "friction solely because multiple steps exist"
+      ]
+    },
+    {
+      "id": "manual_task_low_value",
+      "given": {
+        "manual_task": "prepare_docs",
+        "frequency": "rare",
+        "effort": "very_little",
+        "desire_to_improve": "not_really"
+      },
+      "expect": [
+        "low priority or healthy close"
+      ],
+      "must_not_generate": [
+        "automation recommendation solely because task is manual"
+      ]
+    },
+    {
+      "id": "manual_task_repeated_opportunity",
+      "given": {
+        "manual_task": "prepare_docs",
+        "frequency": "weekly",
+        "effort": "quite_a_bit",
+        "desire_to_improve": "quite"
+      },
+      "expect": [
+        "credible improvement opportunity can be produced without requiring severe irritation"
+      ]
+    },
+    {
+      "id": "tools_are_context",
+      "given": {
+        "tools": [
+          "spreadsheets",
+          "email",
+          "paper_notes"
+        ]
+      },
+      "expect": [
+        "tools stored as context"
+      ],
+      "must_not_generate": [
+        "integration opportunity solely from tool count",
+        "replacement recommendation solely from tool type"
+      ]
+    },
+    {
+      "id": "no_generic_repeated_friction_block",
+      "expect": [
+        "contextual follow-up questions only"
+      ],
+      "must_not_render": [
+        "Qu’est-ce qui vous gêne surtout?"
+      ]
+    },
+    {
+      "id": "website_exists_but_poor_fit",
+      "given": {
+        "current_priority": "sell_more",
+        "product_information": [
+          "website"
+        ],
+        "product_information_fit": "not_really"
+      },
+      "expect": [
+        "product-information or customer-journey improvement remains open",
+        "priority alignment recorded as direct"
+      ],
+      "must_not_generate": [
+        "healthy close solely because website exists"
+      ]
+    },
+    {
+      "id": "website_exists_and_fits",
+      "given": {
+        "current_priority": "sell_more",
+        "product_information": [
+          "website",
+          "page_profile"
+        ],
+        "product_information_fit": "fully"
+      },
+      "expect": [
+        "presentation branch closes healthy or low priority"
+      ],
+      "must_not_generate": [
+        "website redesign solely because a website exists"
+      ]
+    },
+    {
+      "id": "product_information_multi_select",
+      "given": {
+        "product_information": [
+          "direct_explanation",
+          "send_info",
+          "website"
+        ]
+      },
+      "expect": [
+        "all channels retained",
+        "combination treated as descriptive context"
+      ]
+    },
+    {
+      "id": "priority_is_ranking_signal_not_solution",
+      "given": {
+        "current_priority": "sell_more",
+        "supported_sales_opportunity": false,
+        "strong_off_priority_operations_opportunity": true
+      },
+      "expect": [
+        "strong operations opportunity can appear in results"
+      ],
+      "must_not_generate": [
+        "sales solution without supporting evidence"
+      ]
+    },
+    {
+      "id": "priority_aligned_supported_opportunity",
+      "given": {
+        "current_priority": "organize_work",
+        "supported_opportunity": "followup_visibility",
+        "fit_gap": true
+      },
+      "expect": [
+        "opportunity ranks highly",
+        "result explains connection to organizing work"
+      ]
+    },
+    {
+      "id": "measurement_requires_referent",
+      "given": {
+        "measurement": "effort",
+        "activity_label_fr": "Préparer ces documents"
+      },
+      "expect": [
+        "rendered question explicitly mentions preparing documents"
+      ],
+      "must_not_render": [
+        "Quand elle se présente, combien d’effort vous demande-t-elle généralement?"
+      ]
+    },
+    {
+      "id": "existing_solution_requires_fit_check",
+      "given": {
+        "topic": "customer_tracking",
+        "solution_exists": true,
+        "fit_known": false,
+        "topic_relevant": true
+      },
+      "expect": [
+        "contextual solution-fit question is asked"
+      ],
+      "must_not_generate": [
+        "healthy close solely because solution exists"
+      ]
+    },
+    {
+      "id": "existing_solution_good_fit",
+      "given": {
+        "solution_exists": true,
+        "fit": "fully"
+      },
+      "expect": [
+        "branch closes or is deprioritized unless independent evidence exists"
+      ],
+      "must_not_generate": [
+        "replacement recommendation solely because Cobreo could build something"
+      ]
+    },
+    {
+      "id": "existing_solution_poor_fit",
+      "given": {
+        "solution_exists": true,
+        "fit": "no"
+      },
+      "expect": [
+        "ask what the current solution should do better",
+        "retain improvement opportunity candidate"
+      ],
+      "must_not_generate": [
+        "automatic replacement recommendation"
+      ]
+    },
+    {
+      "id": "frequency_copy_is_conjugated",
+      "given": {
+        "activity": "followup_from_memory"
+      },
+      "expect": [
+        "À quelle fréquence suivez-vous les prochaines étapes de mémoire?"
+      ],
+      "must_not_render": [
+        "À quelle fréquence suivre les prochaines étapes de mémoire?"
+      ]
+    },
+    {
+      "id": "healthy_but_optimizable",
+      "given": {
+        "priority": "save_time",
+        "fit": "good",
+        "optimization_interest": "yes",
+        "frequency": "weekly"
+      },
+      "expect": [
+        "friction closes",
+        "optimization remains open",
+        "no problem language required"
+      ]
+    },
+    {
+      "id": "healthy_no_optimization",
+      "given": {
+        "fit": "good",
+        "optimization_interest": "no",
+        "coverage": "sufficient"
+      },
+      "expect": [
+        "healthy close"
+      ],
+      "must_not_generate": [
+        "forced recommendation",
+        "second optimization challenge"
+      ]
+    },
+    {
+      "id": "optimization_interest_weak_evidence",
+      "given": {
+        "fit": "good",
+        "optimization_interest": "yes",
+        "frequency": "unknown",
+        "value": "unknown"
+      },
+      "expect": [
+        "exploration or one decision-relevant qualifier"
+      ],
+      "must_not_generate": [
+        "high-confidence main recommendation"
+      ]
+    },
+    {
+      "id": "priority_trap",
+      "given": {
+        "priority": "sell_more",
+        "sales_fit": "good",
+        "sales_optimization": "no",
+        "operations_signal": "strong"
+      },
+      "expect": [
+        "sales closes",
+        "operations opportunity remains eligible"
+      ],
+      "must_not_generate": [
+        "sales solution solely from priority"
+      ]
+    }
+  ],
+  "operational_scan": {
+    "purpose": "Minimum discovery coverage outside the declared priority before a global low-opportunity conclusion.",
+    "display_rule": "Run when coverage is below threshold, especially when initial branches close healthy.",
+    "intro_fr": "Avant de terminer, regardons rapidement quelques aspects de votre quotidien.",
+    "questions": [
+      {
+        "id": "scan_manual_repetitive",
+        "kind": "single_select",
+        "question_fr": "Y a-t-il des tâches que vous faites régulièrement à la main et que vous aimeriez rendre plus simples?",
+        "answers": [
+          {
+            "id": "several",
+            "label_fr": "Oui, plusieurs"
+          },
+          {
+            "id": "one_two",
+            "label_fr": "Oui, une ou deux"
+          },
+          {
+            "id": "maybe",
+            "label_fr": "Peut-être"
+          },
+          {
+            "id": "none",
+            "label_fr": "Non, rien qui me vient en tête"
+          },
+          {
+            "id": "too_early",
+            "label_fr": "Trop tôt pour le dire"
+          }
+        ],
+        "open_if": [
+          "several",
+          "one_two",
+          "maybe"
+        ],
+        "next": "scan_manual_types"
+      },
+      {
+        "id": "scan_manual_types",
+        "kind": "multi_select",
+        "question_fr": "Quelles tâches vous viennent en tête?",
+        "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+        "answers": [
+          {
+            "id": "transfer_info",
+            "label_fr": "Recopier ou transférer de l’information"
+          },
+          {
+            "id": "prepare_docs",
+            "label_fr": "Préparer des documents"
+          },
+          {
+            "id": "reminders",
+            "label_fr": "Envoyer des rappels ou suivis"
+          },
+          {
+            "id": "find_info",
+            "label_fr": "Classer ou retrouver de l’information"
+          },
+          {
+            "id": "update_tracking",
+            "label_fr": "Mettre à jour des listes ou suivis"
+          },
+          {
+            "id": "reports",
+            "label_fr": "Préparer des rapports ou résumés"
+          },
+          {
+            "id": "other",
+            "label_fr": "Autre",
+            "taxonomy_gap_candidate": true
+          }
+        ]
+      },
+      {
+        "id": "scan_tools_context",
+        "kind": "multi_select",
+        "question_fr": "Pour gérer votre activité, sur quoi vous appuyez-vous aujourd’hui?",
+        "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+        "answers": [
+          {
+            "id": "paper_notes",
+            "label_fr": "Papier ou notes"
+          },
+          {
+            "id": "spreadsheets",
+            "label_fr": "Tableurs (Excel, Google Sheets, etc.)"
+          },
+          {
+            "id": "email",
+            "label_fr": "Courriels"
+          },
+          {
+            "id": "messages",
+            "label_fr": "Messages ou textos"
+          },
+          {
+            "id": "calendar",
+            "label_fr": "Calendrier"
+          },
+          {
+            "id": "specialized_apps",
+            "label_fr": "Logiciels ou applications spécialisés"
+          },
+          {
+            "id": "custom_tools",
+            "label_fr": "Outils développés pour mon entreprise"
+          },
+          {
+            "id": "memory",
+            "label_fr": "Surtout ma mémoire"
+          },
+          {
+            "id": "no_tools",
+            "label_fr": "Je n’ai pas vraiment d’outils pour l’instant",
+            "exclusive": true
+          },
+          {
+            "id": "other",
+            "label_fr": "Autre"
+          }
+        ],
+        "classification": "context_only",
+        "never_infer_problem_from_selection": true
+      },
+      {
+        "id": "scan_tool_handoffs",
+        "kind": "multi_select",
+        "question_fr": "Dans votre travail avec ces outils, est-ce qu’il vous arrive de faire certaines de ces choses?",
+        "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+        "answers": [
+          {
+            "id": "duplicate_entry",
+            "label_fr": "Entrer la même information à plus d’un endroit"
+          },
+          {
+            "id": "switch_tools",
+            "label_fr": "Passer d’un outil à l’autre pour compléter une tâche"
+          },
+          {
+            "id": "search_location",
+            "label_fr": "Chercher où se trouve une information"
+          },
+          {
+            "id": "manual_handoff",
+            "label_fr": "Faire manuellement une étape entre deux outils"
+          },
+          {
+            "id": "workaround",
+            "label_fr": "Utiliser des notes ou fichiers en complément de certains outils"
+          },
+          {
+            "id": "none",
+            "label_fr": "Rien de tout cela",
+            "exclusive": true
+          }
+        ],
+        "classification": "observable_situation_not_problem"
+      },
+      {
+        "id": "scan_followup_memory",
+        "kind": "single_select",
+        "question_fr": "Pour les suivis importants, à quel point devez-vous compter sur votre mémoire ou penser vous-même à la prochaine étape?",
+        "answers": [
+          {
+            "id": "almost_never",
+            "label_fr": "Presque jamais"
+          },
+          {
+            "id": "sometimes",
+            "label_fr": "Parfois"
+          },
+          {
+            "id": "often",
+            "label_fr": "Souvent"
+          },
+          {
+            "id": "very_often",
+            "label_fr": "Très souvent"
+          },
+          {
+            "id": "not_relevant",
+            "label_fr": "Ce n’est pas vraiment pertinent pour mon activité"
+          }
+        ]
+      },
+      {
+        "id": "scan_visibility",
+        "kind": "single_select",
+        "question_fr": "Quand vous voulez savoir où en sont vos dossiers, commandes ou travaux en cours, est-ce généralement facile?",
+        "answers": [
+          {
+            "id": "easy",
+            "label_fr": "Oui, facilement"
+          },
+          {
+            "id": "mostly",
+            "label_fr": "La plupart du temps"
+          },
+          {
+            "id": "sometimes_hard",
+            "label_fr": "Pas toujours"
+          },
+          {
+            "id": "hard",
+            "label_fr": "Non"
+          },
+          {
+            "id": "not_relevant",
+            "label_fr": "Ce n’est pas pertinent pour mon activité"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      "A capability's existence is not evidence that it meets the respondent's need.",
+      "When an existing capability is materially related to declared priority, consider a short contextual fit question.",
+      "Do not ask generic satisfaction questions across every tool/process."
+    ]
+  },
+  "measurement_model": {
+    "policy": "Measure only when the answer can change priority or confidence; do not ask every scale for every signal.",
+    "frequency": {
+      "answers": [
+        [
+          "rare",
+          "Rarement",
+          1
+        ],
+        [
+          "monthly",
+          "Quelques fois par mois",
+          2
+        ],
+        [
+          "weekly",
+          "Quelques fois par semaine",
+          3
+        ],
+        [
+          "daily",
+          "Presque tous les jours",
+          4
+        ]
+      ]
+    },
+    "effort": {
+      "answers": [
+        [
+          "very_little",
+          "Très peu",
+          1
+        ],
+        [
+          "some",
+          "Un peu",
+          2
+        ],
+        [
+          "quite_a_bit",
+          "Assez",
+          3
+        ],
+        [
+          "a_lot",
+          "Beaucoup",
+          4
+        ]
+      ]
+    },
+    "desire_to_improve": {
+      "answers": [
+        [
+          "not_really",
+          "Pas vraiment",
+          0
+        ],
+        [
+          "a_little",
+          "Un peu",
+          1
+        ],
+        [
+          "quite",
+          "Assez",
+          2
+        ],
+        [
+          "a_lot",
+          "Beaucoup",
+          3
+        ]
+      ]
+    },
+    "rules": [
+      "Prefer behavioral scales over 1–10 ratings.",
+      "Do not fabricate time saved from ordinal answers.",
+      "High frequency plus moderate effort can justify an opportunity even if irritation is modest.",
+      "Respect low desire to improve."
+    ],
+    "rendering_rules": [
+      "Every measurement instance must provide activity_label_fr and activity_label_lower_fr.",
+      "Never render a measurement question with an ambiguous pronoun whose referent exists only on a previous screen.",
+      "If a natural contextual sentence cannot be generated, do not ask the measurement.",
+      "Frequency questions must use a conjugated clause, e.g. 'À quelle fréquence suivez-vous...?'",
+      "Never render 'À quelle fréquence' followed directly by an infinitive.",
+      "Never render an ambiguous pronoun whose referent exists only on a previous screen."
+    ],
+    "copy_generation": {
+      "rule": "Do not concatenate 'À quelle fréquence' with an infinitive activity label. Each measurable activity must provide a conjugated frequency clause and natural effort/improvement labels.",
+      "required_fields_per_activity": [
+        "frequency_clause_fr",
+        "effort_subject_fr",
+        "improvement_object_fr"
+      ],
+      "templates": {
+        "frequency": "À quelle fréquence {frequency_clause_fr}?",
+        "effort": "{effort_subject_fr} vous demande généralement combien d’effort?",
+        "desire_to_improve": "À quel point aimeriez-vous améliorer {improvement_object_fr}?"
+      },
+      "example": {
+        "activity": "followup_from_memory",
+        "frequency_clause_fr": "suivez-vous les prochaines étapes de mémoire",
+        "effort_subject_fr": "Suivre les prochaines étapes de mémoire",
+        "improvement_object_fr": "la façon dont vous suivez les prochaines étapes"
+      }
+    }
+  },
+  "coverage_model": {
+    "principle": "No global low-opportunity conclusion without sufficient breadth.",
+    "coverage_units": [
+      "customer_demand_or_sales",
+      "delivery_or_work_execution",
+      "manual_repetitive_work",
+      "information_and_tools",
+      "followups_and_memory",
+      "work_visibility"
+    ],
+    "minimum_units_for_global_conclusion": 4,
+    "rules": [
+      "Declared priority chooses the first deep branch but does not restrict later discovery.",
+      "If strong opportunities are found early, the scan may be shortened.",
+      "If no opportunities are found and coverage is low, broaden the scan before results.",
+      "If coverage remains low, result language must be limited to explored areas."
+    ]
+  },
+  "opportunity_scoring": {
+    "dimensions": [
+      "declared_priority_alignment",
+      "current_relevance",
+      "frequency_or_volume",
+      "effort",
+      "consequence",
+      "desire_to_improve",
+      "fit_for_need",
+      "confidence"
+    ],
+    "rule": "Combine available evidence qualitatively. Missing dimensions remain missing, not assumed.",
+    "potential_labels": [
+      "low",
+      "moderate",
+      "important"
+    ],
+    "never_estimate_unasked_hours_or_money": true,
+    "guardrails": [
+      "Declared priority alone cannot create an opportunity.",
+      "Existing capability alone cannot close an opportunity.",
+      "Fit-for-need evidence can strengthen or close a branch.",
+      "Strong discovered operational value may outrank direct priority alignment."
+    ]
+  },
+  "early_exit": {
+    "enabled": true,
+    "experimental": true,
+    "rule": "Offer early results only after sufficient coverage or multiple credible opportunities.",
+    "never_auto_end": true,
+    "must_not_trigger_from": [
+      "two_not_applicable_answers",
+      "two_healthy_branches",
+      "declared_priority_exhausted"
+    ]
+  },
+  "intent_model": {
+    "declared_priority_field": "current_priority",
+    "rules": [
+      "Declared priority is a first-class intent signal.",
+      "It increases relevance and exploration depth but never proves a solution is needed.",
+      "Strong operational opportunities outside the declared priority may still rank highly.",
+      "Weak opportunities must not be promoted merely because they align with declared priority.",
+      "Use the declared priority to explain why a supported opportunity matters now."
+    ],
+    "ranking_dimensions": [
+      "declared_priority_alignment",
+      "discovered_operational_value",
+      "evidence_confidence",
+      "current_relevance",
+      "desire_to_improve"
+    ],
+    "priority_alignment": {
+      "direct": "Opportunity directly supports the declared priority.",
+      "indirect": "Opportunity may free capacity or reduce friction that supports the priority indirectly.",
+      "none": "Opportunity is valuable but not materially connected to the declared priority."
+    }
+  },
+  "fit_model": {
+    "principle": "The existence of a site, tool, process, order method, document, workflow or system is context only. When that solution is relevant to an explored activity or declared priority, check whether it satisfies the current need before closing the branch.",
+    "states": [
+      "exists_unknown_fit",
+      "fits_well",
+      "fits_partly",
+      "poor_fit",
+      "too_early_to_tell",
+      "not_relevant"
+    ],
+    "rules": [
+      "When a capability exists and is relevant to declared intent, measure whether it supports the intended outcome.",
+      "Prefer outcome-specific fit questions over generic satisfaction questions.",
+      "Do not ask satisfaction when it cannot change the analysis.",
+      "A tool or process may exist and still be a strong improvement opportunity."
+    ],
+    "solution_states": [
+      "no_solution",
+      "solution_exists_fit_unknown",
+      "solution_exists_good_fit",
+      "solution_exists_partial_fit",
+      "solution_exists_poor_fit",
+      "too_early_to_tell",
+      "not_relevant"
+    ],
+    "fit_check_trigger": {
+      "ask_if": [
+        "a solution exists and is directly related to the declared priority",
+        "a solution exists in a topic currently being explored",
+        "the answer could materially change opportunity ranking or branch closure"
+      ],
+      "skip_if": [
+        "the solution is incidental and unrelated to the explored need",
+        "fit has already been established in the same topic",
+        "the answer would not change analysis"
+      ]
+    },
+    "default_scale": {
+      "answers": [
+        {
+          "id": "fully",
+          "label_fr": "Oui, tout à fait",
+          "classification": "solution_exists_good_fit"
+        },
+        {
+          "id": "mostly",
+          "label_fr": "En bonne partie",
+          "classification": "solution_exists_good_fit"
+        },
+        {
+          "id": "partly",
+          "label_fr": "Pas vraiment",
+          "classification": "solution_exists_partial_fit"
+        },
+        {
+          "id": "no",
+          "label_fr": "Non",
+          "classification": "solution_exists_poor_fit"
+        },
+        {
+          "id": "unknown",
+          "label_fr": "Difficile à dire",
+          "classification": "solution_exists_fit_unknown"
+        }
+      ]
+    },
+    "followup_rule": "If fit is partial or poor, ask what the respondent would like the current solution to do better, using a contextual multi-select when possible. Do not jump to replacing the solution."
+  },
+  "solution_fit_component": {
+    "id": "contextual_solution_fit",
+    "kind": "single_select",
+    "render_when": "fit_model.fit_check_trigger.ask_if is satisfied",
+    "question_generation": {
+      "preferred": "outcome_specific",
+      "generic_fallback_fr": "La solution que vous utilisez aujourd’hui répond-elle bien à vos besoins pour {activity_or_goal}?",
+      "rule": "Prefer a question tied to the respondent's declared priority or concrete activity over generic satisfaction."
+    },
+    "answers": [
+      {
+        "id": "fully",
+        "label_fr": "Oui, tout à fait",
+        "classification": "solution_exists_good_fit"
+      },
+      {
+        "id": "mostly",
+        "label_fr": "En bonne partie",
+        "classification": "solution_exists_good_fit"
+      },
+      {
+        "id": "partly",
+        "label_fr": "Pas vraiment",
+        "classification": "solution_exists_partial_fit"
+      },
+      {
+        "id": "no",
+        "label_fr": "Non",
+        "classification": "solution_exists_poor_fit"
+      },
+      {
+        "id": "unknown",
+        "label_fr": "Difficile à dire",
+        "classification": "solution_exists_fit_unknown"
+      }
+    ],
+    "on_partial_or_poor_fit": "open contextual missing-capability follow-up",
+    "on_good_fit": "close or deprioritize branch unless independent evidence supports another issue",
+    "on_unknown": "retain as exploration candidate; do not infer a problem"
+  },
+  "solution_fit_examples": [
+    {
+      "solution": "website",
+      "priority": "sell_more",
+      "question_fr": "Votre site actuel vous aide-t-il suffisamment à présenter votre offre et à générer des demandes?",
+      "poor_fit_followup": {
+        "question_fr": "Qu’aimeriez-vous surtout que votre site fasse mieux?",
+        "kind": "multi_select",
+        "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+        "selection": {
+          "min": 0,
+          "max": 2
+        },
+        "answers": [
+          "Expliquer clairement mon offre",
+          "Amener plus de personnes à me contacter",
+          "Permettre de demander un rendez-vous",
+          "Permettre de demander un prix ou une soumission",
+          "Permettre d’acheter ou commander",
+          "Faciliter la mise à jour de l’information",
+          "Autre"
+        ]
+      }
+    },
+    {
+      "solution": "customer_tracking_tool",
+      "question_fr": "Votre outil actuel vous permet-il de suivre vos clients et vos prochaines actions comme vous le souhaitez?"
+    }
+  ],
+  "real_prospect_pilot": {
+    "status": "ready",
+    "objective": "Validate discovery quality, comprehension, relevance and abandonment risk with real prospects before another structural redesign.",
+    "recommended_sample": "Use varied real prospects across size, maturity and sector; treat findings as qualitative until sample size and recruitment support stronger claims.",
+    "capture_after_each_session": [
+      "declared priority",
+      "questions that caused hesitation or required explanation",
+      "important realities the respondent could not express",
+      "branches that felt repetitive",
+      "solutions already in place and whether fit was correctly assessed",
+      "opportunities the respondent found genuinely useful or surprising",
+      "important opportunity the questionnaire missed",
+      "result statements that felt unsupported or generic",
+      "approximate completion time",
+      "whether respondent would recommend the exercise even without becoming a client"
+    ],
+    "success_signals": [
+      "result clearly reflects declared priority without forcing a solution",
+      "at least one useful discovery when a meaningful opportunity exists",
+      "healthy existing solutions are allowed to remain healthy",
+      "poor-fit existing solutions remain explorable",
+      "respondent can express mixed/multiple realities",
+      "no global low-opportunity conclusion from narrow coverage",
+      "questions remain understandable without remembering previous-screen referents"
+    ],
+    "stop_and_fix_before_more_testing_if": [
+      "a branch repeatedly invents problems from neutral situations",
+      "a major respondent need cannot be expressed",
+      "a solution's existence repeatedly closes a relevant branch",
+      "result makes unsupported global claims",
+      "a recurring wording issue causes misunderstanding"
+    ]
+  },
+  "optimization_probe": {
+    "principle": "Good fit closes friction discovery, not automatically optimization discovery.",
+    "ask_only_if_any": [
+      "topic directly aligns with declared priority",
+      "activity has meaningful frequency or volume",
+      "existing solution is strategically relevant to stated goal"
+    ],
+    "skip_if_any": [
+      "low desire to improve already expressed",
+      "optimization already asked in topic",
+      "topic is incidental",
+      "good fit plus no-improvement interest already established"
+    ],
+    "max_per_topic": 1,
+    "generic_question_fr": "Même si cette partie fonctionne bien, aimeriez-vous quand même l’améliorer?",
+    "answers": [
+      {
+        "id": "yes",
+        "label_fr": "Oui",
+        "classification": "optimization_interest"
+      },
+      {
+        "id": "maybe",
+        "label_fr": "Peut-être",
+        "classification": "optimization_exploration"
+      },
+      {
+        "id": "no",
+        "label_fr": "Non, ça me convient comme ça",
+        "classification": "healthy_close"
+      }
+    ],
+    "rules": [
+      "Prefer a contextual priority-specific question.",
+      "An explicit no closes the topic; never challenge it again.",
+      "Yes/maybe opens a question about what should improve, not a predetermined solution.",
+      "Optimization interest alone cannot create a high-confidence recommendation."
+    ]
+  },
+  "priority_optimization_prompts": {
+    "save_time": {
+      "question_fr": "Même si votre fonctionnement actuel vous convient, où verriez-vous le plus d’intérêt à gagner encore du temps?",
+      "kind": "multi_select",
+      "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+      "selection": {
+        "min": 0,
+        "max": 2
+      },
+      "answers": [
+        "Préparer des documents",
+        "Faire des suivis",
+        "Trouver ou transférer de l’information",
+        "Mettre à jour des dossiers ou suivis",
+        "Communiquer avec les clients",
+        "Suivre l’avancement du travail",
+        "Rien de particulier",
+        "Autre"
+      ]
+    },
+    "organize_work": {
+      "question_fr": "Même si votre organisation actuelle fonctionne bien, y a-t-il une partie que vous aimeriez rendre plus simple ou plus claire?",
+      "kind": "multi_select",
+      "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+      "selection": {
+        "min": 0,
+        "max": 2
+      },
+      "answers": [
+        "Voir les prochaines étapes",
+        "Retrouver l’information",
+        "Garder les priorités claires",
+        "Coordonner le travail",
+        "Garder les suivis en ordre",
+        "Rien de particulier",
+        "Autre"
+      ]
+    },
+    "sell_more": {
+      "question_fr": "Même si votre façon actuelle de vendre fonctionne bien, y a-t-il une étape que vous aimeriez rendre plus efficace?",
+      "kind": "multi_select",
+      "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+      "selection": {
+        "min": 0,
+        "max": 2
+      },
+      "answers": [
+        "Faire comprendre mon offre",
+        "Générer plus d’intérêt",
+        "Faciliter la première prise de contact",
+        "Faciliter une demande, un rendez-vous ou une soumission",
+        "Faire les suivis",
+        "Faciliter le passage à l’achat",
+        "Rien de particulier",
+        "Autre"
+      ]
+    },
+    "serve_clients": {
+      "question_fr": "Même si votre service fonctionne bien, y a-t-il une partie de l’expérience client que vous aimeriez améliorer?",
+      "kind": "multi_select",
+      "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+      "selection": {
+        "min": 0,
+        "max": 2
+      },
+      "answers": [
+        "Le démarrage avec un nouveau client",
+        "L’accès à l’information",
+        "Les demandes et échanges",
+        "Le suivi de l’avancement",
+        "Le suivi après le service ou la livraison",
+        "Rien de particulier",
+        "Autre"
+      ]
+    }
+  },
+  "recommendation_evidence_model": {
+    "required_for_main_recommendation": [
+      "current_situation_or_capability_state",
+      "supported_reason_to_improve_or_prepare",
+      "credible_value_relation"
+    ],
+    "supporting_signals": [
+      "declared_priority_alignment",
+      "explicit_desire_to_improve",
+      "poor_or_partial_fit",
+      "frequency_or_volume",
+      "effort",
+      "observable_consequence",
+      "near_term_intent"
+    ],
+    "confidence": {
+      "high": "Multiple reinforcing signals directly support the recommendation.",
+      "medium": "Credible opportunity with limited missing detail; use measured language.",
+      "low": "Exploration hypothesis only; do not present as a main recommendation."
+    },
+    "rules": [
+      "Never invent missing evidence.",
+      "Priority alignment strengthens relevance but cannot replace evidence.",
+      "Working processes may still yield optimization opportunities when desire and value evidence exist.",
+      "Low-confidence ideas remain internal or explicitly exploratory."
+    ]
+  },
+  "internal_result_model": {
+    "fields": [
+      "type",
+      "topic",
+      "declared_priority_alignment",
+      "current_situation",
+      "fit_state",
+      "friction_if_any",
+      "consequence_if_any",
+      "optimization_desire_if_any",
+      "frequency_or_volume_if_known",
+      "effort_if_known",
+      "value_hypothesis",
+      "confidence",
+      "missing_information",
+      "meeting_questions",
+      "technical_constraints",
+      "systems_to_preserve"
+    ],
+    "rule": "Unknown fields remain unknown."
+  },
+  "preproduction_quality_gate": {
+    "critical_failures": [
+      "invented_problem_from_neutral_situation",
+      "obvious_supported_opportunity_missed",
+      "solution_existence_treated_as_need_satisfied_without_fit_check",
+      "good_fit_treated_as_no_optimization_without_eligible_probe",
+      "global_healthy_claim_from_partial_coverage",
+      "recommendation_jumps_directly_to_custom_software",
+      "material_reality_cannot_be_expressed",
+      "result_is_generic_enough_for_unrelated_businesses"
+    ],
+    "release_rule": "Do not treat as broadly client-ready while any critical failure reproduces reliably.",
+    "pilot_rule": "After simulated gate passes, use a limited real-prospect pilot before wider release."
+  },
+  "robustness_personas": [
+    "new solo founder with emerging needs",
+    "fully manual but genuinely satisfied business",
+    "highly digital business with subtle optimization",
+    "skeptical impatient owner",
+    "chaotic growing company",
+    "very structured company with CRM/ERP/automations",
+    "financial advisor with healthy sales but workflow optimization",
+    "healthy company with genuinely no current opportunity",
+    "dissatisfied owner with rare low-value task",
+    "sales-priority trap with stronger off-priority operations opportunity",
+    "many-tools business with no fragmentation problem",
+    "high-frequency manual task with low irritation but real improvement interest"
+  ],
+  "robustness_iteration_log": [
+    {
+      "iteration": 1,
+      "focus": "Healthy-but-optimizable discovery",
+      "survived": [
+        "optimization opportunity type",
+        "one eligible optimization probe",
+        "priority-specific prompts"
+      ],
+      "rejected": [
+        "probe every healthy branch",
+        "treat any desire as a recommendation"
+      ],
+      "estimated_scorecard": {
+        "comprehension": 9,
+        "simplicity": 8.2,
+        "relevance": 9,
+        "universality": 9,
+        "discovery": 9.2,
+        "answer_quality": 9,
+        "adaptability": 9.3,
+        "user_value": 9.1,
+        "cobreo_analysis": 9.2,
+        "low_abandonment_risk": 8.3
+      }
+    },
+    {
+      "iteration": 2,
+      "focus": "Recommendation reliability",
+      "survived": [
+        "minimal evidence chain",
+        "internal qualitative confidence",
+        "main-result prominence threshold"
+      ],
+      "rejected": [
+        "prospect-facing numeric confidence",
+        "require every evidence dimension"
+      ],
+      "estimated_scorecard": {
+        "comprehension": 9.1,
+        "simplicity": 8.4,
+        "relevance": 9.3,
+        "universality": 9.1,
+        "discovery": 9.3,
+        "answer_quality": 9.4,
+        "adaptability": 9.4,
+        "user_value": 9.4,
+        "cobreo_analysis": 9.6,
+        "low_abandonment_risk": 8.4
+      }
+    },
+    {
+      "iteration": 3,
+      "focus": "Adversarial pre-production gate",
+      "survived": [
+        "critical failure gate",
+        "off-priority opportunity preservation",
+        "genuinely healthy outcome"
+      ],
+      "rejected": [
+        "force at least one opportunity",
+        "always deepen when nothing found"
+      ],
+      "estimated_scorecard": {
+        "comprehension": 9.1,
+        "simplicity": 8.5,
+        "relevance": 9.4,
+        "universality": 9.3,
+        "discovery": 9.5,
+        "answer_quality": 9.5,
+        "adaptability": 9.5,
+        "user_value": 9.5,
+        "cobreo_analysis": 9.7,
+        "low_abandonment_risk": 8.5
+      }
+    }
+  ]
+}

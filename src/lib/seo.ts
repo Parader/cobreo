@@ -21,10 +21,12 @@ export function buildPageMetadata({
     const url = `${siteUrl}${pathname}`;
     const ogLocale = locale === "fr" ? "fr_CA" : "en_CA";
     const alternateLocale = locale === "fr" ? "en" : "fr";
-    const alternatePath = normalized ? `/${alternateLocale}/${normalized}` : `/${alternateLocale}`;
+
+    // Absolute titles: pages already include the brand (avoids "%s · Cobreo" doubling).
+    const absoluteTitle = { absolute: title };
 
     return {
-        title,
+        title: absoluteTitle,
         description,
         alternates: {
             canonical: url,
@@ -58,9 +60,6 @@ export function buildPageMetadata({
             images: [`${siteUrl}/og/default.png`],
         },
         robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
-        other: {
-            "og:locale:alternate": alternatePath,
-        },
     };
 }
 

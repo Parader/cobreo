@@ -67,3 +67,45 @@ input[type="search"]::-webkit-search-cancel-button {
 .recharts-surface path {
     outline: none;
 }
+
+/*
+  Background logo marks — SVG as mask, CSS gradient as fill.
+  Search: cobreo-logo-mark / cobreo-logo-mark-opacity
+*/
+.cobreo-logo-mark {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.cobreo-logo-mark-opacity {
+    opacity: 0.18;
+}
+
+.cobreo-logo-mark--1 {
+    -webkit-mask-image: url("/images/hero-ring-2.svg");
+    mask-image: url("/images/hero-ring-2.svg");
+    background: linear-gradient(
+        145deg,
+        #cad3e0 0%,
+        #4d6b97 38%,
+        #253353 68%,
+        #b1b6a6 100%
+    );
+}
+
+.cobreo-logo-mark--2 {
+    -webkit-mask-image: url("/images/hero-ring-1.svg");
+    mask-image: url("/images/hero-ring-1.svg");
+    /* test gradient B */
+    background: linear-gradient(
+        210deg,
+        #4d6b97 0%,
+        #a6b5cb 32%,
+        #efedea 55%,
+        #171718 100%
+    );
+}

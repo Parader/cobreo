@@ -6,7 +6,7 @@ import { getAdminSlug } from "./lib/admin-path";
 
 const intlMiddleware = createMiddleware(routing);
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const adminSlug = getAdminSlug();
     const adminSegment = `/${adminSlug}`;
@@ -31,14 +31,15 @@ export async function middleware(request: NextRequest) {
     }
 
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const supabaseKey =
+        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (!supabaseUrl || !supabaseAnon) {
+    if (!supabaseUrl || !supabaseKey) {
         const locale = pathname.split("/")[1] || "fr";
         return NextResponse.redirect(new URL(`/${locale}${adminSegment}/login`, request.url));
     }
 
-    const supabase = createServerClient(supabaseUrl, supabaseAnon, {
+    const supabase = createServerClient(supabaseUrl, supabaseKey, {
         cookies: {
             getAll() {
                 return request.cookies.getAll();

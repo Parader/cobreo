@@ -1,0 +1,4067 @@
+{
+  "meta": {
+    "product": "Cobreo Opportunity Discovery",
+    "version": "7.11",
+    "family": "V7 — diagnostic de potentiel de l'entreprise",
+    "status": "real_prospect_test_candidate",
+    "source_language": "fr",
+    "generated_for": "Cursor integration — simple service results + 15-minute booking",
+    "source_baseline": "V6.6 preproduction robustness candidate",
+    "core_shift": "Prospect results become business section -> relevant Cobreo services, followed by direct 15-minute scheduling with calendar invitation.",
+    "principles": [
+      "mobile_first",
+      "plain_observable_business_language",
+      "high_information_value_per_question",
+      "declared_ambition_is_a_first_class_intent_signal",
+      "current_state_before_interpretation",
+      "non_selection_is_a_hypothesis_not_a_fact",
+      "existence_does_not_imply_fit",
+      "satisfaction_does_not_imply_no_optimization",
+      "quantify_only_when_the_answer_changes_a_decision",
+      "no_problem_invention",
+      "no_solution_jumping",
+      "coverage_before_global_conclusion",
+      "optional_free_text_escape_hatch",
+      "results_must_be_specific_traceable_and_useful_without_contacting_cobreo",
+      "breadth_before_depth",
+      "collect_many_opportunity_signals_before_followups",
+      "respondent_prioritization_is_more_valuable_than_generic_pain_scoring",
+      "a_detected_signal_does_not_require_immediate_deepening",
+      "no_default_frequency_effort_or_irritation_questions",
+      "combine_gate_question_and_detail_question_when_one_checklist_can_do_both",
+      "show_the_respondent_what_their_answers_revealed_before_asking_what_to_prioritize",
+      "declared_ambitions_are_multi_select",
+      "results_show_concrete_opportunities_not_category_repetition",
+      "result_titles_must_explain_the_opportunity",
+      "be_direct_about_what_cobreo_can_explore_with_the_client",
+      "visible_results_never_expose_internal_ids_or_english_tokens",
+      "visible_priority_does_not_equal_generic_important_score",
+      "do_not_ask_context_that_can_be_enriched_later",
+      "first_question_should_be_easy_and_branch_relevant",
+      "sector_is_optional_internal_context_not_prospect_input"
+    ],
+    "experimental_items_for_pilot": [
+      "exact business-area labels",
+      "coverage-gap confirmation rate",
+      "maximum number of area scans before fatigue",
+      "educational insight placement",
+      "visual hierarchy of result potential map",
+      "lead CTA conversion behavior"
+    ]
+  },
+  "product_goal": "Help an SMB leader recognize where the company is today, what it wants to achieve, and a broad set of concrete areas where potential may be underused or current systems may cover needs poorly. The experience should surface many plausible opportunities efficiently, then let the leader indicate which business sections matter most to improve. Cobreo uses those choices plus observed evidence to generate useful, specific result cards without forcing a problem.",
+  "flow": {
+    "stages": [
+      {
+        "id": "company",
+        "label_fr": "Votre entreprise"
+      },
+      {
+        "id": "ambitions",
+        "label_fr": "Vos ambitions"
+      },
+      {
+        "id": "discovery",
+        "label_fr": "À explorer"
+      },
+      {
+        "id": "priorities",
+        "label_fr": "Vos priorités"
+      },
+      {
+        "id": "results",
+        "label_fr": "Résultats"
+      }
+    ],
+    "progress": {
+      "mode": "stage_based",
+      "never_show_question_total": true,
+      "never_show_questions_remaining": true,
+      "never_show_dynamic_percentage": true,
+      "mobile": "Show the active stage and a segmented progress bar. Do not compress every stage label into one row."
+    },
+    "target": {
+      "time_minutes": "5–8 typical",
+      "typical_high_value_interactions": "9–14",
+      "business_section_scans": "4–6 typical",
+      "pre_priority_followups": "0 by default",
+      "post_priority_followups": "0–2 total, only if one answer is required to make a selected result materially more useful"
+    },
+    "core_sequence": [
+      "minimal_company_context",
+      "declared_ambitions_multi_select",
+      "breadth_first_section_scans",
+      "candidate_inventory",
+      "respondent_section_prioritization",
+      "optional_minimal_deepening",
+      "visual_results"
+    ]
+  },
+  "ux": {
+    "question_context": {
+      "rule": "Every conditional screen must be understandable without remembering the prior screen.",
+      "preferred": "Make the question itself self-contained.",
+      "fallback": "Show a persistent context chip/header such as 'À propos de : Suivi des employés'.",
+      "avoid_ambiguous_referents": [
+        "ça",
+        "cela",
+        "elle",
+        "cette façon de faire",
+        "cette situation",
+        "ces étapes"
+      ],
+      "test": "If this screen were shown alone, would the respondent know exactly what business subject is being discussed?"
+    },
+    "selection": {
+      "multi_select_default_when_realities_can_coexist": true,
+      "single_select_only_for": "mutually exclusive states, scales, or one primary priority",
+      "show_limits_explicitly": true,
+      "copy": {
+        "unlimited": "Sélectionnez tout ce qui s’applique.",
+        "max_2": "Choisissez jusqu’à 2 réponses.",
+        "max_3": "Choisissez jusqu’à 3 réponses."
+      }
+    },
+    "scan_budget": {
+      "preferred_substantive_options": "5–8",
+      "hard_review_threshold": 9,
+      "rule": "A longer checklist is allowed only when it replaces multiple low-value screens and remains scannable on mobile."
+    },
+    "typography": {
+      "question_mobile_px": "24–28",
+      "answer_mobile_px": "17–19",
+      "instruction_mobile_px": "16–17",
+      "context_label_mobile_px": "15–16",
+      "result_page_title_px": "30–36",
+      "result_section_title_px": "22–26",
+      "result_card_title_px": "20–22",
+      "result_body_px": "17–18",
+      "rule": "Core content must never look like secondary copy. Prioritize readability over fitting more options above the fold."
+    },
+    "visual_semantics": {
+      "use_existing_brand_palette": true,
+      "semantic_tokens": [
+        "declared_ambition",
+        "section_signal",
+        "respondent_priority",
+        "cobreo_potential",
+        "exploration",
+        "healthy",
+        "neutral"
+      ],
+      "rules": [
+        "Use small color accents, chips, left borders or icons to create hierarchy.",
+        "Never rely on color alone; always pair it with text or an icon.",
+        "Do not use red/green as bad/good performance grades.",
+        "Do not make a low-confidence hypothesis visually stronger than a respondent-prioritized, well-supported opportunity.",
+        "Keep question screens visually calm; reserve stronger hierarchy for the prioritization and result pages."
+      ]
+    },
+    "result_page": {
+      "recommended_order": [
+        "page title + one-line intro",
+        "service-oriented section cards",
+        "15-minute booking"
+      ],
+      "layout_rules": [
+        "Maximum four business-section cards.",
+        "Each card shows section name and 1–3 service chips by default.",
+        "Evidence is collapsed under 'Pourquoi ces services?'.",
+        "No separate ambitions/priority/potential/opportunity blocks.",
+        "Use large readable typography and restrained service accents."
+      ]
+    }
+  },
+  "company_context": [
+    {
+      "id": "company_stage",
+      "kind": "single_select",
+      "required": true,
+      "question_fr": "Où en êtes-vous avec votre entreprise aujourd’hui?",
+      "answers": [
+        {
+          "id": "testing",
+          "label_fr": "Je teste encore mon idée ou mon offre"
+        },
+        {
+          "id": "early",
+          "label_fr": "J’ai commencé, mais mon activité est encore limitée"
+        },
+        {
+          "id": "regular",
+          "label_fr": "Mon activité fonctionne régulièrement"
+        },
+        {
+          "id": "established",
+          "label_fr": "Mon entreprise est bien établie"
+        }
+      ]
+    },
+    {
+      "id": "company_size",
+      "kind": "single_select",
+      "required": true,
+      "question_fr": "Combien de personnes travaillent régulièrement dans l’entreprise, vous compris?",
+      "answers": [
+        {
+          "id": "1",
+          "label_fr": "1"
+        },
+        {
+          "id": "2_5",
+          "label_fr": "2 à 5"
+        },
+        {
+          "id": "6_20",
+          "label_fr": "6 à 20"
+        },
+        {
+          "id": "21_50",
+          "label_fr": "21 à 50"
+        },
+        {
+          "id": "51_200",
+          "label_fr": "51 à 200"
+        },
+        {
+          "id": "200_plus",
+          "label_fr": "Plus de 200"
+        }
+      ],
+      "value": "Controls relevance of team, hours, coordination, performance and continuity questions."
+    },
+    {
+      "id": "customer_types",
+      "kind": "multi_select",
+      "required": true,
+      "question_fr": "À qui vendez-vous ou rendez-vous principalement service?",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "businesses",
+          "label_fr": "Entreprises"
+        },
+        {
+          "id": "consumers",
+          "label_fr": "Particuliers"
+        },
+        {
+          "id": "organizations_public",
+          "label_fr": "Organismes ou secteur public"
+        },
+        {
+          "id": "not_yet",
+          "label_fr": "Je n’ai pas encore vraiment de clients",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    },
+    {
+      "id": "work_models",
+      "kind": "multi_select",
+      "required": true,
+      "question_fr": "Comment votre activité se déroule-t-elle généralement?",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "appointments",
+          "label_fr": "Par rendez-vous"
+        },
+        {
+          "id": "projects",
+          "label_fr": "Par projets ou mandats"
+        },
+        {
+          "id": "orders",
+          "label_fr": "Par commandes"
+        },
+        {
+          "id": "recurring",
+          "label_fr": "Avec des services ou opérations récurrentes"
+        },
+        {
+          "id": "production",
+          "label_fr": "Par production ou fabrication"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    }
+  ],
+  "ambitions": {
+    "declared": {
+      "id": "declared_ambitions",
+      "kind": "multi_select",
+      "required": true,
+      "question_fr": "Qu’aimeriez-vous surtout faire progresser dans votre entreprise actuellement?",
+      "instruction_fr": "Choisissez jusqu’à 3 réponses.",
+      "selection": {
+        "min": 1,
+        "max": 3
+      },
+      "answers": [
+        {
+          "id": "grow_sales",
+          "label_fr": "Trouver plus de clients ou augmenter les ventes"
+        },
+        {
+          "id": "improve_client_experience",
+          "label_fr": "Mieux servir ou fidéliser les clients"
+        },
+        {
+          "id": "save_time",
+          "label_fr": "Gagner du temps dans le travail quotidien"
+        },
+        {
+          "id": "organize_work",
+          "label_fr": "Mieux organiser le travail"
+        },
+        {
+          "id": "improve_team",
+          "label_fr": "Faciliter le travail de l’équipe",
+          "show_if": "company_size != '1'"
+        },
+        {
+          "id": "better_decisions",
+          "label_fr": "Mieux suivre la performance de l’entreprise"
+        },
+        {
+          "id": "improve_profitability",
+          "label_fr": "Mieux comprendre les coûts ou la rentabilité"
+        },
+        {
+          "id": "improve_offer",
+          "label_fr": "Développer ou améliorer mes produits ou services"
+        },
+        {
+          "id": "prepare_growth",
+          "label_fr": "Structurer l’entreprise pour soutenir sa croissance"
+        },
+        {
+          "id": "use_information_better",
+          "label_fr": "Mieux organiser ou utiliser l’information"
+        },
+        {
+          "id": "improve_tools",
+          "label_fr": "Améliorer les outils ou systèmes utilisés"
+        },
+        {
+          "id": "nothing_specific",
+          "label_fr": "Rien de particulier pour le moment",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "optional_text": true
+        }
+      ],
+      "role": [
+        "orders the first relevant discovery scans",
+        "raises relevance of aligned opportunity candidates",
+        "provides narrative context for results",
+        "never creates an opportunity by itself"
+      ]
+    },
+    "rules": [
+      "All selected ambitions have the same declared-intent status; do not force a primary/secondary hierarchy.",
+      "The later business-section prioritization screen is the stronger signal of what the respondent wants to act on after discovery.",
+      "nothing_specific is exclusive.",
+      "Do not ask a second ambitions screen."
+    ]
+  },
+  "business_areas": [
+    {
+      "id": "leadership_performance",
+      "label_fr": "Suivi de l’entreprise et décisions",
+      "hint_fr": "Indicateurs, visibilité, rentabilité, priorités et décisions",
+      "default_applicability": "all except very early cases where wording adapts to activity rather than company"
+    },
+    {
+      "id": "sales_growth",
+      "label_fr": "Ventes et nouveaux clients",
+      "hint_fr": "Demandes, prospects, offre, soumissions, rendez-vous et ventes"
+    },
+    {
+      "id": "clients_service",
+      "label_fr": "Service et suivi des clients",
+      "hint_fr": "Démarrage, demandes, communication, satisfaction, suivi et fidélisation"
+    },
+    {
+      "id": "work_operations",
+      "label_fr": "Organisation et réalisation du travail",
+      "hint_fr": "Planification, exécution, coordination, tâches récurrentes et qualité"
+    },
+    {
+      "id": "team_people",
+      "label_fr": "Équipe et employés",
+      "hint_fr": "Heures, horaires, charge, performance, intégration et façons de faire",
+      "applicable_if": "company_size != '1'"
+    },
+    {
+      "id": "finance_profitability",
+      "label_fr": "Finances et rentabilité",
+      "hint_fr": "Facturation, paiements, coûts, budgets et rentabilité"
+    },
+    {
+      "id": "information_ways",
+      "label_fr": "Information, documents et façons de faire",
+      "hint_fr": "Documents, procédures, connaissances, recherche et partage"
+    },
+    {
+      "id": "offer_development",
+      "label_fr": "Développement des produits et services",
+      "hint_fr": "Essais, versions, rétroaction, amélioration de l’offre et R&D"
+    },
+    {
+      "id": "tools_systems",
+      "label_fr": "Outils et systèmes",
+      "hint_fr": "Logiciels, tableurs, communications, transferts et limites des outils"
+    }
+  ],
+  "area_applicability": {
+    "id": "applicable_areas",
+    "kind": "multi_select",
+    "question_fr": "Quels sujets font partie de votre réalité aujourd’hui?",
+    "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+    "layout": "single_column_vertical",
+    "answers_from": "business_areas filtered by hard applicability",
+    "rules": [
+      "Use this screen only when it materially improves section applicability or avoids irrelevant scans.",
+      "A non-selected subject means 'not confirmed as current', not 'does not exist'.",
+      "Declared ambitions may still make an emerging capability relevant.",
+      "Hard context such as no employees should filter impossible subjects automatically.",
+      "If context already makes applicability sufficiently clear, this screen may be skipped."
+    ]
+  },
+  "area_scans": {
+    "leadership_performance": {
+      "id": "scan_performance",
+      "section": "leadership_performance",
+      "scan_mode": "coverage",
+      "question_fr": "Quand vous voulez savoir comment va l’entreprise, qu’est-ce que vous regardez aujourd’hui?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "revenue",
+          "label_fr": "Revenus ou ventes",
+          "capability": "revenue_visibility"
+        },
+        {
+          "id": "profitability",
+          "label_fr": "Rentabilité ou marges",
+          "capability": "profitability_visibility"
+        },
+        {
+          "id": "cash",
+          "label_fr": "Argent disponible et paiements à venir",
+          "capability": "cash_visibility"
+        },
+        {
+          "id": "sales_pipeline",
+          "label_fr": "Demandes, ventes ou conversion",
+          "capability": "sales_visibility"
+        },
+        {
+          "id": "work_progress",
+          "label_fr": "Dossiers, commandes ou travaux en cours",
+          "capability": "operations_visibility"
+        },
+        {
+          "id": "customer_feedback",
+          "label_fr": "Satisfaction ou retours des clients",
+          "capability": "customer_feedback_visibility"
+        },
+        {
+          "id": "team_performance",
+          "label_fr": "Charge, objectifs ou performance de l’équipe",
+          "capability": "team_performance_visibility",
+          "show_if": "company_size != '1'"
+        },
+        {
+          "id": "rd_results",
+          "label_fr": "Résultats de tests, essais ou développement",
+          "capability": "rd_visibility",
+          "show_if": "company_stage == 'testing' or 'improve_offer' in declared_ambitions"
+        },
+        {
+          "id": "general_feel",
+          "label_fr": "Je me fie surtout à une vue générale ou à mon intuition",
+          "capability": "informal_management_view"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "omission_rule": "A relevant unselected metric is only a coverage-gap candidate. Context + ambition must make it relevant before it can appear on the priority screen."
+    },
+    "sales_growth": {
+      "id": "scan_sales",
+      "section": "sales_growth",
+      "scan_mode": "coverage",
+      "question_fr": "Pour passer d’une personne intéressée à un client, qu’est-ce qui est déjà en place aujourd’hui?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "offer_info",
+          "label_fr": "Une façon claire de présenter l’offre",
+          "capability": "offer_clarity"
+        },
+        {
+          "id": "inquiry_path",
+          "label_fr": "Une façon claire de recevoir les demandes",
+          "capability": "inquiry_intake"
+        },
+        {
+          "id": "lead_tracking",
+          "label_fr": "Un suivi des personnes ou occasions en cours",
+          "capability": "lead_visibility"
+        },
+        {
+          "id": "quote_booking_order",
+          "label_fr": "Une façon de demander un prix, réserver ou commander",
+          "capability": "conversion_path"
+        },
+        {
+          "id": "sales_followup",
+          "label_fr": "Une façon de garder les suivis à faire",
+          "capability": "sales_followup"
+        },
+        {
+          "id": "sale_confirmation",
+          "label_fr": "Une façon claire de confirmer l’entente ou la vente",
+          "capability": "sale_confirmation"
+        },
+        {
+          "id": "no_formal_sales",
+          "label_fr": "Rien de très structuré pour l’instant",
+          "exclusive": true
+        },
+        {
+          "id": "not_applicable",
+          "label_fr": "Ce n’est pas vraiment applicable à notre activité",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    },
+    "clients_service": {
+      "id": "scan_clients",
+      "section": "clients_service",
+      "scan_mode": "coverage",
+      "question_fr": "Une fois qu’une personne devient cliente, qu’est-ce qui fait partie de votre façon de la servir?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "collect_client_info",
+          "label_fr": "Recueillir les informations nécessaires au départ",
+          "capability": "client_onboarding"
+        },
+        {
+          "id": "client_history",
+          "label_fr": "Retrouver l’historique du client",
+          "capability": "client_history"
+        },
+        {
+          "id": "status_updates",
+          "label_fr": "Informer le client de l’avancement ou des prochaines étapes",
+          "capability": "client_visibility"
+        },
+        {
+          "id": "request_management",
+          "label_fr": "Gérer ses demandes, changements ou questions",
+          "capability": "client_request_handling"
+        },
+        {
+          "id": "post_service_followup",
+          "label_fr": "Faire un suivi après le service ou la livraison",
+          "capability": "aftercare"
+        },
+        {
+          "id": "collect_feedback",
+          "label_fr": "Recueillir son avis ou sa satisfaction",
+          "capability": "customer_feedback"
+        },
+        {
+          "id": "repeat_business",
+          "label_fr": "Garder un suivi pour les besoins futurs ou renouvellements",
+          "capability": "retention_followup"
+        },
+        {
+          "id": "too_early_clients",
+          "label_fr": "C’est trop tôt pour que ces éléments soient vraiment en place",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "omission_examples": {
+        "collect_feedback": "If customer experience/retention is an ambition, non-selection can create a customer-feedback potential candidate.",
+        "post_service_followup": "If repeat business or service experience matters, non-selection can create an aftercare candidate."
+      }
+    },
+    "work_operations": {
+      "id": "scan_operations",
+      "section": "work_operations",
+      "scan_mode": "opportunity_signal",
+      "question_fr": "Dans l’organisation du travail, lesquelles de ces situations correspondent à votre réalité aujourd’hui?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "manual_steps",
+          "label_fr": "Certaines étapes reposent surtout sur des manipulations manuelles",
+          "signal": "manual_work"
+        },
+        {
+          "id": "memory_followups",
+          "label_fr": "Certains suivis ou prochaines étapes dépendent de rappels ou de la mémoire",
+          "signal": "followup_dependency"
+        },
+        {
+          "id": "repeated_documents",
+          "label_fr": "Des documents ou informations semblables sont préparés à répétition",
+          "signal": "repeated_output"
+        },
+        {
+          "id": "status_visibility",
+          "label_fr": "Il n’est pas toujours simple de voir où en sont les dossiers, travaux ou commandes",
+          "signal": "work_visibility_gap"
+        },
+        {
+          "id": "handoffs",
+          "label_fr": "Le travail passe entre des personnes ou des étapes et peut demander de la coordination",
+          "signal": "handoff_coordination"
+        },
+        {
+          "id": "planning_changes",
+          "label_fr": "Les changements d’horaire, de priorité ou de plan demandent plusieurs ajustements",
+          "signal": "planning_coordination"
+        },
+        {
+          "id": "working_well",
+          "label_fr": "Rien de particulier ne ressort ici",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    },
+    "team_people": {
+      "id": "scan_team",
+      "section": "team_people",
+      "scan_mode": "coverage",
+      "show_if": "company_size != '1'",
+      "question_fr": "Pour gérer l’équipe, qu’est-ce que vous suivez ou organisez aujourd’hui?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "hours",
+          "label_fr": "Les heures travaillées",
+          "capability": "time_tracking"
+        },
+        {
+          "id": "schedules",
+          "label_fr": "Les horaires ou disponibilités",
+          "capability": "team_scheduling"
+        },
+        {
+          "id": "workload",
+          "label_fr": "La charge de travail",
+          "capability": "workload_visibility"
+        },
+        {
+          "id": "responsibilities",
+          "label_fr": "Les responsabilités et tâches",
+          "capability": "team_responsibilities"
+        },
+        {
+          "id": "performance",
+          "label_fr": "La performance ou les objectifs",
+          "capability": "team_performance"
+        },
+        {
+          "id": "onboarding",
+          "label_fr": "L’intégration ou la formation",
+          "capability": "team_onboarding"
+        },
+        {
+          "id": "procedures",
+          "label_fr": "Les procédures ou informations utiles au travail",
+          "capability": "team_knowledge"
+        },
+        {
+          "id": "informal_team",
+          "label_fr": "Peu de choses sont suivies formellement pour l’instant",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "high_value_cross_signal": "Hours + profitability ambition + no labor/project profitability visibility can create a decision/information candidate without asking how frustrating time entry is."
+    },
+    "finance_profitability": {
+      "id": "scan_finance",
+      "section": "finance_profitability",
+      "scan_mode": "coverage",
+      "question_fr": "Quelles informations financières pouvez-vous obtenir facilement aujourd’hui?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "invoices_payments",
+          "label_fr": "Ce qui a été facturé et payé",
+          "capability": "billing_visibility"
+        },
+        {
+          "id": "expenses",
+          "label_fr": "Les dépenses",
+          "capability": "expense_visibility"
+        },
+        {
+          "id": "cash",
+          "label_fr": "L’argent disponible ou à venir",
+          "capability": "cash_visibility"
+        },
+        {
+          "id": "profitability",
+          "label_fr": "La rentabilité par produit, service, projet ou client",
+          "capability": "profitability_visibility"
+        },
+        {
+          "id": "labor_cost",
+          "label_fr": "Le coût du temps ou du travail consacré",
+          "capability": "labor_cost_visibility"
+        },
+        {
+          "id": "budget_forecast",
+          "label_fr": "Les budgets ou prévisions",
+          "capability": "forecasting"
+        },
+        {
+          "id": "financial_reporting",
+          "label_fr": "Un portrait financier utile pour prendre des décisions",
+          "capability": "management_financial_view"
+        },
+        {
+          "id": "too_early_finance",
+          "label_fr": "C’est trop tôt pour suivre plusieurs de ces éléments",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    },
+    "information_ways": {
+      "id": "scan_information",
+      "section": "information_ways",
+      "scan_mode": "opportunity_signal",
+      "question_fr": "Dans la façon dont l’information circule aujourd’hui, lesquelles de ces situations correspondent à votre réalité?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "multiple_places",
+          "label_fr": "Il faut parfois chercher l’information à plusieurs endroits",
+          "signal": "information_scattered"
+        },
+        {
+          "id": "copy_reenter",
+          "label_fr": "Certaines informations sont recopiées ou saisies plus d’une fois",
+          "signal": "information_reentry"
+        },
+        {
+          "id": "knowledge_in_heads",
+          "label_fr": "Des connaissances importantes reposent surtout sur les personnes qui les connaissent",
+          "signal": "knowledge_concentration"
+        },
+        {
+          "id": "documentation_gap",
+          "label_fr": "Certaines façons de faire importantes sont peu documentées",
+          "signal": "documentation_gap"
+        },
+        {
+          "id": "version_uncertainty",
+          "label_fr": "Il n’est pas toujours évident de savoir quelle information ou version est la bonne",
+          "signal": "version_uncertainty"
+        },
+        {
+          "id": "data_underused",
+          "label_fr": "Nous avons des données ou informations que nous pourrions probablement mieux utiliser",
+          "signal": "underused_information"
+        },
+        {
+          "id": "working_well",
+          "label_fr": "Rien de particulier ne ressort ici",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    },
+    "offer_development": {
+      "id": "scan_development",
+      "section": "offer_development",
+      "scan_mode": "coverage",
+      "question_fr": "Quand vous testez ou améliorez un produit, un service ou une façon de faire, qu’est-ce que vous gardez comme trace?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "versions",
+          "label_fr": "Les versions ou essais réalisés",
+          "capability": "rd_versions"
+        },
+        {
+          "id": "changes",
+          "label_fr": "Les changements apportés",
+          "capability": "rd_changes"
+        },
+        {
+          "id": "feedback",
+          "label_fr": "Les commentaires ou retours reçus",
+          "capability": "rd_feedback"
+        },
+        {
+          "id": "results",
+          "label_fr": "Les résultats de tests ou essais",
+          "capability": "rd_results"
+        },
+        {
+          "id": "costs_inputs",
+          "label_fr": "Les coûts, matériaux ou ressources utilisés",
+          "capability": "rd_inputs_costs"
+        },
+        {
+          "id": "decisions",
+          "label_fr": "Les décisions prises et pourquoi",
+          "capability": "rd_decisions"
+        },
+        {
+          "id": "next_tests",
+          "label_fr": "Ce que vous voulez essayer ensuite",
+          "capability": "rd_next_tests"
+        },
+        {
+          "id": "not_tracking_rd",
+          "label_fr": "Je ne garde pas beaucoup de traces pour l’instant",
+          "exclusive": true
+        },
+        {
+          "id": "not_applicable",
+          "label_fr": "Nous faisons peu ou pas de développement de ce type",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ]
+    },
+    "tools_systems": {
+      "id": "scan_tools",
+      "section": "tools_systems",
+      "scan_mode": "context",
+      "question_fr": "Pour gérer l’activité, sur quoi vous appuyez-vous aujourd’hui?",
+      "kind": "multi_select",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+      "answers": [
+        {
+          "id": "paper_notes",
+          "label_fr": "Papier ou notes",
+          "capability": "tool_context"
+        },
+        {
+          "id": "spreadsheets",
+          "label_fr": "Tableurs (Excel, Google Sheets, etc.)",
+          "capability": "tool_context"
+        },
+        {
+          "id": "email_messages",
+          "label_fr": "Courriels, messages ou textos",
+          "capability": "tool_context"
+        },
+        {
+          "id": "calendar",
+          "label_fr": "Calendrier ou prise de rendez-vous",
+          "capability": "tool_context"
+        },
+        {
+          "id": "accounting",
+          "label_fr": "Logiciel de comptabilité ou facturation",
+          "capability": "tool_context"
+        },
+        {
+          "id": "crm_sales",
+          "label_fr": "Outil de clients, ventes ou CRM",
+          "capability": "tool_context"
+        },
+        {
+          "id": "work_management",
+          "label_fr": "Outil de tâches, projets ou opérations",
+          "capability": "tool_context"
+        },
+        {
+          "id": "specialized",
+          "label_fr": "Logiciel spécialisé à votre secteur",
+          "capability": "tool_context"
+        },
+        {
+          "id": "custom",
+          "label_fr": "Outil développé spécialement pour l’entreprise",
+          "capability": "tool_context"
+        },
+        {
+          "id": "no_tools",
+          "label_fr": "Très peu d’outils pour l’instant",
+          "exclusive": true
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "rule": "Tool count or tool type is context only. Never create a fragmentation or custom-tool opportunity solely from this screen."
+    }
+  },
+  "automation_scan": {
+    "id": "scan_simplification",
+    "purpose": "Detect concrete simplification/automation candidates in one screen; replaces the old yes/no gate + task follow-up.",
+    "ask_if": "work_operations, information_ways or tools_systems applies, or primary ambition is save_time/prepare_growth",
+    "question_fr": "Parmi les tâches que vous faites régulièrement, lesquelles reposent surtout sur des manipulations manuelles ou pourraient être plus simples?",
+    "kind": "multi_select",
+    "instruction_fr": "Sélectionnez tout ce qui s’applique.",
+    "answers": [
+      {
+        "id": "documents",
+        "label_fr": "Préparer ou remplir des documents",
+        "signal": "document_simplification"
+      },
+      {
+        "id": "copy_transfer",
+        "label_fr": "Copier ou transférer de l’information",
+        "signal": "information_transfer"
+      },
+      {
+        "id": "followups",
+        "label_fr": "Faire des suivis ou rappels",
+        "signal": "followup_simplification"
+      },
+      {
+        "id": "updates",
+        "label_fr": "Mettre à jour des dossiers, listes ou statuts",
+        "signal": "record_updates"
+      },
+      {
+        "id": "find_combine",
+        "label_fr": "Chercher ou regrouper de l’information",
+        "signal": "information_assembly"
+      },
+      {
+        "id": "reports",
+        "label_fr": "Préparer des rapports ou résumés",
+        "signal": "report_preparation"
+      },
+      {
+        "id": "scheduling",
+        "label_fr": "Coordonner des horaires, rendez-vous ou disponibilités",
+        "signal": "scheduling_coordination"
+      },
+      {
+        "id": "none",
+        "label_fr": "Rien de particulier",
+        "exclusive": true
+      },
+      {
+        "id": "other",
+        "label_fr": "Autre"
+      }
+    ],
+    "default_next_step": "Store selected signals and continue to another section. Do not ask frequency or effort.",
+    "forbidden_immediate_followups": [
+      "À quelle fréquence préparez-vous ces documents?",
+      "Préparer ces documents vous demande généralement combien d’effort?",
+      "À quel point cette tâche vous frustre-t-elle?"
+    ]
+  },
+  "coverage_engine": {
+    "states": [
+      "covered",
+      "partially_covered",
+      "potentially_uncovered",
+      "not_applicable",
+      "unknown"
+    ],
+    "non_selection_rule": "A non-selected capability can only become potentially_uncovered. It never becomes a recommendation without context and, when material, confirmation.",
+    "candidate_formula": "context applicability + ambition alignment + leverage potential + non-selection/partial coverage + corroborating answers",
+    "confirmation_policy": {
+      "max_gap_confirmations_typical": 2,
+      "ask_only_if": "candidate could realistically change the top opportunities or result narrative",
+      "skip_if": "candidate is low leverage, irrelevant to ambition/context, or already contradicted by another answer"
+    },
+    "confirmation_patterns": [
+      {
+        "id": "performance_blind_spot",
+        "trigger_example": "revenue selected; other relevant decision capabilities unselected",
+        "question_fr": "Vous regardez surtout certains indicateurs aujourd’hui. Parmi ces autres angles, lesquels vous aideraient à mieux décider?",
+        "kind": "multi_select",
+        "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+        "answers_from": "relevant unselected performance capabilities",
+        "include": {
+          "id": "none",
+          "label_fr": "Aucun de ceux-là pour le moment",
+          "exclusive": true
+        }
+      },
+      {
+        "id": "team_gap",
+        "trigger_example": "company_size > 1 and relevant team capabilities unselected",
+        "question_fr": "Parmi ces aspects de l’équipe que vous ne suivez pas beaucoup aujourd’hui, lesquels aimeriez-vous mieux comprendre ou organiser?",
+        "kind": "multi_select",
+        "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+        "answers_from": "relevant unselected team capabilities",
+        "include": {
+          "id": "none",
+          "label_fr": "Rien de particulier pour le moment",
+          "exclusive": true
+        }
+      },
+      {
+        "id": "client_feedback_gap",
+        "trigger_example": "client feedback not selected + customer ambition or meaningful client activity",
+        "question_fr": "Est-ce que mieux comprendre ce que vos clients apprécient, demandent ou trouvent difficile serait utile pour vous?",
+        "kind": "single_select",
+        "answers": [
+          {
+            "id": "yes",
+            "label_fr": "Oui"
+          },
+          {
+            "id": "maybe",
+            "label_fr": "Peut-être"
+          },
+          {
+            "id": "no",
+            "label_fr": "Non, pas vraiment"
+          },
+          {
+            "id": "too_early",
+            "label_fr": "Trop tôt pour le dire"
+          }
+        ]
+      }
+    ],
+    "principle": "Breadth of relevant business coverage matters more than depth on early signals.",
+    "rules": [
+      "A non-selected capability remains potentially_uncovered until another signal supports it.",
+      "Do not interrupt the breadth-first scan to confirm every potential gap.",
+      "High-value gap hypotheses may be included in a generated section card if context + ambition make them clearly relevant; the respondent's selection then acts as an interest confirmation.",
+      "If the respondent does not prioritize that section, keep the hypothesis secondary or internal unless independent evidence is strong."
+    ]
+  },
+  "opportunity_lenses": [
+    {
+      "id": "operations",
+      "label_fr": "Simplifier les opérations",
+      "description_fr": "Rendre le travail plus fluide, clair et facile à coordonner.",
+      "service_examples": [
+        "simplification de processus",
+        "système de suivi du travail",
+        "coordination et handoffs",
+        "standardisation légère"
+      ]
+    },
+    {
+      "id": "automation",
+      "label_fr": "Automatiser le travail répétitif",
+      "description_fr": "Réduire les actions prévisibles qui n’ont pas besoin d’être refaites manuellement chaque fois.",
+      "service_examples": [
+        "automatisations",
+        "génération de documents",
+        "rappels et suivis",
+        "transferts de données"
+      ]
+    },
+    {
+      "id": "information",
+      "label_fr": "Mieux organiser et utiliser l’information",
+      "description_fr": "Rendre l’information plus facile à retrouver, partager, réutiliser et exploiter.",
+      "service_examples": [
+        "centralisation",
+        "documentation",
+        "gestion des données",
+        "historique et recherche"
+      ]
+    },
+    {
+      "id": "customer_experience",
+      "label_fr": "Améliorer l’expérience client",
+      "description_fr": "Faciliter la découverte, les demandes, l’achat, les échanges, le service et le suivi.",
+      "service_examples": [
+        "formulaires et demandes",
+        "prise de rendez-vous",
+        "portail client",
+        "commandes",
+        "feedback et suivis"
+      ]
+    },
+    {
+      "id": "decision_support",
+      "label_fr": "Mieux voir pour mieux décider",
+      "description_fr": "Transformer les données disponibles en visibilité utile pour la gestion.",
+      "service_examples": [
+        "tableaux de bord",
+        "indicateurs adaptés",
+        "rentabilité",
+        "performance",
+        "prévisions et vues de gestion"
+      ]
+    },
+    {
+      "id": "tailored_tools",
+      "label_fr": "Des outils mieux adaptés à l’entreprise",
+      "description_fr": "Mieux soutenir une façon de travailler importante lorsque les solutions actuelles couvrent mal le besoin.",
+      "service_examples": [
+        "outil interne",
+        "portail",
+        "application opérationnelle",
+        "interface spécialisée"
+      ],
+      "guardrail": "This lens requires strong evidence of important need + poor fit + meaningful business specificity. Never infer merely because Cobreo builds custom software."
+    }
+  ],
+  "capability_to_lens_examples": {
+    "time_tracking": [
+      "operations",
+      "information",
+      "decision_support",
+      "automation"
+    ],
+    "profitability_visibility": [
+      "decision_support",
+      "information"
+    ],
+    "customer_feedback": [
+      "customer_experience",
+      "information",
+      "decision_support"
+    ],
+    "rd_versions": [
+      "information",
+      "operations"
+    ],
+    "rd_results": [
+      "information",
+      "decision_support"
+    ],
+    "sales_followup": [
+      "operations",
+      "automation",
+      "customer_experience"
+    ],
+    "information_reuse": [
+      "information",
+      "automation"
+    ],
+    "client_history": [
+      "information",
+      "customer_experience"
+    ],
+    "work_progress": [
+      "operations",
+      "decision_support"
+    ],
+    "process_documentation": [
+      "information",
+      "operations"
+    ],
+    "conversion_path": [
+      "customer_experience",
+      "operations"
+    ],
+    "tool_fit_gap": [
+      "tailored_tools",
+      "operations",
+      "information"
+    ]
+  },
+  "deepening_policy": {
+    "principle": "Do not deepen simply because a signal exists. First scan broadly and let the respondent prioritize. Deepen only selected sections when one missing answer is essential to produce a useful result.",
+    "pre_priority_followups_default": 0,
+    "post_priority_followups_max_total": 2,
+    "default_selected_section_behavior": "Use existing evidence to produce the result without another question when possible.",
+    "allowed_question_types": [
+      "specific_desired_outcome_if_multiple_materially_different_directions_remain",
+      "existing_solution_fit_if_the_recommendation_depends_on_whether_the_current_solution_meets_the_need",
+      "missing_capability_confirmation_if_a_prioritized_section_is based primarily on a non-selection hypothesis",
+      "critical_constraint_or_system_to_preserve_if_it_changes_the recommendation"
+    ],
+    "not_part_of_normal_flow": [
+      "generic_frequency",
+      "generic_volume",
+      "generic_effort",
+      "generic_irritation",
+      "generic_difficulty",
+      "generic_pain_scale"
+    ],
+    "quantification_exception": "Only use a structural quantity if the result would be materially misleading without it. This should be rare and never triggered automatically from a selected task.",
+    "question_value_gate": [
+      "Can we already write a specific, useful result from existing answers?",
+      "Would this answer change the opportunity direction, not just make it more precise?",
+      "Would the respondent reasonably understand why we are asking it?",
+      "If no, skip the question."
+    ],
+    "contextual_copy_rule": "Every conditional question names the business activity/topic on the same screen."
+  },
+  "educational_layer": {
+    "purpose": "Help the respondent understand why an uncovered capability can matter without pretending it is a proven problem.",
+    "rules": [
+      "Use short conceptual explanations by default.",
+      "Do not use unsupported statistics.",
+      "Any numeric external fact must have a verifiable stored source before production.",
+      "Educational content must not be used to pressure the respondent into selecting an answer."
+    ],
+    "examples": [
+      {
+        "capability": "customer_feedback",
+        "title_fr": "Pourquoi regarder les retours clients?",
+        "text_fr": "Les retours clients peuvent faire ressortir des besoins récurrents, des irritants et des idées d’amélioration qui restent difficiles à voir lorsqu’ils sont dispersés dans les conversations."
+      },
+      {
+        "capability": "profitability_visibility",
+        "title_fr": "Pourquoi regarder la rentabilité?",
+        "text_fr": "Les revenus montrent combien l’entreprise vend, mais ils ne répondent pas toujours aux mêmes questions que les coûts, les marges ou la rentabilité par type de travail."
+      },
+      {
+        "capability": "rd_tracking",
+        "title_fr": "Pourquoi garder une trace des essais?",
+        "text_fr": "Structurer les versions, changements et retours facilite la comparaison des essais et évite de perdre ce qui a déjà été appris."
+      }
+    ]
+  },
+  "opportunity_engine": {
+    "candidate_inputs": [
+      "declared ambition alignment",
+      "confirmed current capability",
+      "confirmed or plausible coverage gap",
+      "solution fit",
+      "explicit optimization interest",
+      "automation simplification interest",
+      "frequency/scale when decision-relevant",
+      "context leverage such as team size or transaction volume when known",
+      "corroborating signals across areas"
+    ],
+    "types": [
+      "improvement",
+      "optimization_without_pain",
+      "emerging_capability",
+      "coverage_expansion",
+      "fit_gap",
+      "exploration"
+    ],
+    "internal_dimensions": [
+      "ambition_alignment",
+      "business_relevance",
+      "coverage_gap_strength",
+      "fit_gap_strength",
+      "leverage",
+      "explicit_interest",
+      "evidence_confidence"
+    ],
+    "confidence": {
+      "high": "Multiple direct/corroborating answers support the opportunity.",
+      "medium": "Credible, specific opportunity with one material unknown.",
+      "low": "Useful hypothesis only."
+    },
+    "rules": [
+      "Only medium/high-confidence candidates may appear as main prospect opportunities.",
+      "Low-confidence candidates may appear at most as one 'possibilité à considérer' if clearly labeled exploratory.",
+      "Do not require pain for optimization.",
+      "Do not force an opportunity when coverage is sufficient and the company is genuinely healthy.",
+      "Do not let declared ambition create a solution without operational evidence.",
+      "Respondent section prioritization is a stronger relevance signal than generic pain scoring.",
+      "Do not require frequency or effort to rank a respondent-prioritized, evidence-supported opportunity.",
+      "A prioritized section can still produce no recommendation if the evidence underneath is weak or contradictory.",
+      "Do not force every selected section to map to a Cobreo service.",
+      "One strong unprioritized cross-signal may appear as a secondary opportunity so respondent prioritization does not create tunnel vision."
+    ],
+    "core_formula_fr": "Potentiel = réalité observée + capacité couverte ou possiblement sous-couverte + ambition pertinente + intérêt/priorité du dirigeant, avec assez de preuve pour rester crédible.",
+    "signal_priority_order": [
+      "respondent_prioritized_section_with_explicit_signals",
+      "respondent_prioritized_section_with_strong_cross_signal",
+      "explicit_signal_aligned_with_primary_or_secondary_ambition",
+      "strong_cross_signal_even_if_not_prioritized",
+      "confirmed_fit_gap",
+      "coverage_gap_hypothesis"
+    ],
+    "visible_scoring_policy": {
+      "show_numeric_score_to_prospect": false,
+      "show_generic_important_moderate_grade": false,
+      "internal_confidence_allowed": true,
+      "internal_ranking_factors": [
+        "respondent_prioritized_section",
+        "explicit supporting signals",
+        "strong cross-signal",
+        "declared ambition alignment",
+        "confirmed fit gap",
+        "coverage confidence"
+      ],
+      "rule": "Use ranking internally to choose which cards to show; do not expose pseudo-precision or repeat 'important' on every card."
+    }
+  },
+  "results": {
+    "goal_fr": "Montrer très simplement où Cobreo pourrait aider et quels services méritent d’être explorés.",
+    "page": {
+      "title_fr": "Où Cobreo pourrait vous aider",
+      "intro_fr": "À partir de vos réponses, voici les sections où certains services Cobreo semblent les plus pertinents.",
+      "max_section_cards": 4,
+      "section_card": {
+        "show": [
+          "business_section_name",
+          "relevant_service_chips",
+          "optional_why_toggle"
+        ],
+        "why_toggle": {
+          "label_fr": "Pourquoi ces services?",
+          "content_rule": "1–3 courtes raisons directement liées aux réponses du prospect."
+        }
+      }
+    },
+    "examples": [
+      {
+        "section_fr": "Finances et rentabilité",
+        "services_fr": [
+          "Automatisation",
+          "Information et aide à la décision",
+          "Outil sur mesure"
+        ]
+      },
+      {
+        "section_fr": "Ventes et nouveaux clients",
+        "services_fr": [
+          "Présence en ligne et optimisation du site",
+          "Automatisation",
+          "Outil sur mesure"
+        ]
+      },
+      {
+        "section_fr": "Organisation du travail",
+        "services_fr": [
+          "Optimisation des opérations",
+          "Automatisation",
+          "Information et aide à la décision"
+        ]
+      }
+    ],
+    "rules": [
+      "Business section is the main visual label.",
+      "Services are the main result content.",
+      "Keep explanations collapsed by default.",
+      "Do not show more than four section cards.",
+      "Never show a service supported only by ambition.",
+      "Never show custom_tool without a fit-gap or business-specific unmet need."
+    ],
+    "prohibited_copy": [
+      "Potentiel : Important",
+      "Potentiel important",
+      "Où nous voyons le plus de potentiel",
+      "Possibilités qui ressortent",
+      "Faire progresser Équipe et employés",
+      "Renforcer team performance"
+    ]
+  },
+  "lead_capture": {
+    "enabled": false,
+    "fallback_only": true,
+    "reason": "Replaced by direct 15-minute booking.",
+    "fallback_rule": "If scheduling is unavailable, collect contact details without pretending a reservation is confirmed."
+  },
+  "free_text": {
+    "per_area": {
+      "trigger_fr": "Quelque chose à ajouter?",
+      "collapsed": true,
+      "required": false,
+      "max_chars": 400
+    },
+    "final": {
+      "label_fr": "Y a-t-il autre chose que vous aimeriez préciser?",
+      "required": false,
+      "max_chars": 600
+    },
+    "analysis_rules": [
+      "Free text may suggest signals/gaps but starts at low confidence.",
+      "Never infer an unstated consequence.",
+      "Repeated free-text themes become taxonomy-gap research signals."
+    ]
+  },
+  "analytics": {
+    "screen_events": [
+      "view",
+      "answer",
+      "back",
+      "change_answer",
+      "skip_optional",
+      "priority_card_selected",
+      "result_card_view",
+      "result_card_expand",
+      "lead_cta_view",
+      "lead_cta_click",
+      "result_opportunity_view",
+      "result_solution_bridge_view",
+      "result_solution_bridge_click"
+    ],
+    "derived_metrics": [
+      "completion_by_stage",
+      "abandonment_screen",
+      "median_screen_dwell_time",
+      "backtrack_rate",
+      "signals_detected_before_prioritization",
+      "business_sections_with_signals",
+      "priority_sections_selected_count",
+      "priority_none_rate",
+      "post_priority_followup_count",
+      "result_opportunity_count",
+      "secondary_potential_count",
+      "lead_cta_behavior",
+      "declared_ambition_count",
+      "priority_section_count",
+      "concrete_result_card_count",
+      "result_card_generic_fallback_count"
+    ],
+    "qualitative_metrics_to_collect_after_test": [
+      "Did the respondent discover something they had not explicitly thought about before?",
+      "Did the surfaced sections feel like their business?",
+      "Was any important reality impossible to express?",
+      "Did any section card feel invented from a non-selection?",
+      "Did the prioritization screen help them identify what matters?",
+      "Did the results feel specific enough that they could not belong to an unrelated company?"
+    ],
+    "note": "Real percentages and benchmarks must only be reported after observed pilot data."
+  },
+  "state_schema": {
+    "company_context": {
+      "company_stage": null,
+      "company_size": null,
+      "customer_types": [],
+      "work_models": []
+    },
+    "ambitions": {
+      "declared": []
+    },
+    "applicable_areas": [],
+    "area_answers": {},
+    "capabilities": {},
+    "coverage_gap_candidates": [],
+    "fit_checks": {},
+    "automation_interest": {},
+    "deepening_answers": {},
+    "opportunity_candidates": [],
+    "promoted_opportunities": [],
+    "strengths": [],
+    "free_text": {},
+    "coverage_summary": {},
+    "result": {},
+    "internal_context": {
+      "sector_hint": null
+    }
+  },
+  "quality_gate": {
+    "critical_failures": [
+      "obvious_relevant_opportunity_missed",
+      "recommendation_created_from_non_selection_alone",
+      "recommendation_created_from_ambition_alone",
+      "manual_task_treated_as_problem_solely_because_manual",
+      "tool_count_treated_as_fragmentation",
+      "early_signal_triggers_unnecessary_frequency_or_effort_question",
+      "respondent_is_forced_to_prioritize_a_weak_or_invented_section",
+      "strong_cross_signal_lost_because_respondent_prioritized_another_section",
+      "global_healthy_conclusion_from_partial_coverage",
+      "custom_software_recommended_without strong fit-gap + business-specific need evidence",
+      "conditional_question_loses_context",
+      "single_select_for_nonexclusive_reality",
+      "question_collects_data_that_does_not_change_analysis",
+      "result_is_generic_for_unrelated_businesses",
+      "result_uses_sales_copy_to_cover_analysis_uncertainty"
+    ],
+    "release_rule": "No broad rollout while a critical failure reliably reproduces in reference or real-prospect tests.",
+    "pilot_ready_rule": "A limited real-prospect test is acceptable when simulated critical cases pass and remaining uncertainties are wording/behavioral rather than structural."
+  },
+  "migration_from_v66": {
+    "keep": [
+      "declared priority",
+      "solution fit checks",
+      "optimization without pain",
+      "emerging capability logic",
+      "multi-select discipline",
+      "context-preserving conditional questions",
+      "optional free text",
+      "confidence/evidence guardrails",
+      "healthy outcome allowed",
+      "stage-based progress"
+    ],
+    "reduce_or_remove": [
+      "generic effort scales",
+      "generic irritation scoring",
+      "repeated friction qualification",
+      "micro-branching on low-leverage symptoms",
+      "friction-first global scoring"
+    ],
+    "replace_with": [
+      "business capability coverage scans",
+      "ambitions",
+      "relevant non-selection analysis",
+      "Cobreo potential lenses",
+      "selective deepening",
+      "visual potential map"
+    ]
+  },
+  "persona_lab": [
+    {
+      "id": "health_cube_founder",
+      "size": "1",
+      "maturity": "testing",
+      "sector": "manufacturing_product",
+      "stress": "emerging R&D, feedback, product info, first orders"
+    },
+    {
+      "id": "new_consultant",
+      "size": "1",
+      "maturity": "early",
+      "sector": "professional_services",
+      "stress": "few clients, should not invent systems"
+    },
+    {
+      "id": "financial_advisor",
+      "size": "1",
+      "maturity": "regular",
+      "sector": "finance",
+      "stress": "healthy sales, possible document/followup/decision optimization"
+    },
+    {
+      "id": "manual_construction",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "construction_trades",
+      "stress": "paper/Excel, hours, job profitability, coordination"
+    },
+    {
+      "id": "digital_agency",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "technology_agency",
+      "stress": "many good tools, integration/reporting opportunity"
+    },
+    {
+      "id": "skeptical_owner",
+      "size": "2_5",
+      "maturity": "regular",
+      "sector": "professional_services",
+      "stress": "low patience, rejects generic questions"
+    },
+    {
+      "id": "chaotic_growth_services",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "home_field_services",
+      "stress": "growth, scheduling, handoffs, information"
+    },
+    {
+      "id": "structured_manufacturer",
+      "size": "51_200",
+      "maturity": "established",
+      "sector": "manufacturing_product",
+      "stress": "ERP/CRM good, one R&D/decision gap"
+    },
+    {
+      "id": "physio_clinic",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "health_clinic",
+      "stress": "appointments, intake, followups, patient feedback"
+    },
+    {
+      "id": "restaurant",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "hospitality_food",
+      "stress": "staff hours, scheduling, inventory-like operations; sales vocabulary fit"
+    },
+    {
+      "id": "ecommerce_brand",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "retail_ecommerce",
+      "stress": "orders, customer service, product feedback, profitability"
+    },
+    {
+      "id": "farm_family",
+      "size": "2_5",
+      "maturity": "regular",
+      "sector": "manufacturing_product",
+      "stress": "atypical workflows and seasonality"
+    },
+    {
+      "id": "music_school",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "education_nonprofit",
+      "stress": "scheduling, payments, teachers, student followup"
+    },
+    {
+      "id": "accounting_firm",
+      "size": "21_50",
+      "maturity": "established",
+      "sector": "professional_services",
+      "stress": "seasonal capacity, documents, time entry, profitability"
+    },
+    {
+      "id": "property_manager",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "real_estate_property",
+      "stress": "requests, vendors, status, tenant experience"
+    },
+    {
+      "id": "small_machine_shop",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "manufacturing_product",
+      "stress": "paper + specialized software, job costing, work progress"
+    },
+    {
+      "id": "creative_studio",
+      "size": "2_5",
+      "maturity": "regular",
+      "sector": "technology_agency",
+      "stress": "project work, revisions, client feedback, capacity"
+    },
+    {
+      "id": "b2b_distributor",
+      "size": "21_50",
+      "maturity": "established",
+      "sector": "retail_ecommerce",
+      "stress": "ERP + Excel edge workflows, sales/operations handoffs"
+    },
+    {
+      "id": "healthy_manual_business",
+      "size": "2_5",
+      "maturity": "regular",
+      "sector": "professional_services",
+      "stress": "manual but low volume and genuinely well fit"
+    },
+    {
+      "id": "employee_hours_profitability",
+      "size": "21_50",
+      "maturity": "regular",
+      "sector": "construction_trades",
+      "stress": "hours captured but not connected to project profitability"
+    },
+    {
+      "id": "rd_food_company",
+      "size": "21_50",
+      "maturity": "regular",
+      "sector": "manufacturing_product",
+      "stress": "versions, trials, feedback, costs, R&D knowledge"
+    },
+    {
+      "id": "multi_tool_healthy",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "technology_agency",
+      "stress": "many tools but genuinely integrated and adequate"
+    },
+    {
+      "id": "nonprofit_programs",
+      "size": "21_50",
+      "maturity": "regular",
+      "sector": "education_nonprofit",
+      "stress": "no classic sales, program outcomes, donor/client-like stakeholders"
+    },
+    {
+      "id": "established_launching_new_offer",
+      "size": "51_200",
+      "maturity": "established",
+      "sector": "professional_services",
+      "stress": "mature company with emerging capability in new offer"
+    },
+    {
+      "id": "roofing_crews",
+      "size": "21_50",
+      "maturity": "regular",
+      "sector": "construction_trades",
+      "stress": "hours, crews, job progress, profitability; manual does not automatically mean bad"
+    },
+    {
+      "id": "law_firm",
+      "size": "6_20",
+      "maturity": "established",
+      "sector": "professional_services",
+      "stress": "documents, matter status, knowledge, time entry, client followup"
+    },
+    {
+      "id": "dental_clinic",
+      "size": "6_20",
+      "maturity": "established",
+      "sector": "health_clinic",
+      "stress": "appointments, patient intake, recall, staff, feedback"
+    },
+    {
+      "id": "landscaping_company",
+      "size": "21_50",
+      "maturity": "regular",
+      "sector": "home_field_services",
+      "stress": "crew schedules, time, routes, client updates, job costing"
+    },
+    {
+      "id": "architecture_firm",
+      "size": "6_20",
+      "maturity": "regular",
+      "sector": "professional_services",
+      "stress": "projects, revisions, files, hours, profitability, approvals"
+    },
+    {
+      "id": "subscription_software",
+      "size": "21_50",
+      "maturity": "established",
+      "sector": "technology_agency",
+      "stress": "very digital, customer feedback, product metrics, decision support"
+    },
+    {
+      "id": "boutique_retail",
+      "size": "2_5",
+      "maturity": "regular",
+      "sector": "retail_ecommerce",
+      "stress": "inventory-like operations, customer experience, simple tools, low appetite for complex systems"
+    },
+    {
+      "id": "wholesale_food_r_and_d",
+      "size": "21_50",
+      "maturity": "regular",
+      "sector": "manufacturing_product",
+      "stress": "product trials, versions, costs, feedback, traceability"
+    }
+  ],
+  "simulation_rounds": [
+    {
+      "version": "7.0",
+      "focus": "Rebuild around capabilities and ambitions.",
+      "main_change": "Replace micro-friction qualification with company context, ambitions and 9 capability areas.",
+      "failures_found": [
+        "Scanning all nine areas deeply is too long for small/simple companies.",
+        "Non-selected capabilities were initially over-interpreted as gaps.",
+        "Some area labels were too internal/consulting-like."
+      ],
+      "red_team_rejections": [
+        "Mandatory full scan of all nine areas.",
+        "Treat every unselected capability as an opportunity.",
+        "Show Cobreo service lenses before understanding the company."
+      ],
+      "product_lead_decision": "Use applicability + high-value one-screen scans; non-selection creates only a hypothesis.",
+      "estimated_scorecard": {
+        "comprehension": 8.7,
+        "simplicity": 7.8,
+        "relevance": 9.0,
+        "universality": 9.1,
+        "discovery": 9.2,
+        "answer_quality": 9.0,
+        "adaptability": 9.2,
+        "user_value": 9.1,
+        "cobreo_analysis": 9.3,
+        "low_abandonment_risk": 7.8
+      },
+      "scorecard_note": "Qualitative comparative estimate from simulated personas; not empirical user data."
+    },
+    {
+      "version": "7.1",
+      "focus": "Relevant omission analysis and dynamic applicability.",
+      "main_change": "Coverage states and max two gap confirmations based on context + ambition.",
+      "failures_found": [
+        "A few omission confirmations felt leading when ambition alignment was weak.",
+        "Team/finance lists became dense on mobile."
+      ],
+      "red_team_rejections": [
+        "Ask the respondent to explain every non-selected capability.",
+        "Score coverage numerically for the prospect.",
+        "Force a missing capability to become a problem."
+      ],
+      "product_lead_decision": "Confirm only candidates that could change top opportunities; keep coverage internal.",
+      "estimated_scorecard": {
+        "comprehension": 8.9,
+        "simplicity": 8.2,
+        "relevance": 9.2,
+        "universality": 9.3,
+        "discovery": 9.4,
+        "answer_quality": 9.2,
+        "adaptability": 9.4,
+        "user_value": 9.3,
+        "cobreo_analysis": 9.5,
+        "low_abandonment_risk": 8.2
+      },
+      "scorecard_note": "Qualitative comparative estimate from simulated personas; not empirical user data."
+    },
+    {
+      "version": "7.2",
+      "focus": "Cobreo potential lenses and result value.",
+      "main_change": "Map capabilities to six value-oriented Cobreo lenses and redesign results around ambition + potential map + evidence cards.",
+      "failures_found": [
+        "Tailored-tools lens could look like a sales pitch.",
+        "Too many service examples made cards feel prescriptive.",
+        "Educational content can become leading if shown before answers."
+      ],
+      "red_team_rejections": [
+        "Show all six lenses with scores.",
+        "Recommend a custom app from poor tool satisfaction alone.",
+        "Use unsourced industry statistics to make opportunities sound stronger."
+      ],
+      "product_lead_decision": "Show only supported lenses; tailored tools needs strongest guardrail; educational notes after discovery/results.",
+      "estimated_scorecard": {
+        "comprehension": 9.0,
+        "simplicity": 8.3,
+        "relevance": 9.3,
+        "universality": 9.3,
+        "discovery": 9.5,
+        "answer_quality": 9.3,
+        "adaptability": 9.4,
+        "user_value": 9.5,
+        "cobreo_analysis": 9.6,
+        "low_abandonment_risk": 8.3
+      },
+      "scorecard_note": "Qualitative comparative estimate from simulated personas; not empirical user data."
+    },
+    {
+      "version": "7.3",
+      "focus": "Remove low-value quantification.",
+      "main_change": "Question-value gate; remove generic irritation/effort measures; retain frequency/fit/desire only when analytically discriminating.",
+      "failures_found": [
+        "Without any quantification, rare automation tasks could rank too high.",
+        "Some healthy-but-optimizable areas needed one explicit interest signal."
+      ],
+      "red_team_rejections": [
+        "Remove all frequency/volume questions.",
+        "Ask frequency and effort for every candidate.",
+        "Use 1–10 pain scales."
+      ],
+      "product_lead_decision": "Selective frequency/volume + fit + improvement desire only; no generic pain score.",
+      "estimated_scorecard": {
+        "comprehension": 9.1,
+        "simplicity": 8.7,
+        "relevance": 9.4,
+        "universality": 9.4,
+        "discovery": 9.5,
+        "answer_quality": 9.4,
+        "adaptability": 9.5,
+        "user_value": 9.5,
+        "cobreo_analysis": 9.6,
+        "low_abandonment_risk": 8.6
+      },
+      "scorecard_note": "Qualitative comparative estimate from simulated personas; not empirical user data."
+    },
+    {
+      "version": "7.4",
+      "focus": "Adversarial real-prospect readiness.",
+      "main_change": "Run 24 persona reference cases; tighten context independence, healthy outcomes, emerging needs, off-priority discovery and coverage gate.",
+      "failures_found": [
+        "No new structural failure repeated across multiple personas; remaining concerns are wording density and real-user interpretation.",
+        "Some sectors will need better examples after real pilot data."
+      ],
+      "red_team_rejections": [
+        "Add more scans to improve theoretical coverage.",
+        "Force at least one opportunity for every company.",
+        "Use sector alone to infer a capability need."
+      ],
+      "product_lead_decision": "Stop simulated structural iteration. V7.4 is ready for limited real-prospect testing; next changes require observed user behavior.",
+      "estimated_scorecard": {
+        "comprehension": 9.1,
+        "simplicity": 8.8,
+        "relevance": 9.5,
+        "universality": 9.5,
+        "discovery": 9.6,
+        "answer_quality": 9.5,
+        "adaptability": 9.6,
+        "user_value": 9.6,
+        "cobreo_analysis": 9.7,
+        "low_abandonment_risk": 8.7
+      },
+      "scorecard_note": "Qualitative comparative estimate from simulated personas; not empirical user data."
+    },
+    {
+      "version": "7.5",
+      "focus": "Breadth before depth",
+      "main_change": "Stop deepening each signal; accumulate signals across business sections first.",
+      "failures_found": [
+        "If every signal becomes its own priority card, the prioritization screen is too long.",
+        "Some direct opportunity checklists sounded too problem-seeking when every option described a weakness."
+      ],
+      "red_team_rejections": [
+        "One card per micro-opportunity.",
+        "Ask frequency or effort to rank every manual task.",
+        "Turn every unselected capability into a surfaced gap."
+      ],
+      "product_lead_decision": "Cluster signals by business section and mix coverage scans with opportunity-signal scans.",
+      "estimated_scorecard": {
+        "comprehension": 9.2,
+        "simplicity": 9.0,
+        "relevance": 9.5,
+        "universality": 9.5,
+        "discovery": 9.7,
+        "answer_quality": 9.4,
+        "adaptability": 9.6,
+        "user_value": 9.6,
+        "cobreo_analysis": 9.6,
+        "low_abandonment_risk": 9.0
+      },
+      "scorecard_note": "Qualitative comparative simulation; not empirical."
+    },
+    {
+      "version": "7.6",
+      "focus": "Respondent prioritization",
+      "main_change": "Generated section cards summarize detected signals; respondent chooses up to three sections to improve.",
+      "failures_found": [
+        "A pure respondent-choice model could hide one strong opportunity the respondent did not prioritize.",
+        "Weak omission hypotheses could look authoritative when placed on a polished card."
+      ],
+      "red_team_rejections": [
+        "Only show opportunities from sections the respondent selected.",
+        "Show section cards supported by one weak non-selection.",
+        "Use a numeric opportunity score to make cards look objective."
+      ],
+      "product_lead_decision": "Prioritized sections lead results, but allow one strong unprioritized secondary potential. Require evidence for every card.",
+      "estimated_scorecard": {
+        "comprehension": 9.3,
+        "simplicity": 9.1,
+        "relevance": 9.7,
+        "universality": 9.5,
+        "discovery": 9.7,
+        "answer_quality": 9.6,
+        "adaptability": 9.6,
+        "user_value": 9.8,
+        "cobreo_analysis": 9.7,
+        "low_abandonment_risk": 9.1
+      },
+      "scorecard_note": "Qualitative comparative simulation; not empirical."
+    },
+    {
+      "version": "7.7",
+      "focus": "Purge low-value quantification",
+      "main_change": "Remove generic frequency, effort, irritation and desire scales; combine manual-task gate + list into one checklist.",
+      "failures_found": [
+        "Without any guardrail, a trivial manual item could look equivalent to a broader strategic gap.",
+        "Some result directions still needed current-solution fit, but only after prioritization."
+      ],
+      "red_team_rejections": [
+        "Bring frequency back as a standard automation qualifier.",
+        "Use pain score to rank candidate sections.",
+        "Add a generic 'how important is this' scale after prioritization."
+      ],
+      "product_lead_decision": "Use evidence multiplicity + ambitions + respondent section choice; reserve at most two post-priority questions for direction-changing unknowns.",
+      "estimated_scorecard": {
+        "comprehension": 9.4,
+        "simplicity": 9.4,
+        "relevance": 9.7,
+        "universality": 9.6,
+        "discovery": 9.7,
+        "answer_quality": 9.6,
+        "adaptability": 9.7,
+        "user_value": 9.8,
+        "cobreo_analysis": 9.7,
+        "low_abandonment_risk": 9.3
+      },
+      "scorecard_note": "Qualitative comparative simulation; not empirical."
+    },
+    {
+      "version": "7.8",
+      "focus": "Real-test hardening",
+      "main_change": "Context-safe screens, larger typography, visual priority/result hierarchy, expanded adversarial cases, instrumentation for real tests.",
+      "failures_found": [
+        "No repeated structural failure in simulated reference cases after the breadth/prioritization shift.",
+        "Remaining uncertainty is behavioral: list scanning, wording interpretation, whether generated section cards feel accurate, and real completion burden."
+      ],
+      "red_team_rejections": [
+        "Add another universal scan to maximize theoretical coverage.",
+        "Force one follow-up for every selected priority section.",
+        "Use stronger problem wording to improve lead conversion."
+      ],
+      "product_lead_decision": "Stop simulated structural iteration and move to limited real-user testing. Further structural additions now risk reducing simplicity without evidence.",
+      "estimated_scorecard": {
+        "comprehension": 9.4,
+        "simplicity": 9.4,
+        "relevance": 9.8,
+        "universality": 9.6,
+        "discovery": 9.8,
+        "answer_quality": 9.6,
+        "adaptability": 9.7,
+        "user_value": 9.8,
+        "cobreo_analysis": 9.8,
+        "low_abandonment_risk": 9.3
+      },
+      "scorecard_note": "Qualitative comparative simulation; not empirical."
+    },
+    {
+      "version": "7.9",
+      "focus": "Ambitions multi-select and result clarity/directness",
+      "main_change": "Collapse ambitions into one multi-select; remove repeated potential taxonomy from prospect page; require concrete opportunity cards and explicit Cobreo solution bridge.",
+      "failures_found": [
+        "V7.8 could repeat the same information as priority sections, Cobreo potential blocks and generic suggestion cards.",
+        "Generic fallback titles could expose internal capability labels or produce circular reasoning.",
+        "Repeated 'Potentiel important' created false certainty and weak differentiation."
+      ],
+      "red_team_rejections": [
+        "Keep a standalone six-lens potential dashboard before opportunity cards: rejected as repetitive.",
+        "Use respondent-selected section as an opportunity title: rejected because a category is not an opportunity.",
+        "Make every selected priority automatically 'important': rejected as circular.",
+        "Push direct software solutions in results: rejected because solution fit has not necessarily been established."
+      ],
+      "product_lead_decision": "Make concrete opportunities the center of results; be direct about value and Cobreo's ability to explore solutions, while keeping solution choice open.",
+      "estimated_scorecard": {
+        "comprehension": 9.6,
+        "simplicity": 9.5,
+        "relevance": 9.8,
+        "universality": 9.6,
+        "discovery": 9.8,
+        "answer_quality": 9.6,
+        "adaptability": 9.7,
+        "user_value": 9.8,
+        "cobreo_analysis": 9.8,
+        "low_abandonment_risk": 9.4
+      },
+      "scorecard_note": "Qualitative comparative simulation; not empirical."
+    },
+    {
+      "version": "7.10",
+      "focus": "Reduce early cognitive cost and remove low-value sector classification.",
+      "main_change": "Delete the prospect-facing sector-family question; keep sector only as optional internal enrichment. Clean legacy ambition branching.",
+      "failure_observed": "The first question required respondents to classify themselves among broad overlapping categories such as professional services, despite sector adding limited value to the current discovery engine.",
+      "red_team_rejections": [
+        "Keep the sector question but shorten the list: rejected because the underlying information is still not valuable enough early.",
+        "Replace sector with a free-text industry field: rejected because it still spends respondent effort on information Cobreo can often obtain later.",
+        "Infer opportunities from researched industry: rejected because sector context cannot replace observed company reality."
+      ],
+      "product_lead_decision": "Remove sector from the prospect journey. Reintroduce only if real pilot evidence proves it materially improves discovery or applicability.",
+      "estimated_scorecard": {
+        "comprehension": 9.6,
+        "simplicity": 9.7,
+        "relevance": 9.8,
+        "universality": 9.7,
+        "discovery": 9.8,
+        "answer_quality": 9.6,
+        "adaptability": 9.6,
+        "user_value": 9.8,
+        "cobreo_analysis": 9.8,
+        "low_abandonment_risk": 9.5
+      },
+      "scorecard_note": "Qualitative comparative estimate only; not empirical."
+    },
+    {
+      "version": "7.11",
+      "focus": "Very simple service-oriented results and direct booking.",
+      "main_change": "Section -> relevant Cobreo services, then reserve a 15-minute call with calendar invitation.",
+      "red_team_rejections": [
+        "Show every service for every selected section.",
+        "Always show custom tools.",
+        "Show website optimization from sales ambition alone.",
+        "Confirm booking before calendar event creation."
+      ],
+      "product_lead_decision": "Keep the page commercially direct but evidence-grounded; let booking be the natural close."
+    }
+  ],
+  "acceptance_tests": [
+    {
+      "id": "health_cube_founder_real_case",
+      "given": {
+        "company_stage": "testing",
+        "company_size": "1",
+        "area_answers": {
+          "offer_development": [
+            "versions",
+            "feedback"
+          ],
+          "sales_growth": [
+            "no_formal_sales"
+          ]
+        },
+        "automation_interest": "maybe",
+        "declared_ambitions": [
+          "improve_offer"
+        ],
+        "internal_context": {
+          "sector_hint": "manufacturing_product"
+        }
+      },
+      "expect": [
+        "R&D/feedback coverage is explored",
+        "untracked test results/decisions may become a confirmed coverage-expansion candidate if respondent wants it",
+        "future order intake may be explored only if sales ambition/near-term intent supports it",
+        "product-information/customer-experience opportunity may be explored if relevant"
+      ],
+      "must_not_generate": [
+        "CRM by default",
+        "custom ecommerce build by default",
+        "generic startup checklist",
+        "global nothing-to-report after narrow coverage"
+      ]
+    },
+    {
+      "id": "revenue_only_performance_view",
+      "given": {
+        "scan_performance": [
+          "revenue"
+        ],
+        "declared_ambitions": [
+          "better_decisions"
+        ]
+      },
+      "expect": [
+        "revenue marked covered",
+        "relevant unselected decision capabilities become potential gap candidates",
+        "at most a small contextual confirmation is asked",
+        "result may educate about complementary metrics if confirmed"
+      ],
+      "must_not_generate": [
+        "claim customer satisfaction is missing solely because it was not selected",
+        "forced dashboard recommendation"
+      ]
+    },
+    {
+      "id": "employee_hours_to_profitability",
+      "given": {
+        "company_size": "21_50",
+        "scan_team": [
+          "hours"
+        ],
+        "scan_finance": [
+          "invoices_payments",
+          "expenses"
+        ],
+        "declared_ambitions": [
+          "improve_profitability"
+        ]
+      },
+      "expect": [
+        "time tracking is recognized as an existing capability",
+        "labor-cost/project-profitability coverage gap becomes high-value candidate",
+        "decision_support + information lenses may be promoted if confirmed"
+      ],
+      "must_not_generate": [
+        "time-tracking replacement solely because hours already exist"
+      ]
+    },
+    {
+      "id": "financial_advisor_healthy_sales_hidden_ops",
+      "given": {
+        "company_size": "1",
+        "scan_sales": [
+          "inquiry_path",
+          "offer_info",
+          "lead_tracking",
+          "sales_followup"
+        ],
+        "declared_ambitions": [
+          "save_time"
+        ],
+        "internal_context": {
+          "sector_hint": "finance"
+        }
+      },
+      "expect": [
+        "healthy sales does not end questionnaire",
+        "operations/information/automation scans still receive enough coverage",
+        "document/followup optimization can surface without inventing pain"
+      ],
+      "must_not_generate": [
+        "everything is good after sales scan"
+      ]
+    },
+    {
+      "id": "many_tools_healthy",
+      "given": {
+        "scan_tools": [
+          "spreadsheets",
+          "email_messages",
+          "calendar",
+          "crm_sales",
+          "work_management"
+        ],
+        "tools_fit": "fully"
+      },
+      "expect": [
+        "tools stored as context",
+        "healthy fit allowed"
+      ],
+      "must_not_generate": [
+        "software fragmentation from tool count",
+        "tailored tool merely because many tools exist"
+      ]
+    },
+    {
+      "id": "custom_tool_guardrail",
+      "given": {
+        "tools_fit": "partly",
+        "business_specificity": "low",
+        "need_importance": "medium"
+      },
+      "expect": [
+        "process/configuration/existing-tool possibilities remain ahead of custom tool"
+      ],
+      "must_not_generate": [
+        "custom app main recommendation"
+      ]
+    },
+    {
+      "id": "structured_company_subtle_opportunity",
+      "given": {
+        "company_size": "51_200",
+        "company_stage": "established",
+        "declared_ambitions": [
+          "better_decisions"
+        ]
+      },
+      "expect": [
+        "existing systems respected",
+        "decision/R&D/reporting coverage can still reveal opportunity"
+      ]
+    },
+    {
+      "id": "healthy_manual_low_volume",
+      "given": {
+        "company_size": "2_5",
+        "automation_interest": "no",
+        "coverage": "sufficient",
+        "fit": "good"
+      },
+      "expect": [
+        "credible healthy result allowed"
+      ],
+      "must_not_generate": [
+        "automation just because work is manual"
+      ]
+    },
+    {
+      "id": "non_selection_is_not_fact",
+      "given": {
+        "scan_clients": [
+          "client_history"
+        ],
+        "collect_feedback_unselected": true,
+        "declared_ambitions": [
+          "save_time"
+        ]
+      },
+      "expect": [
+        "feedback may remain unknown/low relevance"
+      ],
+      "must_not_generate": [
+        "customer feedback problem without contextual relevance or confirmation"
+      ]
+    },
+    {
+      "id": "feedback_gap_aligned",
+      "given": {
+        "scan_clients": [
+          "client_history",
+          "status_updates"
+        ],
+        "collect_feedback_unselected": true,
+        "declared_ambitions": [
+          "improve_client_experience"
+        ]
+      },
+      "expect": [
+        "customer feedback becomes relevant gap candidate",
+        "short confirmation may be asked"
+      ],
+      "must_not_generate": [
+        "problem before confirmation"
+      ]
+    },
+    {
+      "id": "rd_food_company",
+      "given": {
+        "scan_development": [
+          "versions",
+          "feedback",
+          "changes"
+        ],
+        "declared_ambitions": [
+          "improve_offer"
+        ]
+      },
+      "expect": [
+        "unselected results/decisions may be explored as knowledge coverage",
+        "information + decision_support lenses possible if confirmed"
+      ]
+    },
+    {
+      "id": "hours_alone_not_problem",
+      "given": {
+        "scan_team": [
+          "hours"
+        ],
+        "declared_ambitions": [
+          "improve_team"
+        ]
+      },
+      "expect": [
+        "hours marked covered"
+      ],
+      "must_not_generate": [
+        "time entry optimization without additional evidence"
+      ]
+    },
+    {
+      "id": "automation_high_frequency_candidate",
+      "given": {
+        "automation_interest": "yes",
+        "automation_task": "documents",
+        "frequency": "daily"
+      },
+      "expect": [
+        "automation candidate strengthened",
+        "frequency used because it changes leverage"
+      ],
+      "must_not_generate": [
+        "custom software automatically"
+      ]
+    },
+    {
+      "id": "automation_rare_task",
+      "given": {
+        "automation_interest": "yes",
+        "automation_task": "reports",
+        "frequency": "rare"
+      },
+      "expect": [
+        "candidate deprioritized unless another value signal exists"
+      ]
+    },
+    {
+      "id": "conditional_context",
+      "given": {
+        "candidate": "labor_cost_visibility"
+      },
+      "expect": [
+        "followup question explicitly mentions hours/labor cost/project profitability on same screen"
+      ],
+      "must_render": [
+        "no ambiguous 'ça/cela/elle' dependent on previous screen"
+      ]
+    },
+    {
+      "id": "multi_select_nonexclusive",
+      "given": {
+        "work_models": [
+          "appointments",
+          "projects",
+          "recurring"
+        ],
+        "tools": [
+          "spreadsheets",
+          "email_messages",
+          "calendar"
+        ]
+      },
+      "expect": [
+        "all coexisting realities retained"
+      ]
+    },
+    {
+      "id": "priority_does_not_hide_off_priority",
+      "given": {
+        "sales_coverage": "healthy",
+        "strong_operations_gap": true,
+        "declared_ambitions": [
+          "grow_sales"
+        ]
+      },
+      "expect": [
+        "strong operations opportunity can still appear"
+      ],
+      "must_not_generate": [
+        "weak sales recommendation just to match ambition"
+      ]
+    },
+    {
+      "id": "early_company_not_forced",
+      "given": {
+        "company_stage": "testing",
+        "coverage": "low but appropriate",
+        "declared_ambitions": [
+          "nothing_specific"
+        ]
+      },
+      "expect": [
+        "too-early outcome may be valid",
+        "educational possibilities only if context supports them"
+      ],
+      "must_not_generate": [
+        "growth stack checklist"
+      ]
+    },
+    {
+      "id": "result_specificity",
+      "given": {
+        "opportunity": "project_profitability",
+        "evidence": [
+          "hours",
+          "expenses",
+          "ambition improve_profitability"
+        ]
+      },
+      "expect": [
+        "result references the specific combination of hours/costs/profitability ambition"
+      ],
+      "must_not_generate": [
+        "generic 'centralize your data' as sole explanation"
+      ]
+    },
+    {
+      "id": "strengths_are_evidence_based",
+      "given": {
+        "sales_fit": "fully",
+        "client_history": "covered"
+      },
+      "expect": [
+        "specific sales/client strength may be shown"
+      ],
+      "must_not_generate": [
+        "unexplored finance/team areas shown as strengths"
+      ]
+    },
+    {
+      "id": "no_global_healthy_partial_coverage",
+      "given": {
+        "areas_explored": [
+          "sales_growth",
+          "tools_systems"
+        ],
+        "coverage_units": 2
+      },
+      "expect": [
+        "result language limited to explored areas or additional scan opens"
+      ],
+      "must_not_generate": [
+        "global business-is-healthy claim"
+      ]
+    },
+    {
+      "id": "client_experience_without_complaints",
+      "given": {
+        "scan_clients": [
+          "client_onboarding",
+          "client_history"
+        ],
+        "feedback_gap_confirmed": "yes",
+        "declared_ambitions": [
+          "improve_client_experience"
+        ]
+      },
+      "expect": [
+        "customer feedback/aftercare potential can surface without current complaints"
+      ]
+    },
+    {
+      "id": "nonprofit_no_sales_bias",
+      "given": {
+        "customer_types": [
+          "organizations_public"
+        ],
+        "sales_growth_not_applicable": true,
+        "internal_context": {
+          "sector_hint": "education_nonprofit"
+        }
+      },
+      "expect": [
+        "program/service, information, decision, stakeholder experience remain explorable"
+      ],
+      "must_not_generate": [
+        "classic sales funnel language when not applicable"
+      ]
+    },
+    {
+      "id": "genuinely_optimized_company",
+      "given": {
+        "coverage": "sufficient",
+        "fit": "good",
+        "ambition": "nothing_specific",
+        "optimization_interest": "no"
+      },
+      "expect": [
+        "credible no-material-opportunity result"
+      ],
+      "must_not_generate": [
+        "forced lead opportunity"
+      ]
+    },
+    {
+      "id": "manual_documents_no_frequency_followup",
+      "given": {
+        "scan_simplification": [
+          "documents"
+        ]
+      },
+      "expect": [
+        "document_simplification signal stored",
+        "next relevant business section opens"
+      ],
+      "must_not_generate": [
+        "frequency question",
+        "effort question",
+        "irritation scale"
+      ]
+    },
+    {
+      "id": "manual_multiple_tasks_single_screen",
+      "given": {
+        "scan_simplification": [
+          "documents",
+          "copy_transfer",
+          "followups"
+        ]
+      },
+      "expect": [
+        "three signals stored from one screen",
+        "no yes/no gate before task list",
+        "continue breadth-first discovery"
+      ]
+    },
+    {
+      "id": "generated_priority_cards_cluster_signals",
+      "given": {
+        "information_signals": [
+          "copy_reenter",
+          "documentation_gap"
+        ],
+        "operations_signals": [
+          "memory_followups"
+        ],
+        "finance_gap": "profitability_visibility"
+      },
+      "expect": [
+        "information section card contains both information signals",
+        "operations section appears once",
+        "finance can appear as separate section candidate",
+        "max six cards"
+      ]
+    },
+    {
+      "id": "priority_selection_replaces_pain_score",
+      "given": {
+        "candidate_sections": [
+          "information_ways",
+          "work_operations",
+          "finance_profitability"
+        ],
+        "respondent_priorities": [
+          "information_ways",
+          "finance_profitability"
+        ]
+      },
+      "expect": [
+        "information and finance get strong relevance signal",
+        "no generic importance 1-4 question",
+        "no frustration score"
+      ]
+    },
+    {
+      "id": "strong_unprioritized_secondary_survives",
+      "given": {
+        "respondent_priorities": [
+          "sales_growth"
+        ],
+        "strong_cross_signal": "hours + no labor cost visibility + profitability ambition"
+      },
+      "expect": [
+        "sales priority respected",
+        "profitability/decision opportunity remains eligible as one secondary potential"
+      ],
+      "must_not_generate": [
+        "hide strong cross-signal solely because it was not selected"
+      ]
+    },
+    {
+      "id": "weak_nonselection_not_card",
+      "given": {
+        "clients_collect_feedback_unselected": true,
+        "declared_ambitions": [
+          "save_time"
+        ]
+      },
+      "expect": [
+        "feedback remains unknown/low relevance"
+      ],
+      "must_not_generate": [
+        "client-service priority card from feedback omission alone"
+      ]
+    },
+    {
+      "id": "revenue_only_performance_card",
+      "given": {
+        "performance_selected": [
+          "revenue"
+        ],
+        "declared_ambitions": [
+          "better_decisions"
+        ]
+      },
+      "expect": [
+        "revenue covered",
+        "profitability/client feedback/work progress may become context-sensitive candidates",
+        "at most strongest relevant gaps shown"
+      ],
+      "must_not_generate": [
+        "claim all unselected metrics are missing",
+        "dashboard prescription"
+      ]
+    },
+    {
+      "id": "hours_profitability_cross_signal_without_pain",
+      "given": {
+        "team_selected": [
+          "hours"
+        ],
+        "finance_selected": [
+          "invoices_payments",
+          "expenses"
+        ],
+        "declared_ambitions": [
+          "improve_profitability"
+        ]
+      },
+      "expect": [
+        "cross-signal labor/project profitability candidate",
+        "no question about frustration entering hours",
+        "no effort score"
+      ]
+    },
+    {
+      "id": "r_and_d_breadth_signal",
+      "given": {
+        "development_selected": [
+          "versions",
+          "feedback"
+        ],
+        "declared_ambitions": [
+          "improve_offer"
+        ]
+      },
+      "expect": [
+        "results/decisions/next tests can become coverage hypotheses",
+        "R&D section may appear on priority screen"
+      ],
+      "must_not_generate": [
+        "force frequency of tests"
+      ]
+    },
+    {
+      "id": "healthy_manual_not_forced",
+      "given": {
+        "scan_simplification": [
+          "none"
+        ],
+        "information_scan": [
+          "working_well"
+        ],
+        "coverage": "sufficient"
+      },
+      "expect": [
+        "healthy outcome remains possible"
+      ],
+      "must_not_generate": [
+        "automation card because company is manual"
+      ]
+    },
+    {
+      "id": "section_priority_none",
+      "given": {
+        "priority_screen": "none_priority",
+        "coverage": "sufficient"
+      },
+      "expect": [
+        "do not force followups",
+        "results can emphasize well-covered areas or low-priority possibilities with measured language"
+      ],
+      "must_not_generate": [
+        "sales-pressure result"
+      ]
+    },
+    {
+      "id": "tools_context_only",
+      "given": {
+        "tools": [
+          "spreadsheets",
+          "email_messages",
+          "calendar",
+          "specialized"
+        ]
+      },
+      "expect": [
+        "tool context stored"
+      ],
+      "must_not_generate": [
+        "integration issue solely from multiple tools",
+        "custom tool solely from specialized software"
+      ]
+    },
+    {
+      "id": "post_priority_zero_followup_is_valid",
+      "given": {
+        "priority_section": "information_ways",
+        "signals": [
+          "copy_reenter",
+          "documentation_gap"
+        ],
+        "ambition": "save_time"
+      },
+      "expect": [
+        "result can be generated directly if direction is clear",
+        "zero followups accepted"
+      ]
+    },
+    {
+      "id": "post_priority_fit_followup_only_if_needed",
+      "given": {
+        "priority_section": "tools_systems",
+        "need_direction_depends_on_fit": true
+      },
+      "expect": [
+        "one contextual fit question may be asked"
+      ],
+      "must_not_generate": [
+        "frequency",
+        "effort",
+        "pain"
+      ]
+    },
+    {
+      "id": "context_independent_priority_followup",
+      "given": {
+        "selected_section": "finance_profitability",
+        "candidate": "project_profitability"
+      },
+      "expect": [
+        "any followup explicitly names project profitability / costs / financial view on the same screen"
+      ],
+      "must_not_generate": [
+        "ça",
+        "cela",
+        "cette situation"
+      ]
+    },
+    {
+      "id": "ambitions_multi_select",
+      "given": {
+        "declared_ambitions": [
+          "grow_sales",
+          "save_time",
+          "better_decisions"
+        ]
+      },
+      "expect": [
+        "all three ambitions stored equally",
+        "no second ambitions screen",
+        "discovery scans ordered using all three"
+      ],
+      "must_not_generate": [
+        "forced primary ambition",
+        "secondary ambition classification"
+      ]
+    },
+    {
+      "id": "area_applicability_clear_copy",
+      "given": {
+        "screen": "applicable_areas"
+      },
+      "expect": [
+        "question exactly asks which subjects are part of current reality",
+        "screen may be skipped if context already resolves applicability"
+      ],
+      "must_not_generate": [
+        "Quelles parties font réellement partie de votre entreprise aujourd’hui?"
+      ]
+    },
+    {
+      "id": "hours_not_generic_team_performance",
+      "given": {
+        "team_people": [
+          "hours"
+        ],
+        "priority_sections": [
+          "team_people"
+        ]
+      },
+      "expect": [
+        "if evidence supports a result, use a concrete hours/data opportunity title"
+      ],
+      "must_not_generate": [
+        "Faire progresser Équipe et employés",
+        "Renforcer team performance",
+        "team performance"
+      ]
+    },
+    {
+      "id": "no_internal_token_in_visible_results",
+      "given": {
+        "internal_capability": "team_performance",
+        "lens": "decision_support"
+      },
+      "expect": [
+        "visible French labels only"
+      ],
+      "must_not_generate": [
+        "team_performance",
+        "decision_support",
+        "work_visibility_gap"
+      ]
+    },
+    {
+      "id": "priority_section_not_repeated_as_opportunity",
+      "given": {
+        "priority_section": "information_ways",
+        "signal": "documentation_gap"
+      },
+      "expect": [
+        "priority shown once as compact context",
+        "main card titled with concrete documentation opportunity"
+      ],
+      "must_not_generate": [
+        "Faire progresser Information et façons de faire"
+      ]
+    },
+    {
+      "id": "no_circular_why",
+      "given": {
+        "priority_section": "work_operations",
+        "signal": "status_visibility"
+      },
+      "expect": [
+        "card explains value from visibility/coordination evidence"
+      ],
+      "must_not_generate": [
+        "Vous avez indiqué que cette section de l’entreprise valait la peine d’être améliorée."
+      ]
+    },
+    {
+      "id": "no_repeated_important_grades",
+      "given": {
+        "three_supported_opportunities": true
+      },
+      "expect": [
+        "internal ranking chooses order",
+        "prospect sees no repeated generic potential grade"
+      ],
+      "must_not_generate": [
+        "Potentiel : Important",
+        "Potentiel important"
+      ]
+    },
+    {
+      "id": "result_page_no_taxonomy_repetition",
+      "given": {
+        "ambitions": [
+          "save_time"
+        ],
+        "priority_sections": [
+          "information_ways",
+          "team_people",
+          "work_operations"
+        ],
+        "lenses": [
+          "operations",
+          "information",
+          "decision_support",
+          "automation"
+        ]
+      },
+      "expect": [
+        "compact ambition context",
+        "compact priority chips",
+        "concrete opportunity cards",
+        "lens tags only inside relevant cards"
+      ],
+      "must_not_generate": [
+        "standalone potential-map block duplicating the cards"
+      ]
+    },
+    {
+      "id": "direct_cobreo_solution_bridge",
+      "given": {
+        "at_least_one_supported_opportunity": true
+      },
+      "expect": [
+        "results include 'Regarder les solutions possibles avec Cobreo' after analytical value",
+        "CTA explains solutions can be explored together"
+      ],
+      "must_not_generate": [
+        "claim custom software is required",
+        "claim meeting required to validate diagnostic"
+      ]
+    },
+    {
+      "id": "weak_signal_no_generic_fallback_card",
+      "given": {
+        "candidate_supported_only_by_one_weak_nonselection": true
+      },
+      "expect": [
+        "keep candidate internal or exploratory"
+      ],
+      "must_not_generate": [
+        "generic section-named recommendation card"
+      ]
+    },
+    {
+      "id": "no_sector_question_in_prospect_flow",
+      "given": {
+        "start_questionnaire": true
+      },
+      "expect": [
+        "company_stage is first visible question",
+        "no sector/industry classification is requested"
+      ],
+      "must_not_generate": [
+        "Quel type d’activité décrit le mieux votre entreprise?",
+        "Services professionnels as a prospect classification choice"
+      ]
+    },
+    {
+      "id": "sector_enrichment_is_optional",
+      "given": {
+        "company_stage": "regular",
+        "company_size": "2_5",
+        "internal_context": {
+          "sector_hint": null
+        }
+      },
+      "expect": [
+        "questionnaire proceeds normally",
+        "results can be generated without sector enrichment"
+      ],
+      "must_not_generate": [
+        "blocking request for sector",
+        "missing-sector error"
+      ]
+    },
+    {
+      "id": "sector_hint_cannot_create_opportunity",
+      "given": {
+        "internal_context": {
+          "sector_hint": "construction_trades"
+        },
+        "area_answers": {},
+        "declared_ambitions": [
+          "save_time"
+        ]
+      },
+      "expect": [
+        "sector hint may influence later interpretation only",
+        "opportunities require respondent evidence"
+      ],
+      "must_not_generate": [
+        "construction-specific opportunity from sector alone"
+      ]
+    },
+    {
+      "id": "simple_results_finance_services",
+      "given": {
+        "section": "finance_profitability",
+        "signals": [
+          "manual_reporting",
+          "profitability_gap",
+          "tool_fit_gap"
+        ]
+      },
+      "expect": [
+        "Finances et rentabilité",
+        "Automatisation",
+        "Information et aide à la décision",
+        "Outil sur mesure"
+      ],
+      "must_not_generate": [
+        "Potentiel important",
+        "long result narrative"
+      ]
+    },
+    {
+      "id": "simple_results_sales_services",
+      "given": {
+        "section": "sales_growth",
+        "signals": [
+          "website_fit_gap",
+          "manual_followups",
+          "sales_tool_fit_gap"
+        ]
+      },
+      "expect": [
+        "Ventes et nouveaux clients",
+        "Présence en ligne et optimisation du site",
+        "Automatisation",
+        "Outil sur mesure"
+      ]
+    },
+    {
+      "id": "sales_ambition_alone_no_online_presence",
+      "given": {
+        "declared_ambitions": [
+          "grow_sales"
+        ],
+        "sales_signals": []
+      },
+      "expect": [
+        "no online presence service solely from ambition"
+      ]
+    },
+    {
+      "id": "no_custom_tool_from_tool_count",
+      "given": {
+        "tools": [
+          "spreadsheets",
+          "email_messages",
+          "calendar"
+        ],
+        "fit_gap": false
+      },
+      "expect": [
+        "no custom tool recommendation"
+      ]
+    },
+    {
+      "id": "simple_result_layout",
+      "given": {
+        "supported_sections": [
+          "finance_profitability",
+          "sales_growth"
+        ]
+      },
+      "expect": [
+        "one result heading",
+        "section cards",
+        "service chips",
+        "optional why disclosure",
+        "15-minute booking"
+      ],
+      "must_not_generate": [
+        "separate potential dashboard",
+        "separate long opportunity cards"
+      ]
+    },
+    {
+      "id": "booking_15_min_calendar_invite",
+      "given": {
+        "calendar_available": true,
+        "slot_selected": true
+      },
+      "expect": [
+        "15-minute event",
+        "prospect attendee",
+        "calendar invitation",
+        "confirmation after event creation"
+      ]
+    },
+    {
+      "id": "booking_unavailable_fallback",
+      "given": {
+        "calendar_available": false
+      },
+      "expect": [
+        "no confirmed booking",
+        "contact fallback allowed"
+      ],
+      "must_not_generate": [
+        "C’est réservé"
+      ]
+    }
+  ],
+  "real_prospect_pilot": {
+    "recommended_phase": "limited real test before broader prospect send",
+    "target_mix": [
+      "3 very early or solo businesses",
+      "4 established solo/professional-service businesses",
+      "5 small teams (2–20)",
+      "4 growing companies with operational complexity",
+      "4 structured or highly digital companies",
+      "at least 6 distinct sectors, including at least 2 outside professional services"
+    ],
+    "recommended_minimum_sessions": "20–24 qualitative completions before treating patterns as stable; this is a research target, not a statistical guarantee.",
+    "moderation": "Prefer silent completion first. Ask questions only after results so a moderator does not rescue unclear wording.",
+    "observe": [
+      "hesitation and scrolling on long checklists",
+      "whether respondents understand they can select multiple answers",
+      "whether a selected signal feels like their reality",
+      "whether generated priority cards accurately summarize what they meant",
+      "whether a card built partly from a non-selection feels invented",
+      "whether respondent prioritization feels useful rather than repetitive",
+      "whether they want to change a priority after seeing the result",
+      "whether any followup feels unnecessary",
+      "result card reading order and visual hierarchy",
+      "whether result wording produces a genuine realization",
+      "lead CTA behavior without pushing"
+    ],
+    "post_test_questions": [
+      "Quelle partie du questionnaire vous a le plus fait réfléchir?",
+      "Est-ce qu’un des sujets proposés dans « Vos priorités » vous a fait réaliser quelque chose que vous n’aviez pas vraiment formulé avant?",
+      "Y a-t-il un sujet affiché comme potentiel qui ne correspondait pas du tout à votre réalité?",
+      "Y a-t-il quelque chose d’important dans votre entreprise que vous n’avez pas réussi à exprimer?",
+      "Parmi vos résultats, quelle piste vous semble la plus utile?",
+      "Y a-t-il une opportunité évidente pour vous que les résultats n’ont pas vue?",
+      "Une suggestion vous a-t-elle semblé inventée ou exagérée?",
+      "Auriez-vous trouvé l’exercice utile même sans parler à Cobreo?",
+      "Après les résultats, avez-vous envie d’explorer une des possibilités avec Cobreo? Pourquoi?"
+    ],
+    "success_gate": [
+      "No recurring critical failure across participants.",
+      "Generated priority cards are usually recognized as faithful summaries of the respondent's answers.",
+      "No repeated complaint that the questionnaire over-analyzes one small issue.",
+      "No repeated complaint that followup questions add little value.",
+      "Respondents can identify what they most want to improve from the generated section cards.",
+      "At least some participants report a useful or unexpected realization; actual rate must be measured from the pilot.",
+      "Results are specific enough that participants reject the idea they could belong to any random company.",
+      "Mobile completion burden is acceptable."
+    ],
+    "pilot_stop_conditions": [
+      "Two or more participants independently report the same priority card is invented from non-selection.",
+      "The same high-value business opportunity is missed in multiple relevant participants.",
+      "The prioritization screen is repeatedly misunderstood.",
+      "A recurring question is identified as unnecessary by both observation and interview.",
+      "Results repeatedly overstate certainty or push a Cobreo service not supported by the answers."
+    ]
+  },
+  "persona_simulation_outcomes": [
+    {
+      "persona_id": "health_cube_founder",
+      "status": "pass",
+      "expected_discovery_or_outcome": "R&D/feedback structure + emerging product information/order capability",
+      "remaining_risk": "Avoid generic startup stack."
+    },
+    {
+      "persona_id": "new_consultant",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Light client/sales setup only if ambitions support it; healthy/too-early valid",
+      "remaining_risk": "Watch for over-scanning finance."
+    },
+    {
+      "persona_id": "financial_advisor",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Document/follow-up/information/decision opportunities remain discoverable after healthy sales",
+      "remaining_risk": "Key regression from V6."
+    },
+    {
+      "persona_id": "manual_construction",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Hours + work progress + profitability connection; information/operations",
+      "remaining_risk": "Do not equate Excel/paper with problem."
+    },
+    {
+      "persona_id": "digital_agency",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Potential integration/reporting only if fit/gaps supported",
+      "remaining_risk": "Many tools alone remain neutral."
+    },
+    {
+      "persona_id": "skeptical_owner",
+      "status": "watch",
+      "expected_discovery_or_outcome": "High-value scans work but dense applicability list may test patience",
+      "remaining_risk": "Real mobile observation needed."
+    },
+    {
+      "persona_id": "chaotic_growth_services",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Scheduling/handoffs/information/visibility",
+      "remaining_risk": "Strong multi-area corroboration."
+    },
+    {
+      "persona_id": "structured_manufacturer",
+      "status": "pass",
+      "expected_discovery_or_outcome": "R&D/decision gap can surface despite ERP/CRM",
+      "remaining_risk": "Tailored tools guardrail required."
+    },
+    {
+      "persona_id": "physio_clinic",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Client intake/followup/feedback + scheduling context",
+      "remaining_risk": "Sector examples should be tested."
+    },
+    {
+      "persona_id": "restaurant",
+      "status": "watch",
+      "expected_discovery_or_outcome": "Team hours/scheduling/operations relevant",
+      "remaining_risk": "Some category wording may feel office-oriented."
+    },
+    {
+      "persona_id": "ecommerce_brand",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Customer feedback, profitability, orders, product development",
+      "remaining_risk": "Avoid recommending ecommerce because it already exists."
+    },
+    {
+      "persona_id": "farm_family",
+      "status": "watch",
+      "expected_discovery_or_outcome": "Operations/finance/information can apply",
+      "remaining_risk": "Seasonality/examples need real validation."
+    },
+    {
+      "persona_id": "music_school",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Scheduling, payments, teacher/team information, client followup",
+      "remaining_risk": "Multi-role customers should remain expressible."
+    },
+    {
+      "persona_id": "accounting_firm",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Time entry → capacity/profitability/documentation",
+      "remaining_risk": "Seasonal load may justify later volume context."
+    },
+    {
+      "persona_id": "property_manager",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Request handling, vendor/work visibility, client/tenant experience",
+      "remaining_risk": "No CRM assumption."
+    },
+    {
+      "persona_id": "small_machine_shop",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Work progress + job cost + tool fit",
+      "remaining_risk": "Good custom-tool stress case."
+    },
+    {
+      "persona_id": "creative_studio",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Revisions/feedback/capacity/project profitability",
+      "remaining_risk": "Project vocabulary fits."
+    },
+    {
+      "persona_id": "b2b_distributor",
+      "status": "pass",
+      "expected_discovery_or_outcome": "ERP edge workflows + information + sales/ops handoff",
+      "remaining_risk": "Custom tools only if gap specific."
+    },
+    {
+      "persona_id": "healthy_manual_business",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Can finish healthy after sufficient coverage",
+      "remaining_risk": "Critical credibility case."
+    },
+    {
+      "persona_id": "employee_hours_profitability",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Hours already captured become input to profitability/decision opportunity",
+      "remaining_risk": "Do not recommend new time-entry tool automatically."
+    },
+    {
+      "persona_id": "rd_food_company",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Versions/feedback/results/decisions knowledge gap",
+      "remaining_risk": "Strong R&D coverage test."
+    },
+    {
+      "persona_id": "multi_tool_healthy",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Tools remain healthy when fit is good",
+      "remaining_risk": "Prevents fragmentation false positive."
+    },
+    {
+      "persona_id": "nonprofit_programs",
+      "status": "watch",
+      "expected_discovery_or_outcome": "Decision/information/service outcomes still applicable without classic sales",
+      "remaining_risk": "Need real wording validation for 'clients'."
+    },
+    {
+      "persona_id": "established_launching_new_offer",
+      "status": "pass",
+      "expected_discovery_or_outcome": "Emerging-capability path remains local to new offer",
+      "remaining_risk": "Company maturity never blocks emerging needs."
+    }
+  ],
+  "persona_simulation_note": "Qualitative simulated outcomes. 'pass' means no known structural failure in the reference path; 'watch' means real-user wording/fit remains uncertain.",
+  "area_sequencing": {
+    "principle": "Ambitions determine where to start, never where to stop. Discovery should cover several relevant parts of the business before prioritization.",
+    "typical_initial_scans": 3,
+    "typical_total_scans": "4–6",
+    "max_without_user_explicitly_choosing_to_continue": 6,
+    "include_simplification_scan_when_relevant": true,
+    "ambition_to_priority_areas": {
+      "grow_sales": [
+        "sales_growth",
+        "clients_service",
+        "tools_systems"
+      ],
+      "improve_client_experience": [
+        "clients_service",
+        "sales_growth",
+        "information_ways"
+      ],
+      "save_time": [
+        "work_operations",
+        "information_ways",
+        "tools_systems"
+      ],
+      "improve_team": [
+        "team_people",
+        "work_operations",
+        "information_ways"
+      ],
+      "better_decisions": [
+        "leadership_performance",
+        "finance_profitability",
+        "information_ways"
+      ],
+      "improve_profitability": [
+        "finance_profitability",
+        "leadership_performance",
+        "work_operations",
+        "team_people"
+      ],
+      "improve_offer": [
+        "offer_development",
+        "clients_service",
+        "leadership_performance"
+      ],
+      "prepare_growth": [
+        "work_operations",
+        "team_people",
+        "information_ways",
+        "tools_systems"
+      ],
+      "use_information_better": [
+        "information_ways",
+        "tools_systems",
+        "leadership_performance"
+      ],
+      "nothing_specific": [
+        "leadership_performance",
+        "work_operations",
+        "information_ways"
+      ]
+    },
+    "rules": [
+      "Filter hard non-applicable sections first.",
+      "Start with ambition-aligned applicable sections.",
+      "Include at least one cross-cutting section outside the primary ambition when possible.",
+      "Prefer one high-yield checklist over two gate/detail screens.",
+      "Do not stop discovery because the first section looks healthy.",
+      "Do not deepen early signals during the broad scan.",
+      "Move to prioritization after enough distinct relevant sections have been explored or the signal inventory is already rich.",
+      "If almost no signals emerge and coverage is narrow, open one additional high-value section rather than asking micro-qualification questions."
+    ]
+  },
+  "question_value_audit": [
+    {
+      "question": "sector_family",
+      "retained": false,
+      "reason": "High cognitive cost and ambiguous classification; current V7 branching does not need it enough to justify asking. Sector can be enriched internally later."
+    },
+    {
+      "question": "company_stage",
+      "retained": true,
+      "decision_changed": "Distinguishes emerging, active and established realities."
+    },
+    {
+      "question": "company_size",
+      "retained": true,
+      "decision_changed": "Controls team applicability and structural opportunities."
+    },
+    {
+      "question": "customer_types",
+      "retained": true,
+      "decision_changed": "Prevents assuming one sales/client model."
+    },
+    {
+      "question": "work_models",
+      "retained": true,
+      "decision_changed": "Adapts operations and allows coexisting work modes."
+    },
+    {
+      "question": "declared_ambitions",
+      "retained": true,
+      "decision_changed": "Multi-select max 3. High-value intent signal used to order discovery and interpret results."
+    },
+    {
+      "question": "section_scans",
+      "retained": true,
+      "decision_changed": "High-yield breadth: one screen can create multiple explicit signals and coverage hypotheses."
+    },
+    {
+      "question": "manual_task_yes_no_then_task_list",
+      "retained": false,
+      "reason": "Gate question adds little value. Replaced by one direct multi-select simplification scan."
+    },
+    {
+      "question": "generic_frequency_after_manual_task",
+      "retained": false,
+      "reason": "Does not usually change the type or usefulness of the opportunity; no longer part of normal flow."
+    },
+    {
+      "question": "generic_effort_after_manual_task",
+      "retained": false,
+      "reason": "Adds precision to pain rather than discovering new business potential."
+    },
+    {
+      "question": "generic_irritation_1_to_4",
+      "retained": false,
+      "reason": "Low information value for Cobreo opportunity discovery."
+    },
+    {
+      "question": "generic_desire_to_improve_scale",
+      "retained": false,
+      "reason": "Replaced by respondent prioritization of surfaced business sections."
+    },
+    {
+      "question": "respondent_section_prioritization",
+      "retained": true,
+      "decision_changed": "Directly identifies which surfaced parts of the business the leader believes matter most to improve."
+    },
+    {
+      "question": "post_priority_followup",
+      "retained": "conditional",
+      "decision_changed": "Ask only when the answer changes the direction of a selected result, not merely its precision."
+    }
+  ],
+  "implementation_notes": [
+    "Build V7 as a new flow rather than layering it on top of V6 stage/intensity scoring.",
+    "Do not port the old weighted stage score or friction bands.",
+    "Persist capabilities and coverage states independently from opportunity lenses.",
+    "A checked capability means it is present/covered, not necessarily satisfactory.",
+    "An unchecked capability means potentially_uncovered at most.",
+    "Run fit checks only when a current solution/process materially relates to an ambition or candidate.",
+    "Use primary ambition throughout result generation as relevance context, never as evidence by itself.",
+    "Do not render all area scans; follow area_sequencing.",
+    "Question followups must be self-contained or show a context header on the same screen.",
+    "Use multi-select whenever answers can coexist.",
+    "Do not add generic 1–4 irritation or effort scales.",
+    "Frequency/volume questions are conditional and must name the activity explicitly.",
+    "Results show supported opportunity lenses only; never render six empty/scored categories.",
+    "Tailored tools/custom software is the most guarded lens.",
+    "Educational numeric facts require stored verifiable sources before use; conceptual explanations are allowed without invented statistics.",
+    "Lead capture remains optional and visually separate from the diagnostic result.",
+    "V7.8 is breadth-first: do not deepen a selected signal during the discovery scan by default.",
+    "Replace automation yes/no + task list with one direct multi-select simplification checklist.",
+    "Do not implement generic frequency, effort, irritation or pain scales in the normal flow.",
+    "After 4–6 relevant scans, generate business-section cards from the respondent's own signals and high-value contextual coverage hypotheses.",
+    "Ask the respondent to choose up to three business sections they most want to improve or explore.",
+    "Use those choices as a major relevance signal for results.",
+    "Allow one strong unprioritized opportunity to survive as a secondary potential.",
+    "Post-priority deepening is optional and capped at two total questions.",
+    "Question screens must remain self-contained and use larger mobile typography.",
+    "Prioritization and result pages should use restrained semantic color accents and stronger visual hierarchy.",
+    "Do not render a second ambitions question.",
+    "Remove sector_family from all prospect-visible screens and required state.",
+    "The first prospect question is company_stage.",
+    "Sector may exist only as optional internal_context.sector_hint enriched after or outside the questionnaire.",
+    "All ambition branching must use membership checks against declared_ambitions[].",
+    "Do not reintroduce a sector dropdown unless real pilot evidence shows a concrete discovery/branching benefit that cannot be obtained more simply.",
+    "Replace current long prospect result cards with simple business-section -> service cards.",
+    "Keep 'Pourquoi ces services?' collapsed by default.",
+    "Do not render generic potential scores.",
+    "Make direct 15-minute calendar booking the primary close.",
+    "Create the calendar event and add the prospect as attendee before showing booking confirmation."
+  ],
+  "qa": {
+    "schema_checks": [
+      "Every multi-select has explicit instruction copy.",
+      "Exclusive none/not-applicable options cannot coexist with substantive options.",
+      "Every conditional followup includes an explicit same-screen referent.",
+      "No normal-flow question id contains generic_frequency, generic_effort, irritation or pain_score.",
+      "Priority cards must be generated from traceable signals.",
+      "No priority card can be generated from ambition alone or one weak non-selection.",
+      "Result opportunity cards must cite their supporting answer ids internally.",
+      "No result card may recommend custom software directly from tool count or manual work.",
+      "declared_ambitions is a multi-select with max 3 and no secondary ambitions screen.",
+      "No visible result title may equal a business-section label.",
+      "No visible result copy may contain internal ids or untranslated English capability names.",
+      "No prospect result page renders a standalone potential-lens block that duplicates concrete opportunities.",
+      "No visible generic importance grade is required.",
+      "Every primary result card has traceable evidence and a concrete action/outcome title.",
+      "The Cobreo solution bridge comes after analytical value and does not prescribe custom software.",
+      "sector_family does not exist in company_context prospect questions.",
+      "company_stage is the first prospect-visible company-context question.",
+      "sector_hint is optional internal context only.",
+      "No opportunity may be created from sector_hint alone.",
+      "No branch condition uses legacy primary_ambition; use membership in declared_ambitions[]."
+    ],
+    "manual_copy_review": [
+      "Avoid ambiguous 'ça/cela/cette situation' referents.",
+      "Avoid judgmental 'encore/toujours/trop/inutilement/devrait' unless strictly descriptive and necessary.",
+      "Keep visible business-section labels concrete.",
+      "Check every option for mobile length and reading level."
+    ],
+    "status": "candidate_for_real_user_testing_after_v7_9_implementation"
+  },
+  "section_model": {
+    "purpose": "These are concrete parts of the business that the respondent can recognize. They are not Cobreo service categories.",
+    "sections": [
+      {
+        "id": "leadership_performance",
+        "label_fr": "Suivi de l’entreprise et décisions"
+      },
+      {
+        "id": "sales_growth",
+        "label_fr": "Ventes et nouveaux clients"
+      },
+      {
+        "id": "clients_service",
+        "label_fr": "Clients et service"
+      },
+      {
+        "id": "work_operations",
+        "label_fr": "Organisation du travail"
+      },
+      {
+        "id": "team_people",
+        "label_fr": "Équipe et employés"
+      },
+      {
+        "id": "finance_profitability",
+        "label_fr": "Finances et rentabilité"
+      },
+      {
+        "id": "information_ways",
+        "label_fr": "Information et façons de faire"
+      },
+      {
+        "id": "offer_development",
+        "label_fr": "Produits, services et développement"
+      },
+      {
+        "id": "tools_systems",
+        "label_fr": "Outils et systèmes"
+      }
+    ],
+    "rule": "A section can generate multiple Cobreo potential lenses. The respondent prioritizes business sections, not service products."
+  },
+  "breadth_first_discovery": {
+    "principle": "During discovery, prefer breadth to depth. Store a useful signal and move to another relevant part of the business.",
+    "do_not_do": [
+      "Do not ask frequency simply because a repetitive task was selected.",
+      "Do not ask effort simply because a manual task was selected.",
+      "Do not ask irritation or pain scales.",
+      "Do not immediately investigate every selected item.",
+      "Do not require the respondent to explain why every non-selected capability is missing."
+    ],
+    "signal_sources": [
+      "explicitly selected situation",
+      "current capability selected",
+      "relevant capability not selected",
+      "declared ambition",
+      "company context",
+      "existing system fit when already known",
+      "optional free-text signal"
+    ],
+    "default_behavior_after_signal": "Store the signal, map it to candidate business sections and Cobreo potentials, then continue scanning.",
+    "when_to_interrupt_breadth": "Only when an answer is required immediately to prevent a clearly irrelevant branch or unsafe inference."
+  },
+  "candidate_inventory": {
+    "purpose": "Accumulate many plausible opportunities before asking the respondent what deserves attention.",
+    "candidate_states": [
+      "explicit_signal",
+      "coverage_gap_hypothesis",
+      "fit_gap_if_known",
+      "cross_signal",
+      "respondent_prioritized",
+      "supported_secondary",
+      "healthy_or_not_priority"
+    ],
+    "sources": {
+      "explicit_signal": "A selected situation directly suggests an improvement possibility.",
+      "coverage_gap_hypothesis": "A relevant capability was not selected. This is a hypothesis only.",
+      "cross_signal": "Two or more answers combine into a higher-value possibility, e.g. hours tracked + profitability ambition + no labor-cost visibility.",
+      "ambition": "Raises relevance but never creates a candidate alone.",
+      "tools": "Context only unless paired with a need/fit signal."
+    },
+    "rules": [
+      "Non-selection is never treated as proof of absence.",
+      "Do not show every candidate to the respondent.",
+      "Prefer candidates supported by explicit selection, cross-signal logic, or strong context + ambition relevance.",
+      "A candidate can be stored without asking another question.",
+      "Do not calculate pain or annoyance scores.",
+      "Do not use tool count as an opportunity score."
+    ]
+  },
+  "respondent_prioritization": {
+    "principle": "Let the leader tell us which of the surfaced business sections are most worthwhile to improve. This replaces most micro-qualification.",
+    "screen": {
+      "id": "choose_priority_sections",
+      "title_fr": "Ce qui pourrait valoir la peine d’être amélioré",
+      "intro_fr": "À partir de vos réponses, voici les endroits où il semble y avoir le plus de potentiel. Lesquels seraient les plus intéressants à améliorer ou à explorer dans les prochains mois?",
+      "kind": "multi_select_generated_section_cards",
+      "instruction_fr": "Choisissez jusqu’à 3 sections.",
+      "selection": {
+        "min": 0,
+        "max": 3
+      },
+      "card_structure": [
+        "business_section_label",
+        "1_to_3_specific_signals_from_the_respondent",
+        "short_neutral_potential_phrase"
+      ],
+      "max_cards": 6,
+      "fallback_option": {
+        "id": "none_priority",
+        "label_fr": "Aucun de ces sujets n’est une priorité pour le moment",
+        "exclusive": true
+      }
+    },
+    "card_example": {
+      "section": "information_ways",
+      "title_fr": "Information et façons de faire",
+      "signals_fr": [
+        "Certaines informations sont saisies plus d’une fois",
+        "Des façons de faire importantes sont peu documentées"
+      ],
+      "potential_fr": "Possibilité de simplifier la circulation de l’information et de mieux conserver les façons de faire."
+    },
+    "ranking_for_cards": [
+      "explicit selected signal in section",
+      "strong cross-signal involving section",
+      "confirmed or very context-relevant coverage-gap hypothesis",
+      "alignment with declared ambition"
+    ],
+    "rules": [
+      "Ambition alignment breaks ties; it does not manufacture evidence.",
+      "Do not show a section card with only a weak non-selection.",
+      "When many signals exist, cluster them by business section rather than showing one card per micro-opportunity.",
+      "Selecting a section is a strong respondent-interest signal and replaces generic desire-to-improve scales.",
+      "An unselected but strongly supported opportunity may still appear later as one secondary potential, clearly separated from respondent priorities."
+    ]
+  },
+  "v78_simulation_summary": {
+    "panel_size": 32,
+    "panel_note": "Qualitative simulated persona panel, not empirical users.",
+    "mandatory_extremes_covered": [
+      "new solo founder",
+      "completely manual business",
+      "very digital business",
+      "skeptical leader",
+      "chaotic growing business",
+      "very structured business"
+    ],
+    "additional_stress_cases": [
+      "revenue-only management view",
+      "employee hours without profitability use",
+      "R&D knowledge capture",
+      "many tools but healthy fit",
+      "manual low-volume healthy business",
+      "strong off-priority cross-signal",
+      "nonprofit/no classic sales",
+      "sector-specific operational language"
+    ],
+    "qualitative_result": "No repeated structural failure found after breadth-first + section-prioritization redesign. Main remaining risks are real-user list scanning, wording interpretation, and whether generated section summaries feel accurate.",
+    "estimated_scorecard": {
+      "comprehension": 9.4,
+      "simplicity": 9.4,
+      "relevance": 9.8,
+      "universality": 9.6,
+      "discovery": 9.8,
+      "answer_quality": 9.6,
+      "adaptability": 9.7,
+      "user_value": 9.8,
+      "cobreo_analysis": 9.8,
+      "low_abandonment_risk": 9.3
+    },
+    "scorecard_note": "Comparative qualitative estimate only; not measured user data."
+  },
+  "result_opportunity_templates": {
+    "principle": "Translate signals into concrete business opportunities before rendering. Business sections and Cobreo lenses are metadata, not the recommendation itself.",
+    "examples": {
+      "team_hours": {
+        "trigger_examples": [
+          "team_people.hours"
+        ],
+        "title_fr": "Mieux exploiter les heures déjà enregistrées",
+        "what_we_see_fr": "Vous suivez déjà les heures travaillées de votre équipe.",
+        "what_could_improve_fr": "Selon les autres informations disponibles, ces heures pourraient servir à mieux comprendre la charge de travail, les coûts ou la performance des travaux.",
+        "what_it_could_bring_fr": "Une vue plus utile de la façon dont le temps est investi et, lorsque les données le permettent, de la rentabilité ou de la capacité de l’équipe.",
+        "what_we_could_explore_together_fr": "Regarder comment mieux utiliser les données déjà disponibles, sans présumer qu’il faut changer vos outils actuels.",
+        "possibilities_fr": [
+          "Vue de gestion",
+          "Regroupement de données",
+          "Indicateurs adaptés",
+          "Rapports automatisés"
+        ],
+        "cobreo_lenses": [
+          "decision_support",
+          "information"
+        ],
+        "guardrail": "Do not state that hours are currently underused unless another answer supports that fact."
+      },
+      "documentation_gap": {
+        "trigger_examples": [
+          "information_ways.documentation_gap"
+        ],
+        "title_fr": "Rendre les façons de faire importantes plus faciles à transmettre",
+        "what_we_see_fr": "Vous avez indiqué que certaines façons de faire importantes sont peu documentées.",
+        "what_could_improve_fr": "Structurer les connaissances qui valent réellement la peine d’être conservées et les rendre plus faciles à retrouver.",
+        "what_it_could_bring_fr": "Plus de continuité dans le travail, une transmission plus simple et moins de dépendance à l’information gardée en tête.",
+        "what_we_could_explore_together_fr": "Identifier ce qui mérite d’être documenté et choisir une façon simple de rendre cette information accessible au bon moment.",
+        "possibilities_fr": [
+          "Procédures simples",
+          "Base de connaissances",
+          "Modèles",
+          "Accès centralisé à l’information"
+        ],
+        "cobreo_lenses": [
+          "information",
+          "operations"
+        ]
+      },
+      "work_visibility": {
+        "trigger_examples": [
+          "work_operations.status_visibility"
+        ],
+        "title_fr": "Voir plus clairement où en sont les travaux",
+        "what_we_see_fr": "Vous avez indiqué qu’il n’est pas toujours simple de voir où en sont les dossiers, travaux ou commandes.",
+        "what_could_improve_fr": "Rendre l’état des travaux, les prochaines étapes et les éléments qui demandent de l’attention plus visibles.",
+        "what_it_could_bring_fr": "Des priorités plus claires, des suivis plus simples et une meilleure coordination du travail.",
+        "what_we_could_explore_together_fr": "Regarder comment donner une vue utile de l’avancement sans ajouter inutilement de gestion.",
+        "possibilities_fr": [
+          "Vue opérationnelle",
+          "Suivi des étapes",
+          "Rappels ciblés",
+          "Regroupement d’information"
+        ],
+        "cobreo_lenses": [
+          "operations",
+          "decision_support"
+        ]
+      },
+      "information_reentry": {
+        "trigger_examples": [
+          "information_ways.copy_reenter",
+          "scan_simplification.copy_transfer"
+        ],
+        "title_fr": "Éviter de recopier la même information",
+        "what_we_see_fr": "Vous avez indiqué que certaines informations sont recopiées ou saisies plus d’une fois.",
+        "what_could_improve_fr": "Réutiliser plus directement l’information déjà disponible entre les étapes ou les outils concernés.",
+        "what_it_could_bring_fr": "Moins de manipulations, moins de risques d’écart entre les versions et un travail plus fluide.",
+        "what_we_could_explore_together_fr": "Identifier où l’information est reprise et regarder la façon la plus simple de réduire ces doubles manipulations.",
+        "possibilities_fr": [
+          "Réutilisation de données",
+          "Connexion entre outils",
+          "Automatisation ciblée",
+          "Simplification du processus"
+        ],
+        "cobreo_lenses": [
+          "automation",
+          "information",
+          "operations"
+        ]
+      },
+      "customer_feedback_gap": {
+        "trigger_examples": [
+          "clients_service.collect_feedback:potentially_uncovered"
+        ],
+        "title_fr": "Mieux utiliser les retours clients pour décider quoi améliorer",
+        "what_we_see_rule": "Only render a factual statement after explicit confirmation or a supporting cross-signal; otherwise phrase as a possibility.",
+        "what_could_improve_fr": "Faire remonter plus clairement ce que les clients apprécient, demandent ou rencontrent afin d’orienter les améliorations.",
+        "what_it_could_bring_fr": "Une meilleure lecture de l’expérience client et des signaux utiles pour faire évoluer l’offre ou le service.",
+        "what_we_could_explore_together_fr": "Regarder quels retours valent la peine d’être recueillis et comment les rendre réellement utiles à la prise de décision.",
+        "possibilities_fr": [
+          "Collecte de feedback",
+          "Regroupement des retours",
+          "Suivi de thèmes récurrents",
+          "Vue de satisfaction"
+        ],
+        "cobreo_lenses": [
+          "customer_experience",
+          "decision_support",
+          "information"
+        ]
+      },
+      "profitability_visibility": {
+        "trigger_examples": [
+          "finance_profitability.profitability:potentially_uncovered",
+          "cross_signal:hours_plus_profitability_ambition"
+        ],
+        "title_fr": "Mieux comprendre ce qui contribue réellement à la rentabilité",
+        "what_we_see_rule": "Use only confirmed finance/team answers. Do not assume profitability is unavailable from one non-selection.",
+        "what_could_improve_fr": "Relier les informations déjà disponibles sur le travail, les coûts ou les revenus pour obtenir une vue plus utile de la rentabilité.",
+        "what_it_could_bring_fr": "Des décisions plus éclairées sur les prix, les types de travaux, les ressources et les priorités.",
+        "what_we_could_explore_together_fr": "Regarder quelles données sont déjà disponibles et quelle vue de rentabilité serait réellement utile au dirigeant.",
+        "possibilities_fr": [
+          "Indicateurs de rentabilité",
+          "Regroupement de données",
+          "Vue par projet ou service",
+          "Rapports de gestion"
+        ],
+        "cobreo_lenses": [
+          "decision_support",
+          "information",
+          "automation"
+        ]
+      }
+    },
+    "fallback_generation_rules": [
+      "Never generate a fallback title from the section label.",
+      "A fallback opportunity must contain one explicit business activity + one improvement direction.",
+      "If the engine cannot write a concrete title from supported evidence, do not render a main opportunity card; keep the signal internal or ask one decision-changing followup."
+    ]
+  },
+  "company_context_policy": {
+    "prospect_visible_order": [
+      "company_stage",
+      "company_size",
+      "customer_types",
+      "work_models"
+    ],
+    "first_question_id": "company_stage",
+    "first_question_fr": "Où en êtes-vous avec votre entreprise aujourd’hui?",
+    "rules": [
+      "Do not ask the respondent to classify their sector or industry.",
+      "Only collect context that changes applicability, sequencing, wording or opportunity interpretation.",
+      "Context that can be researched or confirmed later should not consume early questionnaire attention.",
+      "If company_size indicates one person, automatically suppress team-only questions.",
+      "Use customer_types and work_models only because they directly help adapt relevant discovery sections."
+    ]
+  },
+  "internal_context_enrichment": {
+    "sector_hint": {
+      "required": false,
+      "prospect_visible": false,
+      "possible_sources": [
+        "company website",
+        "company name and public information",
+        "manual Cobreo research",
+        "later prospect conversation"
+      ],
+      "allowed_use": [
+        "adapt examples after the questionnaire",
+        "help Cobreo interpret sector-specific constraints",
+        "support meeting preparation"
+      ],
+      "forbidden_use": [
+        "create an opportunity by itself",
+        "override the respondent's actual answers",
+        "make a prospect answer a sector-classification question"
+      ]
+    },
+    "rule": "Missing enrichment must never block questionnaire completion or result generation."
+  },
+  "prospect_service_taxonomy": {
+    "services": [
+      {
+        "id": "operations_optimization",
+        "label_fr": "Optimisation des opérations"
+      },
+      {
+        "id": "automation",
+        "label_fr": "Automatisation"
+      },
+      {
+        "id": "information_decision",
+        "label_fr": "Information et aide à la décision"
+      },
+      {
+        "id": "customer_experience",
+        "label_fr": "Expérience client"
+      },
+      {
+        "id": "online_presence",
+        "label_fr": "Présence en ligne et optimisation du site"
+      },
+      {
+        "id": "custom_tool",
+        "label_fr": "Outil sur mesure"
+      }
+    ],
+    "rules": [
+      "Show only services supported by respondent answers.",
+      "custom_tool requires an important fit gap or business-specific unmet need.",
+      "online_presence requires a client-facing or sales-path signal, not sales ambition alone.",
+      "automation requires a repetitive/manual/follow-up/transfer/generation signal.",
+      "information_decision requires an information/visibility/reporting/decision signal."
+    ]
+  },
+  "simple_service_mapping": {
+    "leadership_performance": {
+      "label_fr": "Suivi de l’entreprise et décisions",
+      "services": [
+        "information_decision",
+        "automation",
+        "custom_tool"
+      ]
+    },
+    "sales_growth": {
+      "label_fr": "Ventes et nouveaux clients",
+      "services": [
+        "online_presence",
+        "automation",
+        "customer_experience",
+        "custom_tool"
+      ]
+    },
+    "clients_service": {
+      "label_fr": "Clients et service",
+      "services": [
+        "customer_experience",
+        "automation",
+        "information_decision",
+        "custom_tool"
+      ]
+    },
+    "work_operations": {
+      "label_fr": "Organisation du travail",
+      "services": [
+        "operations_optimization",
+        "automation",
+        "information_decision",
+        "custom_tool"
+      ]
+    },
+    "team_people": {
+      "label_fr": "Équipe et employés",
+      "services": [
+        "operations_optimization",
+        "automation",
+        "information_decision",
+        "custom_tool"
+      ]
+    },
+    "finance_profitability": {
+      "label_fr": "Finances et rentabilité",
+      "services": [
+        "automation",
+        "information_decision",
+        "custom_tool"
+      ]
+    },
+    "information_ways": {
+      "label_fr": "Information et façons de faire",
+      "services": [
+        "information_decision",
+        "automation",
+        "operations_optimization",
+        "custom_tool"
+      ]
+    },
+    "offer_development": {
+      "label_fr": "Produits, services et développement",
+      "services": [
+        "information_decision",
+        "customer_experience",
+        "automation",
+        "custom_tool"
+      ]
+    },
+    "tools_systems": {
+      "label_fr": "Outils et systèmes",
+      "services": [
+        "automation",
+        "information_decision",
+        "custom_tool"
+      ]
+    },
+    "rules": [
+      "Show 1–3 supported services per section; maximum 4.",
+      "Do not show a section solely because it was selected earlier.",
+      "Do not show generic opportunity grades.",
+      "Do not expose internal lens ids."
+    ]
+  },
+  "service_recommendation_model": {
+    "evidence_required": {
+      "operations_optimization": [
+        "workflow/coordination/status/planning signal"
+      ],
+      "automation": [
+        "manual/repetitive/transfer/follow-up/generation signal"
+      ],
+      "information_decision": [
+        "visibility/information/metric/reporting/decision signal"
+      ],
+      "customer_experience": [
+        "client/prospect journey, feedback, request, onboarding or service signal"
+      ],
+      "online_presence": [
+        "offer presentation, online discovery, website fit, inquiry/conversion signal"
+      ],
+      "custom_tool": [
+        "important need + current-solution fit gap or specific workflow poorly covered"
+      ]
+    },
+    "rules": [
+      "Section prioritization raises relevance but is not enough by itself.",
+      "Do not show custom_tool because spreadsheets or several tools are used.",
+      "Do not show online_presence because sales growth was selected as an ambition.",
+      "If evidence is weak, omit the service."
+    ]
+  },
+  "booking": {
+    "primary_close": true,
+    "duration_minutes": 15,
+    "title_fr": "Vous voulez regarder les solutions ensemble?",
+    "body_fr": "Réservez 15 minutes avec Cobreo pour reprendre les sections qui vous intéressent et voir quelles solutions seraient les plus pertinentes.",
+    "cta_fr": "Réserver 15 minutes",
+    "flow": [
+      "show genuinely available 15-minute slots",
+      "select a slot",
+      "collect name and email; company optional",
+      "confirm timezone",
+      "create event in Cobreo calendar",
+      "add prospect as attendee",
+      "send calendar invitation",
+      "show confirmation",
+      "offer add-to-calendar fallback if needed"
+    ],
+    "required_fields": [
+      {
+        "id": "name",
+        "label_fr": "Nom",
+        "required": true
+      },
+      {
+        "id": "email",
+        "label_fr": "Courriel",
+        "required": true
+      }
+    ],
+    "optional_fields": [
+      {
+        "id": "company",
+        "label_fr": "Entreprise",
+        "required": false
+      }
+    ],
+    "calendar_event": {
+      "title_template_fr": "Cobreo — échange de 15 min avec {name_or_company}",
+      "duration_minutes": 15,
+      "description_template_fr": "Échange de 15 minutes pour reprendre les opportunités identifiées et regarder les solutions possibles.",
+      "include": [
+        "selected_business_sections",
+        "relevant_cobreo_services",
+        "diagnostic_result_id"
+      ],
+      "privacy_rule": "Do not include sensitive free-text answers."
+    },
+    "rules": [
+      "Display visitor timezone clearly.",
+      "Only show slots from the connected live Cobreo calendar.",
+      "Prevent double booking.",
+      "Booking is confirmed only after successful calendar event creation.",
+      "Prospect must be added as an attendee so the calendar invitation is sent."
+    ],
+    "confirmation": {
+      "title_fr": "C’est réservé",
+      "body_template_fr": "Votre échange de 15 minutes est prévu le {date} à {time} ({timezone}). Une invitation calendrier a été envoyée à {email}."
+    }
+  }
+}

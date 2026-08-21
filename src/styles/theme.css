@@ -1,7 +1,7 @@
 @theme {
     /* FONT FAMILY */
-    --font-body: var(--font-manrope, "Manrope"), ui-sans-serif, sans-serif;
-    --font-display: var(--font-manrope, "Manrope"), ui-sans-serif, sans-serif;
+    --font-body: "SN Pro", ui-sans-serif, sans-serif;
+    --font-display: "SN Pro", ui-sans-serif, sans-serif;
     --font-mono: ui-monospace, "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     /* FONT SIZE */
@@ -90,6 +90,7 @@
     /* ANIMATIONS */
     --animate-marquee: marquee 60s linear infinite;
     --animate-caret-blink: caret-blink 1s infinite;
+    --animate-cobreo-glaze: cobreo-glaze 7.5s ease-in-out infinite;
 
     @keyframes marquee {
         0% {
@@ -107,6 +108,26 @@
         }
         51%,
         100% {
+            opacity: 0;
+        }
+    }
+
+    /* Soft CTA shine — mostly idle, brief sweep */
+    @keyframes cobreo-glaze {
+        0%,
+        78% {
+            transform: translateX(-130%) skewX(-16deg);
+            opacity: 0;
+        }
+        82% {
+            opacity: 0.55;
+        }
+        90% {
+            transform: translateX(160%) skewX(-16deg);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(160%) skewX(-16deg);
             opacity: 0;
         }
     }

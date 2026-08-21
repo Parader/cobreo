@@ -3,23 +3,38 @@
 import { Resend } from "resend";
 import { contactSchema, diagnosticSchema } from "@/lib/validators";
 import { createServiceClient } from "@/lib/supabase/admin";
+import { ensureServerEnv } from "@/lib/server-env";
 
 function isHoneypotFilled(website?: string) {
     return Boolean(website && website.length > 0);
 }
 
 async function notifyInternal(subject: string, text: string) {
-    const apiKey = process.env.RESEND_API_KEY;
-    const to = process.env.CONTACT_NOTIFY_EMAIL;
-    if (!apiKey || !to) return;
+    ensureServerEnv();
+    const apiKey = process.env.RESEND_API_KEY?.trim();
+    const to = process.env.CONTACT_NOTIFY_EMAIL?.trim();
+    if (!apiKey || !to) {
+        console.warn("[notifyInternal] skipped — missing RESEND_API_KEY or CONTACT_NOTIFY_EMAIL");
+        return;
+    }
 
-    const resend = new Resend(apiKey);
-    await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL || "Cobreo <onboarding@resend.dev>",
-        to: [to],
-        subject,
-        text,
-    });
+    try {
+        const resend = new Resend(apiKey);
+        const { data, error } = await resend.emails.send({
+            from: process.env.RESEND_FROM_EMAIL?.trim() || "Cobreo <derick@cobreo.ca>",
+            to: [to],
+            subject,
+            text,
+        });
+        if (error) {
+            console.error("[notifyInternal]", error);
+            return;
+        }
+        console.info("[notifyInternal] sent", data?.id);
+    } catch (error) {
+        // Never fail the CRM write because notification email failed
+        console.error("[notifyInternal]", error);
+    }
 }
 
 export async function submitContact(formData: FormData) {
@@ -93,11 +108,11 @@ export async function submitContact(formData: FormData) {
 
 export async function submitDiagnostic(formData: FormData) {
     const parsed = diagnosticSchema.safeParse({
-        company: formData.get("company"),
-        companySize: formData.get("companySize"),
-        challenge: formData.get("challenge"),
-        tools: formData.get("tools"),
-        email: formData.get("email"),
+        name: formData.get("name"),
+        company: formData.get("company") || "",
+        contact: formData.get("contact") || formData.get("phone") || "",
+        summary: formData.get("summary") || "",
+        answers: formData.get("answers"),
         website: formData.get("website") || "",
     });
 
@@ -109,30 +124,71 @@ export async function submitDiagnostic(formData: FormData) {
         return { ok: true as const };
     }
 
+    let answersJson: unknown = {};
+    try {
+        answersJson = JSON.parse(parsed.data.answers);
+    } catch {
+        return { ok: false as const, error: "invalid" };
+    }
+
+    const contactValue = parsed.data.contact.replace(/\s+/g, " ").trim();
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactValue);
+    const email = isEmail ? contactValue : null;
+    const phone = isEmail ? null : contactValue;
+    const company = parsed.data.company?.trim() || null;
+    const locale = String(formData.get("locale") || "fr");
+    const summary = parsed.data.summary || null;
+    const fullName = parsed.data.name;
+
     try {
         const supabase = createServiceClient();
-        const { data: contact, error: contactError } = await supabase
-            .from("contacts")
-            .upsert(
-                {
-                    email: parsed.data.email.toLowerCase(),
-                    company_name: parsed.data.company,
-                    full_name: parsed.data.company,
-                },
-                { onConflict: "email" },
-            )
-            .select("id")
-            .single();
 
-        if (contactError) throw contactError;
+        let existing: { id: string } | null = null;
+        if (phone) {
+            const { data } = await supabase.from("contacts").select("id").eq("phone", phone).maybeSingle();
+            existing = data;
+        } else if (email) {
+            const { data } = await supabase.from("contacts").select("id").eq("email", email).maybeSingle();
+            existing = data;
+        }
 
+        let contactId: string;
+        if (existing?.id) {
+            const { error: updateError } = await supabase
+                .from("contacts")
+                .update({
+                    company_name: company,
+                    full_name: fullName,
+                    phone,
+                    email,
+                    updated_at: new Date().toISOString(),
+                })
+                .eq("id", existing.id);
+            if (updateError) throw updateError;
+            contactId = existing.id;
+        } else {
+            const { data: contact, error: contactError } = await supabase
+                .from("contacts")
+                .insert({
+                    email,
+                    company_name: company,
+                    full_name: fullName,
+                    phone,
+                })
+                .select("id")
+                .single();
+            if (contactError) throw contactError;
+            contactId = contact.id;
+        }
+
+        const titleCompany = company || contactValue;
         const { data: lead, error: leadError } = await supabase
             .from("leads")
             .insert({
-                contact_id: contact.id,
+                contact_id: contactId,
                 source: "diagnostic",
                 status: "new",
-                title: `Diagnostic — ${parsed.data.company}`,
+                title: `Diagnostic — ${fullName} · ${titleCompany}`,
             })
             .select("id")
             .single();
@@ -141,25 +197,30 @@ export async function submitDiagnostic(formData: FormData) {
 
         const { error: subError } = await supabase.from("diagnostic_submissions").insert({
             lead_id: lead.id,
-            contact_id: contact.id,
-            answers: {
-                company: parsed.data.company,
-                companySize: parsed.data.companySize,
-                challenge: parsed.data.challenge,
-                tools: parsed.data.tools,
-            },
-            locale: String(formData.get("locale") || "fr"),
+            contact_id: contactId,
+            answers: answersJson,
+            summary,
+            locale,
         });
 
         if (subError) throw subError;
 
         await notifyInternal(
-            `[Cobreo] Nouveau diagnostic — ${parsed.data.company}`,
-            `Entreprise: ${parsed.data.company}\nTaille: ${parsed.data.companySize}\nEmail: ${parsed.data.email}\nDéfi: ${parsed.data.challenge}\nOutils: ${parsed.data.tools}`,
+            `[Cobreo] Nouveau diagnostic — ${titleCompany}`,
+            `Nom: ${fullName}\nEntreprise: ${company || "—"}\nContact: ${contactValue}\nRésumé: ${summary || "—"}\nLocale UI: ${locale}\nLangue réponses: ${
+                answersJson && typeof answersJson === "object" && "language" in answersJson
+                    ? String((answersJson as { language?: string }).language || locale)
+                    : locale
+            }\nVersion: ${
+                answersJson && typeof answersJson === "object" && "specVersion" in answersJson
+                    ? String((answersJson as { specVersion?: string }).specVersion || "—")
+                    : "—"
+            }`,
         );
 
         return { ok: true as const };
-    } catch {
+    } catch (error) {
+        console.error("[submitDiagnostic]", error);
         return { ok: false as const, error: "server" };
     }
 }

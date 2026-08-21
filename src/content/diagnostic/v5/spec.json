@@ -1,0 +1,1703 @@
+{
+  "meta": {
+    "product": "Cobreo Opportunity Diagnostic",
+    "version": "5.4",
+    "status": "implementation_test_baseline",
+    "source_language": "fr",
+    "target_languages": [
+      "fr",
+      "en"
+    ],
+    "generated_for": "Cursor integration — V5.4 UX iteration",
+    "principles": [
+      "mobile_first",
+      "progressive_exploration",
+      "observable_language",
+      "minimal_cognitive_cost",
+      "no_technology_assumption",
+      "no_problem_invention",
+      "situation_to_friction_to_consequence_to_improvement_to_value",
+      "minimize_reading_and_decisions_not_only_question_count",
+      "neutral_diagnostic_language",
+      "optional_free_text_as_escape_hatch"
+    ],
+    "experimental_items": [
+      "exact wording of the 8 dimension labels",
+      "five substantive choices per radar as default UX budget",
+      "early-exit behavior after enough value is found",
+      "final lead form conversion behavior",
+      "optional free-text placement and usage"
+    ]
+  },
+  "flow": {
+    "steps": [
+      "context",
+      "dimension_selection",
+      "radars",
+      "impact",
+      "optional_context",
+      "results",
+      "optional_lead"
+    ],
+    "target_question_budget": {
+      "simple": "7-9",
+      "typical": "10-14",
+      "rich": "15-18"
+    },
+    "rules": {
+      "max_recommended_dimensions": 3,
+      "allow_explore_all": true,
+      "never_hide_non_recommended_dimensions": true,
+      "free_text_optional_only": true,
+      "none_is_exclusive_in_multiselect": true,
+      "other_short_text_max_chars": 120,
+      "multi_select_instruction_required": true,
+      "default_substantive_choices_budget": 5,
+      "dimension_layout": "single_column_vertical",
+      "dimension_hard_max_selection": null
+    },
+    "progress_ui": {
+      "mode": "stage_based",
+      "never_show_question_total": true,
+      "never_show_questions_remaining": true,
+      "never_show_question_percentage": true,
+      "stages": [
+        {
+          "id": "context",
+          "label_fr": "Votre entreprise"
+        },
+        {
+          "id": "explore",
+          "label_fr": "À explorer"
+        },
+        {
+          "id": "reality",
+          "label_fr": "Votre réalité"
+        },
+        {
+          "id": "impact",
+          "label_fr": "Impact"
+        },
+        {
+          "id": "results",
+          "label_fr": "Résultats"
+        }
+      ],
+      "mobile": "show_active_stage_with_segmented_progress",
+      "free_navigation": false
+    }
+  },
+  "context": [
+    {
+      "id": "context_business_situation",
+      "kind": "single_select",
+      "required": true,
+      "experimental": true,
+      "question": {
+        "fr": "Laquelle de ces situations ressemble le plus à votre entreprise aujourd'hui?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "starting",
+          "label_fr": "Je démarre ou j'ai encore peu d'activité"
+        },
+        {
+          "id": "solo",
+          "label_fr": "Je travaille principalement seul"
+        },
+        {
+          "id": "small_team",
+          "label_fr": "Nous sommes quelques personnes"
+        },
+        {
+          "id": "established_team",
+          "label_fr": "Nous sommes une équipe plus établie"
+        },
+        {
+          "id": "other",
+          "label_fr": "Difficile à dire / autre"
+        }
+      ],
+      "scoring": null,
+      "usage": [
+        "adapt_wording",
+        "adapt_continuity_branch",
+        "interpret_results"
+      ]
+    },
+    {
+      "id": "context_business_type",
+      "kind": "single_select",
+      "required": true,
+      "question": {
+        "fr": "Que fournissez-vous principalement?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "services",
+          "label_fr": "Des services"
+        },
+        {
+          "id": "products",
+          "label_fr": "Des produits"
+        },
+        {
+          "id": "both",
+          "label_fr": "Les deux"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "scoring": null,
+      "usage": [
+        "adapt_wording",
+        "adapt_examples"
+      ]
+    },
+    {
+      "id": "context_work_model",
+      "kind": "single_select",
+      "required": true,
+      "question": {
+        "fr": "Comment votre travail se déroule-t-il le plus souvent?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "appointments",
+          "label_fr": "Par rendez-vous"
+        },
+        {
+          "id": "projects",
+          "label_fr": "Par projets ou mandats"
+        },
+        {
+          "id": "orders",
+          "label_fr": "Par commandes"
+        },
+        {
+          "id": "recurring",
+          "label_fr": "En continu ou de façon récurrente"
+        },
+        {
+          "id": "mixed",
+          "label_fr": "Ça varie beaucoup"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre"
+        }
+      ],
+      "scoring": null,
+      "usage": [
+        "adapt_wording",
+        "adapt_radar_options"
+      ]
+    }
+  ],
+  "dimension_map": {
+    "id": "dimension_selection",
+    "kind": "multi_select_dimensions",
+    "required": true,
+    "question": {
+      "fr": "Qu’aimeriez-vous regarder de plus près?",
+      "en": null
+    },
+    "instruction_fr": "Sélectionnez les parties qui correspondent à votre quotidien ou que vous aimeriez explorer.",
+    "recommendation_fr": "Pour une analyse rapide, 2 ou 3 suffisent.",
+    "layout": "single_column_vertical",
+    "dimensions": [
+      {
+        "id": "requests",
+        "label_fr": "Demandes et nouveaux clients",
+        "hint_fr": "Demandes, soumissions, nouveaux dossiers"
+      },
+      {
+        "id": "onboarding",
+        "label_fr": "Démarrage d'un client ou d'un travail",
+        "hint_fr": "Informations, documents, préparation"
+      },
+      {
+        "id": "delivery",
+        "label_fr": "Réalisation du travail",
+        "hint_fr": "Ce qu’il faut faire pour livrer votre produit ou service"
+      },
+      {
+        "id": "coordination",
+        "label_fr": "Organisation et coordination",
+        "hint_fr": "Tâches, responsabilités, échéances"
+      },
+      {
+        "id": "client_followup",
+        "label_fr": "Clients, rendez-vous et suivis",
+        "hint_fr": "Communications, rappels, suivi après le travail"
+      },
+      {
+        "id": "admin",
+        "label_fr": "Facturation et administration",
+        "hint_fr": "Factures, paiements, documents"
+      },
+      {
+        "id": "information_tools",
+        "label_fr": "Information et outils",
+        "hint_fr": "Recherche, double saisie, logiciels"
+      },
+      {
+        "id": "management_continuity",
+        "label_fr": "Vue d’ensemble et continuité",
+        "hint_fr": "Priorités, état du travail, informations importantes"
+      }
+    ],
+    "selection": {
+      "min": 1,
+      "max": null
+    },
+    "cta_fr": "Explorer ma sélection"
+  },
+  "radars": [
+    {
+      "id": "radar_requests",
+      "dimension": "requests",
+      "kind": "multi_select",
+      "question": {
+        "fr": "Quand une nouvelle demande arrive, qu’est-ce qui peut demander de l’attention?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "followup_memory",
+          "label_fr": "Penser à faire un suivi",
+          "signals": [
+            "follow_up",
+            "dependency_on_people"
+          ],
+          "friction_cluster": "followup_reliability"
+        },
+        {
+          "id": "info_multiple_places",
+          "label_fr": "Recopier ou rassembler l’information",
+          "signals": [
+            "information_fragmentation",
+            "duplicate_entry"
+          ],
+          "friction_cluster": "duplicate_information"
+        },
+        {
+          "id": "repeat_docs",
+          "label_fr": "Refaire des soumissions ou documents semblables",
+          "signals": [
+            "repetitive_work",
+            "manual_work"
+          ],
+          "friction_cluster": "repetitive_documents"
+        },
+        {
+          "id": "status_unclear",
+          "label_fr": "Savoir où en est la demande",
+          "signals": [
+            "visibility"
+          ],
+          "friction_cluster": "work_visibility"
+        },
+        {
+          "id": "slow_response",
+          "label_fr": "Répondre assez rapidement",
+          "signals": [
+            "follow_up",
+            "visibility"
+          ],
+          "friction_cluster": "response_delay"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_onboarding",
+      "dimension": "onboarding",
+      "kind": "multi_select",
+      "question": {
+        "fr": "Quand un nouveau client, mandat ou travail commence, qu'est-ce qui demande de l'effort?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "collect_info",
+          "label_fr": "Rassembler les informations nécessaires",
+          "signals": [
+            "information_access",
+            "manual_work"
+          ]
+        },
+        {
+          "id": "request_docs",
+          "label_fr": "Demander des documents ou informations manquantes",
+          "signals": [
+            "follow_up",
+            "information_access"
+          ]
+        },
+        {
+          "id": "repeat_entry",
+          "label_fr": "Recopier des informations déjà reçues",
+          "signals": [
+            "duplicate_entry",
+            "manual_work"
+          ],
+          "friction_cluster": "duplicate_information"
+        },
+        {
+          "id": "prepare_docs",
+          "label_fr": "Préparer les mêmes types de documents",
+          "signals": [
+            "repetitive_work",
+            "manual_work"
+          ]
+        },
+        {
+          "id": "coordinate_start",
+          "label_fr": "Coordonner les prochaines étapes",
+          "signals": [
+            "coordination",
+            "visibility"
+          ]
+        },
+        {
+          "id": "waiting",
+          "label_fr": "Attendre une information avant de pouvoir commencer",
+          "signals": [
+            "information_access",
+            "coordination"
+          ]
+        },
+        {
+          "id": "unclear",
+          "label_fr": "Il arrive qu'une étape soit oubliée ou ne soit pas claire",
+          "signals": [
+            "visibility",
+            "follow_up"
+          ]
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_delivery",
+      "dimension": "delivery",
+      "kind": "multi_select",
+      "question": {
+        "fr": "Pendant la réalisation du travail, lesquelles de ces situations arrivent régulièrement?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "repeat_tasks",
+          "label_fr": "Refaire des tâches très semblables",
+          "signals": [
+            "repetitive_work"
+          ]
+        },
+        {
+          "id": "search_info",
+          "label_fr": "Chercher une information pour pouvoir avancer",
+          "signals": [
+            "information_access",
+            "information_fragmentation"
+          ],
+          "friction_cluster": "information_access"
+        },
+        {
+          "id": "manual_checks",
+          "label_fr": "Vérifier manuellement que certaines étapes ont été faites",
+          "signals": [
+            "manual_work",
+            "coordination"
+          ]
+        },
+        {
+          "id": "waiting",
+          "label_fr": "Attendre une information ou une réponse",
+          "signals": [
+            "information_access",
+            "coordination"
+          ]
+        },
+        {
+          "id": "reenter",
+          "label_fr": "Recopier ou ressaisir de l'information",
+          "signals": [
+            "duplicate_entry",
+            "manual_work"
+          ],
+          "friction_cluster": "duplicate_information"
+        },
+        {
+          "id": "avoidable_errors",
+          "label_fr": "Corriger des erreurs ou oublis qui auraient pu être évités",
+          "signals": [
+            "manual_work",
+            "automation_potential"
+          ]
+        },
+        {
+          "id": "admin_around_work",
+          "label_fr": "Faire plusieurs petites tâches administratives autour du travail principal",
+          "signals": [
+            "manual_work",
+            "repetitive_work"
+          ]
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_coordination",
+      "dimension": "coordination",
+      "kind": "multi_select",
+      "question": {
+        "fr": "Pour organiser le travail, qu’est-ce qui vous arrive?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "ask_updates",
+          "label_fr": "Demander où en sont les choses",
+          "signals": [
+            "visibility",
+            "follow_up"
+          ],
+          "friction_cluster": "work_visibility"
+        },
+        {
+          "id": "messages_as_system",
+          "label_fr": "Utiliser des messages pour suivre le travail",
+          "signals": [
+            "coordination",
+            "visibility"
+          ],
+          "friction_cluster": "work_visibility"
+        },
+        {
+          "id": "manual_reminders",
+          "label_fr": "Devoir rappeler les prochaines étapes",
+          "signals": [
+            "follow_up",
+            "dependency_on_people"
+          ],
+          "friction_cluster": "followup_reliability"
+        },
+        {
+          "id": "unclear_owner",
+          "label_fr": "Ne pas toujours savoir qui doit faire quoi",
+          "signals": [
+            "coordination",
+            "visibility"
+          ],
+          "friction_cluster": "ownership_clarity"
+        },
+        {
+          "id": "handoff",
+          "label_fr": "Donner des explications pour transférer un dossier",
+          "signals": [
+            "dependency_on_people",
+            "information_access"
+          ],
+          "friction_cluster": "continuity_dependency"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_client_followup",
+      "dimension": "client_followup",
+      "kind": "multi_select",
+      "question": {
+        "fr_default": "Dans vos communications et suivis avec les clients, qu'est-ce qui demande une attention manuelle?",
+        "fr_appointments": "Autour de vos rendez-vous et suivis clients, qu'est-ce qui demande une attention manuelle?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "confirm",
+          "label_fr": "Confirmer des rendez-vous ou prochaines étapes",
+          "signals": [
+            "follow_up",
+            "manual_work"
+          ]
+        },
+        {
+          "id": "remind",
+          "label_fr": "Envoyer des rappels",
+          "signals": [
+            "follow_up",
+            "manual_work"
+          ],
+          "friction_cluster": "followup_reliability"
+        },
+        {
+          "id": "followup",
+          "label_fr": "Penser à reprendre contact plus tard",
+          "signals": [
+            "follow_up",
+            "dependency_on_people"
+          ],
+          "friction_cluster": "followup_reliability"
+        },
+        {
+          "id": "history",
+          "label_fr": "Retrouver l'historique d'un client",
+          "signals": [
+            "information_access",
+            "information_fragmentation"
+          ]
+        },
+        {
+          "id": "repeat_questions",
+          "label_fr": "Répondre souvent aux mêmes questions",
+          "signals": [
+            "repetitive_work"
+          ]
+        },
+        {
+          "id": "post_service",
+          "label_fr": "Faire un suivi après le travail ou la vente",
+          "signals": [
+            "follow_up"
+          ]
+        },
+        {
+          "id": "changes",
+          "label_fr": "Gérer des changements, annulations ou demandes",
+          "signals": [
+            "coordination",
+            "manual_work"
+          ]
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_admin",
+      "dimension": "admin",
+      "kind": "multi_select",
+      "question": {
+        "fr": "Pour la facturation et l’administration, qu’est-ce qui vous arrive?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "gather_info",
+          "label_fr": "Rassembler de l’information provenant de plusieurs endroits",
+          "signals": [
+            "information_access",
+            "information_fragmentation"
+          ],
+          "friction_cluster": "information_access"
+        },
+        {
+          "id": "reenter",
+          "label_fr": "Recopier la même information",
+          "signals": [
+            "duplicate_entry",
+            "integration"
+          ],
+          "friction_cluster": "duplicate_information"
+        },
+        {
+          "id": "create_docs",
+          "label_fr": "Refaire souvent les mêmes documents",
+          "signals": [
+            "repetitive_work",
+            "manual_work"
+          ],
+          "friction_cluster": "repetitive_documents"
+        },
+        {
+          "id": "payment_followup",
+          "label_fr": "Vérifier ou relancer des paiements",
+          "signals": [
+            "follow_up",
+            "visibility"
+          ],
+          "friction_cluster": "payment_followup"
+        },
+        {
+          "id": "reporting",
+          "label_fr": "Préparer manuellement des suivis ou rapports",
+          "signals": [
+            "reporting",
+            "manual_work"
+          ],
+          "friction_cluster": "reporting_effort"
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_information_tools",
+      "dimension": "information_tools",
+      "kind": "multi_select",
+      "question": {
+        "fr": "Quand vous cherchez une information ou utilisez vos outils, qu'est-ce qui vous ralentit?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "search",
+          "label_fr": "Chercher où se trouve une information",
+          "signals": [
+            "information_access"
+          ],
+          "friction_cluster": "information_access"
+        },
+        {
+          "id": "multiple_sources",
+          "label_fr": "Vérifier plusieurs endroits pour avoir le portrait complet",
+          "signals": [
+            "information_fragmentation",
+            "visibility"
+          ],
+          "friction_cluster": "information_access"
+        },
+        {
+          "id": "manual_transfer",
+          "label_fr": "Copier de l'information d'un outil à un autre",
+          "signals": [
+            "integration",
+            "duplicate_entry"
+          ],
+          "friction_cluster": "duplicate_information"
+        },
+        {
+          "id": "switching",
+          "label_fr": "Passer entre plusieurs outils pour terminer une même tâche",
+          "signals": [
+            "software_fragmentation",
+            "manual_work"
+          ]
+        },
+        {
+          "id": "workaround",
+          "label_fr": "Contourner les limites d'un outil",
+          "signals": [
+            "software_fragmentation"
+          ]
+        },
+        {
+          "id": "overlap",
+          "label_fr": "Maintenir plusieurs outils qui font en partie la même chose",
+          "signals": [
+            "software_overlap"
+          ]
+        },
+        {
+          "id": "cost",
+          "label_fr": "Payer pour un outil qui apporte peu de valeur",
+          "signals": [
+            "software_overlap"
+          ]
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_management_continuity_solo",
+      "dimension": "management_continuity",
+      "variant": "solo",
+      "display_if": {
+        "context_business_situation": [
+          "solo",
+          "starting"
+        ]
+      },
+      "kind": "multi_select",
+      "question": {
+        "fr": "Pour garder le contrôle sur votre activité, qu'est-ce qui est difficile à voir ou à garder en tête?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "priorities",
+          "label_fr": "Ce qui doit être fait en priorité",
+          "signals": [
+            "visibility"
+          ]
+        },
+        {
+          "id": "followups",
+          "label_fr": "Les suivis à ne pas oublier",
+          "signals": [
+            "follow_up",
+            "dependency_on_people"
+          ],
+          "friction_cluster": "followup_reliability"
+        },
+        {
+          "id": "work_status",
+          "label_fr": "Où en sont les dossiers ou travaux en cours",
+          "signals": [
+            "visibility"
+          ],
+          "friction_cluster": "work_visibility"
+        },
+        {
+          "id": "numbers",
+          "label_fr": "Les quelques chiffres importants pour prendre des décisions",
+          "signals": [
+            "reporting",
+            "visibility"
+          ]
+        },
+        {
+          "id": "commitments",
+          "label_fr": "Ce que j'ai promis à des clients ou partenaires",
+          "signals": [
+            "follow_up"
+          ]
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    },
+    {
+      "id": "radar_management_continuity_team",
+      "dimension": "management_continuity",
+      "variant": "team",
+      "display_if": {
+        "context_business_situation": [
+          "small_team",
+          "established_team",
+          "other"
+        ]
+      },
+      "kind": "multi_select",
+      "question": {
+        "fr": "Pour garder une vue d'ensemble et assurer la continuité, qu'est-ce qui pose parfois problème?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "status",
+          "label_fr": "Voir où en est le travail",
+          "signals": [
+            "visibility"
+          ],
+          "friction_cluster": "work_visibility"
+        },
+        {
+          "id": "priorities",
+          "label_fr": "Voir les priorités",
+          "signals": [
+            "visibility"
+          ]
+        },
+        {
+          "id": "person_dependency",
+          "label_fr": "Une information importante dépend d'une personne",
+          "signals": [
+            "dependency_on_people",
+            "information_access"
+          ],
+          "friction_cluster": "continuity_dependency"
+        },
+        {
+          "id": "absence",
+          "label_fr": "Une absence rend certains dossiers difficiles à reprendre",
+          "signals": [
+            "dependency_on_people",
+            "information_access"
+          ],
+          "friction_cluster": "continuity_dependency"
+        },
+        {
+          "id": "reporting",
+          "label_fr": "Il faut rassembler manuellement l'information pour avoir un portrait",
+          "signals": [
+            "reporting",
+            "manual_work"
+          ]
+        },
+        {
+          "id": "decision_data",
+          "label_fr": "Les informations nécessaires pour décider ne sont pas facilement disponibles",
+          "signals": [
+            "visibility",
+            "reporting"
+          ]
+        },
+        {
+          "id": "other",
+          "label_fr": "Autre",
+          "signals": [],
+          "taxonomy_gap_candidate": true
+        },
+        {
+          "id": "none",
+          "label_fr": "Rien de tout cela",
+          "signals": [],
+          "exclusive": true
+        }
+      ],
+      "selection": {
+        "min": 0,
+        "max": null,
+        "instruction_fr": "Sélectionnez tout ce qui s’applique."
+      }
+    }
+  ],
+  "qualification": {
+    "priority": {
+      "id": "qualify_priority",
+      "display_if": "selected_friction_clusters_count > 1",
+      "kind": "single_select_dynamic",
+      "question": {
+        "fr": "Parmi ces situations, laquelle vous dérange le plus aujourd’hui?",
+        "en": null
+      },
+      "answers_from": "selected_radar_answers_excluding_other_and_none",
+      "instruction_fr": "Choisissez celle qui vous dérange le plus."
+    },
+    "importance": {
+      "id": "qualify_importance",
+      "kind": "single_select",
+      "question": {
+        "fr": "À quel point cette situation vous dérange-t-elle aujourd’hui?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "minimal",
+          "label_fr": "Très peu",
+          "value": 0
+        },
+        {
+          "id": "some",
+          "label_fr": "Un peu",
+          "value": 1
+        },
+        {
+          "id": "significant",
+          "label_fr": "Assez",
+          "value": 2
+        },
+        {
+          "id": "high",
+          "label_fr": "Beaucoup",
+          "value": 3
+        },
+        {
+          "id": "unknown",
+          "label_fr": "Difficile à dire",
+          "value": null
+        }
+      ]
+    },
+    "consequence": {
+      "id": "qualify_consequence",
+      "display_if": "qualify_importance in ['some','significant','high']",
+      "kind": "multi_select",
+      "max_selections": 2,
+      "question": {
+        "fr": "Qu'est-ce que cette situation entraîne surtout?",
+        "en": null
+      },
+      "answers": [
+        {
+          "id": "time",
+          "label_fr": "Du temps perdu",
+          "weight": 1
+        },
+        {
+          "id": "delay",
+          "label_fr": "Des délais ou de l'attente",
+          "weight": 1
+        },
+        {
+          "id": "forgetting",
+          "label_fr": "Des oublis",
+          "weight": 1.2
+        },
+        {
+          "id": "errors",
+          "label_fr": "Des erreurs ou du travail à refaire",
+          "weight": 1.2
+        },
+        {
+          "id": "customer",
+          "label_fr": "Une moins bonne expérience pour le client",
+          "weight": 1.2
+        },
+        {
+          "id": "mental_load",
+          "label_fr": "Plus de choses à garder en tête",
+          "weight": 0.8
+        },
+        {
+          "id": "visibility",
+          "label_fr": "Un manque de visibilité",
+          "weight": 1
+        },
+        {
+          "id": "capacity",
+          "label_fr": "Une limite à la quantité de travail qu'on peut prendre",
+          "weight": 1.3
+        },
+        {
+          "id": "cost",
+          "label_fr": "Des coûts inutiles",
+          "weight": 1.2
+        },
+        {
+          "id": "low_impact",
+          "label_fr": "Rien de vraiment important",
+          "weight": 0,
+          "exclusive": true
+        },
+        {
+          "id": "unknown",
+          "label_fr": "Difficile à dire",
+          "weight": null,
+          "exclusive": true
+        }
+      ],
+      "instruction_fr": "Choisissez jusqu’à 2 réponses.",
+      "selection": {
+        "min": 0,
+        "max": 2
+      }
+    }
+  },
+  "deep_dive_rules": [
+    {
+      "id": "deep_dive_manual_transfer",
+      "trigger": {
+        "radar_answer_id": "manual_transfer",
+        "importance_in": [
+          "significant",
+          "high"
+        ]
+      },
+      "question": {
+        "fr": "Qu'est-ce qui explique surtout ces transferts?",
+        "en": null
+      },
+      "kind": "single_select",
+      "answers": [
+        {
+          "id": "tools_not_connected",
+          "label_fr": "Les outils ne communiquent pas entre eux",
+          "adds_signals": [
+            "integration"
+          ],
+          "opportunity_hints": [
+            "integrate_systems"
+          ]
+        },
+        {
+          "id": "human_validation",
+          "label_fr": "L'information doit être vérifiée ou transformée avant d'être transférée",
+          "adds_signals": [],
+          "opportunity_hints": [
+            "simplify_process"
+          ]
+        },
+        {
+          "id": "workflow_requires_it",
+          "label_fr": "Notre façon de travailler l'exige",
+          "adds_signals": [],
+          "opportunity_hints": [
+            "clarify_process",
+            "simplify_process"
+          ]
+        },
+        {
+          "id": "unknown",
+          "label_fr": "Je ne sais pas",
+          "adds_signals": [],
+          "opportunity_hints": []
+        }
+      ]
+    }
+  ],
+  "signal_taxonomy": [
+    "manual_work",
+    "repetitive_work",
+    "duplicate_entry",
+    "information_fragmentation",
+    "information_access",
+    "follow_up",
+    "visibility",
+    "coordination",
+    "dependency_on_people",
+    "software_fragmentation",
+    "software_overlap",
+    "integration",
+    "automation_potential",
+    "reporting"
+  ],
+  "opportunity_taxonomy": [
+    "simplify_process",
+    "clarify_process",
+    "centralize_information",
+    "reduce_duplicate_entry",
+    "improve_visibility",
+    "improve_followup",
+    "reduce_manual_coordination",
+    "standardize_work",
+    "automate_repetitive_step",
+    "integrate_systems",
+    "improve_customer_experience",
+    "improve_continuity",
+    "improve_reporting",
+    "review_tool_fit",
+    "reduce_tool_cost",
+    "explore_new_process"
+  ],
+  "solution_taxonomy": [
+    "process_change",
+    "existing_tool",
+    "configuration",
+    "integration",
+    "automation",
+    "custom_software",
+    "unknown"
+  ],
+  "opportunity_rules": [
+    {
+      "when_signals_include": [
+        "duplicate_entry"
+      ],
+      "allowed_opportunities": [
+        "reduce_duplicate_entry",
+        "simplify_process"
+      ],
+      "default_solution": "unknown"
+    },
+    {
+      "when_signals_include": [
+        "information_fragmentation"
+      ],
+      "allowed_opportunities": [
+        "centralize_information",
+        "improve_visibility"
+      ],
+      "default_solution": "unknown"
+    },
+    {
+      "when_signals_include": [
+        "follow_up"
+      ],
+      "allowed_opportunities": [
+        "improve_followup",
+        "improve_customer_experience"
+      ],
+      "default_solution": "unknown"
+    },
+    {
+      "when_signals_include": [
+        "dependency_on_people"
+      ],
+      "allowed_opportunities": [
+        "improve_continuity",
+        "standardize_work"
+      ],
+      "default_solution": "unknown"
+    },
+    {
+      "when_signals_include": [
+        "reporting"
+      ],
+      "allowed_opportunities": [
+        "improve_reporting",
+        "improve_visibility"
+      ],
+      "default_solution": "unknown"
+    },
+    {
+      "when_signals_include": [
+        "software_overlap"
+      ],
+      "allowed_opportunities": [
+        "review_tool_fit",
+        "reduce_tool_cost"
+      ],
+      "default_solution": "unknown"
+    },
+    {
+      "when_signals_include": [
+        "integration"
+      ],
+      "allowed_opportunities": [
+        "integrate_systems",
+        "reduce_duplicate_entry"
+      ],
+      "default_solution": "unknown"
+    },
+    {
+      "when_signals_include": [
+        "repetitive_work"
+      ],
+      "allowed_opportunities": [
+        "simplify_process",
+        "standardize_work",
+        "automate_repetitive_step"
+      ],
+      "default_solution": "unknown"
+    }
+  ],
+  "ranking": {
+    "model": "opportunity_ranking_not_stage_average",
+    "conceptual_formula": "problem_strength * consequence_relevance * confidence",
+    "problem_strength_inputs": [
+      "importance",
+      "consequences",
+      "signal_convergence"
+    ],
+    "confidence_inputs": [
+      "importance_answered",
+      "consequence_answered",
+      "cause_known_when_needed",
+      "signal_convergence"
+    ],
+    "bonuses": [
+      "multiple_converging_signals",
+      "same_friction_across_dimensions",
+      "multiple_material_consequences"
+    ],
+    "prohibited_positive_signals": [
+      "manual_process_alone",
+      "multiple_tools_alone",
+      "multiple_channels_alone",
+      "spreadsheet_use_alone"
+    ],
+    "output_levels": [
+      "watch",
+      "possible",
+      "clear"
+    ],
+    "max_prospect_opportunities": 3
+  },
+  "result_generation": {
+    "prospect": {
+      "sections": [
+        "what_we_noticed",
+        "opportunities",
+        "potential_gain",
+        "why"
+      ],
+      "traceability_required": true,
+      "gain_levels": [
+        "low",
+        "moderate",
+        "important"
+      ],
+      "rules": [
+        "Never infer a consequence not selected or otherwise supported by answers.",
+        "Never jump directly from friction to custom software.",
+        "Use improvement verbs before solution categories.",
+        "Only describe dimensions actually explored.",
+        "Allow healthy/no-opportunity result.",
+        "Allow too-early-for-intervention result.",
+        "Never mention the questionnaire, diagnostic engine, or meeting as part of the analytical result.",
+        "Do not use phrases such as 'Le questionnaire détecte', 'Cette analyse a identifié', or 'La rencontre permet de comprendre et de prioriser'.",
+        "Keep commercial CTA visually and semantically separate from analysis."
+      ]
+    },
+    "internal": {
+      "fields": [
+        "responses",
+        "signals",
+        "potential_problems",
+        "opportunities",
+        "confidence",
+        "missing_information",
+        "meeting_questions",
+        "problem_potential",
+        "technical_constraints",
+        "must_keep_systems",
+        "taxonomy_gap_candidates"
+      ]
+    },
+    "healthy_result": {
+      "trigger": "no_opportunity_meets_minimum_threshold",
+      "message_fr": "Nous n'avons pas repéré de friction importante dans les dimensions que vous avez explorées. Certaines façons de faire manuelles ou simples fonctionnent très bien lorsqu'elles demandent peu d'effort et causent peu de problèmes."
+    },
+    "early_stage_result": {
+      "trigger": "context_business_situation == 'starting' and low_applicability and low_friction",
+      "message_fr": "Votre activité semble encore assez simple pour que plusieurs processus puissent rester légers. Il n'est probablement pas utile de structurer ou automatiser davantage pour l'instant."
+    }
+  },
+  "persistence": {
+    "recommended_state_shape": {
+      "session_id": "string",
+      "started_at": "ISO-8601",
+      "updated_at": "ISO-8601",
+      "language": "fr",
+      "context": {},
+      "dimension_statuses": {},
+      "selected_dimensions": [],
+      "responses": {},
+      "signals": [],
+      "opportunities": [],
+      "result": {}
+    },
+    "resume_supported": true
+  },
+  "analytics": {
+    "events": [
+      "diagnostic_started",
+      "context_completed",
+      "dimension_map_completed",
+      "dimension_selected",
+      "radar_completed",
+      "qualification_completed",
+      "deep_dive_triggered",
+      "taxonomy_gap_submitted",
+      "opportunity_generated",
+      "diagnostic_completed",
+      "diagnostic_abandoned",
+      "result_viewed",
+      "lead_capture_started",
+      "lead_capture_completed"
+    ],
+    "simulation_metrics": [
+      "all_questions_understood",
+      "non_relevant_question_encountered",
+      "wanted_to_express_but_could_not",
+      "discovered_at_least_one_opportunity",
+      "discovered_unexpected_opportunity",
+      "felt_real_value",
+      "wanted_full_analysis",
+      "wanted_to_discuss_with_cobreo",
+      "first_discovery_step",
+      "simulated_abandonment",
+      "average_questions"
+    ]
+  },
+  "implementation_notes": [
+    "Do not port the old stage weighted-average scoring directly.",
+    "Do not score channel count as friction.",
+    "Do not treat manual work as an opportunity without importance or consequence evidence.",
+    "Do not treat multiple tools as a problem without friction evidence.",
+    "Use dimension recommendations as navigation aids, never as hard filters.",
+    "Translate to English only after French wording is validated.",
+    "Keep result generation deterministic/traceable where possible; if LLM-generated, pass only supported facts and enforce schema.",
+    "Dimension selection is a simple vertical multi-select; remove applies/explore/not_yet/unknown status UI.",
+    "Progress is stage-based, never question-count-based.",
+    "Render explicit selection instructions for every multi-select with a limit.",
+    "Group converging answers into friction clusters before asking priority.",
+    "Optional free text must be collapsible/contextual and must not become required.",
+    "Separate analytical result content from lead conversion UI."
+  ],
+  "acceptance_tests": [
+    {
+      "id": "solo_starting_no_problem",
+      "given": {
+        "context_business_situation": "starting",
+        "dimension_statuses": {
+          "requests": "applies",
+          "admin": "applies",
+          "client_followup": "explore"
+        },
+        "radar_answers": {
+          "requests": [
+            "none"
+          ],
+          "admin": [
+            "none"
+          ]
+        }
+      },
+      "expect": [
+        "no fabricated problem",
+        "early_stage or healthy result allowed",
+        "client_followup may be presented as exploratory, not friction"
+      ],
+      "must_not_generate": [
+        "custom_software recommendation",
+        "low digital maturity claim"
+      ]
+    },
+    {
+      "id": "manual_transfer_high_impact",
+      "given": {
+        "dimension": "information_tools",
+        "radar_answer": "manual_transfer",
+        "importance": "high",
+        "consequences": [
+          "time",
+          "errors"
+        ],
+        "deep_dive": "tools_not_connected"
+      },
+      "expect": [
+        "integration signal",
+        "integrate_systems opportunity allowed",
+        "reduce_duplicate_entry opportunity allowed",
+        "confidence medium_or_high"
+      ],
+      "must_not_generate": [
+        "custom software as automatic solution"
+      ]
+    },
+    {
+      "id": "multiple_tools_no_friction",
+      "given": {
+        "dimension": "information_tools",
+        "radar_answers": [
+          "none"
+        ]
+      },
+      "expect": [
+        "no software_fragmentation opportunity"
+      ],
+      "must_not_generate": [
+        "tool consolidation recommendation"
+      ]
+    },
+    {
+      "id": "team_absence_dependency",
+      "given": {
+        "context_business_situation": "small_team",
+        "dimension": "management_continuity",
+        "radar_answer": "absence",
+        "importance": "significant",
+        "consequences": [
+          "delay"
+        ]
+      },
+      "expect": [
+        "dependency_on_people signal",
+        "improve_continuity opportunity allowed"
+      ]
+    },
+    {
+      "id": "free_text_optional_no_penalty",
+      "given": {
+        "optional_notes": []
+      },
+      "expect": [
+        "full diagnostic remains possible",
+        "no missing-data penalty solely because free text is empty"
+      ]
+    },
+    {
+      "id": "free_text_taxonomy_gap",
+      "given": {
+        "dimension": "coordination",
+        "optional_note": "Les gars m’appellent toute la journée pour savoir sur quel chantier aller."
+      },
+      "expect": [
+        "potential coordination/visibility signal may be suggested",
+        "taxonomy gap may be recorded",
+        "free-text inference confidence defaults low"
+      ],
+      "must_not_generate": [
+        "automatic custom software recommendation",
+        "unstated financial consequence"
+      ]
+    },
+    {
+      "id": "result_no_product_meta_copy",
+      "given": {
+        "credible_opportunity": true
+      },
+      "must_not_generate": [
+        "Le questionnaire détecte",
+        "La rencontre permet de comprendre et de prioriser",
+        "Cette analyse a identifié"
+      ]
+    },
+    {
+      "id": "lead_form_healthy_result",
+      "given": {
+        "credible_opportunity": false
+      },
+      "expect": [
+        "no aggressive primary lead form",
+        "secondary contact option allowed"
+      ]
+    }
+  ],
+  "friction_clusters": {
+    "rule": "Group answers describing the same underlying friction before qualification and result generation.",
+    "examples": {
+      "information_access": [
+        "search_info",
+        "search",
+        "multiple_sources"
+      ],
+      "duplicate_information": [
+        "reenter",
+        "repeat_entry",
+        "manual_transfer",
+        "info_multiple_places"
+      ],
+      "followup_reliability": [
+        "followup_memory",
+        "followup",
+        "followups",
+        "remind",
+        "manual_reminders"
+      ],
+      "work_visibility": [
+        "ask_updates",
+        "messages_as_system",
+        "status_unclear",
+        "status",
+        "work_status"
+      ],
+      "continuity_dependency": [
+        "absence",
+        "person_dependency",
+        "handoff"
+      ]
+    },
+    "priority_rule": "Ask priority only when selected answers resolve to more than one materially different friction cluster."
+  },
+  "optional_free_text": {
+    "principle": "Free text supplements structured answers and is never required for a useful result.",
+    "dimension_note": {
+      "id": "dimension_optional_note",
+      "display": "collapsed_secondary_action",
+      "trigger_fr": "Quelque chose à ajouter?",
+      "label_fr": "Y a-t-il quelque chose d’important sur cette partie de votre entreprise que les choix précédents ne vous ont pas permis d’exprimer?",
+      "required": false,
+      "max_chars": 400,
+      "max_once_per_dimension": true
+    },
+    "final_note": {
+      "id": "final_optional_note",
+      "position": "before_results",
+      "label_fr": "Y a-t-il autre chose que vous aimeriez préciser?",
+      "hint_fr": "Une situation particulière, une façon de travailler ou un irritant que nous n’avons pas abordé.",
+      "required": false,
+      "max_chars": 600
+    },
+    "analysis": {
+      "structured_answers_take_precedence": true,
+      "free_text_inference_confidence_default": "low",
+      "allowed_outputs": [
+        "potential_signals",
+        "potential_friction",
+        "potential_consequence",
+        "taxonomy_gap_candidate",
+        "missing_information"
+      ],
+      "never_directly_trigger_custom_software": true,
+      "never_invent_unstated_consequence": true
+    },
+    "analytics_events": [
+      "optional_note_opened",
+      "optional_note_submitted",
+      "optional_note_changed_result",
+      "taxonomy_gap_candidate"
+    ]
+  },
+  "early_exit": {
+    "enabled": true,
+    "experimental": true,
+    "after_dimensions_explored_min": 3,
+    "trigger": "multiple_material_opportunities_already_found and additional_dimensions_remain",
+    "message_fr": "Vous avez déjà identifié quelques pistes intéressantes.",
+    "actions": [
+      {
+        "id": "continue",
+        "label_fr": "Continuer avec les autres parties"
+      },
+      {
+        "id": "results",
+        "label_fr": "Voir mes résultats"
+      }
+    ],
+    "never_auto_end": true
+  },
+  "lead_capture": {
+    "optional": true,
+    "placement": "after_results",
+    "show_primary_variant_if": "at_least_one_credible_opportunity",
+    "primary": {
+      "title_fr": "Vous voulez en discuter?",
+      "body_fr": "Si vous le souhaitez, on peut reprendre vos résultats avec vous et regarder quelles pistes valent réellement la peine d’être approfondies.",
+      "fields": [
+        {
+          "id": "name",
+          "label_fr": "Nom",
+          "required": true,
+          "type": "text"
+        },
+        {
+          "id": "contact",
+          "label_fr": "Courriel ou téléphone",
+          "required": true,
+          "type": "email_or_phone"
+        },
+        {
+          "id": "company",
+          "label_fr": "Entreprise",
+          "required": false,
+          "type": "text"
+        }
+      ],
+      "cta_fr": "Me contacter au sujet de mes résultats",
+      "privacy_fr": "Vos coordonnées serviront à vous contacter au sujet de cette analyse."
+    },
+    "healthy_result_variant": {
+      "mode": "secondary_link_only",
+      "label_fr": "Une question sur vos résultats? Parlez-nous."
+    },
+    "prohibited_copy": [
+      "Approfondir ces résultats",
+      "Accepter un suivi",
+      "Le questionnaire détecte. La rencontre permet de comprendre et de prioriser."
+    ],
+    "legal_note": "Consent/privacy requirements must be validated separately before production."
+  },
+  "ux_writing_rules": {
+    "neutrality": "Do not imply a process is outdated, inefficient, or problematic before the respondent reports friction or consequence.",
+    "avoid_by_default": [
+      "encore",
+      "toujours",
+      "trop",
+      "inutilement",
+      "devrait"
+    ],
+    "manual_word_rule": "Use 'manuel/manuellement' only when it neutrally describes an observable action and is necessary.",
+    "scan_budget": "Default to no more than 5 substantive multi-select statements plus 'Autre' and 'Rien de tout cela'.",
+    "selection_instructions": {
+      "unlimited": "Sélectionnez tout ce qui s’applique.",
+      "max_2": "Choisissez jusqu’à 2 réponses.",
+      "exact_2": "Choisissez 2 réponses."
+    }
+  }
+}

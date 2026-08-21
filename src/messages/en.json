@@ -11,93 +11,600 @@
         "contact": "Contact",
         "diagnostic": "Analysis tool",
         "cta": "Tell us about your project",
-        "lang": "FR"
+        "lang": "FR",
+        "skipToContent": "Skip to main content",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "primaryNav": "Primary navigation"
     },
     "home": {
         "heroTitle": "Application solutions designed to improve your operations.",
         "heroSubtitle": "We analyze your processes, identify the best opportunities, and build solutions that deliver measurable impact.",
         "heroCta": "Tell us about your project",
-        "processTitle": "Custom tools to support your growth.",
-        "processSubtitle": "Simplify your operations by freeing your teams and automating repetitive work.",
+        "scrollToProcess": "Continue to next section",
+        "processTitleLine1": "Custom tools",
+        "processTitleLine2": "to support your growth.",
+        "processSubtitleLine1": "Simplify your operations by freeing your teams",
+        "processSubtitleLine2": "and automating repetitive work.",
         "processCta": "Discover improvement opportunities",
-        "identify": "Identify",
-        "validate": "Validate",
-        "develop": "Build",
-        "evolve": "Evolve",
+        "identifyBold": "Identify",
+        "identifyLine2": "the best",
+        "identifyLine3": "opportunities.",
+        "identifyRest": " the best opportunities.",
+        "validateBold": "Validate",
+        "validateLine2": "solutions",
+        "validateLine3": "before building them.",
+        "validateRest": " solutions before building them.",
+        "developBold": "Build",
+        "developLine2": "tools tailored",
+        "developLine3": "to your needs.",
+        "developRest": "tools tailored to your needs.",
+        "evolveBold": "Evolve",
+        "evolveLine2": "your solution",
+        "evolveLine3": "at the pace of your business.",
+        "evolveRest": "your solution at the pace of your business.",
         "valueTitle": "How we create value.",
-        "value1Title": "Simplify operations",
-        "value1Body": "We map your processes to remove friction and clarify ownership.",
-        "value2Title": "Automate tasks",
-        "value2Body": "Repetitive work becomes reliable, measurable, and scalable flows.",
-        "value3Title": "Centralize information",
-        "value3Body": "A single source of truth for your teams, customers, and decisions.",
-        "value4Title": "Improve customer experience",
-        "value4Body": "Smoother journeys that strengthen trust and retention.",
-        "value5Title": "Accelerate decision-making",
-        "value5Body": "Clear indicators so you can act quickly without sacrificing quality.",
-        "value6Title": "Build agility",
-        "value6Body": "Tools designed to evolve with your organization.",
+        "valueSubtitle": "Solutions designed to simplify your operations, support your teams, and accompany your growth.",
+        "value1Title": "Operations",
+        "value1Body": "Remove unnecessary steps and streamline how your teams work.",
+        "value1Hint": "Request management, document workflows, case tracking, internal approvals.",
+        "value2Title": "Automation",
+        "value2Body": "Reduce manual work and save time every day.",
+        "value2Hint": "Automatic reminders, document generation, data sync, notifications, software integrations.",
+        "value3Title": "Information",
+        "value3Body": "Keep your data in one place so teams can work more effectively.",
+        "value3Hint": "Dashboards, KPIs, cost analysis, reports, centralized data.",
+        "value4Title": "Customer experience",
+        "value4Body": "Simple tools that make client interactions easier.",
+        "value4Hint": "Client portal, scheduling, request tracking, forms, member space.",
+        "value5Title": "Decision-making",
+        "value5Body": "Dashboards built around the indicators that matter.",
+        "value5Hint": "Real-time reports, financial analysis, forecasts, custom alerts, goal tracking.",
+        "value6Title": "Custom tools",
+        "value6Body": "Solutions that grow with your business.",
+        "value6Hint": "Websites, internal tools, specialized CRMs, 360° evaluation, inspection management.",
         "valueCtaPrompt": "Ready to improve your operations?",
         "valueCta": "Tell us about your project",
         "philosophyTitle": "Move faster without cutting corners.",
-        "philosophyBody": "We combine a design-first approach with rigorous engineering. AI speeds us up — it never replaces judgment or quality.",
+        "philosophyBody": "Our experience in design and development helps us know where to focus. New AI tools now let us explore, prototype, and validate solutions much faster. We use them as an accelerator while keeping control over decisions, design, and final product quality.",
         "philosophyLink": "About Cobreo",
         "testimonialTitle": "What our clients say",
-        "testimonialQuote": "The speed of execution particularly impressed us. The Cobreo team turned a fuzzy vision into a concrete tool that was useful within the first few weeks.",
-        "testimonialName": "Adrian",
-        "testimonialRole": "Director of Innovation",
+        "testimonialPrev": "Previous testimonial",
+        "testimonialNext": "Next testimonial",
+        "testimonials": [
+            {
+                "quote": "The speed of execution particularly impressed us. We could see and test an early version very quickly, then refine it from our team's feedback.",
+                "name": "Jérémie",
+                "role": "Development Director, M&H"
+            },
+            {
+                "quote": "Cobreo clarified our priorities and delivered a concrete tool, without the jargon. The team turned our business needs into something usable from the first iteration.",
+                "name": "Camille",
+                "role": "Head of Operations, Atelier Nord"
+            },
+            {
+                "quote": "Finally a partner who understands design and development equally well. We saved weeks on a project we thought was stuck for good.",
+                "name": "Marc-André",
+                "role": "Founder, Flux Commerce"
+            }
+        ],
         "diagnosticTitle": "Discover your improvement opportunities",
-        "diagnosticBody": "Answer a few questions to identify operational challenges in your business.",
+        "diagnosticBody": "A few questions to walk through different areas of your business and spot where you could save time and simplify operations.",
         "diagnosticCta": "Start the analysis"
     },
     "footer": {
         "services": "Services",
         "contact": "Contact",
         "about": "About",
-        "projects": "Projects",
+        "privacy": "Privacy",
         "cta": "Tell us about your project",
         "rights": "© {year} Cobreo. All rights reserved.",
         "terms": "Terms",
-        "privacy": "Privacy",
         "cookies": "Cookies"
     },
+    "cookiesBanner": {
+        "title": "We respect your privacy",
+        "body": "We use cookies that are essential for the site to work and, with your consent, cookies to measure traffic and improve our services.",
+        "policyLink": "Cookie policy",
+        "accept": "Accept all",
+        "reject": "Essential only",
+        "manage": "Customize",
+        "save": "Save choices",
+        "necessaryTitle": "Essential",
+        "necessaryBody": "Required for security, navigation, and remembering your preferences.",
+        "analyticsTitle": "Analytics",
+        "analyticsBody": "Help us understand how the site is used in aggregate.",
+        "marketingTitle": "Marketing",
+        "marketingBody": "Used to measure campaigns or promotional content, when applicable."
+    },
+    "legal": {
+        "privacy": {
+            "title": "Privacy policy",
+            "updated": "Last updated: August 12, 2026",
+            "intro": "At Cobreo (cobreo.ca), we protect the personal information you share with us. This policy explains what we collect, why, and your rights under applicable Quebec and Canadian law, as well as GDPR principles where relevant.",
+            "sections": [
+                {
+                    "title": "1. Data controller",
+                    "body": "Cobreo is responsible for personal information processed through cobreo.ca.\n\nEmail: contact@cobreo.ca\n\nWebsite: https://cobreo.ca"
+                },
+                {
+                    "title": "2. Information we collect",
+                    "body": "We may collect: identity and contact details (name, email, phone, company) when you submit a form; the content of your messages or diagnostic answers; technical browsing data (IP address, device type, pages viewed) via cookies or analytics tools if you consent; and information needed to securely operate our internal tools."
+                },
+                {
+                    "title": "3. Purposes",
+                    "body": "We use your data to respond to inquiries, deliver our services, improve the site and our processes, maintain security, meet legal obligations, and — only with consent when required — measure audience or send relevant communications."
+                },
+                {
+                    "title": "4. Legal bases and retention",
+                    "body": "Depending on context, processing relies on your consent, steps toward or performance of a contract, or our legitimate interests (security, service improvement), in line with applicable law.\n\nWe keep data only as long as needed for the purposes described, then delete or anonymize it unless a legal obligation requires otherwise."
+                },
+                {
+                    "title": "5. Sharing and processors",
+                    "body": "We do not sell your personal information. We may share it with providers that help us host the site, send email, or run our infrastructure (e.g. hosting, database, messaging), only as needed and under appropriate confidentiality commitments.\n\nSome providers may be located outside Quebec or Canada; when that happens, we take reasonable steps to protect your data."
+                },
+                {
+                    "title": "6. Your rights",
+                    "body": "Depending on applicable law, you may request access, correction, deletion, restriction, portability, or withdrawal of consent. To exercise your rights: contact@cobreo.ca.\n\nYou may also file a complaint with the Commission d’accès à l’information du Québec or another competent authority."
+                },
+                {
+                    "title": "7. Cookies",
+                    "body": "See our Cookie policy for categories and how to manage your choices."
+                },
+                {
+                    "title": "8. Changes",
+                    "body": "We may update this policy. The date at the top shows the current version. For material changes, we will adjust the on-site notice as needed."
+                }
+            ]
+        },
+        "terms": {
+            "title": "Terms of use",
+            "updated": "Last updated: August 12, 2026",
+            "intro": "By using cobreo.ca, you agree to these terms. If you do not agree, please do not use the site.",
+            "sections": [
+                {
+                    "title": "1. Purpose of the site",
+                    "body": "The site presents Cobreo’s services and lets you contact us or start a diagnostic. Content is informational and is not personalized legal, financial, or technical advice until a separate agreement is in place."
+                },
+                {
+                    "title": "2. Acceptable use",
+                    "body": "You agree to use the site lawfully, not to attempt to compromise its security, not to submit illegal or misleading content, and not to use abusive automated means (excessive scraping, spam)."
+                },
+                {
+                    "title": "3. Intellectual property",
+                    "body": "Texts, trademarks, logos, designs, and other site elements belong to Cobreo or its licensors. Unauthorized reproduction is prohibited, except for reasonable personal non-commercial use."
+                },
+                {
+                    "title": "4. Forms and communications",
+                    "body": "Information you send must be accurate. We may refuse or ignore abusive requests. An exchange through the site does not automatically create a service contract."
+                },
+                {
+                    "title": "5. Availability and liability",
+                    "body": "We aim to keep the site available and accurate, without guaranteeing uninterrupted access or error-free content. To the extent permitted by law, Cobreo is not liable for indirect damages arising from use of the site."
+                },
+                {
+                    "title": "6. Third-party links",
+                    "body": "The site may link to third-party websites. We do not control their content and are not responsible for them."
+                },
+                {
+                    "title": "7. Governing law",
+                    "body": "These terms are governed by the applicable laws of Quebec and Canada. Disputes will be submitted to the competent courts of Quebec, subject to any mandatory rights you may have."
+                },
+                {
+                    "title": "8. Contact",
+                    "body": "Questions: contact@cobreo.ca"
+                }
+            ]
+        },
+        "cookies": {
+            "title": "Cookie policy",
+            "updated": "Last updated: August 12, 2026",
+            "intro": "This page explains how cobreo.ca uses cookies and similar technologies, and how you can manage your preferences.",
+            "sections": [
+                {
+                    "title": "1. What is a cookie?",
+                    "body": "A cookie is a small file stored on your device. It may be required for the site to work, or used for analytics and experience improvements depending on your choices."
+                },
+                {
+                    "title": "2. Categories we use",
+                    "body": "Essential: security, site delivery, remembering your consent and basic preferences. Always on.\n\nAnalytics: aggregate usage statistics and session replay (PostHog), only with your consent. Form fields and sensitive diagnostic content are masked in recordings.\n\nMarketing: campaign or promotional measurement when applicable (only with your consent)."
+                },
+                {
+                    "title": "3. Legal basis and consent",
+                    "body": "Non-essential cookies are set only after you consent via the banner. You can withdraw consent by clearing browser cookies or contacting us to reset preferences (clearing the local consent key)."
+                },
+                {
+                    "title": "4. Duration",
+                    "body": "Duration varies by cookie (session or persistent). Your consent choice is stored locally on your device so we do not ask on every visit."
+                },
+                {
+                    "title": "5. Managing your choices",
+                    "body": "Use the cookie banner on first visit, or clear this site’s data in your browser. You can also restrict cookies in browser settings; some site features may then be limited."
+                },
+                {
+                    "title": "6. More information",
+                    "body": "See also our Privacy policy. Contact: contact@cobreo.ca"
+                }
+            ]
+        }
+    },
     "contact": {
-        "title": "Tell us about your project",
-        "subtitle": "Share your context — we'll get back to you quickly.",
+        "title": "Contact",
+        "heroTitle": "Let's talk about your next project.",
+        "subtitle": "We’d love to hear from you. Write to us — we’ll reply within one business day.",
+        "metaDescription": "Contact Cobreo to discuss an application project, automation, or operational improvement.",
+        "eyebrow": "Contact",
+        "formTitle": "Tell us about your project",
+        "requiredNote": "All fields marked with * are required.",
         "name": "Name",
         "email": "Email",
         "company": "Company",
         "phone": "Phone",
         "message": "Message",
+        "messagePlaceholder": "",
         "submit": "Send",
-        "success": "Thank you — your message has been received.",
-        "error": "Something went wrong. Please try again or email us directly."
+        "submitting": "Sending…",
+        "success": "Thank you — your message has been received. We’ll get back to you within one business day.",
+        "successTitle": "Thanks for reaching out.",
+        "error": "Something went wrong. Please try again or email contact@cobreo.ca.",
+        "needName": "Enter your name (at least 2 characters).",
+        "needEmail": "Enter a valid email address.",
+        "needMessage": "Add a message (at least 10 characters).",
+        "needConsent": "Please accept the privacy policy to send the form.",
+        "privacyPrefix": "I agree that the information I’m providing will be handled according to Cobreo’s",
+        "privacyLink": "privacy policy",
+        "privacySuffix": ".",
+        "sideTitle": "Contact us",
+        "sideEmailLabel": "Email",
+        "sideEmail": "contact@cobreo.ca",
+        "sideDiagnosticLabel": "Analysis tool",
+        "sideDiagnosticBody": "Map your operations ahead of a first conversation.",
+        "sideDiagnosticCta": "Start the analysis"
     },
     "diagnostic": {
         "title": "Analysis tool",
-        "subtitle": "A short questionnaire to surface optimization opportunities.",
-        "step": "Step {current} of {total}",
+        "subtitle": "A few simple questions about how you work — to spot where improvement opportunities may exist.",
+        "toolEyebrow": "Analysis tool",
+        "contextProgress": "Contexte {current} sur {total}",
+        "contextContinue": "Continue",
+        "dimensionMapTitle": "Your business",
+        "dimensionMapBody": "For each area, say whether it’s part of your activity, whether you want to explore it, or whether it’s not relevant right now.",
+        "dimensionMapContinue": "Continue",
+        "dimensionMapNeedAll": "Set a status for each area to continue.",
+        "dimensionSelectTitle": "Which areas do you want to go deeper on?",
+        "dimensionSelectBody": "We recommend choosing up to three. You can also explore more.",
+        "dimensionSelectRecommended": "Recommended",
+        "dimensionSelectContinue": "Explore these areas",
+        "dimensionSelectNeedOne": "Choose at least one area to continue.",
+        "radarOtherPlaceholder": "Add a few words (optional)",
+        "radarNeedAnswer": "Choose at least one option to continue.",
+        "qualifyContinue": "Continue",
+        "deepDiveContinue": "Continue",
+        "resultOpportunitiesTitle": "Paths to explore",
+        "resultNoticedTitle": "What we noticed",
+        "resultWhyLabel": "Why",
+        "resultGainLabel": "Potential gain",
+        "resultGain": {
+            "low": "Low",
+            "moderate": "Moderate",
+            "important": "Important"
+        },
+        "resultLevel": {
+            "watch": "Watch",
+            "possible": "Possible",
+            "clear": "Clear"
+        },
+        "resultHealthyTitle": "Little priority friction",
+        "resultEarlyTitle": "Too early to structure further",
+        "localeFrOnlyNote": "The analysis tool is available in English and French.",
+        "stagesTitle": "Which parts of your business do you want to explore?",
+        "stagesBody": "Select the steps to go deeper on. We’ll only ask about those areas — observable situations, no jargon.",
+        "stagesPickHint": "Choose at least one section to continue.",
+        "stagesSelected": "{count} section(s) selected",
+        "stagesCta": "Start the questions",
+        "stageHints": {
+            "acquisition": "Inbound requests, follow-ups, channels",
+            "conversion": "Proposals, status, duplicate entry",
+            "delivery": "Core work and repetitive tasks",
+            "coordination": "Visibility, handoffs, messages",
+            "admin": "Billing, spreadsheets",
+            "tools": "Switching between software tools",
+            "team": "Continuity and people dependency"
+        },
+        "introTitle": "Spot where you can simplify your operations.",
+        "introBody": "This is not an audit. In 6–8 minutes, a few simple questions to surface friction in day-to-day work — and make a later conversation more useful.",
+        "introCta": "Start",
+        "sectorTitle": "What context do you work in?",
+        "sectorBody": "This only adapts the wording — the questions stay the same.",
+        "sectors": {
+            "generic": "General / other",
+            "construction": "Construction",
+            "clinic": "Clinic / healthcare",
+            "professional": "Professional services"
+        },
+        "stages": {
+            "acquisition": "Acquisition & inbound requests",
+            "conversion": "Sales & conversion",
+            "delivery": "Delivery & production",
+            "coordination": "Coordination",
+            "admin": "Billing & administration",
+            "tools": "Tools & technology",
+            "team": "Team"
+        },
+        "stagesSector": {
+            "construction": {
+                "acquisition": "Requests & bids",
+                "conversion": "Estimates & contracts",
+                "delivery": "Jobsite & delivery",
+                "coordination": "Jobsite coordination",
+                "admin": "Billing & admin"
+            },
+            "clinic": {
+                "acquisition": "Requests & appointments",
+                "conversion": "Intake & onboarding",
+                "delivery": "Clinical delivery",
+                "coordination": "Team coordination",
+                "admin": "Billing & records"
+            },
+            "professional": {
+                "acquisition": "Leads & requests",
+                "conversion": "Proposals & engagements",
+                "delivery": "Engagement delivery",
+                "coordination": "Internal coordination",
+                "admin": "Billing & admin"
+            }
+        },
+        "progress": "Question {current} of {total}",
         "next": "Continue",
         "back": "Back",
+        "previousQuestion": "Previous question",
+        "skip": "Skip",
+        "editAnswer": "Edit",
+        "skippedLabel": "Skipped",
+        "needAnswer": "Select an answer to continue.",
+        "needChannel": "Select at least one channel to continue.",
+        "stagesNeedPick": "Select at least one section to get started.",
+        "captureNeedCompany": "Enter your company name.",
+        "captureNeedPhone": "Enter a valid phone number.",
+        "captureNeedName": "Enter your name.",
+        "multiSelectHint": "Select all channels that apply.",
         "submit": "Submit",
-        "success": "Thank you — your answers were saved. We'll follow up shortly.",
-        "q1": "What is your company name?",
-        "q2": "How many employees does your organization have?",
-        "q3": "What is your main operational challenge today?",
-        "q4": "Which tools do you currently use to manage operations?",
-        "q5": "What email should we use for follow-up?",
-        "size1": "1–10",
-        "size2": "11–50",
-        "size3": "51–200",
-        "size4": "200+"
+        "submitting": "Sending…",
+        "success": "Thank you — your answers were saved. We'll call you shortly.",
+        "error": "Something went wrong. Please try again or contact us.",
+        "resultTitle": "What we noticed",
+        "resultIntro": "Based on your answers, here are the areas where friction seems to keep showing up — and where a well-designed tool could save you time.",
+        "resultPriority": "Strongest signals",
+        "resultOther": "Other areas covered",
+        "resultProgressLabel": "Results",
+        "resultNote": "These leads are indicative. A conversation helps validate and prioritize them.",
+        "resultCta": "See my results",
+        "viewResultsCta": "See my results",
+        "resumeCta": "Resume analysis",
+        "resumeTitle": "You have an analysis in progress",
+        "resumeBody": "Would you like to continue where you left off, or start over from the beginning?",
+        "resumeContinue": "Continue",
+        "resumeRestart": "Start over from the beginning",
+        "restartCta": "Retake the questionnaire",
+        "doneTitle": "You’re all set",
+        "doneBody": "Thanks — we’ve got your request. You can close this page or head back home.",
+        "doneHomeCta": "Back to home",
+        "captureEyebrow": "Next",
+        "captureTitle": "Want to discuss this?",
+        "captureBody": "If you like, we can review your results with you and see which leads are worth exploring further.",
+        "captureBenefit1": "",
+        "captureBenefit2": "",
+        "captureBenefit3": "",
+        "captureName": "Name",
+        "captureCompany": "Company",
+        "captureContact": "Email or phone",
+        "capturePhone": "Phone",
+        "captureSubmit": "Contact me about my results",
+        "captureReassure": "Your details will only be used to contact you about this analysis.",
+        "captureNeedContact": "Enter a valid email or phone number.",
+        "radarSelectInstruction": "Select everything that applies.",
+        "optionalNotePlaceholder": "Optional",
+        "optionalNoteContinue": "See my results",
+        "exploreCta": "Explore these opportunities with us",
+        "bands": {
+            "high": "High friction",
+            "moderate": "Notable friction",
+            "some": "Light friction",
+            "low": "Little friction"
+        },
+        "bandLegendTitle": "How to read the levels",
+        "bandHints": {
+            "high": "A lot of friction in your answers — look here first.",
+            "moderate": "Repeated friction: worth a concrete discussion.",
+            "some": "A few signs, less urgent than the priority areas.",
+            "low": "Little friction detected here for now."
+        },
+        "answers": {
+            "frequency": {
+                "never": "Never",
+                "rarely": "Rarely",
+                "sometimes": "Sometimes",
+                "often": "Often",
+                "very_often": "Very often"
+            },
+            "agreement": {
+                "not_at_all": "Not at all",
+                "little": "A little",
+                "somewhat": "Somewhat",
+                "a_lot": "A lot",
+                "completely": "Completely"
+            },
+            "ease": {
+                "very_hard": "Very difficult",
+                "hard": "Difficult",
+                "acceptable": "Acceptable",
+                "easy": "Easy",
+                "very_easy": "Very easy"
+            },
+            "yesPartialNo": {
+                "yes": "Yes",
+                "partial": "Partly",
+                "no": "No"
+            },
+            "channels": {
+                "phone": "Phone / calls",
+                "email": "Email",
+                "web_form": "Web form",
+                "messaging": "Text / messaging",
+                "social": "Social media",
+                "referral": "Referrals",
+                "walk_in": "Walk-in / in person",
+                "other": "Other"
+            }
+        },
+        "questions": {
+            "acquisition_entry_01": "Through which channels do you receive new requests?",
+            "acquisition_followup_01": "How often are request follow-ups forgotten or delayed?",
+            "acquisition_retype_01": "Do you have to re-enter the same request information into another tool?",
+            "conversion_docs_01": "Do you still create quotes or proposals in a highly repetitive way?",
+            "conversion_status_01": "How easy is it to know where each opportunity stands?",
+            "conversion_duplicate_01": "Is the same customer data entered in multiple places before a sale?",
+            "delivery_manual_01": "Are repetitive tasks still done manually around the core work?",
+            "delivery_manual_fu": "Does this situation involve several people on the team?",
+            "delivery_admin_01": "How much administrative work still surrounds delivering the work?",
+            "delivery_info_01": "How often do you need to hunt for information before you can continue working?",
+            "coordination_chat_01": "Do messages (email, text, chat) often act as the work management system?",
+            "coordination_updates_01": "Do you regularly need to ask for updates to know where files stand?",
+            "coordination_handoff_01": "When someone is away, how easy is it for someone else to pick up their work?",
+            "admin_billing_01": "Does billing preparation still require many manual steps?",
+            "admin_sheets_01": "Do you use spreadsheets to consolidate information from multiple places?",
+            "admin_duplicate_01": "Does some information need to be entered in more than one place for admin or billing?",
+            "tools_switch_01": "Do people have to switch between software tools to complete a single task?",
+            "tools_transfer_01": "Does some information need to be transferred manually between tools?",
+            "tools_transfer_fu": "Do these manual transfers happen regularly during the week?",
+            "tools_overlap_01": "Do several of your tools serve similar functions?",
+            "team_absence_01": "When an employee is away, how easy is it for someone else to pick up their work?",
+            "team_memory_01": "Do some reminders or follow-ups mainly rely on people’s memory?"
+        },
+        "blurbs": {
+            "acquisition": {
+                "low": "Few friction signals around inbound requests. This area looks relatively smooth based on your answers.",
+                "some": "A few signals suggest inbound handling or follow-up may be worth a closer look.",
+                "moderate": "Your answers point to possible friction around receiving and following up on requests.",
+                "high": "Several signals suggest inbound request handling could be simplified or better structured."
+            },
+            "conversion": {
+                "low": "Little friction detected between request and conversion.",
+                "some": "Some signs suggest conversion (proposals, status) could be lightened.",
+                "moderate": "Your answers suggest opportunities around proposals, approvals, or duplicate entry.",
+                "high": "Several answers indicate strong potential to simplify converting requests into engagements."
+            },
+            "delivery": {
+                "low": "Delivery work seems lightly constrained by manual tasks based on your answers.",
+                "some": "A few frictions around production or information access could be explored.",
+                "moderate": "Your answers suggest some delivery-related tasks may deserve a closer look.",
+                "high": "Several signals indicate production and repetitive work around delivery could be simplified."
+            },
+            "coordination": {
+                "low": "Coordination looks relatively clear from your answers.",
+                "some": "Some signs of manual follow-up or limited visibility appear.",
+                "moderate": "Your answers suggest coordination and work visibility could be strengthened.",
+                "high": "Several signals point to reliance on messages, memory, or manual status updates."
+            },
+            "admin": {
+                "low": "Little administrative friction detected.",
+                "some": "Some billing or consolidation steps could be lightened.",
+                "moderate": "Your answers indicate moderate potential to simplify administration around the work.",
+                "high": "Several signals suggest notable friction around billing, spreadsheets, or duplicate entry."
+            },
+            "tools": {
+                "low": "Your software environment doesn’t stand out as a major friction source.",
+                "some": "Some overlaps or manual transfers may be worth reviewing.",
+                "moderate": "Your answers suggest potential to simplify the software environment.",
+                "high": "Several signals indicate manual transfers, tool-switching, or overlapping software."
+            },
+            "team": {
+                "low": "Little friction related to handoffs or memory-based follow-ups.",
+                "some": "Some signs of people-dependency appear.",
+                "moderate": "Your answers suggest it may help to explore continuity of work across the team.",
+                "high": "Several signals indicate strong reliance on people or memory to keep work moving."
+            }
+        }
     },
     "about": {
         "title": "About Cobreo",
-        "body": "Cobreo builds custom application solutions to improve business operations. We combine analysis, design, and engineering to deliver measurable impact."
+        "metaDescription": "Cobreo builds custom application solutions: analysis, design, and development for measurable operational impact.",
+        "eyebrow": "About",
+        "heroTitle": "Partners for improving your operations.",
+        "heroBody": "Cobreo builds custom application solutions. We combine analysis, design, and development to deliver measurable impact — without jargon, with concrete deliverables.",
+        "originEyebrow": "Origin",
+        "originTitle": "How Cobreo started",
+        "originBody1": "Across our careers, the same pattern kept showing up — solid companies still wrestling with heavy processes, manual work, and tools that don’t quite fit how they operate.",
+        "originBody2": "We built Cobreo to help businesses spot those improvement opportunities, then design simple solutions rooted in their reality and able to create concrete value. The AI tools available today let us explore, iterate, and prototype much faster — without losing control over decisions and the quality of the outcome.",
+        "foundersEyebrow": "Founders",
+        "foundersTitle": "The people behind Cobreo.",
+        "foundersBody": "Passionate people, united by the same focus on efficiency — and a shared aim to make a real difference for SMEs.",
+        "founder1Name": "Dérick Paradis",
+        "founder1Role": "Co-founder",
+        "founder1Bio": "Product, design, and development: clarifying the need, prototyping quickly, and shipping tools teams actually want to use.",
+        "founder1Experience": "Background in development and design — notably in health and education.",
+        "founder2Name": "Nicolas Stoltz",
+        "founder2Role": "Co-founder",
+        "founder2Bio": "Development and delivery: turning clear intent into a reliable, maintainable solution that fits day-to-day work.",
+        "founder2Experience": "Background in finance, hospitality, and automation.",
+        "approachEyebrow": "Approach",
+        "approachTitle": "Move faster without cutting corners.",
+        "approachBody": "Our experience in design and development helps us know where to focus. New AI tools let us explore, prototype, and validate solutions much faster. We use them as an accelerator while keeping control over decisions, design, and final product quality.",
+        "workEyebrow": "Method",
+        "workTitle": "How we work.",
+        "workBody": "We identify the best opportunities, validate before building, deliver tools tailored to your operations, then evolve them with you.",
+        "workLink": "See our services",
+        "ctaTitle": "Let's talk about your context.",
+        "ctaBody": "A short conversation to clarify your priorities and see how we can help.",
+        "ctaContact": "Tell us about your project",
+        "ctaDiagnostic": "Open the analysis tool"
     },
     "services": {
         "title": "Services",
-        "body": "Operational analysis, application design, automation, and ongoing evolution support."
+        "metaDescription": "Operational analysis, application design, automation, and ongoing evolution — the Cobreo method.",
+        "eyebrow": "Services",
+        "heroTitle": "Custom tools to support your growth.",
+        "heroBody": "We simplify your operations by freeing your teams and automating repetitive work — from analysis through production.",
+        "processEyebrow": "Method",
+        "processTitle": "From friction to a useful tool.",
+        "processBody": "We move step by step — no jargon, with concrete deliverables each time.",
+        "step1Bold": "Identify",
+        "step1Rest": "the best opportunities.",
+        "step1Body": "We map your processes and target where time and clarity gains are highest.",
+        "step2Bold": "Validate",
+        "step2Rest": "solutions before building them.",
+        "step2Body": "Fast prototypes and tests to confirm direction before investing in development.",
+        "step3Bold": "Build",
+        "step3Rest": "tools tailored to your needs.",
+        "step3Body": "Design and construction of concrete applications, made for your teams' day-to-day.",
+        "step4Bold": "Evolve",
+        "step4Rest": "your solution at the pace of your business.",
+        "step4Body": "Adjustments, new capabilities, and follow-through — so the tool grows with you.",
+        "domainsEyebrow": "Impact areas",
+        "domainsTitle": "Where we create value.",
+        "domainsBody": "Solutions designed to simplify your operations, support your teams, and accompany your growth.",
+        "domain1Title": "Operations",
+        "domain1Body": "Remove unnecessary steps and streamline how your teams work.",
+        "domain1Hint": "Request management, document workflows, case tracking, internal approvals.",
+        "domain2Title": "Automation",
+        "domain2Body": "Reduce manual work and save time every day.",
+        "domain2Hint": "Automatic reminders, document generation, data sync, notifications, software integrations.",
+        "domain3Title": "Information",
+        "domain3Body": "Keep your data in one place so teams can work more effectively.",
+        "domain3Hint": "Dashboards, KPIs, cost analysis, reports, centralized data.",
+        "domain4Title": "Customer experience",
+        "domain4Body": "Simple tools that make client interactions easier.",
+        "domain4Hint": "Client portal, scheduling, request tracking, forms, member space.",
+        "domain5Title": "Decision-making",
+        "domain5Body": "Dashboards built around the indicators that matter.",
+        "domain5Hint": "Real-time reports, financial analysis, forecasts, custom alerts, goal tracking.",
+        "domain6Title": "Custom tools",
+        "domain6Body": "Solutions that grow with your business.",
+        "domain6Hint": "Websites, internal tools, specialized CRMs, 360° evaluation, inspection management.",
+        "ctaTitle": "Ready to improve your operations?",
+        "ctaBody": "Tell us about your project, or start by spotting opportunities with the analysis tool.",
+        "ctaContact": "Tell us about your project",
+        "ctaDiagnostic": "Discover improvement opportunities"
     },
     "admin": {
         "loginTitle": "Sign in",
@@ -107,6 +614,88 @@
         "leads": "Leads",
         "contacts": "Contacts",
         "logout": "Sign out",
-        "empty": "No entries yet."
+        "empty": "No entries yet.",
+        "phone": "Phone",
+        "company": "Company",
+        "summary": "Summary",
+        "language": "Form language",
+        "diagnosticVersion": "Diagnostic version",
+        "sessionTitle": "Form session",
+        "sessionDuration": "Duration",
+        "sessionSteps": "Steps completed",
+        "sessionResume": "Resumed session",
+        "sessionCompletedAt": "Completed at",
+        "yes": "Yes",
+        "no": "No",
+        "bands": "Areas spotted",
+        "opportunitiesTitle": "Opportunities",
+        "resultKind": "Result type",
+        "resultKindHealthy": "Little priority friction",
+        "resultKindEarly": "Too early to structure further",
+        "resultKindOpportunities": "Opportunities identified",
+        "opportunityLevel": {
+            "watch": "Watch",
+            "possible": "Possible",
+            "clear": "Clear",
+            "improvement": "To improve",
+            "emerging": "To prepare",
+            "exploration": "To explore",
+            "healthy": "Working well"
+        },
+        "opportunityGain": {
+            "low": "Low gain",
+            "moderate": "Moderate gain",
+            "important": "Important gain"
+        },
+        "qaTitle": "Questions and answers",
+        "noDetail": "No detail",
+        "colTitle": "Title",
+        "colContact": "Contact",
+        "colSource": "Source",
+        "colLanguage": "Language",
+        "colStatus": "Status",
+        "colDate": "Date",
+        "colActions": "Actions",
+        "viewDetail": "Details",
+        "hideDetail": "Hide",
+        "delete": "Delete",
+        "deleteConfirm": "Delete “{title}”? This cannot be undone.",
+        "actionError": "Could not complete this action. Please try again.",
+        "statuses": {
+            "new": "New",
+            "in_progress": "In progress",
+            "won": "Won",
+            "archived": "Archived"
+        },
+        "sources": {
+            "diagnostic": "Diagnostic",
+            "contact_form": "Contact",
+            "manual": "Manual",
+            "diagnostic_booking": "Diagnostic booking"
+        },
+        "bookingTab": "Booking",
+        "bookingTitle": "Booking",
+        "bookingIntro": "Configure the slots offered after the diagnostic. Invites go out by email (.ics); the Meet link comes from BOOKING_MEET_LINK in .env.",
+        "bookingAvailability": "Availability",
+        "bookingAvailabilityHint": "These rules generate the 15-minute slots shown to prospects.",
+        "bookingRuleName": "Rule name",
+        "bookingTimezone": "Timezone",
+        "bookingDuration": "Duration (minutes)",
+        "bookingBuffer": "Buffer (minutes)",
+        "bookingNotice": "Minimum notice (minutes)",
+        "bookingHorizon": "Horizon (days)",
+        "bookingMaxSlots": "Max slots shown",
+        "bookingWeekdays": "Open days",
+        "bookingWindows": "Time windows",
+        "bookingWindowStart": "Start",
+        "bookingWindowEnd": "End",
+        "bookingAddWindow": "Add window",
+        "bookingRemoveWindow": "Remove",
+        "bookingRuleActive": "Rule active",
+        "bookingSaveRule": "Save availability",
+        "bookingUpcoming": "Upcoming bookings",
+        "bookingUpcomingEmpty": "No upcoming bookings.",
+        "bookingSaved": "Saved.",
+        "bookingInvalid": "Check the fields (duration ≥ 5 min, at least one day and HH:MM windows)."
     }
 }

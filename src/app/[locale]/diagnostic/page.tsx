@@ -18,15 +18,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function DiagnosticPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     setRequestLocale(locale);
-    const t = await getTranslations("diagnostic");
 
     return (
-        <div className="mx-auto max-w-container px-4 py-16 md:px-8 md:py-24">
-            <div className="mb-10 max-w-2xl">
-                <h1 className="text-display-sm font-normal tracking-tight text-primary md:text-display-md">{t("title")}</h1>
-                <p className="mt-3 text-lg text-tertiary">{t("subtitle")}</p>
+        <div className="relative min-h-[calc(100dvh-5rem)] bg-[#efedea]">
+            <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(ellipse_at_top,_rgba(77,107,151,0.12),_transparent_65%)]"
+            />
+            <div className="relative mx-auto max-w-container px-4 pb-10 pt-0 md:px-8 md:pb-14">
+                <DiagnosticWizard />
             </div>
-            <DiagnosticWizard />
         </div>
     );
 }
