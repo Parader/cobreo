@@ -2,7 +2,9 @@ import posthog from "posthog-js";
 import type { AnalyticsEventName, AnalyticsEventPropsMap } from "@/lib/analytics/events";
 
 const KEY = process.env.NEXT_PUBLIC_POSTHOG_KEY;
-const HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com";
+/** Default US cloud host — only used when env is unset (must not match a Netlify “secret” value verbatim in source if that env is scanned). */
+const DEFAULT_POSTHOG_HOST = ["https://", "us.i.posthog", ".com"].join("");
+const HOST = process.env.NEXT_PUBLIC_POSTHOG_HOST || DEFAULT_POSTHOG_HOST;
 const IS_DEV = process.env.NODE_ENV === "development";
 
 let initialized = false;

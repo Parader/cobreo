@@ -7,3 +7,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # NEXT_PUBLIC_* values are intentionally inlined into the client bundle.
+  # Omit them from secrets scanning so deploy is not blocked by false positives.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SITE_URL,NEXT_PUBLIC_ADMIN_PATH_SECRET,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST"
+  SECRETS_SCAN_OMIT_PATHS = ".env.example"
