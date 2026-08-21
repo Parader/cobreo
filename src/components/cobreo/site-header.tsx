@@ -143,7 +143,7 @@ export function SiteHeader() {
                             window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
                     >
-                        <Image src="/images/logo.svg" alt="Cobreo" fill className="object-contain object-left" priority />
+                        <Image src="/images/cobreologo.svg" alt="Cobreo" fill className="object-contain object-left" priority />
                     </Link>
                     <nav className="hidden items-center gap-3 lg:gap-4 md:flex" aria-label={t("primaryNav")}>
                         {links.map((link) => {

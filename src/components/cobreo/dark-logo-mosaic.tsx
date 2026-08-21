@@ -66,11 +66,11 @@ function LogoCell() {
         <div
             className={cx(
                 "h-full w-full bg-white opacity-[0.12]",
-                "[mask-image:url('/images/logo-mark.svg')]",
+                "[mask-image:url('/images/cobreomark.svg')]",
                 "[mask-size:contain]",
                 "[mask-repeat:no-repeat]",
                 "[mask-position:center]",
-                "[-webkit-mask-image:url('/images/logo-mark.svg')]",
+                "[-webkit-mask-image:url('/images/cobreomark.svg')]",
                 "[-webkit-mask-size:contain]",
                 "[-webkit-mask-repeat:no-repeat]",
                 "[-webkit-mask-position:center]",

@@ -115,3 +115,30 @@ input[type="search"]::-webkit-search-cancel-button {
         #171718 100%
     );
 }
+
+/*
+  Product mockups — force Untitled cool grays (never Cobreo canvas beige).
+  gray-25-ish canvas + white surfaces.
+*/
+[data-cobreo-mock] {
+    --color-cobreo-canvas: #ffffff;
+    --color-bg-primary: #ffffff;
+    --color-bg-primary_alt: #ffffff;
+    --color-bg-primary_hover: #f6f7f9;
+    --color-bg-secondary: #f6f7f9;
+    --color-bg-secondary_alt: #f6f7f9;
+    --color-bg-secondary_hover: #eef0f3;
+    --color-bg-tertiary: #eef0f3;
+    --color-bg-active: #f6f7f9;
+    --color-bg-quaternary: #e4e7ec;
+    --background-color-primary: #ffffff;
+    --background-color-primary_alt: #ffffff;
+    --background-color-primary_hover: #f6f7f9;
+    --background-color-secondary: #f6f7f9;
+    --background-color-secondary_alt: #f6f7f9;
+    --background-color-secondary_hover: #eef0f3;
+    --background-color-tertiary: #eef0f3;
+    --background-color-active: #f6f7f9;
+    --background-color-quaternary: #e4e7ec;
+    color-scheme: light;
+}

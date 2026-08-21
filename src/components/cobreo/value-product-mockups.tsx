@@ -665,13 +665,11 @@ export function ValueProductMockup({
 
     return (
         <div
+            data-cobreo-mock
             className={cx(
                 "pointer-events-none isolate w-full select-none overflow-hidden rounded-2xl bg-primary",
                 "border border-brand ring-1 ring-brand/30",
                 "[filter:drop-shadow(0_20px_44px_rgba(77,107,151,0.28))]",
-                // Untitled UI surfaces: white primary + gray-50 secondary (#F9FAFB).
-                // Site theme remaps bg-primary to Cobreo canvas — reset inside mockups only.
-                "[--color-bg-primary:rgb(255_255_255)] [--color-bg-primary_alt:rgb(255_255_255)] [--color-bg-secondary:rgb(249_250_251)] [--color-bg-secondary_alt:rgb(249_250_251)] [--color-bg-primary_hover:rgb(249_250_251)] [--color-bg-active:rgb(249_250_251)] [--color-bg-tertiary:rgb(242_244_247)]",
                 className,
             )}
         >
@@ -684,16 +682,13 @@ export function ValueProductMockup({
 
 /* ─── Mobile phone mockups (readable native layouts) ─── */
 
-const MOCK_SURFACE =
-    "[--color-bg-primary:rgb(255_255_255)] [--color-bg-primary_alt:rgb(255_255_255)] [--color-bg-secondary:rgb(249_250_251)] [--color-bg-secondary_alt:rgb(249_250_251)] [--color-bg-primary_hover:rgb(249_250_251)] [--color-bg-active:rgb(249_250_251)] [--color-bg-tertiary:rgb(242_244_247)]";
-
 function PhoneChrome({ children, brandLabel }: { children: ReactNode; brandLabel: string }) {
     return (
         <div
+            data-cobreo-mock
             className={cx(
                 "pointer-events-none mx-auto w-full max-w-[300px] select-none",
                 "[filter:drop-shadow(0_18px_36px_rgba(77,107,151,0.28))]",
-                MOCK_SURFACE,
             )}
         >
             <div className="overflow-hidden rounded-[2rem] border-[5px] border-[#171718] bg-primary ring-1 ring-brand/25">

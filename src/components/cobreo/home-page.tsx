@@ -14,7 +14,6 @@ import { RatingStars } from "@/components/foundations/rating-stars";
 import { DarkLogoMosaic } from "@/components/cobreo/dark-logo-mosaic";
 import {
     childReveal,
-    duration,
     easeLuxury,
     mediaReveal,
     staggerContainer,
@@ -25,7 +24,6 @@ import {
     AtmosphereWash,
     ClipReveal,
     ClipRevealHero,
-    ScrollLinkedMockup,
 } from "@/components/cobreo/layers-motion";
 import { ProcessIllustration } from "@/components/cobreo/process-illustration";
 import { PROCESS_STEP_DELAYS, ProcessPath } from "@/components/cobreo/process-path";
@@ -532,7 +530,7 @@ export function HomePage() {
                                                     initial={reduce ? false : { opacity: 0, height: 0 }}
                                                     animate={{ opacity: 1, height: "auto" }}
                                                     exit={reduce ? undefined : { opacity: 0, height: 0 }}
-                                                    transition={{ duration: duration.expand, ease: easeLuxury }}
+                                                    transition={{ duration: 0.35, ease: easeLuxury }}
                                                     className="overflow-hidden"
                                                 >
                                                     <p className="mt-1 text-[16px] leading-relaxed text-[#525252] sm:text-[18px] sm:leading-[28px]">
@@ -562,7 +560,7 @@ export function HomePage() {
                                         initial={reduce ? false : { opacity: 0, y: 12 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={reduce ? undefined : { opacity: 0, y: -8 }}
-                                        transition={{ duration: duration.crossfade, ease: easeLuxury }}
+                                        transition={{ duration: 0.4, ease: easeLuxury }}
                                     >
                                         <ValueProductMockupMobile
                                             activeIndex={activeValue}
@@ -597,30 +595,22 @@ export function HomePage() {
                                     <motion.div
                                         key={activeValue}
                                         className="overflow-hidden rounded-2xl"
-                                        initial={reduce ? false : { opacity: 0, y: 16 }}
+                                        initial={reduce ? false : { opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        exit={reduce ? undefined : { opacity: 0, y: -10 }}
-                                        transition={{ duration: duration.crossfade, ease: easeLuxury }}
+                                        exit={reduce ? undefined : { opacity: 0, y: -6 }}
+                                        transition={{ duration: 0.45, ease: easeLuxury }}
                                     >
                                         <ValueProductMockup activeIndex={activeValue} brandLabel={t("valueMockupBrand")} />
                                     </motion.div>
                                 </AnimatePresence>
                             );
 
-                            // Desktop-only product preview — phone-scale of a dashboard is illegible.
+                            // Desktop-only product preview — keep static (no scroll parallax) so prod matches design.
                             const mockupShellClass = cx(
                                 "pointer-events-none absolute top-0 z-10 hidden lg:block",
                                 "lg:left-[calc(22rem+1rem)] lg:right-[calc((100%-100vw)/2+1rem)]",
                                 "xl:left-[calc(26rem+1.25rem)] xl:right-[calc((100%-100vw)/2+1.5rem)]",
                             );
-
-                            if (layers) {
-                                return (
-                                    <ScrollLinkedMockup className={mockupShellClass}>
-                                        {mockupFrame}
-                                    </ScrollLinkedMockup>
-                                );
-                            }
 
                             return (
                                 <motion.div

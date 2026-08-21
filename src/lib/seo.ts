@@ -46,7 +46,7 @@ export function buildPageMetadata({
             alternateLocale: [alternateLocale === "fr" ? "fr_CA" : "en_CA"],
             images: [
                 {
-                    url: `${siteUrl}/og/default.png?v=2`,
+                    url: `${siteUrl}/og/default.png?v=7`,
                     width: 1200,
                     height: 630,
                     alt: "Cobreo",
@@ -57,7 +57,7 @@ export function buildPageMetadata({
             card: "summary_large_image",
             title,
             description,
-            images: [`${siteUrl}/og/default.png?v=2`],
+            images: [`${siteUrl}/og/default.png?v=7`],
         },
         robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     };
@@ -69,7 +69,7 @@ export function organizationJsonLd() {
         "@type": "Organization",
         name: "Cobreo",
         url: siteUrl,
-        logo: `${siteUrl}/images/logo.svg`,
+        logo: `${siteUrl}/images/cobreologo.svg`,
         email: "contact@cobreo.ca",
         areaServed: "CA",
         sameAs: [],
