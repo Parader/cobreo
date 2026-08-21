@@ -4,7 +4,6 @@ import { type ElementType, type ReactNode, useEffect, useRef } from "react";
 import {
     motion,
     useInView,
-    useMotionTemplate,
     useMotionValue,
     useScroll,
     useSpring,
@@ -199,11 +198,8 @@ export function ScrollLinkedMockup({
         target: ref,
         offset: ["start end", "end start"],
     });
-    const y = useTransform(scrollYProgress, [0, 1], [48, -48]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [1.4, -1.4]);
-    const scale = useTransform(scrollYProgress, [0, 0.35, 0.65, 1], [0.965, 1, 1, 0.978]);
-    const shadow = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.2, 0.1]);
-    const boxShadow = useMotionTemplate`0 28px 64px rgba(0,0,0,${shadow})`;
+    // Keep only a light translate — scale/rotate blur vector UI (text + charts).
+    const y = useTransform(scrollYProgress, [0, 1], [28, -28]);
 
     if (reduce) {
         return (
@@ -214,7 +210,7 @@ export function ScrollLinkedMockup({
     }
 
     return (
-        <motion.div ref={ref} className={className} style={{ y, rotate, scale, boxShadow }}>
+        <motion.div ref={ref} className={className} style={{ y }}>
             {children}
         </motion.div>
     );

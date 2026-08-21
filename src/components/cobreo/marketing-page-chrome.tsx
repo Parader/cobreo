@@ -40,7 +40,7 @@ export function MarketingLogoMarks({ side = "left" }: { side?: "both" | "left" |
                 <div
                     className={cx(
                         "cobreo-logo-mark cobreo-logo-mark--2 cobreo-logo-mark-opacity absolute top-[58%]",
-                        "left-[-56%] h-[320px] w-[560px] opacity-50",
+                        "left-[-56%] h-[320px] w-[560px]",
                         "md:left-[-34%] md:h-[400px] md:w-[700px]",
                         "lg:left-[-18%] lg:h-[440px] lg:w-[760px]",
                         "xl:left-[-8%] xl:h-[460px] xl:w-[780px]",

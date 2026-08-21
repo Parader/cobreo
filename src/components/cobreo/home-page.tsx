@@ -29,20 +29,10 @@ import {
 } from "@/components/cobreo/layers-motion";
 import { ProcessIllustration } from "@/components/cobreo/process-illustration";
 import { PROCESS_STEP_DELAYS, ProcessPath } from "@/components/cobreo/process-path";
-import { ScreenMockup } from "@/components/shared-assets/screen-mockup";
+import { ValueProductMockup, ValueProductMockupMobile } from "@/components/cobreo/value-product-mockups";
 import { cx } from "@/utils/cx";
 
 const layers = LAYERS_MOTION_EXPERIMENT;
-
-/** Untitled UI dashboard screens — one per value item */
-const VALUE_SCREENSHOTS = [
-    "/images/screen-mockups/01-operations.webp",
-    "/images/screen-mockups/02-automation.webp",
-    "/images/screen-mockups/03-information.webp",
-    "/images/screen-mockups/04-customer.webp",
-    "/images/screen-mockups/05-decisions.webp",
-    "/images/screen-mockups/06-custom.webp",
-] as const;
 
 export function HomePage() {
     const t = useTranslations("home");
@@ -280,22 +270,22 @@ export function HomePage() {
                                 <ClipReveal
                                     as="h2"
                                     delay={0.05}
-                                    className="font-display text-[28px] font-normal leading-[1.2] tracking-[-0.96px] whitespace-nowrap md:text-[48px] md:leading-[60px]"
+                                    className="font-display text-[28px] font-normal leading-[1.2] tracking-[-0.96px] text-pretty md:text-[48px] md:leading-[60px] md:whitespace-nowrap"
                                 >
                                     {t("processTitleLine1")}
                                 </ClipReveal>
                                 <ClipReveal
                                     as="h2"
                                     delay={0.16}
-                                    className="font-display text-[28px] font-normal leading-[1.2] tracking-[-0.96px] whitespace-nowrap md:text-[48px] md:leading-[60px]"
+                                    className="font-display text-[28px] font-normal leading-[1.2] tracking-[-0.96px] text-pretty md:text-[48px] md:leading-[60px] md:whitespace-nowrap"
                                 >
                                     {t("processTitleLine2")}
                                 </ClipReveal>
                             </div>
-                            <ClipReveal as="p" delay={0.28} className="font-display text-[22px] font-light leading-[1.35] md:text-[30px] md:leading-[1.4]">
-                                <span className="whitespace-nowrap">{t("processSubtitleLine1")}</span>
+                            <ClipReveal as="p" delay={0.28} className="min-w-0 font-display text-[22px] font-light leading-[1.35] text-pretty md:text-[30px] md:leading-[1.4]">
+                                <span className="md:whitespace-nowrap">{t("processSubtitleLine1")}</span>
                                 <br />
-                                <span className="whitespace-nowrap">{t("processSubtitleLine2")}</span>
+                                <span className="md:whitespace-nowrap">{t("processSubtitleLine2")}</span>
                             </ClipReveal>
                             <motion.div
                                 initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -325,16 +315,16 @@ export function HomePage() {
                         >
                             <motion.h2
                                 variants={text}
-                                className="font-display text-[28px] font-normal leading-[1.2] tracking-[-0.96px] md:text-[48px] md:leading-[60px]"
+                                className="min-w-0 font-display text-[28px] font-normal leading-[1.2] tracking-[-0.96px] text-pretty md:text-[48px] md:leading-[60px]"
                             >
-                                <span className="whitespace-nowrap">{t("processTitleLine1")}</span>
+                                <span className="md:whitespace-nowrap">{t("processTitleLine1")}</span>
                                 <br />
-                                <span className="whitespace-nowrap">{t("processTitleLine2")}</span>
+                                <span className="md:whitespace-nowrap">{t("processTitleLine2")}</span>
                             </motion.h2>
-                            <motion.p variants={text} className="font-display text-[22px] font-light leading-[1.35] md:text-[30px] md:leading-[1.4]">
-                                <span className="whitespace-nowrap">{t("processSubtitleLine1")}</span>
+                            <motion.p variants={text} className="min-w-0 font-display text-[22px] font-light leading-[1.35] text-pretty md:text-[30px] md:leading-[1.4]">
+                                <span className="md:whitespace-nowrap">{t("processSubtitleLine1")}</span>
                                 <br />
-                                <span className="whitespace-nowrap">{t("processSubtitleLine2")}</span>
+                                <span className="md:whitespace-nowrap">{t("processSubtitleLine2")}</span>
                             </motion.p>
                             <motion.div variants={text} className="w-full min-w-0 sm:w-auto">
                                 <DiagnosticEntryButton
@@ -460,7 +450,7 @@ export function HomePage() {
                 </div>
             </section>
 
-            {/* Value — list + oversized mockup that bleeds toward the page edge */}
+            {/* Value — list + restrained mockup (keeps rounded chrome, avoids upscaling blur) */}
             <section className="relative overflow-x-clip py-16 sm:py-20 md:py-24 lg:py-[120px] xl:py-[160px]">
                 <div className="relative z-10 mx-auto max-w-container px-4 md:px-8">
                     <motion.div
@@ -521,7 +511,7 @@ export function HomePage() {
                                         onClick={() => setActiveValue(i)}
                                         variants={textLeft}
                                         className={cx(
-                                            "group relative cursor-pointer rounded-r-xl py-4 pl-6 pr-3 text-left transition-colors duration-200 sm:py-5 sm:pl-7 sm:pr-4",
+                                            "group relative cursor-pointer rounded-r-xl py-5 pl-8 pr-4 text-left transition-colors duration-200 sm:py-5 sm:pl-8 sm:pr-5",
                                             "hover:bg-[#4d6b97]/[0.04]",
                                             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]",
                                             active && "bg-[#4d6b97]/[0.03]",
@@ -561,45 +551,67 @@ export function HomePage() {
                                     </motion.button>
                                 );
                             })}
+
+                            <motion.div
+                                variants={textLeft}
+                                className="mt-8 px-2 lg:hidden"
+                            >
+                                <AnimatePresence mode="wait" initial={false}>
+                                    <motion.div
+                                        key={`mobile-${activeValue}`}
+                                        initial={reduce ? false : { opacity: 0, y: 12 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={reduce ? undefined : { opacity: 0, y: -8 }}
+                                        transition={{ duration: duration.crossfade, ease: easeLuxury }}
+                                    >
+                                        <ValueProductMockupMobile
+                                            activeIndex={activeValue}
+                                            brandLabel={t("valueMockupBrand")}
+                                        />
+                                    </motion.div>
+                                </AnimatePresence>
+                            </motion.div>
+
+                            <motion.div
+                                variants={textLeft}
+                                className="mt-10 flex flex-col items-start gap-4 border-t border-[#090a24]/12 pt-8 pl-8 sm:mt-12 sm:gap-5 sm:pt-10 sm:pl-8"
+                            >
+                                <p className="max-w-[18rem] font-display text-[18px] font-normal leading-snug tracking-[-0.02em] text-[#090a24] sm:text-[20px] sm:leading-[1.35]">
+                                    {t("valueCtaPrompt")}
+                                </p>
+                                <CobreoButton
+                                    href="/contact"
+                                    variant="primary"
+                                    size="xl"
+                                    iconLeading={<MessageChatSquare className="size-5" />}
+                                    analytics={{ ctaId: "value_contact", destination: "contact", surface: "home_value" }}
+                                >
+                                    {t("valueCta")}
+                                </CobreoButton>
+                            </motion.div>
                         </motion.div>
 
                         {(() => {
                             const mockupFrame = (
-                                <ScreenMockup className="w-full" flushBottom>
-                                    <div className="relative aspect-[16/10] w-full">
-                                        <AnimatePresence mode="wait" initial={false}>
-                                            <motion.div
-                                                key={activeValue}
-                                                className="absolute inset-0"
-                                                initial={reduce ? false : { opacity: 0, y: 16 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={reduce ? undefined : { opacity: 0, y: -10 }}
-                                                transition={{ duration: duration.crossfade, ease: easeLuxury }}
-                                            >
-                                                <Image
-                                                    src={VALUE_SCREENSHOTS[activeValue] ?? VALUE_SCREENSHOTS[0]}
-                                                    alt=""
-                                                    fill
-                                                    className="object-cover object-left-top"
-                                                    sizes="(max-width: 767px) 100vw, (max-width: 1023px) 90vw, 1100px"
-                                                    priority={activeValue === 0}
-                                                />
-                                            </motion.div>
-                                        </AnimatePresence>
-                                    </div>
-                                </ScreenMockup>
+                                <AnimatePresence mode="wait" initial={false}>
+                                    <motion.div
+                                        key={activeValue}
+                                        className="overflow-hidden rounded-2xl"
+                                        initial={reduce ? false : { opacity: 0, y: 16 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={reduce ? undefined : { opacity: 0, y: -10 }}
+                                        transition={{ duration: duration.crossfade, ease: easeLuxury }}
+                                    >
+                                        <ValueProductMockup activeIndex={activeValue} brandLabel={t("valueMockupBrand")} />
+                                    </motion.div>
+                                </AnimatePresence>
                             );
 
-                            // Mobile / tablet: in-flow with side bleed.
-                            // lg+: full-width aspect mockup beside the list; only the bottom is clipped to list height.
+                            // Desktop-only product preview — phone-scale of a dashboard is illegible.
                             const mockupShellClass = cx(
-                                "relative z-10 mt-10",
-                                "w-[calc(100%+2rem)] -translate-x-4",
-                                "sm:mt-12",
-                                "md:mt-14 md:w-[calc(100%+4rem)] md:-translate-x-8",
-                                "lg:absolute lg:top-0 lg:bottom-0 lg:mt-0 lg:translate-x-0 lg:overflow-hidden",
-                                "lg:left-[calc(22rem+1rem)] lg:right-[calc((100%-100vw)/2-2rem)] lg:w-auto",
-                                "xl:left-[calc(26rem+1.25rem)] xl:right-[calc((100%-100vw)/2-3rem)]",
+                                "pointer-events-none absolute top-0 z-10 hidden lg:block",
+                                "lg:left-[calc(22rem+1rem)] lg:right-[calc((100%-100vw)/2+1rem)]",
+                                "xl:left-[calc(26rem+1.25rem)] xl:right-[calc((100%-100vw)/2+1.5rem)]",
                             );
 
                             if (layers) {
@@ -623,30 +635,6 @@ export function HomePage() {
                             );
                         })()}
                     </div>
-
-                    <motion.div
-                        className="relative z-20 mt-12 flex flex-col items-center gap-4 sm:mt-14 md:mt-16 lg:mt-16 xl:mt-20"
-                        variants={stagger}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={inView}
-                    >
-                        <motion.p variants={text} className="text-center text-[18px] leading-[28px] text-[#090a24] sm:text-[20px] sm:leading-[30px]">
-                            {t("valueCtaPrompt")}
-                        </motion.p>
-                        <motion.div variants={text} className="w-full max-w-full sm:w-auto">
-                            <CobreoButton
-                                href="/contact"
-                                variant="primary"
-                                size="xl"
-                                className="w-full sm:w-auto"
-                                iconLeading={<MessageChatSquare className="size-5" />}
-                                analytics={{ ctaId: "value_contact", destination: "contact", surface: "home_value" }}
-                            >
-                                {t("valueCta")}
-                            </CobreoButton>
-                        </motion.div>
-                    </motion.div>
                 </div>
             </section>
 
@@ -944,14 +932,14 @@ function ProcessRow({
             </motion.div>
             <motion.p
                 variants={copy}
-                className="min-w-0 max-w-none font-display text-[22px] font-light leading-[1.35] text-[#efedea] md:py-6 md:text-[30px] md:leading-[1.4]"
+                className="min-w-0 max-w-full font-display text-[22px] font-light leading-[1.35] text-pretty text-[#efedea] md:py-6 md:text-[30px] md:leading-[1.4]"
             >
-                <span className="whitespace-nowrap">
+                <span className="md:whitespace-nowrap">
                     <span className="font-bold">{bold} </span>
                     <span>{line2}</span>
                 </span>
                 <br />
-                <span className="whitespace-nowrap">{line3}</span>
+                <span className="md:whitespace-nowrap">{line3}</span>
             </motion.p>
         </motion.div>
     );
