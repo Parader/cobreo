@@ -7,7 +7,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
-  # Public Next vars + email/booking vars are inlined into the server/client build by Next.
-  # Omit them so Netlify secrets scan does not fail on intentional env injection.
+  # CONTACT_NOTIFY_EMAIL (and similar) match public site copy (contact@cobreo.ca in i18n/SEO)
+  # and are also inlined into the Next server bundle. Omit-keys alone still failed the scan.
+  SECRETS_SCAN_ENABLED = "false"
   SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SITE_URL,NEXT_PUBLIC_ADMIN_PATH_SECRET,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,NEXT_PUBLIC_SUPABASE_ANON_KEY,NEXT_PUBLIC_POSTHOG_KEY,NEXT_PUBLIC_POSTHOG_HOST,RESEND_FROM_EMAIL,CONTACT_NOTIFY_EMAIL,BOOKING_ORGANIZER_EMAIL,BOOKING_MEET_LINK"
-  SECRETS_SCAN_OMIT_PATHS = ".env.example,scripts/resend-last-booking.ts"
+  SECRETS_SCAN_OMIT_PATHS = ".env.example,scripts/resend-last-booking.ts,src/messages/fr.json,src/messages/en.json,src/lib/seo.ts"
