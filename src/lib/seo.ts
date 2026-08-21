@@ -46,7 +46,7 @@ export function buildPageMetadata({
             alternateLocale: [alternateLocale === "fr" ? "fr_CA" : "en_CA"],
             images: [
                 {
-                    url: `${siteUrl}/og/default.png`,
+                    url: `${siteUrl}/og/default.png?v=2`,
                     width: 1200,
                     height: 630,
                     alt: "Cobreo",
@@ -57,7 +57,7 @@ export function buildPageMetadata({
             card: "summary_large_image",
             title,
             description,
-            images: [`${siteUrl}/og/default.png`],
+            images: [`${siteUrl}/og/default.png?v=2`],
         },
         robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     };
