@@ -127,7 +127,7 @@ export function HomePage() {
                 />
                 <div
                     className={cx(
-                        "cobreo-logo-mark cobreo-logo-mark--2 cobreo-logo-mark-opacity absolute",
+                        "cobreo-logo-mark cobreo-logo-mark--2 cobreo-logo-mark-opacity absolute max-md:hidden",
                         "top-[1680px] left-[-62%] h-[340px] w-[580px]",
                         "sm:left-[-52%] sm:h-[400px] sm:w-[680px]",
                         "md:top-[1980px] md:left-[-40%] md:h-[480px] md:w-[780px]",
@@ -261,6 +261,7 @@ export function HomePage() {
             {/* Process — bg is a sibling layer so page textures can sit above it */}
             <section id="process" className="relative scroll-mt-24 overflow-hidden px-4 py-20 text-[#efedea] md:px-8 md:pb-[120px] md:pt-24">
                 <div className="absolute inset-0 z-0 bg-[#171718]" aria-hidden />
+                <DarkLogoMosaic variant="flow" className="md:hidden" />
                 <div className="relative z-10 mx-auto flex max-w-container flex-col gap-16 md:gap-20">
                     {layers ? (
                         <div className="flex max-w-5xl min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-12 md:text-left">
@@ -918,7 +919,7 @@ function ProcessRow({
                 className,
             )}
         >
-            <motion.div variants={media} className="relative aspect-square h-auto w-[60%] max-w-[168px] shrink-0 overflow-hidden md:w-auto md:max-w-[320px]">
+            <motion.div variants={media} className="relative hidden aspect-square h-auto w-[60%] max-w-[168px] shrink-0 overflow-hidden md:block md:w-auto md:max-w-[320px]">
                 <ProcessIllustration kind={kind} />
             </motion.div>
             <motion.p
