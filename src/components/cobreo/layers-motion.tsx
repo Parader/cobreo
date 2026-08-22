@@ -1,6 +1,6 @@
 "use client";
 
-import { type ElementType, type ReactNode, useEffect, useRef } from "react";
+import { type ElementType, type ReactNode, useEffect, useRef, useState } from "react";
 import {
     motion,
     useInView,
@@ -27,7 +27,26 @@ export function ClipReveal({
 }) {
     const reduce = usePreferSimpleMotion();
     const ref = useRef<HTMLDivElement>(null);
-    const inView = useInView(ref, { once: true, amount: 0.35 });
+    const inView = useInView(ref, { once: true, amount: 0.2, margin: "0px" });
+    const [revealed, setRevealed] = useState(false);
+
+    useEffect(() => {
+        if (reduce || inView) setRevealed(true);
+    }, [reduce, inView]);
+
+    // If the block was already on-screen when motion mode flipped, force visible.
+    useEffect(() => {
+        if (reduce || revealed) return;
+        const el = ref.current;
+        if (!el) return;
+        const unlock = () => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight * 0.92) setRevealed(true);
+        };
+        unlock();
+        const id = window.setTimeout(unlock, 500);
+        return () => window.clearTimeout(id);
+    }, [reduce, revealed]);
 
     if (reduce) {
         return <Tag className={className}>{children}</Tag>;
@@ -36,8 +55,8 @@ export function ClipReveal({
     return (
         <div ref={ref} className="overflow-hidden">
             <motion.div
-                initial={{ y: 56, opacity: 0 }}
-                animate={inView ? { y: 0, opacity: 1 } : { y: 56, opacity: 0 }}
+                initial={false}
+                animate={revealed ? { y: 0 } : { y: "110%" }}
                 transition={{ duration: 1.15, delay, ease: easeLuxury }}
             >
                 <Tag className={className}>{children}</Tag>
@@ -67,8 +86,8 @@ export function ClipRevealHero({
     return (
         <div className="overflow-hidden">
             <motion.div
-                initial={{ y: 64, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
+                initial={reduce ? false : { y: 64 }}
+                animate={{ y: 0 }}
                 transition={{ duration: 1.25, delay, ease: easeLuxury }}
             >
                 <Tag className={className}>{children}</Tag>

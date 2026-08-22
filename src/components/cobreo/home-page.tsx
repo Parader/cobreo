@@ -158,8 +158,8 @@ export function HomePage() {
                                 {t("heroSubtitle")}
                             </ClipRevealHero>
                             <motion.div
-                                initial={reduce ? false : { opacity: 0, y: 18 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                initial={reduce ? false : { y: 18 }}
+                                animate={{ y: 0 }}
                                 transition={{ duration: 1.1, delay: 0.48, ease: easeLuxury }}
                                 className="flex w-full min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
                             >
@@ -286,8 +286,8 @@ export function HomePage() {
                                 <span className="md:whitespace-nowrap">{t("processSubtitleLine2")}</span>
                             </ClipReveal>
                             <motion.div
-                                initial={reduce ? false : { opacity: 0, y: 16 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={reduce ? false : { y: 16 }}
+                                whileInView={{ y: 0 }}
                                 viewport={inView}
                                 transition={{ duration: 1.1, delay: 0.38, ease: easeLuxury }}
                                 className="w-full min-w-0 sm:w-auto"
@@ -643,8 +643,8 @@ export function HomePage() {
                             {t("philosophyBody")}
                         </ClipReveal>
                         <motion.div
-                            initial={reduce ? false : { opacity: 0, y: 12 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={reduce ? false : { y: 12 }}
+                            whileInView={{ y: 0 }}
                             viewport={inView}
                             transition={{ duration: 1, delay: 0.22, ease: easeLuxury }}
                         >
@@ -910,7 +910,7 @@ function ProcessRow({
             variants={stagger}
             initial="hidden"
             whileInView="show"
-            viewport={viewportOnce(0.35)}
+            viewport={viewportOnce(0.15)}
             className={cx(
                 "relative z-10 flex min-w-0 flex-col items-start gap-6 md:flex-row md:items-start md:gap-8",
                 side === "right" && "md:ml-auto md:max-w-[720px] md:flex-row-reverse",
@@ -918,7 +918,7 @@ function ProcessRow({
                 className,
             )}
         >
-            <motion.div variants={media} className="relative aspect-square h-auto w-full max-w-[min(100%,280px)] shrink-0 overflow-hidden md:max-w-[320px]">
+            <motion.div variants={media} className="relative aspect-square h-auto w-[60%] max-w-[168px] shrink-0 overflow-hidden md:w-auto md:max-w-[320px]">
                 <ProcessIllustration kind={kind} />
             </motion.div>
             <motion.p

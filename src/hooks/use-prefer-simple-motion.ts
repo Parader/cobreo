@@ -18,21 +18,21 @@ function isSafariLikeUa() {
 
 /**
  * Prefer simple (visible) motion on WebKit/Safari.
- * Motion v12 WAAPI + filter/opacity entrances can leave content stuck at opacity 0,
- * or throw and blank the page on Safari / iOS.
  *
- * Important: stay on the simple path until the client confirms a capable browser.
- * Starting complex then flipping to simple mid-flight left Process texts
- * translateX-stuck on iPhone SE ("textes décalés").
+ * Latches after the first client decision so we never flip simple → complex
+ * mid-scroll (that remounted opacity:0 reveals and skipped already-passed sections).
  */
 export function usePreferSimpleMotion(): boolean {
     const reduce = useReducedMotion();
-    // SSR + first client paint: simple. Only enable complex after we know it's safe.
-    const [allowComplex, setAllowComplex] = useState(false);
+    const [simple, setSimple] = useState(true);
+    const [latched, setLatched] = useState(false);
 
     useEffect(() => {
-        setAllowComplex(!isSafariLikeUa());
-    }, []);
+        if (latched) return;
+        setSimple(isSafariLikeUa());
+        setLatched(true);
+    }, [latched]);
 
-    return Boolean(reduce || !allowComplex);
+    // Until latched: stay simple (content visible). After: Safari stays simple; others allow complex.
+    return Boolean(reduce || simple || !latched);
 }

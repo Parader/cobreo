@@ -20,6 +20,10 @@ export function entranceTransition(delay = 0, durationOverride: number = duratio
     };
 }
 
+/**
+ * Scroll reveals must stay readable if IntersectionObserver / variant swaps miss.
+ * Animate transform only — never opacity:0 (stuck invisible text on mobile).
+ */
 export function revealVariants(
     reduce: boolean | null,
     direction: "up" | "left" | "right" = "up",
@@ -38,7 +42,7 @@ export function revealVariants(
 
     return {
         hidden: {
-            opacity: 0,
+            opacity: 1,
             ...offset,
         },
         show: {
@@ -52,7 +56,7 @@ export function revealVariants(
 
 /** Lighter child motion — for text lines, CTAs inside a staggered group.
  *  Do not set `delay` here: parent `staggerChildren` owns sequencing.
- *  Avoid CSS `filter` here — Safari/WebKit often leaves filtered nodes stuck invisible. */
+ *  Avoid CSS `filter` / opacity:0 — Safari and IO misses left copy invisible. */
 export function childReveal(reduce: boolean | null, direction: "up" | "left" | "right" = "up"): Variants {
     if (reduce) {
         return {
@@ -66,7 +70,7 @@ export function childReveal(reduce: boolean | null, direction: "up" | "left" | "
 
     return {
         hidden: {
-            opacity: 0,
+            opacity: 1,
             ...offset,
         },
         show: {
@@ -81,7 +85,7 @@ export function childReveal(reduce: boolean | null, direction: "up" | "left" | "
     };
 }
 
-/** Media / illustration — soft scale + fade */
+/** Media / illustration — soft scale (always visible) */
 export function mediaReveal(reduce: boolean | null): Variants {
     if (reduce) {
         return {
@@ -92,7 +96,7 @@ export function mediaReveal(reduce: boolean | null): Variants {
 
     return {
         hidden: {
-            opacity: 0,
+            opacity: 1,
             scale: 0.96,
             y: 12,
         },
