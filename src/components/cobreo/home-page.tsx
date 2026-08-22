@@ -919,7 +919,7 @@ function ProcessRow({
                 className,
             )}
         >
-            <motion.div variants={media} className="relative hidden aspect-square h-auto w-[60%] max-w-[168px] shrink-0 overflow-hidden md:block md:w-auto md:max-w-[320px]">
+            <motion.div variants={media} className="relative aspect-square h-auto w-[60%] max-w-[168px] shrink-0 overflow-hidden md:w-auto md:max-w-[320px]">
                 <ProcessIllustration kind={kind} />
             </motion.div>
             <motion.p
