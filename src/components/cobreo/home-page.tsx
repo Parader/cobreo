@@ -263,7 +263,7 @@ export function HomePage() {
                 <div className="absolute inset-0 z-0 bg-[#171718]" aria-hidden />
                 <div className="relative z-10 mx-auto flex max-w-container flex-col gap-16 md:gap-20">
                     {layers ? (
-                        <div className="flex max-w-5xl min-w-0 flex-col gap-6 md:gap-12">
+                        <div className="flex max-w-5xl min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-12 md:text-left">
                             <div className="min-w-0">
                                 <ClipReveal
                                     as="h2"
@@ -305,7 +305,7 @@ export function HomePage() {
                         </div>
                     ) : (
                         <motion.div
-                            className="flex max-w-5xl min-w-0 flex-col gap-6 md:gap-12"
+                            className="flex max-w-5xl min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-12 md:text-left"
                             variants={stagger}
                             initial="hidden"
                             whileInView="show"
@@ -912,7 +912,7 @@ function ProcessRow({
             whileInView="show"
             viewport={viewportOnce(0.15)}
             className={cx(
-                "relative z-10 flex min-w-0 flex-col items-start gap-6 md:flex-row md:items-start md:gap-8",
+                "relative z-10 flex min-w-0 flex-col items-center gap-6 text-center md:flex-row md:items-start md:gap-8 md:text-left",
                 side === "right" && "md:ml-auto md:max-w-[720px] md:flex-row-reverse",
                 side === "left" && "md:max-w-[720px]",
                 className,
