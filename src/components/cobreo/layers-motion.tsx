@@ -52,26 +52,21 @@ export function ClipReveal({
     }, [revealed]);
 
     // Simple mode swaps the clip rise for a crossfade — no movement, still an entrance.
-    if (reduce) {
-        return (
-            <div ref={ref}>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: revealed ? 1 : 0 }}
-                    transition={{ duration: 0.45, delay, ease: easeSoft }}
-                >
-                    <Tag className={className}>{children}</Tag>
-                </motion.div>
-            </div>
-        );
-    }
+    // Both modes must render the same tree and declare `y`: switching between two
+    // different trees left the inner node holding a stale translateY(110%) while the
+    // wrapper lost its clipping, which dropped the copy on top of the next element.
+    const hidden = reduce ? { y: 0, opacity: 0 } : { y: "110%", opacity: 0 };
 
     return (
         <div ref={ref} className="overflow-hidden">
             <motion.div
-                initial={{ y: "110%", opacity: 0 }}
-                animate={revealed ? { y: 0, opacity: 1 } : { y: "110%", opacity: 0 }}
-                transition={{ duration: 1.15, delay, ease: easeLuxury }}
+                initial={hidden}
+                animate={revealed ? { y: 0, opacity: 1 } : hidden}
+                transition={
+                    reduce
+                        ? { duration: 0.45, delay, ease: easeSoft }
+                        : { duration: 1.15, delay, ease: easeLuxury }
+                }
             >
                 <Tag className={className}>{children}</Tag>
             </motion.div>
@@ -93,24 +88,17 @@ export function ClipRevealHero({
 }) {
     const reduce = usePreferSimpleMotion();
 
-    if (reduce) {
-        return (
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.45, delay, ease: easeSoft }}
-            >
-                <Tag className={className}>{children}</Tag>
-            </motion.div>
-        );
-    }
-
+    // Same tree in both modes, and `y` declared either way — see ClipReveal.
     return (
         <div className="overflow-hidden">
             <motion.div
-                initial={{ y: 64, opacity: 0 }}
+                initial={{ y: reduce ? 0 : 64, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1.25, delay, ease: easeLuxury }}
+                transition={
+                    reduce
+                        ? { duration: 0.45, delay, ease: easeSoft }
+                        : { duration: 1.25, delay, ease: easeLuxury }
+                }
             >
                 <Tag className={className}>{children}</Tag>
             </motion.div>
