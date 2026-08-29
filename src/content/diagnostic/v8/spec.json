@@ -1,13 +1,13 @@
 {
   "meta": {
     "product": "Cobreo Opportunity Discovery",
-    "version": "8.1",
+    "version": "8.3",
     "family": "V7 — diagnostic de potentiel de l'entreprise",
-    "status": "real_prospect_test_candidate",
+    "status": "targeted_revision_candidate",
     "source_language": "fr",
-    "generated_for": "Cursor integration — simplified topic choice + precise free text",
-    "source_baseline": "V6.6 preproduction robustness candidate",
-    "core_shift": "Keep the V8 engine rich internally, but show the prospect only 5–6 simple topics, let them choose up to 3, and use a precise optional free-text prompt for missing ideas.",
+    "generated_for": "Cursor integration — priority question + conclusion + overlap cleanup",
+    "source_baseline": "V8.2 merged ambitions",
+    "core_shift": "Make the final improvement question the strongest respondent-intent signal: keep short topic labels, remove the selection cap, use it to weight interpretation rather than echoing selections in results, and reduce overlap between client follow-up, work coordination and manual-task simplification.",
     "principles": [
       "mobile_first",
       "plain_observable_business_language",
@@ -51,7 +51,11 @@
       "respondent_confirmation_turns_suggestion_into_relevance_signal",
       "internal_tools_are_common_opportunity_forms",
       "custom_tool_remains_a_stronger_solution_claim",
-      "prospect_can_reject_every_suggestion_without_being_challenged"
+      "prospect_can_reject_every_suggestion_without_being_challenged",
+      "final_improvement_topics_have_no_selection_cap",
+      "priority_selection_informs_analysis_but_is_not_repeated_as_a_result",
+      "every_question_is_self_contained_on_its_own_screen",
+      "client_relationship_work_coordination_and_manual_simplification_are_distinct_question_roles"
     ],
     "experimental_items_for_pilot": [
       "exact business-area labels",
@@ -103,11 +107,10 @@
     "core_sequence": [
       "minimal_company_context",
       "declared_ambitions_multi_select",
-      "optional_expand_exploration_screen",
       "breadth_first_section_scans",
       "generate_micro_possibilities",
       "cluster_into_5_to_6_topics",
-      "respondent_selects_up_to_3_topics",
+      "respondent_selects_all_relevant_topics",
       "optional_precise_free_text",
       "simple_results",
       "15_minute_booking"
@@ -316,15 +319,22 @@
       "kind": "multi_select",
       "required": true,
       "question_fr": "Qu’aimeriez-vous surtout faire progresser dans votre entreprise actuellement?",
-      "instruction_fr": "Choisissez jusqu’à 3 réponses.",
+      "instruction_fr": "Sélectionnez tout ce qui s’applique.",
       "selection": {
-        "min": 1,
-        "max": 3
+        "min": 1
       },
       "answers": [
         {
-          "id": "grow_sales",
-          "label_fr": "Trouver plus de clients ou augmenter les ventes"
+          "id": "find_clients",
+          "label_fr": "Trouver de nouveaux clients"
+        },
+        {
+          "id": "convert_requests",
+          "label_fr": "Convertir plus de demandes en clients"
+        },
+        {
+          "id": "grow_existing_customers",
+          "label_fr": "Augmenter les ventes auprès de mes clients actuels"
         },
         {
           "id": "improve_client_experience",
@@ -380,6 +390,7 @@
       ],
       "role": [
         "orders the first relevant discovery scans",
+        "opens exploration territory previously handled by area_applicability",
         "raises relevance of aligned opportunity candidates",
         "provides narrative context for results",
         "never creates an opportunity by itself"
@@ -387,9 +398,9 @@
     },
     "rules": [
       "All selected ambitions have the same declared-intent status; do not force a primary/secondary hierarchy.",
-      "The later business-section prioritization screen is the stronger signal of what the respondent wants to act on after discovery.",
+      "This single screen replaces the former area_applicability exploration screen.",
       "nothing_specific is exclusive.",
-      "Do not ask a second ambitions screen."
+      "Do not ask a second ambitions or exploration-interest screen."
     ]
   },
   "business_areas": [
@@ -441,68 +452,6 @@
       "hint_fr": "Logiciels, tableurs, communications, transferts et limites des outils"
     }
   ],
-  "area_applicability": {
-    "enabled": true,
-    "role": "Optional exploration-expansion screen, not an applicability classifier.",
-    "question_fr": "Y a-t-il aussi un de ces aspects que vous aimeriez regarder?",
-    "instruction_fr": "Sélectionnez tout ce qui vous intéresse.",
-    "kind": "multi_select",
-    "answers": [
-      {
-        "id": "find_clients",
-        "label_fr": "Trouver de nouveaux clients"
-      },
-      {
-        "id": "sales_requests",
-        "label_fr": "Faciliter les demandes ou les ventes"
-      },
-      {
-        "id": "client_service",
-        "label_fr": "Mieux servir ou suivre les clients"
-      },
-      {
-        "id": "work_operations",
-        "label_fr": "Organiser le travail ou les opérations"
-      },
-      {
-        "id": "team_people",
-        "label_fr": "Gérer une équipe ou des employés",
-        "show_if": "company_size != '1'"
-      },
-      {
-        "id": "finance_profitability",
-        "label_fr": "Mieux suivre les finances ou la rentabilité"
-      },
-      {
-        "id": "information_docs",
-        "label_fr": "Mieux organiser l’information ou la documentation"
-      },
-      {
-        "id": "offer_development",
-        "label_fr": "Développer ou améliorer des produits ou services"
-      },
-      {
-        "id": "tools_systems",
-        "label_fr": "Mieux utiliser les outils et systèmes"
-      },
-      {
-        "id": "performance_decisions",
-        "label_fr": "Mieux suivre la performance de l’entreprise"
-      },
-      {
-        "id": "nothing_else",
-        "label_fr": "Rien d’autre pour le moment",
-        "exclusive": true
-      }
-    ],
-    "rules": [
-      "Place after declared ambitions.",
-      "This screen opens exploration territory; it does not confirm current capability state.",
-      "A non-selection does not mean not applicable.",
-      "Do not cap selections; this screen is for breadth, not prioritization.",
-      "Skip if ambitions and context already provide sufficient breadth."
-    ]
-  },
   "area_scans": {
     "leadership_performance": {
       "id": "scan_performance",
@@ -624,7 +573,7 @@
       "id": "scan_clients",
       "section": "clients_service",
       "scan_mode": "coverage",
-      "question_fr": "Une fois qu’une personne devient cliente, qu’est-ce qui fait partie de votre façon de la servir?",
+      "question_fr": "Dans la relation avec vos clients, lesquels de ces suivis faites-vous aujourd’hui?",
       "kind": "multi_select",
       "instruction_fr": "Sélectionnez tout ce qui s’applique.",
       "answers": [
@@ -635,12 +584,12 @@
         },
         {
           "id": "client_history",
-          "label_fr": "Retrouver l’historique du client",
+          "label_fr": "Garder un historique des échanges ou besoins du client",
           "capability": "client_history"
         },
         {
           "id": "status_updates",
-          "label_fr": "Informer le client de l’avancement ou des prochaines étapes",
+          "label_fr": "Informer le client des prochaines étapes ou de l’avancement",
           "capability": "client_visibility"
         },
         {
@@ -665,7 +614,7 @@
         },
         {
           "id": "too_early_clients",
-          "label_fr": "C’est trop tôt pour que ces éléments soient vraiment en place",
+          "label_fr": "C’est trop tôt pour que ces suivis soient vraiment en place",
           "exclusive": true
         },
         {
@@ -676,30 +625,21 @@
       "omission_examples": {
         "collect_feedback": "If customer experience/retention is an ambition, non-selection can create a customer-feedback potential candidate.",
         "post_service_followup": "If repeat business or service experience matters, non-selection can create an aftercare candidate."
-      }
+      },
+      "role": "Map client-facing follow-up and relationship practices only. Do not use this screen to diagnose internal work execution or manual-task simplification."
     },
     "work_operations": {
       "id": "scan_operations",
       "section": "work_operations",
       "scan_mode": "opportunity_signal",
-      "question_fr": "Dans l’organisation du travail, lesquelles de ces situations correspondent à votre réalité aujourd’hui?",
+      "question_fr": "Dans la réalisation de vos services, projets, commandes ou opérations, lesquelles de ces situations correspondent à votre réalité aujourd’hui?",
       "kind": "multi_select",
       "instruction_fr": "Sélectionnez tout ce qui s’applique.",
       "answers": [
         {
-          "id": "manual_steps",
-          "label_fr": "Certaines étapes reposent surtout sur des manipulations manuelles",
-          "signal": "manual_work"
-        },
-        {
           "id": "memory_followups",
           "label_fr": "Certains suivis ou prochaines étapes dépendent de rappels ou de la mémoire",
           "signal": "followup_dependency"
-        },
-        {
-          "id": "repeated_documents",
-          "label_fr": "Des documents ou informations semblables sont préparés à répétition",
-          "signal": "repeated_output"
         },
         {
           "id": "status_visibility",
@@ -717,6 +657,11 @@
           "signal": "planning_coordination"
         },
         {
+          "id": "waiting_dependencies",
+          "label_fr": "Il faut parfois attendre une information, une décision ou une étape avant de pouvoir continuer",
+          "signal": "work_dependency_delay"
+        },
+        {
           "id": "working_well",
           "label_fr": "Rien de particulier ne ressort ici",
           "exclusive": true
@@ -725,7 +670,8 @@
           "id": "other",
           "label_fr": "Autre"
         }
-      ]
+      ],
+      "role": "Detect coordination, visibility, handoff and dependency friction in execution. Manual manipulations, repeated document preparation, copying and transfers belong to scan_simplification."
     },
     "team_people": {
       "id": "scan_team",
@@ -1013,9 +959,9 @@
   },
   "automation_scan": {
     "id": "scan_simplification",
-    "purpose": "Detect concrete simplification/automation candidates in one screen; replaces the old yes/no gate + task follow-up.",
+    "purpose": "Detect concrete simplification/automation candidates in one screen without duplicating work-coordination questions.",
     "ask_if": "work_operations, information_ways or tools_systems applies, or primary ambition is save_time/prepare_growth",
-    "question_fr": "Parmi les tâches que vous faites régulièrement, lesquelles reposent surtout sur des manipulations manuelles ou pourraient être plus simples?",
+    "question_fr": "Parmi les tâches que vous faites régulièrement, lesquelles demandent encore des manipulations ou des étapes qui pourraient être simplifiées?",
     "kind": "multi_select",
     "instruction_fr": "Sélectionnez tout ce qui s’applique.",
     "answers": [
@@ -1069,7 +1015,8 @@
       "À quelle fréquence préparez-vous ces documents?",
       "Préparer ces documents vous demande généralement combien d’effort?",
       "À quel point cette tâche vous frustre-t-elle?"
-    ]
+    ],
+    "role_boundary": "This screen is about repetitive/manual manipulation. It must not re-ask status visibility, handoffs, client follow-up practices or general work organization."
   },
   "coverage_engine": {
     "states": [
@@ -1397,28 +1344,38 @@
     }
   },
   "results": {
-    "goal_fr": "Résumer simplement les sujets que le dirigeant veut améliorer et les services Cobreo qui pourraient s’y appliquer.",
+    "goal_fr": "Transformer l’ensemble des réponses en une conclusion utile et spécifique. Les sujets choisis orientent l’analyse, mais les résultats ne doivent pas simplement répéter ce que le répondant a sélectionné.",
     "page": {
-      "title_fr": "Pistes à explorer avec Cobreo",
-      "intro_fr": "Voici les sections et services qui correspondent le mieux aux possibilités que vous avez retenues.",
-      "max_section_cards": 3,
+      "title_fr": "Ce que votre diagnostic fait ressortir",
+      "intro_fr": "Voici les possibilités d’amélioration les mieux soutenues par vos réponses et les raisons pour lesquelles elles méritent votre attention.",
+      "max_section_cards": 4,
       "section_card": {
         "show": [
-          "business_section_name",
-          "selected_possibility_labels",
-          "relevant_service_chips"
+          "opportunity_title",
+          "what_we_noticed",
+          "opportunity",
+          "potential_gain",
+          "why"
         ],
-        "why_toggle": {
-          "enabled": true,
-          "label_fr": "Pourquoi ces pistes?",
-          "content_rule": "Use a maximum of two short grounded bullets; clearly distinguish an observed signal from a respondent-confirmed suggestion."
-        }
+        "labels_fr": {
+          "what_we_noticed": "Ce que nous avons remarqué",
+          "opportunity": "Opportunité",
+          "potential_gain": "Gain potentiel",
+          "why": "Pourquoi"
+        },
+        "rules": [
+          "Every statement must be grounded in actual answers, confirmed interests or clearly labeled hypotheses.",
+          "Do not show a card merely because its topic was selected.",
+          "Do not repeat the selected-topic list as a standalone result block.",
+          "Opportunity titles must explain the improvement, not name an internal category.",
+          "A non-technological simplification can be the recommended direction."
+        ]
       }
     },
     "when_none_selected": {
-      "title_fr": "Quelques possibilités à garder en tête",
-      "body_fr": "Aucune des pistes proposées n’est une priorité pour vous en ce moment. Elles restent disponibles si vos besoins évoluent.",
-      "show": "up to three highest-relevance suggestions, clearly labeled 'À considérer'",
+      "title_fr": "Ce que votre diagnostic fait ressortir",
+      "body_fr": "Même si aucun sujet n’est une priorité pour vous en ce moment, certaines possibilités peuvent rester utiles à garder en tête.",
+      "show": "up to three evidence-supported possibilities, clearly framed as optional considerations",
       "booking_still_available": true
     },
     "service_rules": [
@@ -1429,10 +1386,12 @@
       "Do not automatically show custom_tool next to every internal_tool."
     ],
     "visual_rules": [
-      "Keep results compact.",
-      "Section name + selected possibility + service chips are the core.",
-      "No scores, no 'important/moderate', no repeated opportunity taxonomy.",
-      "Use source badges only if they improve trust; do not clutter."
+      "Keep results compact and readable.",
+      "Lead with concrete opportunity titles, not category names.",
+      "Do not show a standalone 'Ce que vous avez choisi d’explorer' section.",
+      "Do not repeat the topic selections as a receipt.",
+      "No scores or pseudo-precision.",
+      "Use evidence details only where they improve trust."
     ]
   },
   "lead_capture": {
@@ -1443,7 +1402,7 @@
   },
   "free_text": {
     "enabled": true,
-    "placement": "after topic prioritization and before results",
+    "placement": "after unrestricted topic selection and before results",
     "id": "missing_improvement_idea",
     "question_fr": "Y a-t-il une amélioration ou une idée que vous aimeriez explorer dans votre entreprise et que nous n’avons pas abordée?",
     "helper_fr": "Décrivez-la simplement en quelques mots. Facultatif.",
@@ -1480,14 +1439,13 @@
       "backtrack_rate",
       "signals_detected_before_prioritization",
       "business_sections_with_signals",
-      "priority_sections_selected_count",
+      "priority_topics_selected_count",
       "priority_none_rate",
       "post_priority_followup_count",
       "result_opportunity_count",
       "secondary_potential_count",
       "lead_cta_behavior",
       "declared_ambition_count",
-      "priority_section_count",
       "concrete_result_card_count",
       "result_card_generic_fallback_count"
     ],
@@ -1523,7 +1481,9 @@
     "strengths": [],
     "free_text": {},
     "coverage_summary": {},
-    "result": {},
+    "result": {
+      "priority_topics_unlimited": true
+    },
     "internal_context": {
       "sector_hint": null
     },
@@ -1842,10 +1802,10 @@
       "estimated_scorecard": {
         "comprehension": 8.7,
         "simplicity": 7.8,
-        "relevance": 9.0,
+        "relevance": 9,
         "universality": 9.1,
         "discovery": 9.2,
-        "answer_quality": 9.0,
+        "answer_quality": 9,
         "adaptability": 9.2,
         "user_value": 9.1,
         "cobreo_analysis": 9.3,
@@ -1897,7 +1857,7 @@
       ],
       "product_lead_decision": "Show only supported lenses; tailored tools needs strongest guardrail; educational notes after discovery/results.",
       "estimated_scorecard": {
-        "comprehension": 9.0,
+        "comprehension": 9,
         "simplicity": 8.3,
         "relevance": 9.3,
         "universality": 9.3,
@@ -1982,7 +1942,7 @@
       "product_lead_decision": "Cluster signals by business section and mix coverage scans with opportunity-signal scans.",
       "estimated_scorecard": {
         "comprehension": 9.2,
-        "simplicity": 9.0,
+        "simplicity": 9,
         "relevance": 9.5,
         "universality": 9.5,
         "discovery": 9.7,
@@ -1990,7 +1950,7 @@
         "adaptability": 9.6,
         "user_value": 9.6,
         "cobreo_analysis": 9.6,
-        "low_abandonment_risk": 9.0
+        "low_abandonment_risk": 9
       },
       "scorecard_note": "Qualitative comparative simulation; not empirical."
     },
@@ -3584,8 +3544,9 @@
       },
       "expect": [
         "Qu’est-ce que vous aimeriez surtout améliorer?",
-        "Choisissez jusqu’à 3 sujets.",
-        "max 6 cards"
+        "Sélectionnez tout ce que vous aimeriez améliorer.",
+        "max 6 cards",
+        "no selection maximum"
       ],
       "must_not_generate": [
         "Qu’est-ce qui vous semble le plus intéressant à explorer?"
@@ -3657,17 +3618,90 @@
       ]
     },
     {
-      "id": "v81_three_topics_max_results",
+      "id": "v83_unrestricted_topics_do_not_force_result_count",
       "given": {
         "selected_topics": [
           "sales",
           "information",
-          "development"
+          "development",
+          "tools",
+          "clients"
         ]
       },
       "expect": [
-        "at most three main result cards",
-        "micro-detail retained internally"
+        "all selected topics are stored as respondent intent",
+        "results show only evidence-supported opportunities",
+        "selected topics are not repeated as a standalone list"
+      ]
+    },
+    {
+      "id": "v83_priority_no_selection_cap",
+      "given": {
+        "screen": "choose_topics",
+        "visible_topics": 6
+      },
+      "expect": [
+        "respondent may select all six topics",
+        "no max-3 instruction",
+        "all selections are stored as respondent intent"
+      ],
+      "must_not_generate": [
+        "Choisissez jusqu’à 3 sujets.",
+        "selection max 3"
+      ]
+    },
+    {
+      "id": "v83_result_not_selection_receipt",
+      "given": {
+        "selected_topics": [
+          "tools",
+          "information",
+          "work"
+        ]
+      },
+      "expect": [
+        "concrete analysis grounded in answers",
+        "Ce que nous avons remarqué",
+        "Opportunité",
+        "Gain potentiel",
+        "Pourquoi"
+      ],
+      "must_not_generate": [
+        "Ce que vous avez choisi d’explorer",
+        "verbatim list of selected topics as the conclusion"
+      ]
+    },
+    {
+      "id": "v83_questions_self_contained",
+      "given": {
+        "screens": [
+          "scan_clients",
+          "scan_operations",
+          "scan_simplification"
+        ]
+      },
+      "expect": [
+        "each question names its business subject on the same screen",
+        "no ambiguous reference to 'ce travail' or 'ces étapes'"
+      ]
+    },
+    {
+      "id": "v83_overlap_boundaries",
+      "given": {
+        "screens": [
+          "scan_clients",
+          "scan_operations",
+          "scan_simplification"
+        ]
+      },
+      "expect": [
+        "client scan focuses on client-facing follow-up",
+        "operations scan focuses on coordination visibility handoffs and dependencies",
+        "simplification scan focuses on manual repetitive manipulations"
+      ],
+      "must_not_generate": [
+        "manual_steps in work_operations",
+        "repeated_documents in work_operations"
       ]
     }
   ],
@@ -3879,10 +3913,20 @@
     "max_without_user_explicitly_choosing_to_continue": 6,
     "include_simplification_scan_when_relevant": true,
     "ambition_to_priority_areas": {
-      "grow_sales": [
+      "find_clients": [
         "sales_growth",
         "clients_service",
         "tools_systems"
+      ],
+      "convert_requests": [
+        "sales_growth",
+        "clients_service",
+        "work_operations"
+      ],
+      "grow_existing_customers": [
+        "clients_service",
+        "sales_growth",
+        "information_ways"
       ],
       "improve_client_experience": [
         "clients_service",
@@ -3890,6 +3934,11 @@
         "information_ways"
       ],
       "save_time": [
+        "work_operations",
+        "information_ways",
+        "tools_systems"
+      ],
+      "organize_work": [
         "work_operations",
         "information_ways",
         "tools_systems"
@@ -3925,6 +3974,11 @@
         "information_ways",
         "tools_systems",
         "leadership_performance"
+      ],
+      "improve_tools": [
+        "tools_systems",
+        "information_ways",
+        "work_operations"
       ],
       "nothing_specific": [
         "leadership_performance",
@@ -4007,7 +4061,7 @@
     {
       "question": "respondent_section_prioritization",
       "retained": true,
-      "decision_changed": "Directly identifies which surfaced parts of the business the leader believes matter most to improve."
+      "decision_changed": "Directly captures every surfaced business topic the leader wants to improve; no arbitrary selection cap."
     },
     {
       "question": "post_priority_followup",
@@ -4213,16 +4267,15 @@
     ]
   },
   "respondent_prioritization": {
-    "principle": "The respondent chooses broad business topics, not a long list of micro-opportunities.",
+    "principle": "The respondent chooses every broad business topic they genuinely want to improve. This is a first-class intent signal and must not be artificially capped.",
     "screen": {
       "id": "choose_topics",
       "title_fr": "Qu’est-ce que vous aimeriez surtout améliorer?",
       "intro_fr": "Voici les sujets qui semblent les plus pertinents à regarder à partir de vos réponses.",
       "kind": "multi_select_generated_topic_cards",
-      "instruction_fr": "Choisissez jusqu’à 3 sujets.",
+      "instruction_fr": "Sélectionnez tout ce que vous aimeriez améliorer.",
       "selection": {
-        "min": 0,
-        "max": 3
+        "min": 0
       },
       "max_cards": 6,
       "card_fields": [
@@ -4240,7 +4293,9 @@
       "Do not repeat the same topic twice.",
       "Do not show observed/emerging/suggested badges by default.",
       "Keep source distinctions internally.",
-      "Three selected topics are enough for results and the 15-minute call."
+      "Do not cap the number of selected topics; the respondent may select every displayed topic.",
+      "Selected topics are a relevance signal for interpretation, not a list to repeat verbatim in results.",
+      "A selected topic does not automatically become a recommendation without supporting evidence."
     ]
   },
   "v78_simulation_summary": {
@@ -5527,7 +5582,7 @@
       "simplicity": 9.5,
       "relevance": 9.8,
       "universality": 9.9,
-      "discovery": 10.0,
+      "discovery": 10,
       "answer_quality": 9.7,
       "adaptability": 9.9,
       "user_value": 9.9,
@@ -5556,7 +5611,7 @@
   "v8_topic_clustering": {
     "target_visible_topics": "5–6",
     "maximum_visible_topics": 6,
-    "maximum_selected_topics": 3,
+    "maximum_selected_topics": null,
     "topics": [
       {
         "id": "clients",
@@ -5576,7 +5631,7 @@
       },
       {
         "id": "work",
-        "label_fr": "Organisation du travail",
+        "label_fr": "Organisation",
         "summary_fr": "Avancement, coordination et prochaines étapes",
         "source_sections": [
           "work_operations"
@@ -5633,7 +5688,8 @@
       "Avoid redundant topics.",
       "Show no more than six.",
       "Retain all micro-possibilities internally even when clustered."
-    ]
+    ],
+    "selection_rule": "No maximum. The respondent may select every displayed topic that feels worth improving."
   },
   "v81_simulation_summary": {
     "iteration_count": 3,
@@ -5651,5 +5707,39 @@
       "low_abandonment_risk": 9.7
     },
     "stop_reason": "Further simplification started removing useful distinctions. The next useful evidence should come from real users."
+  },
+  "v83_revision_summary": {
+    "baseline": "V8.2",
+    "scope": "Targeted revision based on questionnaire fill-through feedback.",
+    "observed_feedback_from_review": [
+      "The final improvement question is the most revealing respondent-intent screen.",
+      "A max-three cap prevents respondents from expressing all areas they genuinely want to improve.",
+      "The result statement 'Ce que vous avez choisi d’explorer' adds little value because it repeats selections.",
+      "Client service, work organization and manual-task questions felt partially redundant.",
+      "Questions must remain understandable when shown alone."
+    ],
+    "changes_kept": [
+      "Short topic words are preserved.",
+      "Final improvement topic selection has no maximum.",
+      "Selected topics become interpretation signals rather than a result receipt.",
+      "Results are reframed around observation, opportunity, gain potential and why.",
+      "Work-operations scan no longer asks about manual steps or repeated documents.",
+      "Client scan is explicitly about client-facing follow-up.",
+      "Manual simplification remains a dedicated concrete scan.",
+      "All three revised questions are self-contained."
+    ],
+    "changes_rejected": [
+      "Removing the final topic question: rejected because it captures respondent intent after discovery.",
+      "Keeping a three-topic maximum: rejected because it suppresses valid respondent priorities.",
+      "Showing every selected topic as a result card: rejected because selection alone is not evidence of an opportunity.",
+      "Merging all operational, client and manual-friction questions into one checklist: rejected because it would create an overly broad, ambiguous screen."
+    ],
+    "validation_status": "Design-coherence revision only; not empirical user validation.",
+    "next_validation_focus": [
+      "Do respondents naturally select more than three topics when allowed?",
+      "Does unrestricted selection improve expression without making the screen feel indecisive?",
+      "Do the revised client / operations / simplification boundaries eliminate the felt repetition?",
+      "Do result cards feel like analysis rather than a restatement of answers?"
+    ]
   }
 }

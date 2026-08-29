@@ -34,10 +34,6 @@ export function getBusinessAreas() {
     }>;
 }
 
-export function getAreaApplicabilitySpec() {
-    return diagnosticSpecV7.area_applicability;
-}
-
 export function getFreeTextSpec() {
     return (diagnosticSpecV7 as { free_text?: Record<string, unknown> }).free_text as {
         enabled?: boolean;

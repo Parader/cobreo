@@ -51,6 +51,9 @@ function ambitionAligned(declared: AmbitionId[], lenses: LensId[]): boolean {
     const meaningful = declared.filter((id) => id !== "nothing_specific");
     if (meaningful.length === 0) return false;
     const map: Partial<Record<AmbitionId, LensId[]>> = {
+        find_clients: ["customer_experience", "operations", "automation"],
+        convert_requests: ["customer_experience", "automation", "operations"],
+        grow_existing_customers: ["customer_experience", "information", "operations"],
         grow_sales: ["customer_experience", "operations", "automation"],
         improve_client_experience: ["customer_experience", "information"],
         save_time: ["operations", "automation", "information"],
@@ -665,19 +668,16 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
         };
     });
 
+    // Spec 8.3: results are an analysis, not a receipt of the selected topics, so the
+    // default case falls back to the spec page intro instead of echoing the selection.
     let message: string | undefined;
-    if (selectedResolved.length > 0) {
+    if (declinedAll) {
         message = en
-            ? "Based on what you chose to explore, here are the Cobreo services that look most relevant."
-            : "Selon ce que vous avez choisi d’explorer, voici les services Cobreo qui semblent les plus pertinents.";
-    } else if (declinedAll) {
-        message = en
-            ? "Nothing is a priority right now — here are a few possibilities worth keeping in mind."
-            : "Rien n’est prioritaire pour le moment — voici quelques possibilités à garder en tête.";
-    } else {
-        message = en
-            ? "Here are relevant possibilities and services to explore with Cobreo."
-            : "Voici des possibilités et services pertinents à explorer avec Cobreo.";
+            ? "Even if nothing is a priority for you right now, some possibilities may still be worth keeping in mind."
+            : "Même si aucun sujet n’est une priorité pour vous en ce moment, certaines possibilités peuvent rester utiles à garder en tête.";
+    } else if (en) {
+        message =
+            "Here are the improvement possibilities best supported by your answers, and why they deserve your attention.";
     }
 
     return {

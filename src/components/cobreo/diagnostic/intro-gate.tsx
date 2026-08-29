@@ -15,7 +15,15 @@ export function IntroGate({ onStart }: { onStart: () => void }) {
                 <h1 className="font-display text-[34px] font-normal leading-[1.12] tracking-[-0.03em] text-[#171717] md:text-[44px]">
                     {t("introTitle")}
                 </h1>
-                <p className="max-w-xl text-base leading-relaxed text-[#525252] md:text-lg">{t("introBody")}</p>
+                <div className="flex max-w-xl flex-col gap-3">
+                    {t("introBody")
+                        .split("\n\n")
+                        .map((paragraph) => (
+                            <p key={paragraph} className="text-base leading-relaxed text-[#525252] md:text-lg">
+                                {paragraph}
+                            </p>
+                        ))}
+                </div>
             </header>
 
             <div>

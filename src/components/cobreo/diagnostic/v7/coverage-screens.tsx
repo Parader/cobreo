@@ -4,7 +4,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { MultiChoiceScreen, SingleChoiceScreen } from "@/components/cobreo/diagnostic/v7/choice-screens";
 import {
     areaLabel,
-    getAreaApplicabilitySpec,
     getAreaScan,
     getConfirmationPatterns,
     getFreeTextSpec,
@@ -19,67 +18,10 @@ import type {
     ConfirmationAnswers,
     FitCheckState,
 } from "@/content/diagnostic/v7/types";
-import { hardApplicableAreas, isSoloCompany } from "@/lib/diagnostic/v7/coverage";
-import { expandAnswersToAreas } from "@/lib/diagnostic/v7/topics";
 import type { CompanyContext } from "@/content/diagnostic/v7/types";
 import { pickLocalized } from "@/lib/diagnostic/localize";
 import { ScreenHeader } from "@/components/cobreo/diagnostic/v5/choice-ui";
 import { StepContinue } from "@/components/cobreo/diagnostic/v6/step-continue";
-import { useState } from "react";
-
-export function ApplicableAreasScreen({
-    companyContext,
-    value: _value,
-    onChange,
-    onContinue,
-}: {
-    companyContext: CompanyContext;
-    value: AreaId[];
-    onChange: (areas: AreaId[]) => void;
-    onContinue: () => void;
-}) {
-    const t = useTranslations("diagnostic");
-    const locale = useLocale();
-    const spec = getAreaApplicabilitySpec() as {
-        question_fr: string;
-        instruction_fr?: string;
-        answers: Array<{ id: string; label_fr: string; exclusive?: boolean; show_if?: string }>;
-    };
-    const hard = hardApplicableAreas(companyContext);
-    const answers = (spec.answers || []).filter((a) => {
-        if (a.show_if === "company_size != '1'" && isSoloCompany(companyContext.company_size)) return false;
-        return true;
-    });
-    const [selected, setSelected] = useState<string[]>([]);
-
-    function handleChange(next: string[]) {
-        setSelected(next);
-        if (next.includes("nothing_else") || next.length === 0) {
-            onChange([]);
-            return;
-        }
-        onChange(expandAnswersToAreas(next).filter((a) => hard.includes(a)));
-    }
-
-    return (
-        <MultiChoiceScreen
-            title={pickLocalized(spec as Record<string, unknown>, "question", locale) || spec.question_fr}
-            body={
-                pickLocalized(spec as Record<string, unknown>, "instruction", locale) ||
-                selectionInstruction("unlimited", locale)
-            }
-            options={answers.map((a) => ({
-                id: a.id,
-                label: pickLocalized(a as Record<string, unknown>, "label", locale) || a.label_fr,
-            }))}
-            selected={selected}
-            exclusiveIds={answers.filter((a) => a.exclusive).map((a) => a.id)}
-            onChange={handleChange}
-            onContinue={onContinue}
-            continueLabel={t("contextContinue")}
-        />
-    );
-}
 
 export function AreaScanScreen({
     areaId,

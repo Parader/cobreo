@@ -18,14 +18,15 @@ export type TopicDef = {
 
 type ClusteringSpec = {
     maximum_visible_topics?: number;
-    maximum_selected_topics?: number;
+    /** null since spec 8.3 — the respondent may select every displayed topic. */
+    maximum_selected_topics?: number | null;
     topics: TopicDef[];
 };
 
 export function getTopicClusteringSpec(): ClusteringSpec {
     return (diagnosticSpecV7 as { v8_topic_clustering?: ClusteringSpec }).v8_topic_clustering || {
         maximum_visible_topics: 6,
-        maximum_selected_topics: 3,
+        maximum_selected_topics: null,
         topics: [],
     };
 }

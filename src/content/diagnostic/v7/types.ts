@@ -7,6 +7,10 @@ export const diagnosticSpec = diagnosticSpecV7;
 export type ProgressStageId = "company" | "ambitions" | "discovery" | "priorities" | "results";
 
 export type AmbitionId =
+    | "find_clients"
+    | "convert_requests"
+    | "grow_existing_customers"
+    /** @deprecated split into find_clients / convert_requests / grow_existing_customers in spec 8.2 */
     | "grow_sales"
     | "improve_client_experience"
     | "save_time"
@@ -231,7 +235,7 @@ export type DiagnosticSessionStats = {
 
 export type DiagnosticV7AnswersPayload = {
     version: 8;
-    specVersion: "8.1";
+    specVersion: "8.3";
     language: "fr" | "en";
     companyContext: CompanyContext;
     ambitions: AmbitionsState;
@@ -241,7 +245,7 @@ export type DiagnosticV7AnswersPayload = {
     confirmationAnswers: ConfirmationAnswers;
     fitChecks: Record<string, FitCheckState>;
     automationInterest: AutomationInterest;
-    /** Topic ids chosen on choose_topics (v8.1) */
+    /** Topic ids chosen on choose_topics */
     selectedTopics: Array<TopicId | "none_selected">;
     /** Derived micro-possibility ids for scoring / CRM */
     selectedPossibilities: Array<string | "none_selected">;
@@ -257,7 +261,6 @@ export type DiagnosticV7AnswersPayload = {
 export type FlowStep =
     | { type: "company"; questionId: string }
     | { type: "declared_ambitions" }
-    | { type: "applicable_areas" }
     | { type: "area_scan"; areaId: AreaId }
     | { type: "simplification" }
     | { type: "section_priorities" }

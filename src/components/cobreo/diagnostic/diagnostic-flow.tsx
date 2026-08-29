@@ -11,7 +11,6 @@ import {
     DeclaredAmbitionsScreen,
 } from "@/components/cobreo/diagnostic/v7/company-ambition-screens";
 import {
-    ApplicableAreasScreen,
     AreaScanScreen,
     OptionalNotesScreen,
     ToolsFitScreen,
@@ -25,6 +24,7 @@ import { CobreoButton } from "@/components/cobreo/cobreo-button";
 import { easeLuxury } from "@/components/cobreo/motion";
 import { getProgressStages } from "@/content/diagnostic/v7/catalog";
 import { resolveCapabilities } from "@/lib/diagnostic/v7/coverage";
+import { areasFromAmbitions } from "@/lib/diagnostic/v7/ambition-areas";
 import { buildPossibilityCandidates } from "@/lib/diagnostic/v7/possibilities";
 import {
     buildTopicCandidates,
@@ -476,7 +476,7 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
         const startedAt = sessionStartedAt || completedAt;
         const payload: DiagnosticV7AnswersPayload = {
             version: 8,
-            specVersion: "8.1",
+            specVersion: "8.3",
             language: locale === "en" ? "en" : "fr",
             companyContext,
             ambitions,
@@ -541,16 +541,12 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
                         value={ambitions.declared}
                         companySize={companyContext.company_size}
                         onChange={(ids) => setAmbitions({ declared: ids })}
-                        onContinue={() => advance()}
-                    />
-                );
-            case "applicable_areas":
-                return (
-                    <ApplicableAreasScreen
-                        companyContext={companyContext}
-                        value={applicableAreas}
-                        onChange={setApplicableAreas}
-                        onContinue={() => advance({ applicableAreas })}
+                        onContinue={() => {
+                            // Since 8.2 the ambitions screen also opens the exploration territory.
+                            const nextAreas = areasFromAmbitions(ambitions.declared, companyContext);
+                            setApplicableAreas(nextAreas);
+                            advance({ applicableAreas: nextAreas });
+                        }}
                     />
                 );
             case "area_scan":
@@ -655,7 +651,6 @@ function phaseForStep(type: FlowStep["type"]): DiagnosticV7Phase {
             return "company";
         case "declared_ambitions":
             return "ambitions";
-        case "applicable_areas":
         case "area_scan":
         case "simplification":
             return "discovery";

@@ -13,7 +13,7 @@ import { getCompanyQuestions, getBookingSpec, getFreeTextSpec, getResultsSpec } 
 import type { AreaId } from "@/content/diagnostic/v7/types";
 
 function assert(condition: unknown, message: string): asserts condition {
-    if (!condition) throw new Error(`[diagnostic-v8.1 selftest] ${message}`);
+    if (!condition) throw new Error(`[diagnostic-v8.3 selftest] ${message}`);
 }
 
 export function runDiagnosticV7Selftests() {
@@ -41,7 +41,7 @@ export function runDiagnosticV7Selftests() {
     {
         const clustering = getTopicClusteringSpec();
         assert((clustering.maximum_visible_topics ?? 0) === 6, "max 6 visible topics");
-        assert((clustering.maximum_selected_topics ?? 0) === 3, "max 3 selected topics");
+        assert(clustering.maximum_selected_topics == null, "8.3 removes the selected-topic cap");
         assert(clustering.topics.length >= 5, "topic catalog present");
     }
 
@@ -56,7 +56,7 @@ export function runDiagnosticV7Selftests() {
         const sections = buildServiceSections({
             areaAnswers: {
                 finance_profitability: ["invoices_payments", "financial_reporting"],
-                work_operations: ["manual_steps", "status_visibility"],
+                work_operations: ["waiting_dependencies", "status_visibility"],
             },
             automationInterest: { tasks: ["reports", "copy_transfer"] },
             fitChecks: { tools_fit: { state: "fit_gap" } },
@@ -161,13 +161,31 @@ export function runDiagnosticV7Selftests() {
     }
 
     {
-        const ordered = orderAreasForAmbition(["grow_sales"], [
+        const ordered = orderAreasForAmbition(["find_clients"], [
             "tools_systems",
             "sales_growth",
             "clients_service",
             "work_operations",
         ] as AreaId[]);
-        assert(ordered[0] === "sales_growth", "grow_sales should start with sales_growth");
+        assert(ordered[0] === "sales_growth", "find_clients should start with sales_growth");
+    }
+
+    {
+        const steps = buildFlowSteps({
+            companyContext: { company_size: "2_5" },
+            declared: ["convert_requests"],
+            applicableAreas: [],
+            areaAnswers: {},
+            automationInterest: {},
+        });
+        assert(
+            !steps.some((s) => String(s.type) === "applicable_areas"),
+            "8.2 removes the separate exploration screen",
+        );
+        assert(
+            steps.some((s) => s.type === "area_scan" && s.areaId === "sales_growth"),
+            "ambitions alone must open the exploration territory",
+        );
     }
 
     {
@@ -175,7 +193,7 @@ export function runDiagnosticV7Selftests() {
             companyContext: { company_size: "2_5" },
             declared: ["save_time"],
             applicableAreas: ["work_operations", "information_ways", "tools_systems"],
-            areaAnswers: { work_operations: ["manual_steps"] },
+            areaAnswers: { work_operations: ["memory_followups"] },
             automationInterest: {},
             selectedPossibilities: ["work_operations:work_tracking"],
         });
@@ -189,7 +207,7 @@ export function runDiagnosticV7Selftests() {
         );
         assert(steps.some((s) => s.type === "declared_ambitions"), "includes declared ambitions");
         assert(steps.some((s) => s.type === "simplification"), "save_time should ask simplification checklist");
-        assert(steps.some((s) => s.type === "choose_topics"), "includes v8.1 topic choice");
+        assert(steps.some((s) => s.type === "choose_topics"), "includes topic choice");
         assert(!steps.some((s) => s.type === "review_possibilities"), "no micro-possibility review screen");
         assert(!steps.some((s) => s.type === "possibility_followup"), "no default possibility follow-up");
         assert(steps.some((s) => s.type === "optional_notes"), "includes free-text notes");
@@ -200,7 +218,7 @@ export function runDiagnosticV7Selftests() {
             companyContext: { company_size: "2_5" },
             declared: ["save_time"],
             areaAnswers: {
-                work_operations: ["status_visibility", "manual_steps"],
+                work_operations: ["status_visibility", "handoffs"],
                 information_ways: ["copy_reenter", "documentation_gap"],
             },
             automationInterest: { tasks: ["documents"] },
@@ -230,4 +248,4 @@ export function runDiagnosticV7Selftests() {
 }
 
 runDiagnosticV7Selftests();
-console.log("diagnostic-v8.1 selftests passed");
+console.log("diagnostic-v8.3 selftests passed");

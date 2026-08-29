@@ -112,11 +112,10 @@ export function DeclaredAmbitionsScreen({
             title={pickLocalized(spec as Record<string, unknown>, "question", locale) || spec.question_fr}
             body={
                 pickLocalized(spec as Record<string, unknown>, "instruction", locale) ||
-                selectionInstruction("max_3", locale)
+                selectionInstruction("unlimited", locale)
             }
             options={options}
             selected={value}
-            max={3}
             exclusiveIds={exclusiveIds}
             onChange={(next) => onChange(next as AmbitionId[])}
             onContinue={onContinue}

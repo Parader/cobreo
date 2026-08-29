@@ -11,6 +11,15 @@ import type {
 
 const SOLO_SIZES = new Set(["1", "solo", "just_me"]);
 
+/** Ambitions that signal interest in the client relationship (incl. the pre-8.2 grow_sales). */
+const CLIENT_AMBITION_IDS = new Set<AmbitionId>([
+    "improve_client_experience",
+    "find_clients",
+    "convert_requests",
+    "grow_existing_customers",
+    "grow_sales",
+]);
+
 export function isSoloCompany(size?: string): boolean {
     if (!size) return false;
     return SOLO_SIZES.has(size) || size === "1";
@@ -30,7 +39,7 @@ export function isPotentialGap(state?: CoverageState): boolean {
     return state === "potentially_uncovered" || state === "confirmed_uncovered_relevant";
 }
 
-/** Hard filters before the applicability multi-select. */
+/** Hard filters on which business areas can ever apply to this company. */
 export function hardApplicableAreas(context: CompanyContext): AreaId[] {
     const all: AreaId[] = [
         "leadership_performance",
@@ -176,8 +185,7 @@ export function buildGapCandidates(input: {
 
     const clientAnswers = input.areaAnswers.clients_service || [];
     const hasClientActivity = clientAnswers.length > 0 && !clientAnswers.includes("too_early_clients");
-    const clientAmbition =
-        input.primary === "improve_client_experience" || input.primary === "grow_sales";
+    const clientAmbition = CLIENT_AMBITION_IDS.has(input.primary as AmbitionId);
     const feedbackCovered =
         isCovered(input.capabilities.customer_feedback) ||
         isCovered(input.capabilities.customer_feedback_visibility) ||

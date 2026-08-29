@@ -18,6 +18,11 @@ type Mapping = {
     services: ProspectServiceId[];
 };
 
+/** Result cards shown to the prospect (spec `results.page.max_section_cards`). */
+const MAX_SECTION_CARDS =
+    (diagnosticSpecV7 as { results?: { page?: { max_section_cards?: number } } }).results?.page
+        ?.max_section_cards ?? 4;
+
 const SERVICE_LABELS: Record<ProspectServiceId, string> = {
     operations_optimization: "Optimisation des opérations",
     automation: "Automatisation",
@@ -87,7 +92,16 @@ function collectEvidence(input: {
     };
 
     // Per-section explicit signals
-    const opsSignals = new Set(["manual_steps", "memory_followups", "repeated_documents", "status_visibility", "handoffs", "planning_changes"]);
+    // manual_steps / repeated_documents moved to scan_simplification in spec 8.3; kept for pre-8.3 submissions.
+    const opsSignals = new Set([
+        "memory_followups",
+        "status_visibility",
+        "handoffs",
+        "planning_changes",
+        "waiting_dependencies",
+        "manual_steps",
+        "repeated_documents",
+    ]);
     const infoSignals = new Set([
         "revenue",
         "profitability",
@@ -283,7 +297,7 @@ export function buildServiceSections(input: {
         });
     }
 
-    return cards.sort((a, b) => b.score - a.score).slice(0, 3);
+    return cards.sort((a, b) => b.score - a.score).slice(0, MAX_SECTION_CARDS);
 }
 
 export function buildServiceSectionsFromPossibilities(input: {
@@ -342,7 +356,7 @@ export function buildServiceSectionsFromPossibilities(input: {
         });
     }
 
-    return cards.sort((a, b) => b.score - a.score).slice(0, 3);
+    return cards.sort((a, b) => b.score - a.score).slice(0, MAX_SECTION_CARDS);
 }
 
 export function prospectServiceLabel(id: ProspectServiceId): string {

@@ -68,23 +68,6 @@ export function ResultScreenV7({
                 ) : null}
             </header>
 
-            {result.selectedPossibilities?.length ? (
-                <section className="flex flex-col gap-3">
-                    <h3 className="font-display text-[20px] leading-tight text-[#171717] md:text-[22px]">
-                        {locale === "en"
-                            ? "What you chose to explore"
-                            : "Ce que vous avez choisi d’explorer"}
-                    </h3>
-                    <ul className="flex flex-col gap-2">
-                        {result.selectedPossibilities.map((item) => (
-                            <li key={item.id} className="text-base leading-relaxed text-[#525252]">
-                                {item.label}
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            ) : null}
-
             {sections.length > 0 ? (
                 <section className="flex flex-col gap-4">
                     <ul className="flex flex-col gap-4">

@@ -12,6 +12,7 @@ import {
     type SelectedPossibility,
 } from "@/content/diagnostic/v7/types";
 import { isSoloCompany } from "./coverage";
+import { AMBITION_AREAS } from "./ambition-areas";
 
 const MAX_CARDS = 9;
 const MIN_CANDIDATES = 4;
@@ -21,20 +22,6 @@ const TIER_RANK: Record<PossibilitySourceTier, number> = {
     observed: 3,
     emerging: 2,
     suggested: 1,
-};
-
-const AMBITION_AREAS: Partial<Record<AmbitionId, AreaId[]>> = {
-    grow_sales: ["sales_growth", "clients_service", "tools_systems"],
-    improve_client_experience: ["clients_service", "sales_growth", "information_ways"],
-    save_time: ["work_operations", "information_ways", "tools_systems"],
-    organize_work: ["work_operations", "information_ways", "tools_systems"],
-    improve_team: ["team_people", "work_operations", "information_ways"],
-    better_decisions: ["leadership_performance", "finance_profitability", "information_ways"],
-    improve_profitability: ["finance_profitability", "leadership_performance", "work_operations", "team_people"],
-    improve_offer: ["offer_development", "clients_service", "leadership_performance"],
-    prepare_growth: ["work_operations", "team_people", "information_ways", "tools_systems"],
-    use_information_better: ["information_ways", "tools_systems", "leadership_performance"],
-    improve_tools: ["tools_systems", "information_ways", "work_operations"],
 };
 
 const AREA_ORDER: AreaId[] = [

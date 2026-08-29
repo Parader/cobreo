@@ -50,7 +50,7 @@ export function SimplificationScreen({
     );
 }
 
-/** v8.1 — choose up to 3 broad topics (label + summary only). */
+/** Choose any number of broad topics (label + summary only). */
 export function ChooseTopicsScreen({
     candidates,
     value,
@@ -69,7 +69,7 @@ export function ChooseTopicsScreen({
         title_fr: string;
         intro_fr: string;
         instruction_fr: string;
-        selection: { max: number };
+        selection: { min?: number; max?: number | null };
         none_option?: { id: string; label_fr: string; exclusive?: boolean };
     };
 
@@ -79,7 +79,8 @@ export function ChooseTopicsScreen({
         exclusive: true,
     };
     const noneId = (noneOption.id || "none_selected") as "none_selected";
-    const max = screen.selection?.max ?? 3;
+    // Spec 8.3 removes the cap: suppressing a genuine priority loses intent signal.
+    const max = screen.selection?.max ?? null;
 
     function toggle(id: TopicId | "none_selected") {
         if (id === noneId) {
@@ -91,7 +92,7 @@ export function ChooseTopicsScreen({
             onChange(withoutNone.filter((x) => x !== id));
             return;
         }
-        if (withoutNone.length >= max) {
+        if (max && withoutNone.length >= max) {
             onChange([...withoutNone.slice(1), id as TopicId]);
             return;
         }

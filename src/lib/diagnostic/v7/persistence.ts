@@ -13,8 +13,10 @@ import type {
     TopicId,
 } from "@/content/diagnostic/v7/types";
 
-const STORAGE_KEY = "cobreo_diagnostic_draft_v81";
+const STORAGE_KEY = "cobreo_diagnostic_draft_v83";
 const LEGACY_KEYS = [
+    "cobreo_diagnostic_draft_v82",
+    "cobreo_diagnostic_draft_v81",
     "cobreo_diagnostic_draft_v80",
     "cobreo_diagnostic_draft_v711",
     "cobreo_diagnostic_draft_v710",
@@ -25,7 +27,7 @@ const LEGACY_KEYS = [
 export type DiagnosticStatus = "fresh" | "in_progress" | "completed";
 
 export type DiagnosticV7Draft = {
-    version: 81;
+    version: 83;
     phase: DiagnosticV7Phase;
     stepIndex: number;
     companyContext: CompanyContext;
@@ -50,7 +52,7 @@ export type DiagnosticV7Draft = {
 
 export function emptyDraft(): DiagnosticV7Draft {
     return {
-        version: 81,
+        version: 83,
         phase: "intro",
         stepIndex: 0,
         companyContext: {},
@@ -118,11 +120,11 @@ export function loadDiagnosticDraft(): DiagnosticV7Draft | null {
         const raw = window.localStorage.getItem(STORAGE_KEY);
         if (!raw) return null;
         const parsed = JSON.parse(raw) as Partial<DiagnosticV7Draft>;
-        if (!parsed || parsed.version !== 81) return null;
+        if (!parsed || parsed.version !== 83) return null;
         return {
             ...emptyDraft(),
             ...parsed,
-            version: 81,
+            version: 83,
             companyContext: cleanContext(parsed.companyContext),
             ambitions: {
                 declared: parsed.ambitions?.declared ?? [],
@@ -158,7 +160,7 @@ export function saveDiagnosticDraft(draft: DiagnosticV7Draft) {
             JSON.stringify({
                 ...draft,
                 companyContext: cleanContext(draft.companyContext),
-                version: 81,
+                version: 83,
                 updatedAt: Date.now(),
             }),
         );

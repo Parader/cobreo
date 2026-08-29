@@ -8,20 +8,7 @@ import type {
 } from "@/content/diagnostic/v7/types";
 import { areaLabel, getScanAnswers } from "@/content/diagnostic/v7/catalog";
 import { isSoloCompany, resolveCapabilities } from "./coverage";
-
-const AMBITION_AREAS: Partial<Record<AmbitionId, AreaId[]>> = {
-    grow_sales: ["sales_growth", "clients_service", "tools_systems"],
-    improve_client_experience: ["clients_service", "sales_growth", "information_ways"],
-    save_time: ["work_operations", "information_ways", "tools_systems"],
-    organize_work: ["work_operations", "information_ways", "tools_systems"],
-    improve_team: ["team_people", "work_operations", "information_ways"],
-    better_decisions: ["leadership_performance", "finance_profitability", "information_ways"],
-    improve_profitability: ["finance_profitability", "leadership_performance", "work_operations", "team_people"],
-    improve_offer: ["offer_development", "clients_service", "leadership_performance"],
-    prepare_growth: ["work_operations", "team_people", "information_ways", "tools_systems"],
-    use_information_better: ["information_ways", "tools_systems", "leadership_performance"],
-    improve_tools: ["tools_systems", "information_ways", "work_operations"],
-};
+import { AMBITION_AREAS } from "./ambition-areas";
 
 function exclusiveIds(areaId: AreaId): Set<string> {
     return new Set(

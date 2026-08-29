@@ -216,7 +216,9 @@ function formatV7Qa(payload: DiagnosticV7AnswersPayload): FormattedQaRow[] {
             answerType: "multi_select",
             values: payload.applicableAreas,
             displayQuestion:
-                language === "en" ? "Applicable business areas" : "Domaines applicables",
+                language === "en"
+                    ? "Explored business areas (derived from ambitions)"
+                    : "Domaines explorés (dérivés des ambitions)",
             displayValues: payload.applicableAreas.map((id) => areaLabel(id, language)),
         });
     }
