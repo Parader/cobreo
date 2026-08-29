@@ -21,28 +21,34 @@ export function entranceTransition(delay = 0, durationOverride: number = duratio
 }
 
 /**
- * Scroll reveals must stay readable if IntersectionObserver / variant swaps miss.
- * Animate transform only — never opacity:0 (stuck invisible text on mobile).
+ * Reveals fade in from opacity 0. Scroll-triggered groups must therefore go through
+ * `Reveal` (components/cobreo/reveal.tsx), whose scroll-position fallback guarantees
+ * content shows even when the IntersectionObserver misses — the cause of the stuck
+ * invisible text we hit on iOS. Mount-time entrances need no fallback.
+ *
+ * Simple mode (reduced-motion preference, Safari/WebKit) keeps a short crossfade and
+ * drops every transform: it is movement, not opacity, that reduced-motion asks us to
+ * avoid, and returning no animation at all read as broken. Transforms are pinned to 0
+ * so switching into simple mode mid-flight can never strand content offset.
  */
+const simpleFade: Variants = {
+    hidden: { opacity: 0, x: 0, y: 0, scale: 1 },
+    show: { opacity: 1, x: 0, y: 0, scale: 1, transition: { duration: 0.45, ease: easeSoft } },
+};
 export function revealVariants(
     reduce: boolean | null,
     direction: "up" | "left" | "right" = "up",
     delay = 0,
     durationOverride: number = duration.entrance,
 ): Variants {
-    if (reduce) {
-        return {
-            hidden: { opacity: 1 },
-            show: { opacity: 1 },
-        };
-    }
+    if (reduce) return simpleFade;
 
     const offset =
         direction === "up" ? { y: 28 } : direction === "left" ? { x: -32 } : { x: 32 };
 
     return {
         hidden: {
-            opacity: 1,
+            opacity: 0,
             ...offset,
         },
         show: {
@@ -56,21 +62,16 @@ export function revealVariants(
 
 /** Lighter child motion — for text lines, CTAs inside a staggered group.
  *  Do not set `delay` here: parent `staggerChildren` owns sequencing.
- *  Avoid CSS `filter` / opacity:0 — Safari and IO misses left copy invisible. */
+ *  Avoid CSS `filter`: it blurs text on Safari. */
 export function childReveal(reduce: boolean | null, direction: "up" | "left" | "right" = "up"): Variants {
-    if (reduce) {
-        return {
-            hidden: { opacity: 1 },
-            show: { opacity: 1 },
-        };
-    }
+    if (reduce) return simpleFade;
 
     const offset =
         direction === "up" ? { y: 18 } : direction === "left" ? { x: -20 } : { x: 20 };
 
     return {
         hidden: {
-            opacity: 1,
+            opacity: 0,
             ...offset,
         },
         show: {
@@ -85,18 +86,13 @@ export function childReveal(reduce: boolean | null, direction: "up" | "left" | "
     };
 }
 
-/** Media / illustration — soft scale (always visible) */
+/** Media / illustration — soft scale and fade */
 export function mediaReveal(reduce: boolean | null): Variants {
-    if (reduce) {
-        return {
-            hidden: { opacity: 1 },
-            show: { opacity: 1 },
-        };
-    }
+    if (reduce) return simpleFade;
 
     return {
         hidden: {
-            opacity: 1,
+            opacity: 0,
             scale: 0.96,
             y: 12,
         },

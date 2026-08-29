@@ -12,7 +12,8 @@ import {
     MarketingCtaBand,
     MarketingEyebrow,
 } from "@/components/cobreo/marketing-page-chrome";
-import { childReveal, staggerContainer, staggerContainerSlow, viewportOnce } from "@/components/cobreo/motion";
+import { childReveal, staggerContainer, staggerContainerSlow } from "@/components/cobreo/motion";
+import { Reveal } from "@/components/cobreo/reveal";
 
 export function ServicesPage() {
     const t = useTranslations("services");
@@ -21,7 +22,7 @@ export function ServicesPage() {
     const heroStagger = staggerContainerSlow(reduce);
     const sectionStagger = staggerContainer(reduce, 0.14, 0.08);
     const listStagger = staggerContainer(reduce, 0.1, 0.04);
-    const inView = viewportOnce(0.15);
+    const inViewAmount = 0.15;
 
     const steps = [
         { bold: t("step1Bold"), rest: t("step1Rest"), body: t("step1Body") },
@@ -75,13 +76,7 @@ export function ServicesPage() {
                 />
                 <DarkLogoMosaic variant="edge-right" className="hidden md:block" />
                 <div className="relative mx-auto max-w-container px-4 py-20 md:px-8 md:py-28">
-                    <motion.div
-                        className="max-w-2xl"
-                        variants={sectionStagger}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={inView}
-                    >
+                    <Reveal className="max-w-2xl" variants={sectionStagger} amount={inViewAmount}>
                         <motion.div variants={text}>
                             <MarketingEyebrow tone="onDark">{t("processEyebrow")}</MarketingEyebrow>
                         </motion.div>
@@ -97,14 +92,13 @@ export function ServicesPage() {
                         >
                             {t("processBody")}
                         </motion.p>
-                    </motion.div>
+                    </Reveal>
 
-                    <motion.ol
+                    <Reveal
+                        as="ol"
                         className="relative mt-14 grid gap-0 md:mt-20 md:grid-cols-2 md:gap-x-16"
                         variants={listStagger}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={inView}
+                        amount={inViewAmount}
                     >
                         <div
                             aria-hidden
@@ -130,18 +124,12 @@ export function ServicesPage() {
                                 </div>
                             </motion.li>
                         ))}
-                    </motion.ol>
+                    </Reveal>
                 </div>
             </section>
 
             <section className="relative z-10 mx-auto max-w-container px-4 py-20 md:px-8 md:py-28">
-                <motion.div
-                    className="max-w-2xl"
-                    variants={sectionStagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
-                >
+                <Reveal className="max-w-2xl" variants={sectionStagger} amount={inViewAmount}>
                     <motion.div variants={text}>
                         <MarketingEyebrow>{t("domainsEyebrow")}</MarketingEyebrow>
                     </motion.div>
@@ -157,14 +145,13 @@ export function ServicesPage() {
                     >
                         {t("domainsBody")}
                     </motion.p>
-                </motion.div>
+                </Reveal>
 
-                <motion.ul
+                <Reveal
+                    as="ul"
                     className="mt-12 border-t border-[#171717]/12 md:mt-16"
                     variants={listStagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
+                    amount={inViewAmount}
                 >
                     {domains.map((domain) => (
                         <motion.li
@@ -181,11 +168,11 @@ export function ServicesPage() {
                             </div>
                         </motion.li>
                     ))}
-                </motion.ul>
+                </Reveal>
             </section>
 
             <section className="relative z-10 mx-auto max-w-container px-4 pb-24 md:px-8 md:pb-32">
-                <motion.div variants={sectionStagger} initial="hidden" whileInView="show" viewport={inView}>
+                <Reveal variants={sectionStagger} amount={inViewAmount}>
                     <MarketingCtaBand>
                         <motion.h2
                             variants={text}
@@ -218,7 +205,7 @@ export function ServicesPage() {
                             />
                         </motion.div>
                     </MarketingCtaBand>
-                </motion.div>
+                </Reveal>
             </section>
         </div>
     );

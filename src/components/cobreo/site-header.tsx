@@ -90,6 +90,7 @@ export function SiteHeader() {
 
     useEffect(() => {
         setMenuOpen(false);
+        setHeaderFocused(false);
     }, [pathname]);
 
     useEffect(() => {
@@ -116,7 +117,11 @@ export function SiteHeader() {
     return (
         <header
             ref={headerRef}
-            onFocusCapture={() => setHeaderFocused(true)}
+            onFocusCapture={(e) => {
+                // Mouse clicks also focus links, so only keyboard focus pins the header open.
+                const target = e.target;
+                setHeaderFocused(target instanceof HTMLElement && target.matches(":focus-visible"));
+            }}
             onBlurCapture={(e) => {
                 const next = e.relatedTarget;
                 if (next instanceof Node && headerRef.current?.contains(next)) return;

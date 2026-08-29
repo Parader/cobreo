@@ -14,7 +14,8 @@ import {
     MarketingCtaBand,
     MarketingEyebrow,
 } from "@/components/cobreo/marketing-page-chrome";
-import { childReveal, staggerContainer, staggerContainerSlow, viewportOnce } from "@/components/cobreo/motion";
+import { childReveal, staggerContainer, staggerContainerSlow } from "@/components/cobreo/motion";
+import { Reveal } from "@/components/cobreo/reveal";
 import { cx } from "@/utils/cx";
 
 const FOUNDERS = [
@@ -45,7 +46,7 @@ export function AboutPage() {
     const heroStagger = staggerContainerSlow(reduce);
     const sectionStagger = staggerContainer(reduce, 0.14, 0.08);
     const listStagger = staggerContainer(reduce, 0.12, 0.08);
-    const inView = viewportOnce(0.15);
+    const inViewAmount = 0.15;
 
     return (
         <div className="relative overflow-x-clip bg-[#efedea]">
@@ -77,13 +78,7 @@ export function AboutPage() {
             </section>
 
             <section className="relative z-10 mx-auto max-w-container px-4 py-16 md:px-8 md:py-24">
-                <motion.div
-                    className="max-w-3xl"
-                    variants={sectionStagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
-                >
+                <Reveal className="max-w-3xl" variants={sectionStagger} amount={inViewAmount}>
                     <motion.div variants={text}>
                         <MarketingEyebrow>{t("foundersEyebrow")}</MarketingEyebrow>
                     </motion.div>
@@ -99,14 +94,13 @@ export function AboutPage() {
                     >
                         {t("foundersBody")}
                     </motion.p>
-                </motion.div>
+                </Reveal>
 
-                <motion.ul
+                <Reveal
+                    as="ul"
                     className="mt-12 flex max-w-4xl flex-col gap-12 md:mt-16 md:gap-16"
                     variants={listStagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
+                    amount={inViewAmount}
                 >
                     {FOUNDERS.map((founder) => (
                         <motion.li
@@ -140,7 +134,7 @@ export function AboutPage() {
                             </div>
                         </motion.li>
                     ))}
-                </motion.ul>
+                </Reveal>
             </section>
 
             <section className="relative z-10 overflow-hidden bg-[#171718] text-[#efedea]">
@@ -150,12 +144,10 @@ export function AboutPage() {
                 />
                 <DarkLogoMosaic variant="corner-tr" />
                 <div className="relative mx-auto max-w-container px-4 py-20 md:px-8 md:py-28">
-                    <motion.div
+                    <Reveal
                         className="grid gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,1fr)] lg:items-start lg:gap-20"
                         variants={sectionStagger}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={inView}
+                        amount={inViewAmount}
                     >
                         <motion.div variants={text}>
                             <MarketingEyebrow tone="onDark">{t("approachEyebrow")}</MarketingEyebrow>
@@ -169,17 +161,15 @@ export function AboutPage() {
                                 {t("approachBody")}
                             </p>
                         </motion.div>
-                    </motion.div>
+                    </Reveal>
                 </div>
             </section>
 
             <section className="relative z-10 mx-auto max-w-container px-4 py-20 md:px-8 md:py-28">
-                <motion.div
+                <Reveal
                     className="grid gap-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,1fr)] lg:items-start lg:gap-20"
                     variants={sectionStagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
+                    amount={inViewAmount}
                 >
                     <motion.div variants={text}>
                         <MarketingEyebrow>{t("originEyebrow")}</MarketingEyebrow>
@@ -196,16 +186,14 @@ export function AboutPage() {
                             {t("originBody2")}
                         </p>
                     </motion.div>
-                </motion.div>
+                </Reveal>
             </section>
 
             <section className="relative z-10 mx-auto max-w-container px-4 py-20 md:px-8 md:py-28">
-                <motion.div
+                <Reveal
                     className="grid gap-10 border-t border-[#171717]/12 pt-14 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,1fr)] lg:items-start lg:gap-20 lg:pt-16"
                     variants={sectionStagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
+                    amount={inViewAmount}
                 >
                     <motion.div variants={text}>
                         <MarketingEyebrow>{t("workEyebrow")}</MarketingEyebrow>
@@ -231,11 +219,11 @@ export function AboutPage() {
                             </Link>
                         </div>
                     </motion.div>
-                </motion.div>
+                </Reveal>
             </section>
 
             <section className="relative z-10 mx-auto max-w-container px-4 pb-24 md:px-8 md:pb-32">
-                <motion.div variants={sectionStagger} initial="hidden" whileInView="show" viewport={inView}>
+                <Reveal variants={sectionStagger} amount={inViewAmount}>
                     <MarketingCtaBand>
                         <motion.h2
                             variants={text}
@@ -268,7 +256,7 @@ export function AboutPage() {
                             />
                         </motion.div>
                     </MarketingCtaBand>
-                </motion.div>
+                </Reveal>
             </section>
         </div>
     );

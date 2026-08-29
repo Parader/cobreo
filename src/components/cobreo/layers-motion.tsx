@@ -9,7 +9,7 @@ import {
     useSpring,
     useTransform,
 } from "motion/react";
-import { easeLuxury } from "@/components/cobreo/motion";
+import { easeLuxury, easeSoft } from "@/components/cobreo/motion";
 import { usePreferSimpleMotion } from "@/hooks/use-prefer-simple-motion";
 import { cx } from "@/utils/cx";
 
@@ -31,32 +31,46 @@ export function ClipReveal({
     const [revealed, setRevealed] = useState(false);
 
     useEffect(() => {
-        if (reduce || inView) setRevealed(true);
-    }, [reduce, inView]);
+        if (inView) setRevealed(true);
+    }, [inView]);
 
-    // If the block was already on-screen when motion mode flipped, force visible.
+    // Backstop for a missed observer: reveal on scroll from the element's own position.
     useEffect(() => {
-        if (reduce || revealed) return;
-        const el = ref.current;
-        if (!el) return;
-        const unlock = () => {
-            const top = el.getBoundingClientRect().top;
-            if (top < window.innerHeight * 0.92) setRevealed(true);
+        if (revealed) return;
+        const check = () => {
+            const el = ref.current;
+            if (!el) return;
+            if (el.getBoundingClientRect().top < window.innerHeight * 0.92) setRevealed(true);
         };
-        unlock();
-        const id = window.setTimeout(unlock, 500);
-        return () => window.clearTimeout(id);
-    }, [reduce, revealed]);
+        check();
+        window.addEventListener("scroll", check, { passive: true });
+        window.addEventListener("resize", check);
+        return () => {
+            window.removeEventListener("scroll", check);
+            window.removeEventListener("resize", check);
+        };
+    }, [revealed]);
 
+    // Simple mode swaps the clip rise for a crossfade — no movement, still an entrance.
     if (reduce) {
-        return <Tag className={className}>{children}</Tag>;
+        return (
+            <div ref={ref}>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: revealed ? 1 : 0 }}
+                    transition={{ duration: 0.45, delay, ease: easeSoft }}
+                >
+                    <Tag className={className}>{children}</Tag>
+                </motion.div>
+            </div>
+        );
     }
 
     return (
         <div ref={ref} className="overflow-hidden">
             <motion.div
-                initial={false}
-                animate={revealed ? { y: 0 } : { y: "110%" }}
+                initial={{ y: "110%", opacity: 0 }}
+                animate={revealed ? { y: 0, opacity: 1 } : { y: "110%", opacity: 0 }}
                 transition={{ duration: 1.15, delay, ease: easeLuxury }}
             >
                 <Tag className={className}>{children}</Tag>
@@ -80,14 +94,22 @@ export function ClipRevealHero({
     const reduce = usePreferSimpleMotion();
 
     if (reduce) {
-        return <Tag className={className}>{children}</Tag>;
+        return (
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.45, delay, ease: easeSoft }}
+            >
+                <Tag className={className}>{children}</Tag>
+            </motion.div>
+        );
     }
 
     return (
         <div className="overflow-hidden">
             <motion.div
-                initial={reduce ? false : { y: 64 }}
-                animate={{ y: 0 }}
+                initial={{ y: 64, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1.25, delay, ease: easeLuxury }}
             >
                 <Tag className={className}>{children}</Tag>

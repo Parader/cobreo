@@ -16,8 +16,8 @@ import {
     childReveal,
     easeLuxury,
     mediaReveal,
+    revealVariants,
     staggerContainer,
-    viewportOnce,
 } from "@/components/cobreo/motion";
 import { LAYERS_MOTION_EXPERIMENT } from "@/components/cobreo/motion-flags";
 import {
@@ -25,6 +25,8 @@ import {
     ClipReveal,
     ClipRevealHero,
 } from "@/components/cobreo/layers-motion";
+import { MarketingAtmosphere } from "@/components/cobreo/marketing-page-chrome";
+import { Reveal } from "@/components/cobreo/reveal";
 import { ProcessIllustration } from "@/components/cobreo/process-illustration";
 import { PROCESS_STEP_DELAYS, ProcessPath } from "@/components/cobreo/process-path";
 import { ValueProductMockup, ValueProductMockupMobile } from "@/components/cobreo/value-product-mockups";
@@ -48,7 +50,7 @@ export function HomePage() {
     const stagger = staggerContainer(reduce, 0.12, 0.06);
     const staggerTight = staggerContainer(reduce, 0.09, 0.04);
     const staggerSlow = staggerContainer(reduce, 0.16, 0.1);
-    const inView = viewportOnce(0.15);
+    const inViewAmount = 0.15;
 
     const values = [
         { title: t("value1Title"), body: t("value1Body"), hint: t("value1Hint") },
@@ -108,6 +110,8 @@ export function HomePage() {
     return (
         <div className="relative -mt-20 overflow-x-clip bg-[#efedea] md:-mt-24">
             {layers && <AtmosphereWash />}
+            {/* Same top-corner light as the interior pages, anchored on the hero. */}
+            <MarketingAtmosphere />
 
             {/*
               Background logo marks — sit in the side gutters; more off-canvas on smaller viewports
@@ -158,9 +162,9 @@ export function HomePage() {
                                 {t("heroSubtitle")}
                             </ClipRevealHero>
                             <motion.div
-                                initial={reduce ? false : { y: 18 }}
-                                animate={{ y: 0 }}
-                                transition={{ duration: 1.1, delay: 0.48, ease: easeLuxury }}
+                                variants={revealVariants(reduce, "up", 0.48, 1.1)}
+                                initial="hidden"
+                                animate="show"
                                 className="flex w-full min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
                             >
                                 <CobreoButton
@@ -286,11 +290,9 @@ export function HomePage() {
                                 <br />
                                 <span className="md:whitespace-nowrap">{t("processSubtitleLine2")}</span>
                             </ClipReveal>
-                            <motion.div
-                                initial={reduce ? false : { y: 16 }}
-                                whileInView={{ y: 0 }}
-                                viewport={inView}
-                                transition={{ duration: 1.1, delay: 0.38, ease: easeLuxury }}
+                            <Reveal
+                                variants={revealVariants(reduce, "up", 0.38, 1.1)}
+                                amount={inViewAmount}
                                 className="w-full min-w-0 sm:w-auto"
                             >
                                 <DiagnosticEntryButton
@@ -302,15 +304,13 @@ export function HomePage() {
                                     idleLabel={t("processCta")}
                                     iconTrailing={<ArrowNarrowRight className="size-5 opacity-60" />}
                                 />
-                            </motion.div>
+                            </Reveal>
                         </div>
                     ) : (
-                        <motion.div
+                        <Reveal
                             className="flex max-w-5xl min-w-0 flex-col items-center gap-6 text-center md:items-start md:gap-12 md:text-left"
                             variants={stagger}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={inView}
+                            amount={inViewAmount}
                         >
                             <motion.h2
                                 variants={text}
@@ -336,7 +336,7 @@ export function HomePage() {
                                     iconTrailing={<ArrowNarrowRight className="size-5 opacity-60" />}
                                 />
                             </motion.div>
-                        </motion.div>
+                        </Reveal>
                     )}
 
                     <div className="relative hidden xl:block xl:h-[1080px] xl:w-full">
@@ -452,12 +452,10 @@ export function HomePage() {
             {/* Value — list + restrained mockup (keeps rounded chrome, avoids upscaling blur) */}
             <section className="relative overflow-x-clip py-16 sm:py-20 md:py-24 lg:py-[120px] xl:py-[160px]">
                 <div className="relative z-10 mx-auto max-w-container px-4 md:px-8">
-                    <motion.div
+                    <Reveal
                         className="mb-8 flex max-w-4xl flex-col gap-3 sm:mb-10 md:mb-12 md:gap-4 lg:mb-14"
                         variants={stagger}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={inView}
+                        amount={inViewAmount}
                     >
                         <motion.h2
                             variants={text}
@@ -471,17 +469,15 @@ export function HomePage() {
                         >
                             {t("valueSubtitle")}
                         </motion.p>
-                    </motion.div>
+                    </Reveal>
 
                     <div className="relative min-w-0 overflow-x-clip lg:overflow-visible">
-                        <motion.div
-                            ref={valueListRef}
+                        <Reveal
+                            elementRef={valueListRef}
                             className="relative z-20 w-full lg:w-[min(100%,22rem)] xl:w-[26rem]"
                             aria-label={t("valueTitle")}
                             variants={staggerTight}
-                            initial="hidden"
-                            whileInView="show"
-                            viewport={inView}
+                            amount={inViewAmount}
                         >
                             <motion.span
                                 aria-hidden
@@ -588,7 +584,7 @@ export function HomePage() {
                                     {t("valueCta")}
                                 </CobreoButton>
                             </motion.div>
-                        </motion.div>
+                        </Reveal>
 
                         {(() => {
                             const mockupFrame = (
@@ -614,15 +610,9 @@ export function HomePage() {
                             );
 
                             return (
-                                <motion.div
-                                    className={mockupShellClass}
-                                    variants={media}
-                                    initial="hidden"
-                                    whileInView="show"
-                                    viewport={inView}
-                                >
+                                <Reveal className={mockupShellClass} variants={media} amount={inViewAmount}>
                                     {mockupFrame}
-                                </motion.div>
+                                </Reveal>
                             );
                         })()}
                     </div>
@@ -643,25 +633,18 @@ export function HomePage() {
                         <ClipReveal as="p" delay={0.12} className="max-w-5xl font-display text-[24px] font-light leading-[1.4] md:text-[30px]">
                             {t("philosophyBody")}
                         </ClipReveal>
-                        <motion.div
-                            initial={reduce ? false : { y: 12 }}
-                            whileInView={{ y: 0 }}
-                            viewport={inView}
-                            transition={{ duration: 1, delay: 0.22, ease: easeLuxury }}
-                        >
+                        <Reveal variants={revealVariants(reduce, "up", 0.22, 1)} amount={inViewAmount}>
                             <Link href="/a-propos" className="group inline-flex items-center gap-1.5 text-[20px] font-semibold text-[#a6b5cb] hover:text-white">
                                 {t("philosophyLink")}
                                 <ArrowNarrowRight className="size-5 transition-transform duration-500 ease-out group-hover:translate-x-1.5" />
                             </Link>
-                        </motion.div>
+                        </Reveal>
                     </div>
                 ) : (
-                    <motion.div
+                    <Reveal
                         className="relative z-10 mx-auto flex max-w-container flex-col gap-10"
                         variants={stagger}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={inView}
+                        amount={inViewAmount}
                     >
                         <motion.h2
                             variants={text}
@@ -678,18 +661,16 @@ export function HomePage() {
                                 <ArrowNarrowRight className="size-5 transition-transform duration-500 ease-out group-hover:translate-x-1.5" />
                             </Link>
                         </motion.div>
-                    </motion.div>
+                    </Reveal>
                 )}
             </section>
 
             {/* Testimonials */}
             <section className="relative z-10 px-4 py-24 md:px-8 md:py-40">
-                <motion.div
+                <Reveal
                     className="mx-auto flex max-w-container flex-col items-center gap-6 md:gap-8"
                     variants={staggerSlow}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
+                    amount={inViewAmount}
                 >
                     <motion.h2
                         variants={text}
@@ -785,16 +766,14 @@ export function HomePage() {
                             <ChevronRight className="size-6 transition-transform duration-200 group-hover:translate-x-0.5 sm:size-8 md:size-10" />
                         </motion.button>
                     </div>
-                </motion.div>
+                </Reveal>
             </section>
 
             {/* Diagnostic CTA */}
             <section className="relative z-10 px-4 pb-24 md:px-8">
-                <motion.div
+                <Reveal
                     variants={stagger}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={inView}
+                    amount={inViewAmount}
                     className="relative mx-auto flex max-w-container min-w-0 flex-col items-start justify-between gap-8 overflow-hidden rounded-2xl bg-[#b1b6a6] px-5 py-12 sm:px-8 md:flex-row md:items-center md:px-16 md:pb-[90px] md:pt-[60px] md:py-14"
                 >
                     <motion.div
@@ -826,7 +805,7 @@ export function HomePage() {
                             className="!w-full !border-[#d4d4d4] !bg-white md:!w-auto"
                         />
                     </motion.div>
-                </motion.div>
+                </Reveal>
             </section>
         </div>
     );
@@ -863,13 +842,7 @@ function ProcessStep({
     const textEl = <motion.div variants={copy} className="min-w-0">{text}</motion.div>;
 
     return (
-        <motion.div
-            className={cx("flex max-w-full items-start", gap, className)}
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce(0.2)}
-        >
+        <Reveal className={cx("flex max-w-full items-start", gap, className)} variants={stagger} amount={0.2}>
             {side === "left" ? (
                 <>
                     {mediaEl}
@@ -881,7 +854,7 @@ function ProcessStep({
                     {mediaEl}
                 </>
             )}
-        </motion.div>
+        </Reveal>
     );
 }
 
@@ -907,11 +880,9 @@ function ProcessRow({
     const stagger = staggerContainer(reduce, 0.12, 0.06);
 
     return (
-        <motion.div
+        <Reveal
             variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce(0.15)}
+            amount={0.15}
             className={cx(
                 "relative z-10 flex min-w-0 flex-col items-center gap-6 text-center md:flex-row md:items-start md:gap-8 md:text-left",
                 side === "right" && "md:ml-auto md:max-w-[720px] md:flex-row-reverse",
@@ -933,6 +904,6 @@ function ProcessRow({
                 <br />
                 <span className="md:whitespace-nowrap">{line3}</span>
             </motion.p>
-        </motion.div>
+        </Reveal>
     );
 }
