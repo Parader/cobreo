@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { HomePage } from "@/components/cobreo/home-page";
-import { buildPageMetadata, organizationJsonLd } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo";
 import type { Locale } from "@/i18n/routing";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -19,17 +18,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     setRequestLocale(locale);
-    const jsonLd = organizationJsonLd();
 
-    return (
-        <>
-            <Script
-                id="cobreo-organization-jsonld"
-                type="application/ld+json"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            <HomePage />
-        </>
-    );
+    return <HomePage />;
 }

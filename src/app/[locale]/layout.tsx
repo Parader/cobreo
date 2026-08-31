@@ -8,14 +8,13 @@ import { SiteHeader } from "@/components/cobreo/site-header";
 import { SiteFooter } from "@/components/cobreo/site-footer";
 import { CookieConsentBanner } from "@/components/cobreo/cookie-consent-banner";
 import { PostHogProvider } from "@/components/cobreo/posthog-provider";
+import { siteJsonLd } from "@/lib/seo";
 import { cx } from "@/utils/cx";
 
-import "@fontsource/sn-pro/300.css";
-import "@fontsource/sn-pro/400.css";
-import "@fontsource/sn-pro/500.css";
-import "@fontsource/sn-pro/600.css";
-import "@fontsource/sn-pro/700.css";
-import "@fontsource/sn-pro/300-italic.css";
+// One variable axis (200–900) replaces six static weight files: fewer render-blocking
+// stylesheets and one woff2 per script instead of one per weight.
+import "@fontsource-variable/sn-pro/wght.css";
+import "@fontsource-variable/sn-pro/wght-italic.css";
 
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }));
@@ -40,10 +39,16 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale} suppressHydrationWarning>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd(locale as Locale)) }}
+                />
+            </head>
             <body className="bg-primary antialiased">
                 <div
                     className={cx("min-h-dvh bg-[#efedea] font-body text-[#171717] antialiased")}
-                    style={{ fontFamily: '"SN Pro", ui-sans-serif, sans-serif' }}
+                    style={{ fontFamily: '"SN Pro Variable", ui-sans-serif, sans-serif' }}
                 >
                     <RouteProvider>
                         <Theme>

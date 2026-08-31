@@ -6,6 +6,8 @@ import { useTranslations } from "next-intl";
 import { MessageChatSquare } from "@untitledui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import { getAdminSlug } from "@/lib/admin-path";
+import { LINKEDIN_URL } from "@/lib/seo";
+import { LinkedIn } from "@/components/foundations/social-icons";
 import { CobreoButton } from "@/components/cobreo/cobreo-button";
 
 export function SiteFooter() {
@@ -24,7 +26,7 @@ export function SiteFooter() {
     }
 
     return (
-        <footer className="relative overflow-hidden bg-[#171718] text-[#efedea]" style={{ fontFamily: '"SN Pro", ui-sans-serif, sans-serif' }}>
+        <footer className="relative overflow-hidden bg-[#171718] text-[#efedea]" style={{ fontFamily: '"SN Pro Variable", ui-sans-serif, sans-serif' }}>
             <div className="relative z-10 mx-auto flex max-w-container flex-col gap-12 px-4 pb-24 pt-20 md:px-8 md:pt-24">
                 <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-start">
                     <div className="flex flex-col gap-8">
@@ -57,6 +59,20 @@ export function SiteFooter() {
                                 {t("privacy")}
                             </Link>
                         </nav>
+                        <div className="flex items-center gap-4">
+                            <span className="text-xs font-semibold tracking-wide text-white/45 uppercase">
+                                {t("followUs")}
+                            </span>
+                            <a
+                                href={LINKEDIN_URL}
+                                target="_blank"
+                                rel="noopener"
+                                aria-label={t("linkedin")}
+                                className="inline-flex size-9 items-center justify-center rounded-full bg-white/8 text-[#efedea]/80 transition duration-100 ease-linear hover:bg-white/15 hover:text-[#efedea] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
+                            >
+                                <LinkedIn size={16} aria-hidden />
+                            </a>
+                        </div>
                     </div>
                     <CobreoButton
                         href="/contact"

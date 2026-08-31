@@ -4,6 +4,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cobreo.ca";
 const locales = ["fr", "en"] as const;
 const paths = ["", "services", "a-propos", "contact", "diagnostic", "confidentialite", "conditions", "cookies"];
 
+/**
+ * Bump when page content actually changes. A `lastmod` that moves on every build
+ * tells Google nothing and gets discounted.
+ */
+const lastModified = new Date("2026-08-31");
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const entries: MetadataRoute.Sitemap = [];
 
@@ -12,8 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             const url = path ? `${siteUrl}/${locale}/${path}` : `${siteUrl}/${locale}`;
             entries.push({
                 url,
-                lastModified: new Date(),
-                changeFrequency: "weekly",
+                lastModified,
                 priority: path === "" ? 1 : 0.7,
                 alternates: {
                     languages: {

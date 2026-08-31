@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { usePreferSimpleMotion } from "@/hooks/use-prefer-simple-motion";
 import { ArrowNarrowRight, Mail01 } from "@untitledui/icons";
+import { LinkedIn } from "@/components/foundations/social-icons";
+import { LINKEDIN_URL } from "@/lib/seo";
 import { ContactForm } from "@/components/cobreo/contact-form";
 import { DiagnosticEntryButton } from "@/components/cobreo/diagnostic/diagnostic-entry-button";
 import {
@@ -87,6 +89,25 @@ export function ContactPage() {
                                     className="mt-3 inline-block text-lg text-[#171717] transition-colors duration-100 ease-linear hover:text-[#4d6b97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]"
                                 >
                                     {t("sideEmail")}
+                                </a>
+                            </div>
+
+                            <div className="border-t border-[#171717]/10 pt-8">
+                                <div className="flex items-center gap-3">
+                                    <span className="inline-flex size-9 items-center justify-center rounded-full bg-[#4d6b97]/12 text-[#4d6b97]">
+                                        <LinkedIn size={16} aria-hidden />
+                                    </span>
+                                    <p className="text-sm font-semibold tracking-wide text-[#737373] uppercase">
+                                        {t("sideSocialLabel")}
+                                    </p>
+                                </div>
+                                <a
+                                    href={LINKEDIN_URL}
+                                    target="_blank"
+                                    rel="noopener"
+                                    className="mt-3 inline-block text-lg text-[#171717] transition-colors duration-100 ease-linear hover:text-[#4d6b97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]"
+                                >
+                                    {t("sideSocialLink")}
                                 </a>
                             </div>
 

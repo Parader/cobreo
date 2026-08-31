@@ -1,8 +1,8 @@
 {
     "meta": {
         "siteName": "Cobreo",
-        "defaultTitle": "Cobreo - Accueil",
-        "defaultDescription": "Nous analysons vos processus, identifions les meilleures opportunités et développons des solutions qui génèrent un impact mesurable.",
+        "defaultTitle": "Cobreo | Solutions applicatives et automatisation pour PME",
+        "defaultDescription": "Cobreo analyse vos processus, identifie les meilleures opportunités et développe des solutions applicatives qui génèrent un impact mesurable.",
         "ogLocale": "fr_CA"
     },
     "nav": {
@@ -228,7 +228,9 @@
         "cta": "Parlez-nous de votre projet",
         "rights": "© {year} Cobreo. Tous droits réservés.",
         "terms": "Conditions",
-        "cookies": "Cookies"
+        "cookies": "Cookies",
+        "followUs": "Suivez-nous",
+        "linkedin": "Cobreo sur LinkedIn"
     },
     "cookiesBanner": {
         "title": "Nous respectons votre vie privée",
@@ -387,7 +389,9 @@
         "sideEmail": "contact@cobreo.ca",
         "sideDiagnosticLabel": "Outil d’analyse",
         "sideDiagnosticBody": "Cartographiez vos opérations avant un premier échange.",
-        "sideDiagnosticCta": "Commencer l’analyse"
+        "sideDiagnosticCta": "Commencer l’analyse",
+        "sideSocialLabel": "LinkedIn",
+        "sideSocialLink": "Suivre Cobreo sur LinkedIn"
     },
     "diagnostic": {
         "title": "Outil d'analyse",

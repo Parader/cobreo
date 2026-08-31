@@ -1,7 +1,7 @@
 @theme {
     /* FONT FAMILY */
-    --font-body: "SN Pro", ui-sans-serif, sans-serif;
-    --font-display: "SN Pro", ui-sans-serif, sans-serif;
+    --font-body: "SN Pro Variable", ui-sans-serif, sans-serif;
+    --font-display: "SN Pro Variable", ui-sans-serif, sans-serif;
     --font-mono: ui-monospace, "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     /* FONT SIZE */

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
         template: "%s · Cobreo",
     },
     applicationName: "Cobreo",
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+        ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+        : {}),
     manifest: "/site.webmanifest",
     icons: {
         icon: [

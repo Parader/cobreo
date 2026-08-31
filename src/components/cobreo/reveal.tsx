@@ -52,18 +52,30 @@ export function Reveal({
     useEffect(() => {
         if (shown) return;
 
-        const check = () => {
+        // Measuring straight from the scroll handler forces a synchronous layout on
+        // every event, once per Reveal still waiting. Coalescing into one frame keeps
+        // the read out of the scroll critical path.
+        let frame = 0;
+
+        const measure = () => {
+            frame = 0;
             const el = ref.current;
             if (!el) return;
             if (el.getBoundingClientRect().top < window.innerHeight * 0.95) setShown(true);
         };
 
-        check();
-        window.addEventListener("scroll", check, { passive: true });
-        window.addEventListener("resize", check);
+        const schedule = () => {
+            if (frame) return;
+            frame = requestAnimationFrame(measure);
+        };
+
+        schedule();
+        window.addEventListener("scroll", schedule, { passive: true });
+        window.addEventListener("resize", schedule, { passive: true });
         return () => {
-            window.removeEventListener("scroll", check);
-            window.removeEventListener("resize", check);
+            if (frame) cancelAnimationFrame(frame);
+            window.removeEventListener("scroll", schedule);
+            window.removeEventListener("resize", schedule);
         };
     }, [shown]);
 

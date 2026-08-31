@@ -21,6 +21,13 @@ const nextConfig = {
                     { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
                 ],
             },
+            {
+                // Netlify serves everything under /public with `max-age=0, must-revalidate`,
+                // so brand assets are revalidated on every view. These names are not
+                // content-hashed: bump a `?v=` query when replacing one.
+                source: "/:dir(images|og|fonts)/:path*",
+                headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
+            },
         ];
     },
 };

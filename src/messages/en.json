@@ -1,8 +1,8 @@
 {
     "meta": {
         "siteName": "Cobreo",
-        "defaultTitle": "Cobreo - Home",
-        "defaultDescription": "We analyze your processes, identify the best opportunities, and build solutions that deliver measurable impact.",
+        "defaultTitle": "Cobreo | Software solutions and process automation for SMBs",
+        "defaultDescription": "Cobreo analyzes your processes, identifies the best opportunities, and builds software solutions that deliver measurable impact.",
         "ogLocale": "en_CA"
     },
     "nav": {
@@ -228,7 +228,9 @@
         "cta": "Tell us about your project",
         "rights": "© {year} Cobreo. All rights reserved.",
         "terms": "Terms",
-        "cookies": "Cookies"
+        "cookies": "Cookies",
+        "followUs": "Follow us",
+        "linkedin": "Cobreo on LinkedIn"
     },
     "cookiesBanner": {
         "title": "We respect your privacy",
@@ -387,7 +389,9 @@
         "sideEmail": "contact@cobreo.ca",
         "sideDiagnosticLabel": "Analysis tool",
         "sideDiagnosticBody": "Map your operations ahead of a first conversation.",
-        "sideDiagnosticCta": "Start the analysis"
+        "sideDiagnosticCta": "Start the analysis",
+        "sideSocialLabel": "LinkedIn",
+        "sideSocialLink": "Follow Cobreo on LinkedIn"
     },
     "diagnostic": {
         "title": "Analysis tool",

@@ -63,15 +63,73 @@ export function buildPageMetadata({
     };
 }
 
-export function organizationJsonLd() {
+/**
+ * Public profiles Google uses to reconcile the "Cobreo" entity. Every URL here
+ * must point at a page that names Cobreo and links back to cobreo.ca, otherwise
+ * it weakens the signal instead of reinforcing it.
+ */
+export const LINKEDIN_URL = "https://www.linkedin.com/company/cobreo";
+
+const sameAs: string[] = [LINKEDIN_URL];
+
+const descriptions: Record<Locale, string> = {
+    fr: "Cobreo est un studio québécois qui conçoit des solutions applicatives et automatise les processus d’affaires des PME afin d’améliorer leurs opérations.",
+    en: "Cobreo is a Quebec studio that designs software solutions and automates business processes for small and mid-sized companies to improve their operations.",
+};
+
+/**
+ * Site-wide entity graph, rendered on every page. Organization and WebSite share
+ * stable `@id`s so Google merges them into a single Cobreo entity rather than
+ * treating each page as an unrelated mention.
+ */
+export function siteJsonLd(locale: Locale) {
+    const organizationId = `${siteUrl}/#organization`;
+
     return {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "Cobreo",
-        url: siteUrl,
-        logo: `${siteUrl}/images/cobreologo.svg`,
-        email: "contact@cobreo.ca",
-        areaServed: "CA",
-        sameAs: [],
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": organizationId,
+                name: "Cobreo",
+                legalName: "Cobreo",
+                alternateName: "Cobreo.ca",
+                url: siteUrl,
+                logo: {
+                    "@type": "ImageObject",
+                    url: `${siteUrl}/og/default.png?v=7`,
+                    width: 1200,
+                    height: 630,
+                },
+                image: `${siteUrl}/og/default.png?v=7`,
+                description: descriptions[locale],
+                email: "contact@cobreo.ca",
+                knowsLanguage: ["fr-CA", "en-CA"],
+                areaServed: { "@type": "Country", name: "Canada" },
+                address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Lévis",
+                    addressRegion: "QC",
+                    addressCountry: "CA",
+                },
+                contactPoint: {
+                    "@type": "ContactPoint",
+                    contactType: "customer support",
+                    email: "contact@cobreo.ca",
+                    availableLanguage: ["French", "English"],
+                },
+                ...(sameAs.length > 0 ? { sameAs } : {}),
+            },
+            {
+                "@type": "WebSite",
+                "@id": `${siteUrl}/#website`,
+                url: siteUrl,
+                name: "Cobreo",
+                alternateName: "Cobreo.ca",
+                description: descriptions[locale],
+                inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
+                publisher: { "@id": organizationId },
+            },
+        ],
     };
 }
