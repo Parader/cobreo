@@ -22,9 +22,9 @@ const nextConfig = {
                 ],
             },
             {
-                // Netlify serves everything under /public with `max-age=0, must-revalidate`,
-                // so brand assets are revalidated on every view. These names are not
-                // content-hashed: bump a `?v=` query when replacing one.
+                // Brand assets would otherwise be revalidated on every view. On Netlify
+                // the CDN serves /public without consulting this, so netlify.toml carries
+                // the same rule — keep the two in sync.
                 source: "/:dir(images|og|fonts)/:path*",
                 headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
             },

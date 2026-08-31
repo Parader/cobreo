@@ -5,6 +5,19 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Netlify's CDN serves /public directly and never reaches Next's `headers()`, so the
+# default `max-age=0, must-revalidate` sticks. These filenames are not content-hashed:
+# bump a `?v=` query when replacing an asset.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/og/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, stale-while-revalidate=86400"
+
 [build.environment]
   NODE_VERSION = "22"
   # CONTACT_NOTIFY_EMAIL (and similar) match public site copy (contact@cobreo.ca in i18n/SEO)
