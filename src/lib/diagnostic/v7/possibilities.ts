@@ -1,6 +1,5 @@
 import { getScanAnswers } from "@/content/diagnostic/v7/catalog";
 import {
-    diagnosticSpecV7,
     type AmbitionId,
     type AreaAnswerValue,
     type AreaId,
@@ -10,9 +9,11 @@ import {
     type PossibilitySourceTier,
     type ProspectServiceId,
     type SelectedPossibility,
+    diagnosticSpecV7,
 } from "@/content/diagnostic/v7/types";
-import { isSoloCompany } from "./coverage";
+import { pickLocalized } from "@/lib/diagnostic/localize";
 import { AMBITION_AREAS } from "./ambition-areas";
+import { isSoloCompany } from "./coverage";
 
 const MAX_CARDS = 9;
 const MIN_CANDIDATES = 4;
@@ -39,11 +40,13 @@ const AREA_ORDER: AreaId[] = [
 export type PossibilityLibraryItem = {
     id: string;
     label_fr: string;
+    label_en?: string;
     services: ProspectServiceId[];
 };
 
 export type PossibilityLibraryArea = {
     section_fr: string;
+    section_en?: string;
     possibilities: PossibilityLibraryItem[];
 };
 
@@ -64,15 +67,17 @@ export function getPossibilityLibrary(): PossibilityLibrary {
     for (const [key, value] of Object.entries(raw)) {
         if (key === "library_rule" || !value || typeof value !== "object") continue;
         if (!isAreaId(key)) continue;
-        const section = value as { section_fr?: string; possibilities?: unknown[] };
+        const section = value as { section_fr?: string; section_en?: string; possibilities?: unknown[] };
         const items = Array.isArray(section.possibilities) ? section.possibilities : [];
         out[key] = {
             section_fr: String(section.section_fr || key),
+            section_en: section.section_en,
             possibilities: items
                 .filter((item): item is Record<string, unknown> => Boolean(item) && typeof item === "object")
                 .map((item) => ({
                     id: String(item.id),
                     label_fr: String(item.label_fr || item.id),
+                    label_en: typeof item.label_en === "string" ? item.label_en : undefined,
                     services: (Array.isArray(item.services) ? item.services : []) as ProspectServiceId[],
                 })),
         };
@@ -129,16 +134,17 @@ function candidateId(areaId: AreaId, possibilityId: string): string {
 function makeCandidate(
     areaId: AreaId,
     item: PossibilityLibraryItem,
-    sectionLabel: string,
+    section: PossibilityLibraryArea,
     sourceTier: PossibilitySourceTier,
     score: number,
+    locale: string,
 ): PossibilityCandidate {
     return {
         id: candidateId(areaId, item.id),
         possibilityId: item.id,
         areaId,
-        sectionLabel,
-        label: item.label_fr,
+        sectionLabel: pickLocalized(section as unknown as Record<string, unknown>, "section", locale) || section.section_fr,
+        label: pickLocalized(item as unknown as Record<string, unknown>, "label", locale) || item.label_fr,
         sourceTier,
         services: item.services,
         score,
@@ -221,6 +227,7 @@ function fillFromLibrary(
     existing: Map<string, PossibilityCandidate>,
     allowedAreas: AreaId[],
     minNeeded: number,
+    locale: string,
 ): void {
     let scoreBase = 25;
     for (const areaId of allowedAreas) {
@@ -231,10 +238,7 @@ function fillFromLibrary(
             if (existing.size >= minNeeded) break;
             const id = candidateId(areaId, item.id);
             if (existing.has(id)) continue;
-            existing.set(
-                id,
-                makeCandidate(areaId, item, section.section_fr, "suggested", scoreBase),
-            );
+            existing.set(id, makeCandidate(areaId, item, section, "suggested", scoreBase, locale));
             scoreBase -= 1;
         }
     }
@@ -252,6 +256,7 @@ export function buildPossibilityCandidates(input: {
     locale?: string;
 }): PossibilityCandidate[] {
     const library = getPossibilityLibrary();
+    const locale = input.locale || "fr";
     const declared = input.declared || [];
     const ambitionAreas = ambitionAreaSet(declared);
     const early = isEarlyStage(input.companyContext.company_stage);
@@ -285,7 +290,7 @@ export function buildPossibilityCandidates(input: {
             let score = 90 - i * 5 + Math.min(signals.length, 3);
             if (ambitionAreas.has(areaId)) score += 4;
             if (autoAreas.has(areaId) && item.services.includes("automation")) score += 2;
-            upsert(makeCandidate(areaId, item, section.section_fr, "observed", score));
+            upsert(makeCandidate(areaId, item, section, "observed", score, locale));
         }
     }
 
@@ -308,7 +313,7 @@ export function buildPossibilityCandidates(input: {
             let score = 65 - i * 4;
             if (early) score += 3;
             if (hasEmergingAnswer(answers)) score += 2;
-            upsert(makeCandidate(areaId, item, section.section_fr, "emerging", score));
+            upsert(makeCandidate(areaId, item, section, "emerging", score, locale));
         }
     }
 
@@ -335,16 +340,16 @@ export function buildPossibilityCandidates(input: {
             const alt = section.possibilities.find((p) => !byId.has(candidateId(areaId, p.id)));
             if (!alt) continue;
             let score = 40 + (ambitionAreas.has(areaId) ? 5 : 0) + (autoAreas.has(areaId) ? 3 : 0);
-            upsert(makeCandidate(areaId, alt, section.section_fr, "suggested", score));
+            upsert(makeCandidate(areaId, alt, section, "suggested", score, locale));
             continue;
         }
         let score = 42 + (ambitionAreas.has(areaId) ? 5 : 0) + (autoAreas.has(areaId) ? 3 : 0);
-        upsert(makeCandidate(areaId, item, section.section_fr, "suggested", score));
+        upsert(makeCandidate(areaId, item, section, "suggested", score, locale));
     }
 
     // --- Fill to minimum 4 ---
     if (byId.size < MIN_CANDIDATES) {
-        fillFromLibrary(library, byId, allowedAreas, MIN_CANDIDATES);
+        fillFromLibrary(library, byId, allowedAreas, MIN_CANDIDATES, locale);
     }
 
     const sorted = sortCandidates([...byId.values()]);
@@ -352,10 +357,7 @@ export function buildPossibilityCandidates(input: {
 }
 
 /** Map selected candidate ids to structured selected possibilities (skips none_selected). */
-export function resolveSelectedPossibilities(
-    ids: Array<string | "none_selected">,
-    candidates: PossibilityCandidate[],
-): SelectedPossibility[] {
+export function resolveSelectedPossibilities(ids: Array<string | "none_selected">, candidates: PossibilityCandidate[]): SelectedPossibility[] {
     if (ids.includes("none_selected")) return [];
     const byId = new Map(candidates.map((c) => [c.id, c]));
     const out: SelectedPossibility[] = [];

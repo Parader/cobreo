@@ -13,6 +13,12 @@ import {
     type AdminBookingRule,
     type AdminUpcomingBooking,
 } from "@/components/cobreo/admin-booking-settings";
+import { AdminAnalytics } from "@/components/cobreo/admin-analytics";
+import type {
+    CrmFunnelStats,
+    OrphanContact,
+    PostHogFunnelStats,
+} from "@/lib/admin/analytics";
 import {
     formatDiagnosticQa,
     formatDurationMs,
@@ -41,6 +47,13 @@ type DiagnosticSubmission = {
     created_at: string;
 };
 
+type ContactSubmission = {
+    id: string;
+    message: string | null;
+    locale: string | null;
+    created_at: string;
+};
+
 type BookingRow = {
     id: string;
     starts_at: string;
@@ -60,6 +73,7 @@ type LeadRow = {
     created_at: string;
     contacts: Contact | Contact[] | null;
     diagnostic_submissions?: DiagnosticSubmission[] | null;
+    contact_submissions?: ContactSubmission[] | null;
     bookings?: BookingRow[] | BookingRow | null;
 };
 
@@ -80,16 +94,22 @@ export function AdminDashboard({
     leads,
     bookingRule,
     upcomingBookings,
+    crmStats,
+    posthogStats,
+    orphanContacts,
 }: {
     leads: LeadRow[];
     bookingRule: AdminBookingRule | null;
     upcomingBookings: AdminUpcomingBooking[];
+    crmStats: CrmFunnelStats;
+    posthogStats: PostHogFunnelStats;
+    orphanContacts: OrphanContact[];
 }) {
     const t = useTranslations("admin");
     const td = useTranslations("diagnostic");
     const router = useRouter();
     const locale = useLocale();
-    const [tab, setTab] = useState<"leads" | "booking">("leads");
+    const [tab, setTab] = useState<"leads" | "booking" | "analytics">("leads");
     const [openId, setOpenId] = useState<string | null>(null);
     const [pending, startTransition] = useTransition();
     const [actionError, setActionError] = useState<string | null>(null);
@@ -107,6 +127,14 @@ export function AdminDashboard({
 
     function diagnosticInfo(lead: LeadRow) {
         const rows = lead.diagnostic_submissions;
+        if (!rows) return null;
+        const list = Array.isArray(rows) ? rows : [rows];
+        if (!list.length) return null;
+        return [...list].sort((a, b) => b.created_at.localeCompare(a.created_at))[0] ?? null;
+    }
+
+    function contactSubmissionInfo(lead: LeadRow) {
+        const rows = lead.contact_submissions;
         if (!rows) return null;
         const list = Array.isArray(rows) ? rows : [rows];
         if (!list.length) return null;
@@ -181,15 +209,26 @@ export function AdminDashboard({
             <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                     <h1 className="text-display-xs font-semibold text-primary">
-                        {tab === "booking" ? t("bookingTitle") : t("leads")}
+                        {tab === "booking"
+                            ? t("bookingTitle")
+                            : tab === "analytics"
+                              ? t("analyticsTitle")
+                              : t("leads")}
                     </h1>
-                    <div className="mt-3 flex gap-2">
+                    <div className="mt-3 flex flex-wrap gap-2">
                         <Button
                             color={tab === "leads" ? "primary" : "secondary"}
                             size="sm"
                             onClick={() => setTab("leads")}
                         >
                             {t("leads")}
+                        </Button>
+                        <Button
+                            color={tab === "analytics" ? "primary" : "secondary"}
+                            size="sm"
+                            onClick={() => setTab("analytics")}
+                        >
+                            {t("analyticsTab")}
                         </Button>
                         <Button
                             color={tab === "booking" ? "primary" : "secondary"}
@@ -209,6 +248,12 @@ export function AdminDashboard({
                 <AdminBookingSettings
                     rule={bookingRule}
                     upcoming={upcomingBookings}
+                />
+            ) : tab === "analytics" ? (
+                <AdminAnalytics
+                    crm={crmStats}
+                    posthog={posthogStats}
+                    orphanContacts={orphanContacts}
                 />
             ) : (
                 <>
@@ -234,6 +279,7 @@ export function AdminDashboard({
                             {leads.map((lead) => {
                                 const c = contactInfo(lead);
                                 const diag = diagnosticInfo(lead);
+                                const contactSub = contactSubmissionInfo(lead);
                                 const booking = bookingInfo(lead);
                                 const open = openId === lead.id;
                                 const isDiagnostic =
@@ -514,6 +560,15 @@ export function AdminDashboard({
                                                                     </ul>
                                                                 )}
                                                             </section>
+                                                        </div>
+                                                    ) : contactSub?.message ? (
+                                                        <div className="space-y-3">
+                                                            <h3 className="text-sm font-semibold text-primary">
+                                                                {t("contactMessage")}
+                                                            </h3>
+                                                            <p className="whitespace-pre-wrap text-secondary">
+                                                                {contactSub.message}
+                                                            </p>
                                                         </div>
                                                     ) : (
                                                         <p className="text-tertiary">{t("noDetail")}</p>

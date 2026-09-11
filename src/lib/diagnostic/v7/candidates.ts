@@ -7,6 +7,7 @@ import type {
     PrioritySectionCard,
 } from "@/content/diagnostic/v7/types";
 import { areaLabel, getScanAnswers } from "@/content/diagnostic/v7/catalog";
+import { pickLocalized } from "@/lib/diagnostic/localize";
 import { isSoloCompany, resolveCapabilities } from "./coverage";
 import { AMBITION_AREAS } from "./ambition-areas";
 
@@ -31,7 +32,8 @@ function selectedSignals(areaId: AreaId, answers: string[], locale: string): str
         .filter((id) => !excl.has(id) && id !== "other" && id !== "none")
         .map((id) => {
             const opt = getScanAnswers(areaId).find((a) => a.id === id);
-            return opt?.label_fr || id;
+            if (!opt) return id;
+            return pickLocalized(opt as Record<string, unknown>, "label", locale) || opt.label_fr || id;
         })
         .slice(0, 3);
 }

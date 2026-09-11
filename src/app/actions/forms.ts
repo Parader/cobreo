@@ -89,7 +89,10 @@ export async function submitContact(formData: FormData) {
             .select("id")
             .single();
 
-        if (leadError) throw leadError;
+        if (leadError) {
+            console.error("[submitContact] lead insert failed", leadError);
+            throw leadError;
+        }
 
         const { error: subError } = await supabase.from("contact_submissions").insert({
             lead_id: lead.id,
@@ -98,7 +101,10 @@ export async function submitContact(formData: FormData) {
             locale: String(formData.get("locale") || "fr"),
         });
 
-        if (subError) throw subError;
+        if (subError) {
+            console.error("[submitContact] submission insert failed", subError);
+            throw subError;
+        }
 
         await notifyInternal(
             `[Cobreo] Nouveau contact — ${parsed.data.name}`,
@@ -106,7 +112,8 @@ export async function submitContact(formData: FormData) {
         );
 
         return { ok: true as const };
-    } catch {
+    } catch (error) {
+        console.error("[submitContact]", error);
         return { ok: false as const, error: "server" };
     }
 }

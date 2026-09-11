@@ -71,23 +71,28 @@
     "stages": [
       {
         "id": "company",
-        "label_fr": "Votre entreprise"
+        "label_fr": "Votre entreprise",
+        "label_en": "Your business"
       },
       {
         "id": "ambitions",
-        "label_fr": "Vos ambitions"
+        "label_fr": "Vos ambitions",
+        "label_en": "Your ambitions"
       },
       {
         "id": "discovery",
-        "label_fr": "À explorer"
+        "label_fr": "À explorer",
+        "label_en": "To explore"
       },
       {
         "id": "priorities",
-        "label_fr": "Vos priorités"
+        "label_fr": "Vos priorités",
+        "label_en": "Your priorities"
       },
       {
         "id": "results",
-        "label_fr": "Résultats"
+        "label_fr": "Résultats",
+        "label_en": "Results"
       }
     ],
     "progress": {
@@ -200,21 +205,26 @@
       "answers": [
         {
           "id": "testing",
-          "label_fr": "Je teste encore mon idée ou mon offre"
+          "label_fr": "Je teste encore mon idée ou mon offre",
+          "label_en": "I’m still testing my idea or offering"
         },
         {
           "id": "early",
-          "label_fr": "J’ai commencé, mais mon activité est encore limitée"
+          "label_fr": "J’ai commencé, mais mon activité est encore limitée",
+          "label_en": "I’ve started, but my business activity is still limited"
         },
         {
           "id": "regular",
-          "label_fr": "Mon activité fonctionne régulièrement"
+          "label_fr": "Mon activité fonctionne régulièrement",
+          "label_en": "My business operates regularly"
         },
         {
           "id": "established",
-          "label_fr": "Mon entreprise est bien établie"
+          "label_fr": "Mon entreprise est bien établie",
+          "label_en": "My business is well established"
         }
-      ]
+      ],
+      "question_en": "Where is your business at today?"
     },
     {
       "id": "company_size",
@@ -224,30 +234,37 @@
       "answers": [
         {
           "id": "1",
-          "label_fr": "1"
+          "label_fr": "1",
+          "label_en": "1"
         },
         {
           "id": "2_5",
-          "label_fr": "2 à 5"
+          "label_fr": "2 à 5",
+          "label_en": "2 to 5"
         },
         {
           "id": "6_20",
-          "label_fr": "6 à 20"
+          "label_fr": "6 à 20",
+          "label_en": "6 to 20"
         },
         {
           "id": "21_50",
-          "label_fr": "21 à 50"
+          "label_fr": "21 à 50",
+          "label_en": "21 to 50"
         },
         {
           "id": "51_200",
-          "label_fr": "51 à 200"
+          "label_fr": "51 à 200",
+          "label_en": "51 to 200"
         },
         {
           "id": "200_plus",
-          "label_fr": "Plus de 200"
+          "label_fr": "Plus de 200",
+          "label_en": "More than 200"
         }
       ],
-      "value": "Controls relevance of team, hours, coordination, performance and continuity questions."
+      "value": "Controls relevance of team, hours, coordination, performance and continuity questions.",
+      "question_en": "How many people regularly work in the business, including you?"
     },
     {
       "id": "customer_types",
@@ -258,26 +275,33 @@
       "answers": [
         {
           "id": "businesses",
-          "label_fr": "Entreprises"
+          "label_fr": "Entreprises",
+          "label_en": "Businesses"
         },
         {
           "id": "consumers",
-          "label_fr": "Particuliers"
+          "label_fr": "Particuliers",
+          "label_en": "Individuals"
         },
         {
           "id": "organizations_public",
-          "label_fr": "Organismes ou secteur public"
+          "label_fr": "Organismes ou secteur public",
+          "label_en": "Organizations or the public sector"
         },
         {
           "id": "not_yet",
           "label_fr": "Je n’ai pas encore vraiment de clients",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "I don’t really have clients yet"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
-      ]
+      ],
+      "question_en": "Who do you primarily sell to or serve?",
+      "instruction_en": "Select all that apply."
     },
     {
       "id": "work_models",
@@ -288,29 +312,37 @@
       "answers": [
         {
           "id": "appointments",
-          "label_fr": "Par rendez-vous"
+          "label_fr": "Par rendez-vous",
+          "label_en": "By appointment"
         },
         {
           "id": "projects",
-          "label_fr": "Par projets ou mandats"
+          "label_fr": "Par projets ou mandats",
+          "label_en": "Through projects or engagements"
         },
         {
           "id": "orders",
-          "label_fr": "Par commandes"
+          "label_fr": "Par commandes",
+          "label_en": "Through orders"
         },
         {
           "id": "recurring",
-          "label_fr": "Avec des services ou opérations récurrentes"
+          "label_fr": "Avec des services ou opérations récurrentes",
+          "label_en": "Through recurring services or operations"
         },
         {
           "id": "production",
-          "label_fr": "Par production ou fabrication"
+          "label_fr": "Par production ou fabrication",
+          "label_en": "Through production or manufacturing"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
-      ]
+      ],
+      "question_en": "How does your business generally operate?",
+      "instruction_en": "Select all that apply."
     }
   ],
   "ambitions": {
@@ -326,66 +358,81 @@
       "answers": [
         {
           "id": "find_clients",
-          "label_fr": "Trouver de nouveaux clients"
+          "label_fr": "Trouver de nouveaux clients",
+          "label_en": "Find new clients"
         },
         {
           "id": "convert_requests",
-          "label_fr": "Convertir plus de demandes en clients"
+          "label_fr": "Convertir plus de demandes en clients",
+          "label_en": "Convert more inquiries into clients"
         },
         {
           "id": "grow_existing_customers",
-          "label_fr": "Augmenter les ventes auprès de mes clients actuels"
+          "label_fr": "Augmenter les ventes auprès de mes clients actuels",
+          "label_en": "Increase sales from my existing clients"
         },
         {
           "id": "improve_client_experience",
-          "label_fr": "Mieux servir ou fidéliser les clients"
+          "label_fr": "Mieux servir ou fidéliser les clients",
+          "label_en": "Better serve or retain clients"
         },
         {
           "id": "save_time",
-          "label_fr": "Gagner du temps dans le travail quotidien"
+          "label_fr": "Gagner du temps dans le travail quotidien",
+          "label_en": "Save time in day-to-day work"
         },
         {
           "id": "organize_work",
-          "label_fr": "Mieux organiser le travail"
+          "label_fr": "Mieux organiser le travail",
+          "label_en": "Organize work more effectively"
         },
         {
           "id": "improve_team",
           "label_fr": "Faciliter le travail de l’équipe",
-          "show_if": "company_size != '1'"
+          "show_if": "company_size != '1'",
+          "label_en": "Make the team’s work easier"
         },
         {
           "id": "better_decisions",
-          "label_fr": "Mieux suivre la performance de l’entreprise"
+          "label_fr": "Mieux suivre la performance de l’entreprise",
+          "label_en": "Track business performance more effectively"
         },
         {
           "id": "improve_profitability",
-          "label_fr": "Mieux comprendre les coûts ou la rentabilité"
+          "label_fr": "Mieux comprendre les coûts ou la rentabilité",
+          "label_en": "Better understand costs or profitability"
         },
         {
           "id": "improve_offer",
-          "label_fr": "Développer ou améliorer mes produits ou services"
+          "label_fr": "Développer ou améliorer mes produits ou services",
+          "label_en": "Develop or improve my products or services"
         },
         {
           "id": "prepare_growth",
-          "label_fr": "Structurer l’entreprise pour soutenir sa croissance"
+          "label_fr": "Structurer l’entreprise pour soutenir sa croissance",
+          "label_en": "Structure the business to support growth"
         },
         {
           "id": "use_information_better",
-          "label_fr": "Mieux organiser ou utiliser l’information"
+          "label_fr": "Mieux organiser ou utiliser l’information",
+          "label_en": "Organize or use information more effectively"
         },
         {
           "id": "improve_tools",
-          "label_fr": "Améliorer les outils ou systèmes utilisés"
+          "label_fr": "Améliorer les outils ou systèmes utilisés",
+          "label_en": "Improve the tools or systems being used"
         },
         {
           "id": "nothing_specific",
           "label_fr": "Rien de particulier pour le moment",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "Nothing in particular right now"
         },
         {
           "id": "other",
           "label_fr": "Autre",
-          "optional_text": true
+          "optional_text": true,
+          "label_en": "Other"
         }
       ],
       "role": [
@@ -394,7 +441,9 @@
         "raises relevance of aligned opportunity candidates",
         "provides narrative context for results",
         "never creates an opportunity by itself"
-      ]
+      ],
+      "question_en": "What would you most like to advance in your business right now?",
+      "instruction_en": "Select all that apply."
     },
     "rules": [
       "All selected ambitions have the same declared-intent status; do not force a primary/secondary hierarchy.",
@@ -408,48 +457,66 @@
       "id": "leadership_performance",
       "label_fr": "Suivi de l’entreprise et décisions",
       "hint_fr": "Indicateurs, visibilité, rentabilité, priorités et décisions",
-      "default_applicability": "all except very early cases where wording adapts to activity rather than company"
+      "default_applicability": "all except very early cases where wording adapts to activity rather than company",
+      "label_en": "Business oversight and decision-making",
+      "hint_en": "Metrics, visibility, profitability, priorities and decisions"
     },
     {
       "id": "sales_growth",
       "label_fr": "Ventes et nouveaux clients",
-      "hint_fr": "Demandes, prospects, offre, soumissions, rendez-vous et ventes"
+      "hint_fr": "Demandes, prospects, offre, soumissions, rendez-vous et ventes",
+      "label_en": "Sales and new clients",
+      "hint_en": "Inquiries, prospects, offering, quotes, appointments and sales"
     },
     {
       "id": "clients_service",
       "label_fr": "Service et suivi des clients",
-      "hint_fr": "Démarrage, demandes, communication, satisfaction, suivi et fidélisation"
+      "hint_fr": "Démarrage, demandes, communication, satisfaction, suivi et fidélisation",
+      "label_en": "Client service and follow-up",
+      "hint_en": "Onboarding, requests, communication, satisfaction, follow-up and retention"
     },
     {
       "id": "work_operations",
       "label_fr": "Organisation et réalisation du travail",
-      "hint_fr": "Planification, exécution, coordination, tâches récurrentes et qualité"
+      "hint_fr": "Planification, exécution, coordination, tâches récurrentes et qualité",
+      "label_en": "Work organization and delivery",
+      "hint_en": "Planning, execution, coordination, recurring tasks and quality"
     },
     {
       "id": "team_people",
       "label_fr": "Équipe et employés",
       "hint_fr": "Heures, horaires, charge, performance, intégration et façons de faire",
-      "applicable_if": "company_size != '1'"
+      "applicable_if": "company_size != '1'",
+      "label_en": "Team and employees",
+      "hint_en": "Hours, schedules, workload, performance, onboarding and ways of working"
     },
     {
       "id": "finance_profitability",
       "label_fr": "Finances et rentabilité",
-      "hint_fr": "Facturation, paiements, coûts, budgets et rentabilité"
+      "hint_fr": "Facturation, paiements, coûts, budgets et rentabilité",
+      "label_en": "Finances and profitability",
+      "hint_en": "Billing, payments, costs, budgets and profitability"
     },
     {
       "id": "information_ways",
       "label_fr": "Information, documents et façons de faire",
-      "hint_fr": "Documents, procédures, connaissances, recherche et partage"
+      "hint_fr": "Documents, procédures, connaissances, recherche et partage",
+      "label_en": "Information, documents and ways of working",
+      "hint_en": "Documents, procedures, knowledge, search and sharing"
     },
     {
       "id": "offer_development",
       "label_fr": "Développement des produits et services",
-      "hint_fr": "Essais, versions, rétroaction, amélioration de l’offre et R&D"
+      "hint_fr": "Essais, versions, rétroaction, amélioration de l’offre et R&D",
+      "label_en": "Product and service development",
+      "hint_en": "Tests, versions, feedback, offering improvements and R&D"
     },
     {
       "id": "tools_systems",
       "label_fr": "Outils et systèmes",
-      "hint_fr": "Logiciels, tableurs, communications, transferts et limites des outils"
+      "hint_fr": "Logiciels, tableurs, communications, transferts et limites des outils",
+      "label_en": "Tools and systems",
+      "hint_en": "Software, spreadsheets, communications, transfers and tool limitations"
     }
   ],
   "area_scans": {
@@ -464,56 +531,68 @@
         {
           "id": "revenue",
           "label_fr": "Revenus ou ventes",
-          "capability": "revenue_visibility"
+          "capability": "revenue_visibility",
+          "label_en": "Revenue or sales"
         },
         {
           "id": "profitability",
           "label_fr": "Rentabilité ou marges",
-          "capability": "profitability_visibility"
+          "capability": "profitability_visibility",
+          "label_en": "Profitability or margins"
         },
         {
           "id": "cash",
           "label_fr": "Argent disponible et paiements à venir",
-          "capability": "cash_visibility"
+          "capability": "cash_visibility",
+          "label_en": "Available cash and upcoming payments"
         },
         {
           "id": "sales_pipeline",
           "label_fr": "Demandes, ventes ou conversion",
-          "capability": "sales_visibility"
+          "capability": "sales_visibility",
+          "label_en": "Inquiries, sales or conversion"
         },
         {
           "id": "work_progress",
           "label_fr": "Dossiers, commandes ou travaux en cours",
-          "capability": "operations_visibility"
+          "capability": "operations_visibility",
+          "label_en": "Files, orders or work in progress"
         },
         {
           "id": "customer_feedback",
           "label_fr": "Satisfaction ou retours des clients",
-          "capability": "customer_feedback_visibility"
+          "capability": "customer_feedback_visibility",
+          "label_en": "Client satisfaction or feedback"
         },
         {
           "id": "team_performance",
           "label_fr": "Charge, objectifs ou performance de l’équipe",
           "capability": "team_performance_visibility",
-          "show_if": "company_size != '1'"
+          "show_if": "company_size != '1'",
+          "label_en": "Team workload, goals or performance"
         },
         {
           "id": "rd_results",
           "label_fr": "Résultats de tests, essais ou développement",
           "capability": "rd_visibility",
-          "show_if": "company_stage == 'testing' or 'improve_offer' in declared_ambitions"
+          "show_if": "company_stage == 'testing' or 'improve_offer' in declared_ambitions",
+          "label_en": "Results from tests, trials or development"
         },
         {
           "id": "general_feel",
           "label_fr": "Je me fie surtout à une vue générale ou à mon intuition",
-          "capability": "informal_management_view"
+          "capability": "informal_management_view",
+          "label_en": "I rely mainly on an overall view or my intuition"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
       ],
-      "omission_rule": "A relevant unselected metric is only a coverage-gap candidate. Context + ambition must make it relevant before it can appear on the priority screen."
+      "omission_rule": "A relevant unselected metric is only a coverage-gap candidate. Context + ambition must make it relevant before it can appear on the priority screen.",
+      "question_en": "When you want to know how the business is doing, what do you look at today?",
+      "instruction_en": "Select all that apply."
     },
     "sales_growth": {
       "id": "scan_sales",
@@ -526,48 +605,59 @@
         {
           "id": "offer_info",
           "label_fr": "Une façon claire de présenter l’offre",
-          "capability": "offer_clarity"
+          "capability": "offer_clarity",
+          "label_en": "A clear way to present the offering"
         },
         {
           "id": "inquiry_path",
           "label_fr": "Une façon claire de recevoir les demandes",
-          "capability": "inquiry_intake"
+          "capability": "inquiry_intake",
+          "label_en": "A clear way to receive inquiries"
         },
         {
           "id": "lead_tracking",
           "label_fr": "Un suivi des personnes ou occasions en cours",
-          "capability": "lead_visibility"
+          "capability": "lead_visibility",
+          "label_en": "A way to track active prospects or opportunities"
         },
         {
           "id": "quote_booking_order",
           "label_fr": "Une façon de demander un prix, réserver ou commander",
-          "capability": "conversion_path"
+          "capability": "conversion_path",
+          "label_en": "A way to request a price, book or order"
         },
         {
           "id": "sales_followup",
           "label_fr": "Une façon de garder les suivis à faire",
-          "capability": "sales_followup"
+          "capability": "sales_followup",
+          "label_en": "A way to keep track of follow-ups"
         },
         {
           "id": "sale_confirmation",
           "label_fr": "Une façon claire de confirmer l’entente ou la vente",
-          "capability": "sale_confirmation"
+          "capability": "sale_confirmation",
+          "label_en": "A clear way to confirm the agreement or sale"
         },
         {
           "id": "no_formal_sales",
           "label_fr": "Rien de très structuré pour l’instant",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "Nothing very structured yet"
         },
         {
           "id": "not_applicable",
           "label_fr": "Ce n’est pas vraiment applicable à notre activité",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "This does not really apply to our business"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
-      ]
+      ],
+      "question_en": "What is already in place today to turn an interested person into a client?",
+      "instruction_en": "Select all that apply."
     },
     "clients_service": {
       "id": "scan_clients",
@@ -580,53 +670,64 @@
         {
           "id": "collect_client_info",
           "label_fr": "Recueillir les informations nécessaires au départ",
-          "capability": "client_onboarding"
+          "capability": "client_onboarding",
+          "label_en": "Collect the necessary information at the outset"
         },
         {
           "id": "client_history",
           "label_fr": "Garder un historique des échanges ou besoins du client",
-          "capability": "client_history"
+          "capability": "client_history",
+          "label_en": "Keep a history of client interactions or needs"
         },
         {
           "id": "status_updates",
           "label_fr": "Informer le client des prochaines étapes ou de l’avancement",
-          "capability": "client_visibility"
+          "capability": "client_visibility",
+          "label_en": "Keep the client informed about next steps or progress"
         },
         {
           "id": "request_management",
           "label_fr": "Gérer ses demandes, changements ou questions",
-          "capability": "client_request_handling"
+          "capability": "client_request_handling",
+          "label_en": "Manage client requests, changes or questions"
         },
         {
           "id": "post_service_followup",
           "label_fr": "Faire un suivi après le service ou la livraison",
-          "capability": "aftercare"
+          "capability": "aftercare",
+          "label_en": "Follow up after service or delivery"
         },
         {
           "id": "collect_feedback",
           "label_fr": "Recueillir son avis ou sa satisfaction",
-          "capability": "customer_feedback"
+          "capability": "customer_feedback",
+          "label_en": "Collect client feedback or satisfaction"
         },
         {
           "id": "repeat_business",
           "label_fr": "Garder un suivi pour les besoins futurs ou renouvellements",
-          "capability": "retention_followup"
+          "capability": "retention_followup",
+          "label_en": "Keep track of future needs or renewals"
         },
         {
           "id": "too_early_clients",
           "label_fr": "C’est trop tôt pour que ces suivis soient vraiment en place",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "It is too early for these follow-ups to be fully in place"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
       ],
       "omission_examples": {
         "collect_feedback": "If customer experience/retention is an ambition, non-selection can create a customer-feedback potential candidate.",
         "post_service_followup": "If repeat business or service experience matters, non-selection can create an aftercare candidate."
       },
-      "role": "Map client-facing follow-up and relationship practices only. Do not use this screen to diagnose internal work execution or manual-task simplification."
+      "role": "Map client-facing follow-up and relationship practices only. Do not use this screen to diagnose internal work execution or manual-task simplification.",
+      "question_en": "Which of these client follow-ups do you currently handle?",
+      "instruction_en": "Select all that apply."
     },
     "work_operations": {
       "id": "scan_operations",
@@ -639,39 +740,48 @@
         {
           "id": "memory_followups",
           "label_fr": "Certains suivis ou prochaines étapes dépendent de rappels ou de la mémoire",
-          "signal": "followup_dependency"
+          "signal": "followup_dependency",
+          "label_en": "Some follow-ups or next steps depend on reminders or memory"
         },
         {
           "id": "status_visibility",
           "label_fr": "Il n’est pas toujours simple de voir où en sont les dossiers, travaux ou commandes",
-          "signal": "work_visibility_gap"
+          "signal": "work_visibility_gap",
+          "label_en": "It is not always easy to see where files, work or orders stand"
         },
         {
           "id": "handoffs",
           "label_fr": "Le travail passe entre des personnes ou des étapes et peut demander de la coordination",
-          "signal": "handoff_coordination"
+          "signal": "handoff_coordination",
+          "label_en": "Work moves between people or stages and may require coordination"
         },
         {
           "id": "planning_changes",
           "label_fr": "Les changements d’horaire, de priorité ou de plan demandent plusieurs ajustements",
-          "signal": "planning_coordination"
+          "signal": "planning_coordination",
+          "label_en": "Changes to schedules, priorities or plans require several adjustments"
         },
         {
           "id": "waiting_dependencies",
           "label_fr": "Il faut parfois attendre une information, une décision ou une étape avant de pouvoir continuer",
-          "signal": "work_dependency_delay"
+          "signal": "work_dependency_delay",
+          "label_en": "Sometimes work must wait for information, a decision or another step before it can continue"
         },
         {
           "id": "working_well",
           "label_fr": "Rien de particulier ne ressort ici",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "Nothing in particular stands out here"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
       ],
-      "role": "Detect coordination, visibility, handoff and dependency friction in execution. Manual manipulations, repeated document preparation, copying and transfers belong to scan_simplification."
+      "role": "Detect coordination, visibility, handoff and dependency friction in execution. Manual manipulations, repeated document preparation, copying and transfers belong to scan_simplification.",
+      "question_en": "Which of these situations reflect how you currently deliver services, projects, orders or operations?",
+      "instruction_en": "Select all that apply."
     },
     "team_people": {
       "id": "scan_team",
@@ -685,49 +795,60 @@
         {
           "id": "hours",
           "label_fr": "Les heures travaillées",
-          "capability": "time_tracking"
+          "capability": "time_tracking",
+          "label_en": "Hours worked"
         },
         {
           "id": "schedules",
           "label_fr": "Les horaires ou disponibilités",
-          "capability": "team_scheduling"
+          "capability": "team_scheduling",
+          "label_en": "Schedules or availability"
         },
         {
           "id": "workload",
           "label_fr": "La charge de travail",
-          "capability": "workload_visibility"
+          "capability": "workload_visibility",
+          "label_en": "Workload"
         },
         {
           "id": "responsibilities",
           "label_fr": "Les responsabilités et tâches",
-          "capability": "team_responsibilities"
+          "capability": "team_responsibilities",
+          "label_en": "Responsibilities and tasks"
         },
         {
           "id": "performance",
           "label_fr": "La performance ou les objectifs",
-          "capability": "team_performance"
+          "capability": "team_performance",
+          "label_en": "Performance or goals"
         },
         {
           "id": "onboarding",
           "label_fr": "L’intégration ou la formation",
-          "capability": "team_onboarding"
+          "capability": "team_onboarding",
+          "label_en": "Onboarding or training"
         },
         {
           "id": "procedures",
           "label_fr": "Les procédures ou informations utiles au travail",
-          "capability": "team_knowledge"
+          "capability": "team_knowledge",
+          "label_en": "Procedures or information needed for the work"
         },
         {
           "id": "informal_team",
           "label_fr": "Peu de choses sont suivies formellement pour l’instant",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "Few things are formally tracked at the moment"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
       ],
-      "high_value_cross_signal": "Hours + profitability ambition + no labor/project profitability visibility can create a decision/information candidate without asking how frustrating time entry is."
+      "high_value_cross_signal": "Hours + profitability ambition + no labor/project profitability visibility can create a decision/information candidate without asking how frustrating time entry is.",
+      "question_en": "What do you currently track or organize to manage the team?",
+      "instruction_en": "Select all that apply."
     },
     "finance_profitability": {
       "id": "scan_finance",
@@ -740,48 +861,59 @@
         {
           "id": "invoices_payments",
           "label_fr": "Ce qui a été facturé et payé",
-          "capability": "billing_visibility"
+          "capability": "billing_visibility",
+          "label_en": "What has been billed and paid"
         },
         {
           "id": "expenses",
           "label_fr": "Les dépenses",
-          "capability": "expense_visibility"
+          "capability": "expense_visibility",
+          "label_en": "Expenses"
         },
         {
           "id": "cash",
           "label_fr": "L’argent disponible ou à venir",
-          "capability": "cash_visibility"
+          "capability": "cash_visibility",
+          "label_en": "Cash available or expected"
         },
         {
           "id": "profitability",
           "label_fr": "La rentabilité par produit, service, projet ou client",
-          "capability": "profitability_visibility"
+          "capability": "profitability_visibility",
+          "label_en": "Profitability by product, service, project or client"
         },
         {
           "id": "labor_cost",
           "label_fr": "Le coût du temps ou du travail consacré",
-          "capability": "labor_cost_visibility"
+          "capability": "labor_cost_visibility",
+          "label_en": "The cost of the time or work involved"
         },
         {
           "id": "budget_forecast",
           "label_fr": "Les budgets ou prévisions",
-          "capability": "forecasting"
+          "capability": "forecasting",
+          "label_en": "Budgets or forecasts"
         },
         {
           "id": "financial_reporting",
           "label_fr": "Un portrait financier utile pour prendre des décisions",
-          "capability": "management_financial_view"
+          "capability": "management_financial_view",
+          "label_en": "A useful financial overview for decision-making"
         },
         {
           "id": "too_early_finance",
           "label_fr": "C’est trop tôt pour suivre plusieurs de ces éléments",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "It is too early to track many of these items"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
-      ]
+      ],
+      "question_en": "What financial information can you easily access today?",
+      "instruction_en": "Select all that apply."
     },
     "information_ways": {
       "id": "scan_information",
@@ -794,43 +926,53 @@
         {
           "id": "multiple_places",
           "label_fr": "Il faut parfois chercher l’information à plusieurs endroits",
-          "signal": "information_scattered"
+          "signal": "information_scattered",
+          "label_en": "Information sometimes has to be searched for in several places"
         },
         {
           "id": "copy_reenter",
           "label_fr": "Certaines informations sont recopiées ou saisies plus d’une fois",
-          "signal": "information_reentry"
+          "signal": "information_reentry",
+          "label_en": "Some information is copied or entered more than once"
         },
         {
           "id": "knowledge_in_heads",
           "label_fr": "Des connaissances importantes reposent surtout sur les personnes qui les connaissent",
-          "signal": "knowledge_concentration"
+          "signal": "knowledge_concentration",
+          "label_en": "Important knowledge depends mainly on the people who hold it"
         },
         {
           "id": "documentation_gap",
           "label_fr": "Certaines façons de faire importantes sont peu documentées",
-          "signal": "documentation_gap"
+          "signal": "documentation_gap",
+          "label_en": "Some important ways of working are not well documented"
         },
         {
           "id": "version_uncertainty",
           "label_fr": "Il n’est pas toujours évident de savoir quelle information ou version est la bonne",
-          "signal": "version_uncertainty"
+          "signal": "version_uncertainty",
+          "label_en": "It is not always clear which information or version is correct"
         },
         {
           "id": "data_underused",
           "label_fr": "Nous avons des données ou informations que nous pourrions probablement mieux utiliser",
-          "signal": "underused_information"
+          "signal": "underused_information",
+          "label_en": "We have data or information that we could probably use more effectively"
         },
         {
           "id": "working_well",
           "label_fr": "Rien de particulier ne ressort ici",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "Nothing in particular stands out here"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
-      ]
+      ],
+      "question_en": "Which of these situations reflect how information currently flows in your business?",
+      "instruction_en": "Select all that apply."
     },
     "offer_development": {
       "id": "scan_development",
@@ -843,53 +985,65 @@
         {
           "id": "versions",
           "label_fr": "Les versions ou essais réalisés",
-          "capability": "rd_versions"
+          "capability": "rd_versions",
+          "label_en": "Versions or tests completed"
         },
         {
           "id": "changes",
           "label_fr": "Les changements apportés",
-          "capability": "rd_changes"
+          "capability": "rd_changes",
+          "label_en": "Changes made"
         },
         {
           "id": "feedback",
           "label_fr": "Les commentaires ou retours reçus",
-          "capability": "rd_feedback"
+          "capability": "rd_feedback",
+          "label_en": "Comments or feedback received"
         },
         {
           "id": "results",
           "label_fr": "Les résultats de tests ou essais",
-          "capability": "rd_results"
+          "capability": "rd_results",
+          "label_en": "Test or trial results"
         },
         {
           "id": "costs_inputs",
           "label_fr": "Les coûts, matériaux ou ressources utilisés",
-          "capability": "rd_inputs_costs"
+          "capability": "rd_inputs_costs",
+          "label_en": "Costs, materials or resources used"
         },
         {
           "id": "decisions",
           "label_fr": "Les décisions prises et pourquoi",
-          "capability": "rd_decisions"
+          "capability": "rd_decisions",
+          "label_en": "Decisions made and the reasons behind them"
         },
         {
           "id": "next_tests",
           "label_fr": "Ce que vous voulez essayer ensuite",
-          "capability": "rd_next_tests"
+          "capability": "rd_next_tests",
+          "label_en": "What you want to try next"
         },
         {
           "id": "not_tracking_rd",
           "label_fr": "Je ne garde pas beaucoup de traces pour l’instant",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "I do not keep many records at the moment"
         },
         {
           "id": "not_applicable",
           "label_fr": "Nous faisons peu ou pas de développement de ce type",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "We do little or no development of this kind"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
-      ]
+      ],
+      "question_en": "When you test or improve a product, service or way of working, what do you keep a record of?",
+      "instruction_en": "Select all that apply."
     },
     "tools_systems": {
       "id": "scan_tools",
@@ -902,59 +1056,72 @@
         {
           "id": "paper_notes",
           "label_fr": "Papier ou notes",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Paper or notes"
         },
         {
           "id": "spreadsheets",
           "label_fr": "Tableurs (Excel, Google Sheets, etc.)",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Spreadsheets (Excel, Google Sheets, etc.)"
         },
         {
           "id": "email_messages",
           "label_fr": "Courriels, messages ou textos",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Email, messages or texts"
         },
         {
           "id": "calendar",
           "label_fr": "Calendrier ou prise de rendez-vous",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Calendar or appointment scheduling"
         },
         {
           "id": "accounting",
           "label_fr": "Logiciel de comptabilité ou facturation",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Accounting or billing software"
         },
         {
           "id": "crm_sales",
           "label_fr": "Outil de clients, ventes ou CRM",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Client, sales or CRM tool"
         },
         {
           "id": "work_management",
           "label_fr": "Outil de tâches, projets ou opérations",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Task, project or operations tool"
         },
         {
           "id": "specialized",
           "label_fr": "Logiciel spécialisé à votre secteur",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "Software specialized for your industry"
         },
         {
           "id": "custom",
           "label_fr": "Outil développé spécialement pour l’entreprise",
-          "capability": "tool_context"
+          "capability": "tool_context",
+          "label_en": "A tool developed specifically for the business"
         },
         {
           "id": "no_tools",
           "label_fr": "Très peu d’outils pour l’instant",
-          "exclusive": true
+          "exclusive": true,
+          "label_en": "Very few tools at the moment"
         },
         {
           "id": "other",
-          "label_fr": "Autre"
+          "label_fr": "Autre",
+          "label_en": "Other"
         }
       ],
-      "rule": "Tool count or tool type is context only. Never create a fragmentation or custom-tool opportunity solely from this screen."
+      "rule": "Tool count or tool type is context only. Never create a fragmentation or custom-tool opportunity solely from this screen.",
+      "question_en": "What do you rely on today to run the business?",
+      "instruction_en": "Select all that apply."
     }
   },
   "automation_scan": {
@@ -968,46 +1135,55 @@
       {
         "id": "documents",
         "label_fr": "Préparer ou remplir des documents",
-        "signal": "document_simplification"
+        "signal": "document_simplification",
+        "label_en": "Prepare or complete documents"
       },
       {
         "id": "copy_transfer",
         "label_fr": "Copier ou transférer de l’information",
-        "signal": "information_transfer"
+        "signal": "information_transfer",
+        "label_en": "Copy or transfer information"
       },
       {
         "id": "followups",
         "label_fr": "Faire des suivis ou rappels",
-        "signal": "followup_simplification"
+        "signal": "followup_simplification",
+        "label_en": "Handle follow-ups or reminders"
       },
       {
         "id": "updates",
         "label_fr": "Mettre à jour des dossiers, listes ou statuts",
-        "signal": "record_updates"
+        "signal": "record_updates",
+        "label_en": "Update files, lists or statuses"
       },
       {
         "id": "find_combine",
         "label_fr": "Chercher ou regrouper de l’information",
-        "signal": "information_assembly"
+        "signal": "information_assembly",
+        "label_en": "Find or compile information"
       },
       {
         "id": "reports",
         "label_fr": "Préparer des rapports ou résumés",
-        "signal": "report_preparation"
+        "signal": "report_preparation",
+        "label_en": "Prepare reports or summaries"
       },
       {
         "id": "scheduling",
         "label_fr": "Coordonner des horaires, rendez-vous ou disponibilités",
-        "signal": "scheduling_coordination"
+        "signal": "scheduling_coordination",
+        "label_en": "Coordinate schedules, appointments or availability"
       },
       {
         "id": "none",
         "label_fr": "Rien de particulier",
-        "exclusive": true
+        "exclusive": true,
+        "label_en": "Nothing in particular"
       },
       {
         "id": "other",
-        "label_fr": "Autre"
+        "label_fr": "Autre",
+        "label_en": "Other"
       }
     ],
     "default_next_step": "Store selected signals and continue to another section. Do not ask frequency or effort.",
@@ -1016,7 +1192,9 @@
       "Préparer ces documents vous demande généralement combien d’effort?",
       "À quel point cette tâche vous frustre-t-elle?"
     ],
-    "role_boundary": "This screen is about repetitive/manual manipulation. It must not re-ask status visibility, handoffs, client follow-up practices or general work organization."
+    "role_boundary": "This screen is about repetitive/manual manipulation. It must not re-ask status visibility, handoffs, client follow-up practices or general work organization.",
+    "question_en": "Which tasks you do regularly still involve manual actions or steps that could be simplified?",
+    "instruction_en": "Select all that apply."
   },
   "coverage_engine": {
     "states": [
@@ -1044,8 +1222,11 @@
         "include": {
           "id": "none",
           "label_fr": "Aucun de ceux-là pour le moment",
-          "exclusive": true
-        }
+          "exclusive": true,
+          "label_en": "None of these for now"
+        },
+        "question_en": "You mainly look at certain metrics today. Which of these other perspectives would help you make better decisions?",
+        "instruction_en": "Choose up to 2 answers."
       },
       {
         "id": "team_gap",
@@ -1057,8 +1238,11 @@
         "include": {
           "id": "none",
           "label_fr": "Rien de particulier pour le moment",
-          "exclusive": true
-        }
+          "exclusive": true,
+          "label_en": "Nothing in particular right now"
+        },
+        "question_en": "Which of these aspects of the team that you do not track closely today would you like to better understand or organize?",
+        "instruction_en": "Choose up to 2 answers."
       },
       {
         "id": "client_feedback_gap",
@@ -1068,21 +1252,26 @@
         "answers": [
           {
             "id": "yes",
-            "label_fr": "Oui"
+            "label_fr": "Oui",
+            "label_en": "Yes"
           },
           {
             "id": "maybe",
-            "label_fr": "Peut-être"
+            "label_fr": "Peut-être",
+            "label_en": "Maybe"
           },
           {
             "id": "no",
-            "label_fr": "Non, pas vraiment"
+            "label_fr": "Non, pas vraiment",
+            "label_en": "No, not really"
           },
           {
             "id": "too_early",
-            "label_fr": "Trop tôt pour le dire"
+            "label_fr": "Trop tôt pour le dire",
+            "label_en": "Too early to say"
           }
-        ]
+        ],
+        "question_en": "Would it be useful to better understand what your clients value, request or find difficult?"
       }
     ],
     "principle": "Breadth of relevant business coverage matters more than depth on early signals.",
@@ -1103,7 +1292,9 @@
         "système de suivi du travail",
         "coordination et handoffs",
         "standardisation légère"
-      ]
+      ],
+      "label_en": "Streamline operations",
+      "description_en": "Make work flow more smoothly and make it clearer and easier to coordinate."
     },
     {
       "id": "automation",
@@ -1114,7 +1305,9 @@
         "génération de documents",
         "rappels et suivis",
         "transferts de données"
-      ]
+      ],
+      "label_en": "Automate repetitive work",
+      "description_en": "Reduce predictable actions that do not need to be repeated manually each time."
     },
     {
       "id": "information",
@@ -1125,7 +1318,9 @@
         "documentation",
         "gestion des données",
         "historique et recherche"
-      ]
+      ],
+      "label_en": "Organize and use information more effectively",
+      "description_en": "Make information easier to find, share, reuse and put to work."
     },
     {
       "id": "customer_experience",
@@ -1137,7 +1332,9 @@
         "portail client",
         "commandes",
         "feedback et suivis"
-      ]
+      ],
+      "label_en": "Improve the client experience",
+      "description_en": "Make discovery, inquiries, purchases, interactions, service and follow-up easier."
     },
     {
       "id": "decision_support",
@@ -1149,7 +1346,9 @@
         "rentabilité",
         "performance",
         "prévisions et vues de gestion"
-      ]
+      ],
+      "label_en": "Improve visibility for better decisions",
+      "description_en": "Turn available data into useful management insight."
     },
     {
       "id": "tailored_tools",
@@ -1161,7 +1360,9 @@
         "application opérationnelle",
         "interface spécialisée"
       ],
-      "guardrail": "This lens requires strong evidence of important need + poor fit + meaningful business specificity. Never infer merely because Cobreo builds custom software."
+      "guardrail": "This lens requires strong evidence of important need + poor fit + meaningful business specificity. Never infer merely because Cobreo builds custom software.",
+      "label_en": "Tools better suited to the business",
+      "description_en": "Better support an important way of working when current solutions do not adequately meet the need."
     }
   ],
   "capability_to_lens_examples": {
@@ -1259,17 +1460,23 @@
       {
         "capability": "customer_feedback",
         "title_fr": "Pourquoi regarder les retours clients?",
-        "text_fr": "Les retours clients peuvent faire ressortir des besoins récurrents, des irritants et des idées d’amélioration qui restent difficiles à voir lorsqu’ils sont dispersés dans les conversations."
+        "text_fr": "Les retours clients peuvent faire ressortir des besoins récurrents, des irritants et des idées d’amélioration qui restent difficiles à voir lorsqu’ils sont dispersés dans les conversations.",
+        "title_en": "Why look at client feedback?",
+        "text_en": "Client feedback can reveal recurring needs, friction points and improvement ideas that are hard to see when they are scattered across conversations."
       },
       {
         "capability": "profitability_visibility",
         "title_fr": "Pourquoi regarder la rentabilité?",
-        "text_fr": "Les revenus montrent combien l’entreprise vend, mais ils ne répondent pas toujours aux mêmes questions que les coûts, les marges ou la rentabilité par type de travail."
+        "text_fr": "Les revenus montrent combien l’entreprise vend, mais ils ne répondent pas toujours aux mêmes questions que les coûts, les marges ou la rentabilité par type de travail.",
+        "title_en": "Why look at profitability?",
+        "text_en": "Revenue shows how much the business sells, but it does not always answer the same questions as costs, margins or profitability by type of work."
       },
       {
         "capability": "rd_tracking",
         "title_fr": "Pourquoi garder une trace des essais?",
-        "text_fr": "Structurer les versions, changements et retours facilite la comparaison des essais et évite de perdre ce qui a déjà été appris."
+        "text_fr": "Structurer les versions, changements et retours facilite la comparaison des essais et évite de perdre ce qui a déjà été appris.",
+        "title_en": "Why keep track of tests?",
+        "text_en": "Organizing versions, changes and feedback makes tests easier to compare and prevents previous learnings from being lost."
       }
     ]
   },
@@ -1341,7 +1548,8 @@
         "coverage confidence"
       ],
       "rule": "Use ranking internally to choose which cards to show; do not expose pseudo-precision or repeat 'important' on every card."
-    }
+    },
+    "core_formula_en": "Potential = observed reality + capability that is covered or potentially under-covered + relevant ambition + owner interest or priority, with enough evidence to remain credible."
   },
   "results": {
     "goal_fr": "Transformer l’ensemble des réponses en une conclusion utile et spécifique. Les sujets choisis orientent l’analyse, mais les résultats ne doivent pas simplement répéter ce que le répondant a sélectionné.",
@@ -1370,13 +1578,17 @@
           "Opportunity titles must explain the improvement, not name an internal category.",
           "A non-technological simplification can be the recommended direction."
         ]
-      }
+      },
+      "title_en": "What your diagnostic reveals",
+      "intro_en": "Here are the improvement opportunities best supported by your answers and why they deserve your attention."
     },
     "when_none_selected": {
       "title_fr": "Ce que votre diagnostic fait ressortir",
       "body_fr": "Même si aucun sujet n’est une priorité pour vous en ce moment, certaines possibilités peuvent rester utiles à garder en tête.",
       "show": "up to three evidence-supported possibilities, clearly framed as optional considerations",
-      "booking_still_available": true
+      "booking_still_available": true,
+      "title_en": "What your diagnostic reveals",
+      "body_en": "Even if no topic is a priority for you right now, some opportunities may still be worth keeping in mind."
     },
     "service_rules": [
       "A respondent-confirmed suggested possibility can map to services because the respondent explicitly said it is worth exploring.",
@@ -1392,7 +1604,8 @@
       "Do not repeat the topic selections as a receipt.",
       "No scores or pseudo-precision.",
       "Use evidence details only where they improve trust."
-    ]
+    ],
+    "goal_en": "Turn all responses into a useful, specific conclusion. The selected topics guide the analysis, but the results must not simply repeat what the respondent selected."
   },
   "lead_capture": {
     "enabled": false,
@@ -1414,7 +1627,9 @@
       "Treat as respondent-supplied context, not a diagnosed problem.",
       "If it clearly names a desired capability, it may become result-eligible.",
       "Never auto-convert free text into a custom-software recommendation."
-    ]
+    ],
+    "question_en": "Is there an improvement or idea you would like to explore in your business that we have not covered?",
+    "helper_en": "Briefly describe it in a few words. Optional."
   },
   "analytics": {
     "screen_events": [
@@ -4176,39 +4391,48 @@
     "sections": [
       {
         "id": "leadership_performance",
-        "label_fr": "Suivi de l’entreprise et décisions"
+        "label_fr": "Suivi de l’entreprise et décisions",
+        "label_en": "Business oversight and decision-making"
       },
       {
         "id": "sales_growth",
-        "label_fr": "Ventes et nouveaux clients"
+        "label_fr": "Ventes et nouveaux clients",
+        "label_en": "Sales and new clients"
       },
       {
         "id": "clients_service",
-        "label_fr": "Clients et service"
+        "label_fr": "Clients et service",
+        "label_en": "Clients and service"
       },
       {
         "id": "work_operations",
-        "label_fr": "Organisation du travail"
+        "label_fr": "Organisation du travail",
+        "label_en": "Work organization"
       },
       {
         "id": "team_people",
-        "label_fr": "Équipe et employés"
+        "label_fr": "Équipe et employés",
+        "label_en": "Team and employees"
       },
       {
         "id": "finance_profitability",
-        "label_fr": "Finances et rentabilité"
+        "label_fr": "Finances et rentabilité",
+        "label_en": "Finances and profitability"
       },
       {
         "id": "information_ways",
-        "label_fr": "Information et façons de faire"
+        "label_fr": "Information et façons de faire",
+        "label_en": "Information and ways of working"
       },
       {
         "id": "offer_development",
-        "label_fr": "Produits, services et développement"
+        "label_fr": "Produits, services et développement",
+        "label_en": "Products, services and development"
       },
       {
         "id": "tools_systems",
-        "label_fr": "Outils et systèmes"
+        "label_fr": "Outils et systèmes",
+        "label_en": "Tools and systems"
       }
     ],
     "rule": "A section can generate multiple Cobreo potential lenses. The respondent prioritizes business sections, not service products."
@@ -4285,8 +4509,12 @@
       "none_option": {
         "id": "none_selected",
         "label_fr": "Aucun de ces sujets n’est une priorité pour moi en ce moment",
-        "exclusive": true
-      }
+        "exclusive": true,
+        "label_en": "None of these topics is a priority for me right now"
+      },
+      "title_en": "What would you most like to improve?",
+      "intro_en": "Here are the topics that appear most relevant based on your answers.",
+      "instruction_en": "Select everything you would like to improve."
     },
     "rules": [
       "Do not show one card per micro-opportunity.",
@@ -4352,11 +4580,22 @@
           "Indicateurs adaptés",
           "Rapports automatisés"
         ],
+        "possibilities_en": [
+          "Management view",
+          "Data consolidation",
+          "Tailored metrics",
+          "Automated reports"
+        ],
         "cobreo_lenses": [
           "decision_support",
           "information"
         ],
-        "guardrail": "Do not state that hours are currently underused unless another answer supports that fact."
+        "guardrail": "Do not state that hours are currently underused unless another answer supports that fact.",
+        "title_en": "Make better use of the hours already recorded",
+        "what_we_see_en": "You already track your team’s hours worked.",
+        "what_could_improve_en": "Along with other available information, these hours could help you better understand workload, costs or work performance.",
+        "what_it_could_bring_en": "A more useful view of how time is invested and, when the data allows, of profitability or team capacity.",
+        "what_we_could_explore_together_en": "Explore how to make better use of the data already available, without assuming that your current tools need to change."
       },
       "documentation_gap": {
         "trigger_examples": [
@@ -4373,10 +4612,21 @@
           "Modèles",
           "Accès centralisé à l’information"
         ],
+        "possibilities_en": [
+          "Simple procedures",
+          "Knowledge base",
+          "Templates",
+          "Centralized access to information"
+        ],
         "cobreo_lenses": [
           "information",
           "operations"
-        ]
+        ],
+        "title_en": "Make important ways of working easier to share",
+        "what_we_see_en": "You indicated that some important ways of working are not well documented.",
+        "what_could_improve_en": "Organize the knowledge that is truly worth retaining and make it easier to find.",
+        "what_it_could_bring_en": "Greater continuity in the work, easier knowledge transfer and less reliance on information kept in people’s heads.",
+        "what_we_could_explore_together_en": "Identify what is worth documenting and choose a simple way to make that information accessible at the right time."
       },
       "work_visibility": {
         "trigger_examples": [
@@ -4393,10 +4643,21 @@
           "Rappels ciblés",
           "Regroupement d’information"
         ],
+        "possibilities_en": [
+          "Operational view",
+          "Stage tracking",
+          "Targeted reminders",
+          "Information consolidation"
+        ],
         "cobreo_lenses": [
           "operations",
           "decision_support"
-        ]
+        ],
+        "title_en": "See work progress more clearly",
+        "what_we_see_en": "You indicated that it is not always easy to see where files, work or orders stand.",
+        "what_could_improve_en": "Make work status, next steps and items requiring attention more visible.",
+        "what_it_could_bring_en": "Clearer priorities, simpler follow-ups and better work coordination.",
+        "what_we_could_explore_together_en": "Explore how to provide a useful view of progress without adding unnecessary management overhead."
       },
       "information_reentry": {
         "trigger_examples": [
@@ -4414,11 +4675,22 @@
           "Automatisation ciblée",
           "Simplification du processus"
         ],
+        "possibilities_en": [
+          "Data reuse",
+          "Connections between tools",
+          "Targeted automation",
+          "Process simplification"
+        ],
         "cobreo_lenses": [
           "automation",
           "information",
           "operations"
-        ]
+        ],
+        "title_en": "Avoid re-entering the same information",
+        "what_we_see_en": "You indicated that some information is copied or entered more than once.",
+        "what_could_improve_en": "Reuse information that is already available more directly across the relevant steps or tools.",
+        "what_it_could_bring_en": "Fewer manual actions, less risk of discrepancies between versions and a smoother workflow.",
+        "what_we_could_explore_together_en": "Identify where information is re-entered and explore the simplest way to reduce this duplicate handling."
       },
       "customer_feedback_gap": {
         "trigger_examples": [
@@ -4435,11 +4707,21 @@
           "Suivi de thèmes récurrents",
           "Vue de satisfaction"
         ],
+        "possibilities_en": [
+          "Feedback collection",
+          "Feedback consolidation",
+          "Recurring theme tracking",
+          "Satisfaction overview"
+        ],
         "cobreo_lenses": [
           "customer_experience",
           "decision_support",
           "information"
-        ]
+        ],
+        "title_en": "Use client feedback more effectively to decide what to improve",
+        "what_could_improve_en": "Bring forward what clients value, request or experience more clearly to guide improvements.",
+        "what_it_could_bring_en": "A clearer understanding of the client experience and useful signals for evolving the offering or service.",
+        "what_we_could_explore_together_en": "Explore which feedback is worth collecting and how to make it genuinely useful for decision-making."
       },
       "profitability_visibility": {
         "trigger_examples": [
@@ -4457,11 +4739,21 @@
           "Vue par projet ou service",
           "Rapports de gestion"
         ],
+        "possibilities_en": [
+          "Profitability metrics",
+          "Data consolidation",
+          "View by project or service",
+          "Management reports"
+        ],
         "cobreo_lenses": [
           "decision_support",
           "information",
           "automation"
-        ]
+        ],
+        "title_en": "Better understand what truly drives profitability",
+        "what_could_improve_en": "Connect the information already available about work, costs or revenue to gain a more useful view of profitability.",
+        "what_it_could_bring_en": "Better-informed decisions about pricing, types of work, resources and priorities.",
+        "what_we_could_explore_together_en": "Explore what data is already available and what view of profitability would be genuinely useful to the business owner."
       }
     },
     "fallback_generation_rules": [
@@ -4485,7 +4777,8 @@
       "Context that can be researched or confirmed later should not consume early questionnaire attention.",
       "If company_size indicates one person, automatically suppress team-only questions.",
       "Use customer_types and work_models only because they directly help adapt relevant discovery sections."
-    ]
+    ],
+    "first_question_en": "Where is your business at today?"
   },
   "internal_context_enrichment": {
     "sector_hint": {
@@ -4515,37 +4808,51 @@
       {
         "id": "operations_optimization",
         "label_fr": "Optimisation des opérations",
-        "description_fr": "Simplifier le fonctionnement, les étapes, les suivis ou la coordination."
+        "description_fr": "Simplifier le fonctionnement, les étapes, les suivis ou la coordination.",
+        "label_en": "Operations optimization",
+        "description_en": "Simplify operations, steps, follow-ups or coordination."
       },
       {
         "id": "automation",
         "label_fr": "Automatisation",
-        "description_fr": "Réduire les manipulations, suivis, transferts ou tâches répétitives."
+        "description_fr": "Réduire les manipulations, suivis, transferts ou tâches répétitives.",
+        "label_en": "Automation",
+        "description_en": "Reduce manual actions, follow-ups, transfers or repetitive tasks."
       },
       {
         "id": "information_decision",
         "label_fr": "Information et aide à la décision",
-        "description_fr": "Mieux organiser et exploiter l’information pour voir ce qui se passe et décider."
+        "description_fr": "Mieux organiser et exploiter l’information pour voir ce qui se passe et décider.",
+        "label_en": "Information and decision support",
+        "description_en": "Organize and use information more effectively to understand what is happening and make decisions."
       },
       {
         "id": "customer_experience",
         "label_fr": "Expérience client",
-        "description_fr": "Améliorer la façon dont les clients découvrent, demandent, achètent, suivent ou évaluent le service."
+        "description_fr": "Améliorer la façon dont les clients découvrent, demandent, achètent, suivent ou évaluent le service.",
+        "label_en": "Client experience",
+        "description_en": "Improve how clients discover, inquire about, purchase, follow or evaluate the service."
       },
       {
         "id": "online_presence",
         "label_fr": "Présence en ligne et optimisation du site",
-        "description_fr": "Mieux présenter l’offre et faciliter le passage de l’intérêt à l’action."
+        "description_fr": "Mieux présenter l’offre et faciliter le passage de l’intérêt à l’action.",
+        "label_en": "Online presence and website optimization",
+        "description_en": "Present the offering more effectively and make it easier to move from interest to action."
       },
       {
         "id": "internal_tool",
         "label_fr": "Outil interne",
-        "description_fr": "Créer ou structurer un outil simple pour mieux gérer une partie du travail, de l’information ou du suivi."
+        "description_fr": "Créer ou structurer un outil simple pour mieux gérer une partie du travail, de l’information ou du suivi.",
+        "label_en": "Internal tool",
+        "description_en": "Create or structure a simple tool to better manage part of the work, information or follow-up."
       },
       {
         "id": "custom_tool",
         "label_fr": "Outil sur mesure",
-        "description_fr": "Concevoir une solution adaptée lorsqu’un besoin important est mal couvert par les outils disponibles."
+        "description_fr": "Concevoir une solution adaptée lorsqu’un besoin important est mal couvert par les outils disponibles.",
+        "label_en": "Custom tool",
+        "description_en": "Design a tailored solution when an important need is not adequately met by available tools."
       }
     ],
     "rules": [
@@ -4564,7 +4871,8 @@
         "information_decision",
         "automation",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Business oversight and decision-making"
     },
     "sales_growth": {
       "label_fr": "Ventes et nouveaux clients",
@@ -4573,7 +4881,8 @@
         "automation",
         "customer_experience",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Sales and new clients"
     },
     "clients_service": {
       "label_fr": "Clients et service",
@@ -4582,7 +4891,8 @@
         "automation",
         "information_decision",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Clients and service"
     },
     "work_operations": {
       "label_fr": "Organisation du travail",
@@ -4591,7 +4901,8 @@
         "automation",
         "information_decision",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Work organization"
     },
     "team_people": {
       "label_fr": "Équipe et employés",
@@ -4600,7 +4911,8 @@
         "automation",
         "information_decision",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Team and employees"
     },
     "finance_profitability": {
       "label_fr": "Finances et rentabilité",
@@ -4608,7 +4920,8 @@
         "automation",
         "information_decision",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Finances and profitability"
     },
     "information_ways": {
       "label_fr": "Information et façons de faire",
@@ -4617,7 +4930,8 @@
         "automation",
         "operations_optimization",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Information and ways of working"
     },
     "offer_development": {
       "label_fr": "Produits, services et développement",
@@ -4626,7 +4940,8 @@
         "customer_experience",
         "automation",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Products, services and development"
     },
     "tools_systems": {
       "label_fr": "Outils et systèmes",
@@ -4634,7 +4949,8 @@
         "automation",
         "information_decision",
         "custom_tool"
-      ]
+      ],
+      "label_en": "Tools and systems"
     },
     "rules": [
       "Show 1–3 supported services per section; maximum 4.",
@@ -4682,19 +4998,22 @@
       {
         "id": "name",
         "label_fr": "Nom",
-        "required": true
+        "required": true,
+        "label_en": "Name"
       },
       {
         "id": "email",
         "label_fr": "Courriel",
-        "required": true
+        "required": true,
+        "label_en": "Email"
       }
     ],
     "optional_fields": [
       {
         "id": "company",
         "label_fr": "Entreprise",
-        "required": false
+        "required": false,
+        "label_en": "Business"
       }
     ],
     "calendar_event": {
@@ -4706,7 +5025,9 @@
         "relevant_cobreo_services",
         "diagnostic_result_id"
       ],
-      "privacy_rule": "Do not include sensitive free-text answers."
+      "privacy_rule": "Do not include sensitive free-text answers.",
+      "title_template_en": "Cobreo — 15-minute conversation with {name_or_company}",
+      "description_template_en": "A 15-minute conversation to review the opportunities identified and explore possible solutions."
     },
     "rules": [
       "Display visitor timezone clearly.",
@@ -4717,29 +5038,39 @@
     ],
     "confirmation": {
       "title_fr": "C’est réservé",
-      "body_template_fr": "Votre échange de 15 minutes est prévu le {date} à {time} ({timezone}). Une invitation calendrier a été envoyée à {email}."
-    }
+      "body_template_fr": "Votre échange de 15 minutes est prévu le {date} à {time} ({timezone}). Une invitation calendrier a été envoyée à {email}.",
+      "title_en": "You’re booked",
+      "body_template_en": "Your 15-minute conversation is scheduled for {date} at {time} ({timezone}). A calendar invitation has been sent to {email}."
+    },
+    "title_en": "Would you like to explore solutions together?",
+    "body_en": "Book 15 minutes with Cobreo to review the opportunities that interest you and see which solutions would be most relevant.",
+    "cta_en": "Book 15 minutes"
   },
   "opportunity_state_model": {
     "improve": {
       "label_fr": "À améliorer",
-      "when": "A current process/capability exists and a supported gap, friction or fit issue exists."
+      "when": "A current process/capability exists and a supported gap, friction or fit issue exists.",
+      "label_en": "To improve"
     },
     "optimize": {
       "label_fr": "À optimiser",
-      "when": "A current process/capability works reasonably well but the respondent explicitly wants to improve it."
+      "when": "A current process/capability works reasonably well but the respondent explicitly wants to improve it.",
+      "label_en": "To optimize"
     },
     "put_in_place": {
       "label_fr": "À mettre en place",
-      "when": "A relevant capability is not yet in place and the respondent has explicit near-term interest or an aligned declared ambition."
+      "when": "A relevant capability is not yet in place and the respondent has explicit near-term interest or an aligned declared ambition.",
+      "label_en": "To put in place"
     },
     "explore": {
       "label_fr": "À explorer",
-      "when": "The idea is relevant but evidence is not strong enough for improve/optimize/put_in_place."
+      "when": "The idea is relevant but evidence is not strong enough for improve/optimize/put_in_place.",
+      "label_en": "To explore"
     },
     "healthy": {
       "label_fr": "Bien couvert",
-      "when": "A current capability appears adequate and there is no meaningful improvement or build interest."
+      "when": "A current capability appears adequate and there is no meaningful improvement or build interest.",
+      "label_en": "Well covered"
     },
     "rules": [
       "Do not force a problem label on an emerging company.",
@@ -4957,7 +5288,8 @@
       "Aucune opportunité détectée",
       "Il n’y a pas d’opportunité",
       "Tout est déjà optimisé"
-    ]
+    ],
+    "allowed_result_copy_en": "You have not identified a priority among the suggested opportunities at this time."
   },
   "emerging_service_mapping": {
     "sales_growth": {
@@ -5059,22 +5391,26 @@
     "observed": {
       "label_fr": "Ressort de vos réponses",
       "definition": "Explicit selected reality, fit gap, cross-signal or clearly supported current opportunity.",
-      "result_eligibility": "Directly eligible."
+      "result_eligibility": "Directly eligible.",
+      "label_en": "Revealed by your answers"
     },
     "emerging": {
       "label_fr": "À mettre en place",
       "definition": "Relevant capability is not yet in place and the respondent expressed compatible ambition/intent.",
-      "result_eligibility": "Eligible after respondent interest or sufficiently explicit intent."
+      "result_eligibility": "Eligible after respondent interest or sufficiently explicit intent.",
+      "label_en": "To put in place"
     },
     "suggested": {
       "label_fr": "À considérer",
       "definition": "Potentially beneficial capability inferred from context, ambition, applicable section or a meaningful non-selection.",
-      "result_eligibility": "Must be confirmed by respondent before being treated as one of their result priorities."
+      "result_eligibility": "Must be confirmed by respondent before being treated as one of their result priorities.",
+      "label_en": "To consider"
     },
     "respondent_confirmed": {
       "label_fr": "Vous voulez l’explorer",
       "definition": "Respondent explicitly selected an observed/emerging/suggested possibility on the V8 opportunity review screen.",
-      "result_eligibility": "Strong relevance signal."
+      "result_eligibility": "Strong relevance signal.",
+      "label_en": "You want to explore it"
     },
     "rules": [
       "Suggested is not lower quality by definition; it is lower certainty about current need.",
@@ -5092,7 +5428,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Gain a clearer view of business performance"
         },
         {
           "id": "profitability_metrics",
@@ -5100,7 +5437,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Track indicators beyond revenue alone"
         },
         {
           "id": "customer_metrics",
@@ -5108,7 +5446,8 @@
           "services": [
             "information_decision",
             "customer_experience"
-          ]
+          ],
+          "label_en": "Surface more signals from clients"
         },
         {
           "id": "automated_reporting",
@@ -5116,7 +5455,8 @@
           "services": [
             "automation",
             "information_decision"
-          ]
+          ],
+          "label_en": "Reduce manual preparation of reports or tracking"
         },
         {
           "id": "custom_management_view",
@@ -5124,9 +5464,11 @@
           "services": [
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Create a management view tailored to how you work"
         }
-      ]
+      ],
+      "section_en": "Business oversight and decision-making"
     },
     "sales_growth": {
       "section_fr": "Ventes et nouveaux clients",
@@ -5137,7 +5479,8 @@
           "services": [
             "online_presence",
             "customer_experience"
-          ]
+          ],
+          "label_en": "Present the offering more effectively online"
         },
         {
           "id": "lead_intake",
@@ -5146,7 +5489,8 @@
             "online_presence",
             "customer_experience",
             "automation"
-          ]
+          ],
+          "label_en": "Make it easier to get in touch, inquire, book or request a quote"
         },
         {
           "id": "lead_followup",
@@ -5154,7 +5498,8 @@
           "services": [
             "automation",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Track prospects and next actions more effectively"
         },
         {
           "id": "sales_pipeline",
@@ -5162,7 +5507,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Gain a simple view of active sales opportunities"
         },
         {
           "id": "tailored_sales_flow",
@@ -5171,9 +5517,11 @@
             "operations_optimization",
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Adapt the sales journey to how you operate"
         }
-      ]
+      ],
+      "section_en": "Sales and new clients"
     },
     "clients_service": {
       "section_fr": "Clients et service",
@@ -5185,7 +5533,8 @@
             "customer_experience",
             "automation",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Simplify new client onboarding"
         },
         {
           "id": "client_followup",
@@ -5194,7 +5543,8 @@
             "automation",
             "internal_tool",
             "customer_experience"
-          ]
+          ],
+          "label_en": "Organize client follow-ups more effectively"
         },
         {
           "id": "client_portal",
@@ -5203,7 +5553,8 @@
             "customer_experience",
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Give clients a simple place to track or submit information"
         },
         {
           "id": "customer_feedback",
@@ -5211,7 +5562,8 @@
           "services": [
             "customer_experience",
             "information_decision"
-          ]
+          ],
+          "label_en": "Collect and use client feedback more effectively"
         },
         {
           "id": "client_history",
@@ -5219,9 +5571,11 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Centralize client history and useful information"
         }
-      ]
+      ],
+      "section_en": "Clients and service"
     },
     "work_operations": {
       "section_fr": "Organisation du travail",
@@ -5233,7 +5587,8 @@
             "operations_optimization",
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "See the status of work, files or orders more clearly"
         },
         {
           "id": "workflow_simplification",
@@ -5241,14 +5596,16 @@
           "services": [
             "operations_optimization",
             "automation"
-          ]
+          ],
+          "label_en": "Simplify certain work steps"
         },
         {
           "id": "followup_automation",
           "label_fr": "Automatiser certains rappels ou prochaines étapes",
           "services": [
             "automation"
-          ]
+          ],
+          "label_en": "Automate certain reminders or next steps"
         },
         {
           "id": "internal_ops_tool",
@@ -5257,7 +5614,8 @@
             "internal_tool",
             "information_decision",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Create an internal tool to track work more effectively"
         },
         {
           "id": "planning_coordination",
@@ -5266,9 +5624,11 @@
             "operations_optimization",
             "internal_tool",
             "automation"
-          ]
+          ],
+          "label_en": "Make planning and coordination easier"
         }
-      ]
+      ],
+      "section_en": "Work organization"
     },
     "team_people": {
       "section_fr": "Équipe et employés",
@@ -5280,7 +5640,8 @@
             "internal_tool",
             "automation",
             "information_decision"
-          ]
+          ],
+          "label_en": "Manage or use hours worked more effectively"
         },
         {
           "id": "team_schedule",
@@ -5289,7 +5650,8 @@
             "internal_tool",
             "automation",
             "operations_optimization"
-          ]
+          ],
+          "label_en": "Simplify schedules and availability"
         },
         {
           "id": "employee_onboarding",
@@ -5298,7 +5660,8 @@
             "internal_tool",
             "information_decision",
             "operations_optimization"
-          ]
+          ],
+          "label_en": "Structure employee onboarding and training"
         },
         {
           "id": "employee_docs",
@@ -5306,7 +5669,8 @@
           "services": [
             "internal_tool",
             "information_decision"
-          ]
+          ],
+          "label_en": "Centralize documents and information employees need"
         },
         {
           "id": "team_performance_view",
@@ -5314,7 +5678,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Track workload, goals or performance more effectively"
         },
         {
           "id": "hr_requests",
@@ -5322,9 +5687,11 @@
           "services": [
             "internal_tool",
             "automation"
-          ]
+          ],
+          "label_en": "Simplify certain internal requests or HR administrative tasks"
         }
-      ]
+      ],
+      "section_en": "Team and employees"
     },
     "finance_profitability": {
       "section_fr": "Finances et rentabilité",
@@ -5334,7 +5701,8 @@
           "label_fr": "Automatiser certaines étapes de facturation ou de suivi des paiements",
           "services": [
             "automation"
-          ]
+          ],
+          "label_en": "Automate certain billing or payment follow-up steps"
         },
         {
           "id": "profitability_view",
@@ -5342,7 +5710,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "See profitability by project, service, product or client more clearly"
         },
         {
           "id": "financial_dashboard",
@@ -5350,7 +5719,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Create a simple view of important financial information"
         },
         {
           "id": "cost_tracking",
@@ -5359,7 +5729,8 @@
             "information_decision",
             "internal_tool",
             "automation"
-          ]
+          ],
+          "label_en": "Better connect hours, costs and revenue"
         },
         {
           "id": "tailored_finance_tool",
@@ -5367,9 +5738,11 @@
           "services": [
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Create an internal tool tailored to a specific financial or administrative need"
         }
-      ]
+      ],
+      "section_en": "Finances and profitability"
     },
     "information_ways": {
       "section_fr": "Information et façons de faire",
@@ -5380,7 +5753,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Centralize procedures, knowledge or ways of working"
         },
         {
           "id": "document_automation",
@@ -5388,7 +5762,8 @@
           "services": [
             "automation",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Simplify the preparation of recurring documents"
         },
         {
           "id": "information_search",
@@ -5396,7 +5771,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Make information easier to find"
         },
         {
           "id": "data_reuse",
@@ -5404,7 +5780,8 @@
           "services": [
             "automation",
             "information_decision"
-          ]
+          ],
+          "label_en": "Avoid re-entering the same information in multiple places"
         },
         {
           "id": "internal_information_tool",
@@ -5412,9 +5789,11 @@
           "services": [
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Create an internal tool to better structure or use information"
         }
-      ]
+      ],
+      "section_en": "Information and ways of working"
     },
     "offer_development": {
       "section_fr": "Produits, services et développement",
@@ -5425,7 +5804,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Track tests, versions and changes more effectively"
         },
         {
           "id": "rd_feedback",
@@ -5433,7 +5813,8 @@
           "services": [
             "customer_experience",
             "information_decision"
-          ]
+          ],
+          "label_en": "Better connect client feedback to development decisions"
         },
         {
           "id": "rd_dashboard",
@@ -5441,7 +5822,8 @@
           "services": [
             "information_decision",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Create a simple view of what has been tested and learned"
         },
         {
           "id": "rd_workflow",
@@ -5449,7 +5831,8 @@
           "services": [
             "operations_optimization",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Structure the development or R&D process"
         },
         {
           "id": "rd_custom_tool",
@@ -5457,9 +5840,11 @@
           "services": [
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Create a tool tailored to tracking your tests or development work"
         }
-      ]
+      ],
+      "section_en": "Products, services and development"
     },
     "tools_systems": {
       "section_fr": "Outils et systèmes",
@@ -5470,7 +5855,8 @@
           "services": [
             "automation",
             "information_decision"
-          ]
+          ],
+          "label_en": "Improve the flow of information between tools"
         },
         {
           "id": "replace_workaround",
@@ -5478,7 +5864,8 @@
           "services": [
             "operations_optimization",
             "internal_tool"
-          ]
+          ],
+          "label_en": "Replace certain workarounds with a simpler way of working"
         },
         {
           "id": "internal_app",
@@ -5486,7 +5873,8 @@
           "services": [
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Create an internal tool for a specific part of the business"
         },
         {
           "id": "tool_fit",
@@ -5495,9 +5883,11 @@
             "operations_optimization",
             "internal_tool",
             "custom_tool"
-          ]
+          ],
+          "label_en": "Better adapt tools to the way you work"
         }
-      ]
+      ],
+      "section_en": "Tools and systems"
     },
     "library_rule": "The library creates possibilities to validate, never facts about the company."
   },
@@ -5519,17 +5909,20 @@
       {
         "observed": "Revenues selected as a management metric; customer feedback not selected.",
         "suggestion_fr": "Faire remonter davantage de signaux provenant des clients",
-        "condition": "Only if clients exist and customer experience, retention, offer development or better decisions is relevant."
+        "condition": "Only if clients exist and customer experience, retention, offer development or better decisions is relevant.",
+        "suggestion_en": "Surface more signals from clients"
       },
       {
         "observed": "Employee hours are tracked; profitability by project not selected.",
         "suggestion_fr": "Mieux relier les heures, coûts et revenus",
-        "condition": "Only if team/project/cost context makes it relevant."
+        "condition": "Only if team/project/cost context makes it relevant.",
+        "suggestion_en": "Better connect hours, costs and revenue"
       },
       {
         "observed": "Product tests/versions selected; decisions/results not selected.",
         "suggestion_fr": "Créer une vue simple de ce qui a été testé et appris",
-        "condition": "Development/R&D activity is active or intended."
+        "condition": "Development/R&D activity is active or intended.",
+        "suggestion_en": "Create a simple view of what has been tested and learned"
       }
     ],
     "prohibited_inference": "Never write 'vous ne suivez pas X' from a non-selection alone."
@@ -5619,7 +6012,9 @@
         "summary_fr": "Accueil, suivi et retours clients",
         "source_sections": [
           "clients_service"
-        ]
+        ],
+        "label_en": "Clients",
+        "summary_en": "Onboarding, follow-up and client feedback"
       },
       {
         "id": "sales",
@@ -5627,7 +6022,9 @@
         "summary_fr": "Acquisition, demandes et conversion",
         "source_sections": [
           "sales_growth"
-        ]
+        ],
+        "label_en": "Sales",
+        "summary_en": "Acquisition, inquiries and conversion"
       },
       {
         "id": "work",
@@ -5635,7 +6032,9 @@
         "summary_fr": "Avancement, coordination et prochaines étapes",
         "source_sections": [
           "work_operations"
-        ]
+        ],
+        "label_en": "Organization",
+        "summary_en": "Progress, coordination and next steps"
       },
       {
         "id": "information",
@@ -5644,7 +6043,9 @@
         "source_sections": [
           "information_ways",
           "tools_systems"
-        ]
+        ],
+        "label_en": "Information",
+        "summary_en": "Documents, knowledge and access to information"
       },
       {
         "id": "management_finance",
@@ -5653,7 +6054,9 @@
         "source_sections": [
           "leadership_performance",
           "finance_profitability"
-        ]
+        ],
+        "label_en": "Management and finances",
+        "summary_en": "Performance, costs, profitability and decisions"
       },
       {
         "id": "team",
@@ -5662,7 +6065,9 @@
         "source_sections": [
           "team_people"
         ],
-        "show_if": "company_size != '1'"
+        "show_if": "company_size != '1'",
+        "label_en": "Team",
+        "summary_en": "Hours, organization, onboarding and information"
       },
       {
         "id": "development",
@@ -5670,7 +6075,9 @@
         "summary_fr": "Essais, retours et amélioration de l’offre",
         "source_sections": [
           "offer_development"
-        ]
+        ],
+        "label_en": "Products and development",
+        "summary_en": "Tests, feedback and offering improvements"
       },
       {
         "id": "tools",
@@ -5680,7 +6087,9 @@
           "tools_systems",
           "information_ways",
           "work_operations"
-        ]
+        ],
+        "label_en": "Tools",
+        "summary_en": "Simplification, automation and better-suited tools"
       }
     ],
     "rules": [

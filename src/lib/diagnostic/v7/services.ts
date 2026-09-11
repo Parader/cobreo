@@ -1,6 +1,4 @@
-import {
-    getScanAnswers,
-} from "@/content/diagnostic/v7/catalog";
+import { getScanAnswers } from "@/content/diagnostic/v7/catalog";
 import { diagnosticSpecV7 } from "@/content/diagnostic/v7/types";
 import type {
     AreaAnswerValue,
@@ -8,39 +6,67 @@ import type {
     AutomationInterest,
     FitCheckState,
     PossibilityCandidate,
+    PossibilitySourceTier,
     ProspectServiceId,
     SelectedPossibility,
     ServiceSectionCard,
 } from "@/content/diagnostic/v7/types";
+import { pickLocalized } from "@/lib/diagnostic/localize";
+import { assignPriorityBands, type PrioritySignals } from "@/lib/diagnostic/v7/priority-bands";
+
+const TIER_RANK: Record<PossibilitySourceTier, number> = {
+    observed: 3,
+    emerging: 2,
+    suggested: 1,
+};
+
+function betterTier(current: PossibilitySourceTier | null, next: PossibilitySourceTier): PossibilitySourceTier {
+    if (!current) return next;
+    return TIER_RANK[next] > TIER_RANK[current] ? next : current;
+}
+
+function candidateTierById(candidates: PossibilityCandidate[] | undefined): Map<string, PossibilitySourceTier> {
+    const map = new Map<string, PossibilitySourceTier>();
+    for (const candidate of candidates || []) {
+        map.set(candidate.id, candidate.sourceTier);
+    }
+    return map;
+}
 
 type Mapping = {
     label_fr: string;
+    label_en?: string;
     services: ProspectServiceId[];
 };
 
 /** Result cards shown to the prospect (spec `results.page.max_section_cards`). */
-const MAX_SECTION_CARDS =
-    (diagnosticSpecV7 as { results?: { page?: { max_section_cards?: number } } }).results?.page
-        ?.max_section_cards ?? 4;
+const MAX_SECTION_CARDS = (diagnosticSpecV7 as { results?: { page?: { max_section_cards?: number } } }).results?.page?.max_section_cards ?? 4;
 
-const SERVICE_LABELS: Record<ProspectServiceId, string> = {
-    operations_optimization: "Optimisation des opérations",
-    automation: "Automatisation",
-    information_decision: "Information et aide à la décision",
-    customer_experience: "Expérience client",
-    online_presence: "Présence en ligne et optimisation du site",
-    custom_tool: "Outil sur mesure",
-    internal_tool: "Outil interne",
+const SERVICE_LABELS: Record<ProspectServiceId, { fr: string; en: string }> = {
+    operations_optimization: { fr: "Optimisation des opérations", en: "Operations optimization" },
+    automation: { fr: "Automatisation", en: "Automation" },
+    information_decision: { fr: "Information et aide à la décision", en: "Information and decision support" },
+    customer_experience: { fr: "Expérience client", en: "Customer experience" },
+    online_presence: { fr: "Présence en ligne et optimisation du site", en: "Online presence and site optimization" },
+    custom_tool: { fr: "Outil sur mesure", en: "Custom tool" },
+    internal_tool: { fr: "Outil interne", en: "Internal tool" },
 };
+
+function serviceLabel(id: ProspectServiceId, locale?: string): string {
+    const labels = SERVICE_LABELS[id];
+    if (!labels) return id;
+    return locale === "en" ? labels.en : labels.fr;
+}
 
 function getMapping(): Partial<Record<AreaId, Mapping>> {
     const raw = diagnosticSpecV7.simple_service_mapping as Record<string, unknown>;
     const out: Partial<Record<AreaId, Mapping>> = {};
     for (const [key, value] of Object.entries(raw)) {
         if (key === "rules" || !value || typeof value !== "object") continue;
-        const item = value as { label_fr?: string; services?: string[] };
+        const item = value as { label_fr?: string; label_en?: string; services?: string[] };
         out[key as AreaId] = {
             label_fr: item.label_fr || key,
+            label_en: item.label_en,
             services: (item.services || []) as ProspectServiceId[],
         };
     }
@@ -50,13 +76,7 @@ function getMapping(): Partial<Record<AreaId, Mapping>> {
 function exclusives(areaId: AreaId): Set<string> {
     return new Set(
         getScanAnswers(areaId)
-            .filter(
-                (a) =>
-                    a.exclusive ||
-                    /^(no_|too_early|not_|informal_|none_)/.test(a.id) ||
-                    a.id === "working_well" ||
-                    a.id === "other",
-            )
+            .filter((a) => a.exclusive || /^(no_|too_early|not_|informal_|none_)/.test(a.id) || a.id === "working_well" || a.id === "other")
             .map((a) => a.id),
     );
 }
@@ -66,8 +86,23 @@ function selected(areaId: AreaId, answers: Partial<Record<AreaId, AreaAnswerValu
     return (answers[areaId] || []).filter((id) => !excl.has(id));
 }
 
-function labelFor(areaId: AreaId, answerId: string): string {
-    return getScanAnswers(areaId).find((a) => a.id === answerId)?.label_fr || answerId;
+function labelFor(areaId: AreaId, answerId: string, locale?: string): string {
+    const answer = getScanAnswers(areaId).find((a) => a.id === answerId);
+    if (!answer) return answerId;
+    return pickLocalized(answer as Record<string, unknown>, "label", locale || "fr") || answer.label_fr;
+}
+
+function automationTaskLabel(taskId: string, locale?: string): string {
+    const answers = (
+        diagnosticSpecV7 as {
+            automation_scan?: { answers?: Array<Record<string, unknown>> };
+        }
+    ).automation_scan?.answers;
+    const answer = answers?.find((item) => item.id === taskId);
+    if (answer) {
+        return pickLocalized(answer, "label", locale || "fr") || String(answer.label_fr || taskId);
+    }
+    return locale === "en" ? "Selected repetitive tasks" : "Tâches répétitives sélectionnées";
 }
 
 type EvidenceHit = { service: ProspectServiceId; reason: string; weight: number };
@@ -77,16 +112,18 @@ function collectEvidence(input: {
     areaAnswers: Partial<Record<AreaId, AreaAnswerValue>>;
     automationInterest: AutomationInterest;
     fitChecks: Record<string, FitCheckState>;
+    locale?: string;
 }): EvidenceHit[] {
     const hits: EvidenceHit[] = [];
     const picks = selected(input.areaId, input.areaAnswers);
     const tasks = (input.automationInterest.tasks || []).filter((t) => t !== "none" && t !== "other");
     const fitGap = input.fitChecks.tools_fit?.state === "fit_gap";
+    const locale = input.locale;
 
     const push = (service: ProspectServiceId, answerId: string, weight = 2) => {
         hits.push({
             service,
-            reason: labelFor(input.areaId, answerId),
+            reason: labelFor(input.areaId, answerId, locale),
             weight,
         });
     };
@@ -175,16 +212,7 @@ function collectEvidence(input: {
             input.areaId === "tools_systems" ||
             input.areaId === "finance_profitability")
     ) {
-        const taskLabel =
-            tasks[0] === "copy_transfer"
-                ? "Copier ou transférer de l’information"
-                : tasks[0] === "documents"
-                  ? "Préparer des documents manuellement"
-                  : tasks[0] === "followups"
-                    ? "Suivis et rappels"
-                    : tasks[0] === "reports"
-                      ? "Préparer des rapports"
-                      : "Tâches répétitives sélectionnées";
+        const taskLabel = automationTaskLabel(tasks[0], locale);
         hits.push({ service: "automation", reason: taskLabel, weight: 2 + Math.min(2, tasks.length) });
         if (tasks.some((t) => t === "find_combine" || t === "reports" || t === "updates")) {
             hits.push({ service: "information_decision", reason: taskLabel, weight: 2 });
@@ -197,7 +225,7 @@ function collectEvidence(input: {
     if (fitGap && (input.areaId === "tools_systems" || picks.length > 0)) {
         hits.push({
             service: "custom_tool",
-            reason: "Les outils actuels ne couvrent qu’en partie le besoin",
+            reason: locale === "en" ? "Current tools only partly cover the need" : "Les outils actuels ne couvrent qu’en partie le besoin",
             weight: 3,
         });
     }
@@ -210,7 +238,7 @@ function collectEvidence(input: {
     ) {
         hits.push({
             service: "custom_tool",
-            reason: labelFor("tools_systems", picks.includes("custom") ? "custom" : "specialized"),
+            reason: labelFor("tools_systems", picks.includes("custom") ? "custom" : "specialized", locale),
             weight: 2,
         });
     }
@@ -223,17 +251,17 @@ export function buildServiceSections(input: {
     automationInterest: AutomationInterest;
     fitChecks: Record<string, FitCheckState>;
     prioritySections?: Array<AreaId | "none_priority">;
+    ambitionAreas?: Iterable<AreaId>;
+    locale?: string;
 }): ServiceSectionCard[] {
     const mapping = getMapping();
-    const prioritySet = new Set(
-        (input.prioritySections || []).filter((id) => id !== "none_priority") as AreaId[],
-    );
+    const locale = input.locale || "fr";
+    const prioritySet = new Set((input.prioritySections || []).filter((id) => id !== "none_priority") as AreaId[]);
+    const ambitionSet = new Set(input.ambitionAreas || []);
     const cards: ServiceSectionCard[] = [];
+    const signalByArea: Partial<Record<AreaId, PrioritySignals>> = {};
 
-    const areaIds = new Set<AreaId>([
-        ...(Object.keys(input.areaAnswers) as AreaId[]),
-        ...([...prioritySet] as AreaId[]),
-    ]);
+    const areaIds = new Set<AreaId>([...(Object.keys(input.areaAnswers) as AreaId[]), ...([...prioritySet] as AreaId[])]);
 
     for (const areaId of areaIds) {
         const map = mapping[areaId];
@@ -241,10 +269,7 @@ export function buildServiceSections(input: {
         const picks = selected(areaId, input.areaAnswers);
         const hasAutoBridge =
             (input.automationInterest.tasks || []).some((t) => t !== "none" && t !== "other") &&
-            (areaId === "work_operations" ||
-                areaId === "information_ways" ||
-                areaId === "tools_systems" ||
-                areaId === "finance_profitability");
+            (areaId === "work_operations" || areaId === "information_ways" || areaId === "tools_systems" || areaId === "finance_profitability");
         if (picks.length === 0 && !hasAutoBridge && input.fitChecks.tools_fit?.state !== "fit_gap") {
             continue;
         }
@@ -254,6 +279,7 @@ export function buildServiceSections(input: {
             areaAnswers: input.areaAnswers,
             automationInterest: input.automationInterest,
             fitChecks: input.fitChecks,
+            locale,
         });
         if (evidence.length === 0) continue;
 
@@ -284,42 +310,66 @@ export function buildServiceSections(input: {
         if (prioritySet.has(areaId)) score += 4;
 
         const why = ranked.flatMap(([, v]) => v.reasons).slice(0, 3);
+        const serviceIds = ranked.map(([id]) => id);
 
         cards.push({
             areaId,
-            title: map.label_fr,
+            title: pickLocalized(map as Record<string, unknown>, "label", locale) || map.label_fr,
             services: ranked.map(([id]) => ({
                 id,
-                label: SERVICE_LABELS[id],
+                label: serviceLabel(id, locale),
             })),
             why,
             score,
         });
+
+        signalByArea[areaId] = {
+            areaId,
+            confirmedCount: picks.length,
+            bestTier: picks.length > 0 ? "observed" : hasAutoBridge ? "emerging" : "suggested",
+            services: serviceIds,
+            ambitionAligned: ambitionSet.has(areaId) || prioritySet.has(areaId),
+            evidenceScore: score,
+        };
     }
 
-    return cards.sort((a, b) => b.score - a.score).slice(0, MAX_SECTION_CARDS);
+    return assignPriorityBands(cards.sort((a, b) => b.score - a.score).slice(0, MAX_SECTION_CARDS), locale, signalByArea);
 }
 
 export function buildServiceSectionsFromPossibilities(input: {
     selected: SelectedPossibility[];
     /** When nothing selected, show top suggested candidates as soft “à considérer”. */
     fallbackCandidates?: PossibilityCandidate[];
+    /** Used to recover observed / emerging / suggested tiers for ranking. */
+    allCandidates?: PossibilityCandidate[];
+    ambitionAreas?: Iterable<AreaId>;
+    locale?: string;
 }): ServiceSectionCard[] {
-    const source =
-        input.selected.length > 0
-            ? input.selected
-            : (input.fallbackCandidates || []).slice(0, 5).map((c) => ({
-                  id: c.id,
-                  possibilityId: c.possibilityId,
-                  areaId: c.areaId,
-                  label: c.label,
-                  sectionLabel: c.sectionLabel,
-                  services: c.services,
-              }));
+    const locale = input.locale || "fr";
+    const ambitionSet = new Set(input.ambitionAreas || []);
+    const fromSelection = input.selected.length > 0;
+    const tierById = candidateTierById(input.allCandidates || input.fallbackCandidates);
+    const source = fromSelection
+        ? input.selected
+        : (input.fallbackCandidates || []).slice(0, 5).map((c) => ({
+              id: c.id,
+              possibilityId: c.possibilityId,
+              areaId: c.areaId,
+              label: c.label,
+              sectionLabel: c.sectionLabel,
+              services: c.services,
+          }));
 
     const byArea = new Map<
         AreaId,
-        { title: string; services: Map<ProspectServiceId, number>; why: string[]; score: number }
+        {
+            title: string;
+            services: Map<ProspectServiceId, number>;
+            why: string[];
+            score: number;
+            confirmedCount: number;
+            bestTier: PossibilitySourceTier | null;
+        }
     >();
 
     for (const item of source) {
@@ -328,8 +378,13 @@ export function buildServiceSectionsFromPossibilities(input: {
             services: new Map<ProspectServiceId, number>(),
             why: [] as string[],
             score: 0,
+            confirmedCount: 0,
+            bestTier: null as PossibilitySourceTier | null,
         };
         existing.score += 3;
+        if (fromSelection) existing.confirmedCount += 1;
+        const tier = tierById.get(item.id) || (fromSelection ? "emerging" : "suggested");
+        existing.bestTier = betterTier(existing.bestTier, tier);
         if (existing.why.length < 4 && !existing.why.includes(item.label)) {
             existing.why.push(item.label);
         }
@@ -341,11 +396,12 @@ export function buildServiceSectionsFromPossibilities(input: {
     }
 
     const cards: ServiceSectionCard[] = [];
+    const signalByArea: Partial<Record<AreaId, PrioritySignals>> = {};
     for (const [areaId, data] of byArea) {
         const ranked = [...data.services.entries()]
             .sort((a, b) => b[1] - a[1])
             .slice(0, 3)
-            .map(([id]) => ({ id, label: SERVICE_LABELS[id] || id }));
+            .map(([id]) => ({ id, label: serviceLabel(id, locale) }));
         if (ranked.length === 0) continue;
         cards.push({
             areaId,
@@ -354,11 +410,19 @@ export function buildServiceSectionsFromPossibilities(input: {
             why: data.why,
             score: data.score,
         });
+        signalByArea[areaId] = {
+            areaId,
+            confirmedCount: data.confirmedCount,
+            bestTier: data.bestTier,
+            services: ranked.map((s) => s.id),
+            ambitionAligned: ambitionSet.has(areaId),
+            evidenceScore: data.score,
+        };
     }
 
-    return cards.sort((a, b) => b.score - a.score).slice(0, MAX_SECTION_CARDS);
+    return assignPriorityBands(cards.sort((a, b) => b.score - a.score).slice(0, MAX_SECTION_CARDS), locale, signalByArea);
 }
 
-export function prospectServiceLabel(id: ProspectServiceId): string {
-    return SERVICE_LABELS[id];
+export function prospectServiceLabel(id: ProspectServiceId, locale?: string): string {
+    return serviceLabel(id, locale);
 }

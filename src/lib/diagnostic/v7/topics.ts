@@ -1,17 +1,14 @@
 import { diagnosticSpecV7 } from "@/content/diagnostic/v7/types";
-import type {
-    AreaId,
-    CompanyContext,
-    PossibilityCandidate,
-    TopicCandidate,
-    TopicId,
-} from "@/content/diagnostic/v7/types";
+import type { AreaId, CompanyContext, PossibilityCandidate, TopicCandidate, TopicId } from "@/content/diagnostic/v7/types";
+import { pickLocalized } from "@/lib/diagnostic/localize";
 import { isSoloCompany } from "@/lib/diagnostic/v7/coverage";
 
 export type TopicDef = {
     id: TopicId;
     label_fr: string;
+    label_en?: string;
     summary_fr: string;
+    summary_en?: string;
     source_sections: AreaId[];
     show_if?: string;
 };
@@ -24,11 +21,13 @@ type ClusteringSpec = {
 };
 
 export function getTopicClusteringSpec(): ClusteringSpec {
-    return (diagnosticSpecV7 as { v8_topic_clustering?: ClusteringSpec }).v8_topic_clustering || {
-        maximum_visible_topics: 6,
-        maximum_selected_topics: null,
-        topics: [],
-    };
+    return (
+        (diagnosticSpecV7 as { v8_topic_clustering?: ClusteringSpec }).v8_topic_clustering || {
+            maximum_visible_topics: 6,
+            maximum_selected_topics: null,
+            topics: [],
+        }
+    );
 }
 
 /** Expand-screen answer id → business area(s). */
@@ -74,11 +73,9 @@ const TIER_WEIGHT: Record<PossibilityCandidate["sourceTier"], number> = {
  * Cluster micro-possibilities into ≤6 broad topics for the prospect.
  * Micro candidates stay internal; cards only expose label + summary.
  */
-export function buildTopicCandidates(input: {
-    companyContext: CompanyContext;
-    candidates: PossibilityCandidate[];
-}): TopicCandidate[] {
+export function buildTopicCandidates(input: { companyContext: CompanyContext; candidates: PossibilityCandidate[]; locale?: string }): TopicCandidate[] {
     const spec = getTopicClusteringSpec();
+    const locale = input.locale || "fr";
     const maxVisible = spec.maximum_visible_topics ?? 6;
     const scored: Array<TopicCandidate & { score: number }> = [];
 
@@ -87,21 +84,18 @@ export function buildTopicCandidates(input: {
         const members = input.candidates.filter((c) => topic.source_sections.includes(c.areaId));
         if (members.length === 0) continue;
 
-        const score = members.reduce(
-            (sum, c) => sum + c.score * 10 + TIER_WEIGHT[c.sourceTier] * 5,
-            0,
-        );
+        const score = members.reduce((sum, c) => sum + c.score * 10 + TIER_WEIGHT[c.sourceTier] * 5, 0);
         scored.push({
             id: topic.id,
-            label: topic.label_fr,
-            summary: topic.summary_fr,
+            label: pickLocalized(topic as unknown as Record<string, unknown>, "label", locale) || topic.label_fr,
+            summary: pickLocalized(topic as unknown as Record<string, unknown>, "summary", locale) || topic.summary_fr,
             sourceSections: topic.source_sections,
             memberPossibilityIds: members.map((m) => m.id),
             score,
         });
     }
 
-    scored.sort((a, b) => b.score - a.score || a.label.localeCompare(b.label, "fr"));
+    scored.sort((a, b) => b.score - a.score || a.label.localeCompare(b.label, locale));
     return scored.slice(0, maxVisible).map(({ score: _score, ...rest }) => rest);
 }
 

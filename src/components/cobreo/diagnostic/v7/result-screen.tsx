@@ -69,16 +69,47 @@ export function ResultScreenV7({
             </header>
 
             {sections.length > 0 ? (
-                <section className="flex flex-col gap-4">
+                <section className="flex flex-col gap-6">
+                    <p className="max-w-xl text-sm leading-relaxed text-[#737373]">
+                        {locale === "en"
+                            ? "Several opportunities stand out. Here’s what we’d prioritize from your answers — starting with the one that looks most useful first."
+                            : "Plusieurs pistes ressortent. Voici ce que nous prioriserions selon vos réponses — en commençant par celle qui nous semble la plus utile en premier."}
+                    </p>
                     <ul className="flex flex-col gap-4">
                         {sections.map((section) => {
                             const whyOpen = Boolean(openWhy[section.areaId]);
+                            const band = section.priorityBand || "later";
+                            const bandLabel =
+                                band === "start_here"
+                                    ? locale === "en"
+                                        ? "Where to start?"
+                                        : "Par où commencer ?"
+                                    : band === "next"
+                                      ? locale === "en"
+                                          ? "Also a priority for us"
+                                          : "Aussi prioritaire selon nous"
+                                      : locale === "en"
+                                        ? "Worth keeping in mind"
+                                        : "À garder en tête";
                             return (
                                 <li
                                     key={section.areaId}
-                                    className="rounded-2xl bg-white/90 p-5 shadow-[0_12px_32px_rgba(23,23,23,0.06)] ring-1 ring-[#171717]/10 md:p-6"
+                                    className={
+                                        band === "start_here"
+                                            ? "rounded-2xl bg-white p-5 shadow-[0_12px_32px_rgba(23,23,23,0.08)] ring-2 ring-[#4d6b97]/35 md:p-6"
+                                            : "rounded-2xl bg-white/90 p-5 shadow-[0_12px_32px_rgba(23,23,23,0.06)] ring-1 ring-[#171717]/10 md:p-6"
+                                    }
                                 >
-                                    <p className="font-display text-[22px] leading-tight text-[#171717] md:text-[26px]">
+                                    <p
+                                        className={
+                                            band === "start_here"
+                                                ? "text-xs font-semibold tracking-[0.14em] text-[#4d6b97] uppercase"
+                                                : "text-xs font-semibold tracking-[0.14em] text-[#a3a3a3] uppercase"
+                                        }
+                                    >
+                                        {bandLabel}
+                                    </p>
+                                    <p className="mt-2 font-display text-[22px] leading-tight text-[#171717] md:text-[26px]">
                                         {section.title}
                                     </p>
                                     <ul className="mt-4 flex flex-wrap gap-2">
@@ -91,7 +122,7 @@ export function ResultScreenV7({
                                             </li>
                                         ))}
                                     </ul>
-                                    {section.why.length > 0 ? (
+                                    {section.why.length > 0 || section.priorityWhy ? (
                                         <div className="mt-4">
                                             <button
                                                 type="button"
@@ -108,6 +139,16 @@ export function ResultScreenV7({
                                             </button>
                                             {whyOpen ? (
                                                 <ul className="mt-2 flex flex-col gap-1.5">
+                                                    {section.priorityWhy ? (
+                                                        <li className="text-sm leading-relaxed text-[#404040]">
+                                                            <span className="font-medium text-[#253353]">
+                                                                {locale === "en"
+                                                                    ? "Why prioritize this: "
+                                                                    : "Pourquoi prioriser ceci : "}
+                                                            </span>
+                                                            {section.priorityWhy}
+                                                        </li>
+                                                    ) : null}
                                                     {section.why.map((reason) => (
                                                         <li
                                                             key={reason}

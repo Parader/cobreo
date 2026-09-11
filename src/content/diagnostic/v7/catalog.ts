@@ -1,14 +1,6 @@
 import { isEnglishLocale, pickLocalized } from "@/lib/diagnostic/localize";
 import { diagnosticSpecV7 } from "./types";
-import type {
-    AmbitionId,
-    AreaId,
-    GainLevel,
-    LensId,
-    OpportunityType,
-    PotentialLevel,
-    ProgressStageId,
-} from "./types";
+import type { AmbitionId, AreaId, GainLevel, LensId, OpportunityType, PotentialLevel, ProgressStageId } from "./types";
 
 export type SpecCompanyQuestion = (typeof diagnosticSpecV7.company_context)[number];
 export type SpecAreaScan = (typeof diagnosticSpecV7.area_scans)[AreaId];
@@ -117,12 +109,18 @@ export function getOpportunityTemplates() {
             {
                 trigger_examples: string[];
                 title_fr: string;
+                title_en?: string;
                 what_we_see_fr?: string;
+                what_we_see_en?: string;
                 what_we_see_rule?: string;
                 what_could_improve_fr: string;
+                what_could_improve_en?: string;
                 what_it_could_bring_fr: string;
+                what_it_could_bring_en?: string;
                 what_we_could_explore_together_fr: string;
+                what_we_could_explore_together_en?: string;
                 possibilities_fr?: string[];
+                possibilities_en?: string[];
                 cobreo_lenses: LensId[];
                 guardrail?: string;
             }
@@ -149,9 +147,7 @@ export function getProgressStages(locale: string = "fr"): Array<{ id: ProgressSt
     const stages = diagnosticSpecV7.flow.stages as Array<{ id: ProgressStageId; label_fr: string; label_en?: string }>;
     return stages.map((stage) => ({
         id: stage.id,
-        label: isEnglishLocale(locale)
-            ? stage.label_en || stage.label_fr
-            : stage.label_fr,
+        label: isEnglishLocale(locale) ? stage.label_en || stage.label_fr : stage.label_fr,
     }));
 }
 
@@ -243,7 +239,18 @@ export function answerVisible(
 
 export function getExclusiveAnswerIds(areaId: AreaId): string[] {
     return getScanAnswers(areaId)
-        .filter((a) => a.exclusive || a.id.startsWith("no_") || a.id.startsWith("too_early") || a.id.startsWith("not_") || a.id.startsWith("informal_") || a.id === "none_easy" || a.id === "no_overview" || a.id === "no_tools" || a.id === "no_formal_sales")
+        .filter(
+            (a) =>
+                a.exclusive ||
+                a.id.startsWith("no_") ||
+                a.id.startsWith("too_early") ||
+                a.id.startsWith("not_") ||
+                a.id.startsWith("informal_") ||
+                a.id === "none_easy" ||
+                a.id === "no_overview" ||
+                a.id === "no_tools" ||
+                a.id === "no_formal_sales",
+        )
         .map((a) => a.id);
 }
 

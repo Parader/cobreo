@@ -185,6 +185,9 @@ export type PrioritySectionSummary = {
     signals: string[];
 };
 
+/** Explicit priority cue on result cards — all cards stay visible; this only guides order of attention. */
+export type PriorityBand = "start_here" | "next" | "later";
+
 export type ServiceSectionCard = {
     areaId: AreaId;
     title: string;
@@ -195,6 +198,10 @@ export type ServiceSectionCard = {
     /** Short reasons for the collapsed “Pourquoi ces services?” disclosure */
     why: string[];
     score: number;
+    /** Where to focus first among the suggestions (never used to drop cards). */
+    priorityBand?: PriorityBand;
+    /** Why we would place this card at its priority band — shown inside the why disclosure. */
+    priorityWhy?: string;
 };
 
 export type DiagnosticV7Result = {

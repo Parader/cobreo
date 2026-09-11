@@ -5,6 +5,11 @@ import { createServiceClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { getAdminSlug } from "@/lib/admin-path";
 import { AdminDashboard } from "@/components/cobreo/admin-dashboard";
+import {
+    loadCrmFunnelStats,
+    loadOrphanContacts,
+    loadPostHogFunnelStats,
+} from "@/lib/admin/analytics";
 import type {
     AdminBookingRule,
     AdminUpcomingBooking,
@@ -40,11 +45,12 @@ export default async function AdminHomePage({ params }: { params: Promise<{ loca
     // Booking tables: service role after admin check (same pattern as booking engine writes)
     const db = createServiceClient();
 
-    const [{ data: leads }, { data: rules }, { data: bookings }] = await Promise.all([
+    const [{ data: leads }, { data: rules }, { data: bookings }, crmStats, posthogStats, orphanContacts] =
+        await Promise.all([
         supabase
             .from("leads")
             .select(
-                "id, title, source, status, created_at, contacts(full_name, email, company_name, phone), diagnostic_submissions(id, summary, answers, locale, created_at), bookings(id, starts_at, ends_at, timezone, status, declared_ambitions, selected_sections, suggested_services)",
+                "id, title, source, status, created_at, contacts(full_name, email, company_name, phone), diagnostic_submissions(id, summary, answers, locale, created_at), contact_submissions(id, message, locale, created_at), bookings(id, starts_at, ends_at, timezone, status, declared_ambitions, selected_sections, suggested_services)",
             )
             .order("created_at", { ascending: false })
             .limit(50),
@@ -62,6 +68,9 @@ export default async function AdminHomePage({ params }: { params: Promise<{ loca
             .gte("starts_at", new Date().toISOString())
             .order("starts_at", { ascending: true })
             .limit(20),
+        loadCrmFunnelStats(),
+        loadPostHogFunnelStats(30),
+        loadOrphanContacts(),
     ]);
 
     const ruleRow = rules?.[0] ?? null;
@@ -97,6 +106,9 @@ export default async function AdminHomePage({ params }: { params: Promise<{ loca
                 leads={leads || []}
                 bookingRule={bookingRule}
                 upcomingBookings={upcomingBookings}
+                crmStats={crmStats}
+                posthogStats={posthogStats}
+                orphanContacts={orphanContacts}
             />
         </div>
     );

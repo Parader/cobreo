@@ -165,7 +165,11 @@ export function ToolsFitScreen({
     const locale = useLocale();
     const spec = getToolsFitSpec();
     if (!spec) return null;
-    const title = (spec.question_template_fr || "").replace("{activity_label}", locale === "en" ? "your work" : "votre travail");
+    const title = (
+        pickLocalized(spec as Record<string, unknown>, "question_template", locale) ||
+        spec.question_template_fr ||
+        ""
+    ).replace("{activity_label}", locale === "en" ? "your work" : "votre travail");
 
     return (
         <SingleChoiceScreen

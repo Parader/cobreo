@@ -1,10 +1,4 @@
-import {
-    ambitionLabel,
-    areaLabel,
-    getCapabilityToLenses,
-    getOpportunityTemplates,
-    getScanAnswers,
-} from "@/content/diagnostic/v7/catalog";
+import { ambitionLabel, areaLabel, getCapabilityToLenses, getOpportunityTemplates, getScanAnswers } from "@/content/diagnostic/v7/catalog";
 import type {
     AmbitionId,
     AmbitionsState,
@@ -20,13 +14,21 @@ import type {
     GeneratedOpportunity,
     LensId,
 } from "@/content/diagnostic/v7/types";
-import { isSoloCompany, resolveCapabilities } from "./coverage";
-import { buildServiceSections, buildServiceSectionsFromPossibilities } from "./services";
-import { buildPossibilityCandidates, resolveSelectedPossibilities } from "./possibilities";
 import type { PossibilityCandidate, SelectedPossibility } from "@/content/diagnostic/v7/types";
+import { pickLocalized } from "@/lib/diagnostic/localize";
+import { isSoloCompany, resolveCapabilities } from "./coverage";
+import { areasFromAmbitions } from "./ambition-areas";
+import { buildPossibilityCandidates, resolveSelectedPossibilities } from "./possibilities";
+import { buildServiceSections, buildServiceSectionsFromPossibilities } from "./services";
 
 function isEnglish(locale?: string) {
     return locale === "en";
+}
+
+function scanAnswerLabel(areaId: AreaId, answerId: string, locale?: string): string {
+    const answer = getScanAnswers(areaId).find((item) => item.id === answerId);
+    if (!answer) return answerId;
+    return pickLocalized(answer as unknown as Record<string, unknown>, "label", locale || "fr") || answer.label_fr;
 }
 
 type ScoreInput = {
@@ -150,9 +152,7 @@ function triggerMatches(
     if (right.includes(":")) {
         const [answerOrCap, state] = right.split(":");
         if (state === "potentially_uncovered") {
-            const scan = getScanAnswers(left as AreaId).find(
-                (a) => a.id === answerOrCap || a.capability === answerOrCap,
-            );
+            const scan = getScanAnswers(left as AreaId).find((a) => a.id === answerOrCap || a.capability === answerOrCap);
             const capability = scan?.capability || answerOrCap;
             return input.capabilities[capability] === "potentially_uncovered";
         }
@@ -164,21 +164,16 @@ function triggerMatches(
     return hasAnswer(input.areaAnswers, left as AreaId, right);
 }
 
-function templateWhatWeSee(
-    templateId: string,
-    template: { what_we_see_fr?: string },
-    en: boolean,
-): string {
+function templateWhatWeSee(templateId: string, template: { what_we_see_fr?: string; what_we_see_en?: string }, en: boolean): string {
     if (template.what_we_see_fr && !en) return template.what_we_see_fr;
+    if (template.what_we_see_en && en) return template.what_we_see_en;
     const enCopy: Record<string, string> = {
         team_hours: "You already track team hours.",
         documentation_gap: "You indicated that some important ways of working are lightly documented.",
         work_visibility: "You indicated it is not always easy to see where files, jobs or orders stand.",
         information_reentry: "You indicated that some information is copied or entered more than once.",
-        customer_feedback_gap:
-            "Customer feedback may not yet be collected in a structured way — this remains a possibility to verify.",
-        profitability_visibility:
-            "From what you shared, a clearer view of what drives profitability could be useful.",
+        customer_feedback_gap: "Customer feedback may not yet be collected in a structured way — this remains a possibility to verify.",
+        profitability_visibility: "From what you shared, a clearer view of what drives profitability could be useful.",
     };
     if (en) return enCopy[templateId] || template.what_we_see_fr || "";
     if (templateId === "customer_feedback_gap") {
@@ -203,20 +198,18 @@ function buildFromTemplate(input: {
     const en = isEnglish(input.locale);
     const lenses = template.cobreo_lenses as LensId[];
     const aligned = ambitionAligned(input.declared, lenses);
-    const confidence =
-        input.prioritized && aligned ? "high" : input.prioritized || aligned ? "medium" : "medium";
+    const confidence = input.prioritized && aligned ? "high" : input.prioritized || aligned ? "medium" : "medium";
+    const localized = (baseKey: string) => pickLocalized(template as unknown as Record<string, unknown>, baseKey, input.locale || "fr");
 
     return {
         id: `tpl_${input.templateId}`,
-        type: input.templateId.includes("gap") || input.templateId.includes("visibility")
-            ? "coverage_expansion"
-            : "improvement",
-        title: template.title_fr,
+        type: input.templateId.includes("gap") || input.templateId.includes("visibility") ? "coverage_expansion" : "improvement",
+        title: localized("title") || template.title_fr,
         whatWeSee: templateWhatWeSee(input.templateId, template, en),
-        whatCouldImprove: template.what_could_improve_fr,
-        whatItCouldBring: template.what_it_could_bring_fr,
-        whatWeCouldExplore: template.what_we_could_explore_together_fr,
-        possibilities: template.possibilities_fr,
+        whatCouldImprove: localized("what_could_improve") || template.what_could_improve_fr,
+        whatItCouldBring: localized("what_it_could_bring") || template.what_it_could_bring_fr,
+        whatWeCouldExplore: localized("what_we_could_explore_together") || template.what_we_could_explore_together_fr,
+        possibilities: en ? template.possibilities_en || template.possibilities_fr : template.possibilities_fr,
         lenses: lenses.filter((l) => l !== "tailored_tools").slice(0, 3),
         confidence,
         areaId: input.areaId,
@@ -234,7 +227,7 @@ function buildFromTemplate(input: {
                 : "Appuyé par ce que vous avez sélectionné pendant la découverte.",
         potentialGain: confidence === "high" ? "important" : "moderate",
         whatWeNoticed: [templateWhatWeSee(input.templateId, template, en)],
-        opportunity: template.what_could_improve_fr,
+        opportunity: localized("what_could_improve") || template.what_could_improve_fr,
     };
 }
 
@@ -289,22 +282,14 @@ function addAutomationOpportunity(
             ? `You pointed to concrete tasks (${tasks.slice(0, 3).join(", ")}).`
             : `Vous avez nommé des tâches concrètes (${tasks.slice(0, 3).join(", ")}).`,
         potentialGain: confident ? "important" : "moderate",
-        whatWeNoticed: [
-            en
-                ? "Simplification opportunities were selected directly."
-                : "Des possibilités de simplification ont été sélectionnées directement.",
-        ],
+        whatWeNoticed: [en ? "Simplification opportunities were selected directly." : "Des possibilités de simplification ont été sélectionnées directement."],
         opportunity: en
             ? "Some predictable tasks could be streamlined without treating current work as a problem."
             : "Certaines tâches prévisibles pourraient être simplifiées sans traiter le travail actuel comme un problème.",
     };
 }
 
-function addFitGapOpportunity(
-    fitChecks: Record<string, FitCheckState>,
-    declared: AmbitionId[],
-    locale?: string,
-): GeneratedOpportunity | null {
+function addFitGapOpportunity(fitChecks: Record<string, FitCheckState>, declared: AmbitionId[], locale?: string): GeneratedOpportunity | null {
     if (fitChecks.tools_fit?.state !== "fit_gap") return null;
     const en = isEnglish(locale);
     const lenses = (getCapabilityToLenses().tool_fit_gap || ["operations", "information"]) as LensId[];
@@ -332,9 +317,7 @@ function addFitGapOpportunity(
         possibilities: en
             ? ["Configuration", "Integrations", "Process simplification", "Tailored tool if justified"]
             : ["Configuration", "Intégrations", "Simplification du processus", "Outil adapté si justifié"],
-        lenses: includeTailored
-            ? (["operations", "information", "tailored_tools"] as LensId[])
-            : lenses.filter((l) => l !== "tailored_tools").slice(0, 2),
+        lenses: includeTailored ? (["operations", "information", "tailored_tools"] as LensId[]) : lenses.filter((l) => l !== "tailored_tools").slice(0, 2),
         confidence: "medium",
         areaId: "tools_systems",
         capability: "tool_fit_gap",
@@ -342,30 +325,20 @@ function addFitGapOpportunity(
             ? "You indicated the tools do not fully meet your needs today."
             : "Vous avez indiqué que les outils ne répondent pas pleinement à vos besoins aujourd’hui.",
         potentialGain: "moderate",
-        whatWeNoticed: [
-            en ? "Tool fit was rated as partial or insufficient." : "L’adéquation des outils a été jugée partielle ou insuffisante.",
-        ],
+        whatWeNoticed: [en ? "Tool fit was rated as partial or insufficient." : "L’adéquation des outils a été jugée partielle ou insuffisante."],
         opportunity: en
             ? "Your current tools only partly cover how you work — there may be room to simplify or connect steps."
             : "Vos outils couvrent seulement en partie votre façon de travailler — il peut y avoir place à simplifier ou mieux relier les étapes.",
     };
 }
 
-function collectStrengths(
-    areaAnswers: Partial<Record<AreaId, AreaAnswerValue>>,
-    capabilities: Record<string, CoverageState>,
-    locale?: string,
-): string[] {
+function collectStrengths(areaAnswers: Partial<Record<AreaId, AreaAnswerValue>>, capabilities: Record<string, CoverageState>, locale?: string): string[] {
     const en = isEnglish(locale);
     const strengths: string[] = [];
     for (const [capability, state] of Object.entries(capabilities)) {
         if (state !== "covered" && state !== "covered_unknown_fit" && state !== "covered_good_fit") continue;
         if (capability === "tool_fit_gap") continue;
-        strengths.push(
-            en
-                ? `${humanCapability(capability, true)} already looks covered.`
-                : `${humanCapability(capability, false)} semble déjà couvert.`,
-        );
+        strengths.push(en ? `${humanCapability(capability, true)} already looks covered.` : `${humanCapability(capability, false)} semble déjà couvert.`);
         if (strengths.length >= 4) break;
     }
     if (strengths.length === 0) {
@@ -387,11 +360,7 @@ function collectStrengths(
     return strengths.slice(0, 4);
 }
 
-function collectNoticed(
-    areaAnswers: Partial<Record<AreaId, AreaAnswerValue>>,
-    ambitions: AmbitionsState,
-    locale?: string,
-): string[] {
+function collectNoticed(areaAnswers: Partial<Record<AreaId, AreaAnswerValue>>, ambitions: AmbitionsState, locale?: string): string[] {
     const en = isEnglish(locale);
     const items: string[] = [];
     const declared = declaredList(ambitions).filter((id) => id !== "nothing_specific");
@@ -404,14 +373,8 @@ function collectNoticed(
     }
     for (const [areaId, answers] of Object.entries(areaAnswers) as [AreaId, AreaAnswerValue][]) {
         if (!answers?.length) continue;
-        const labels = answers
-            .slice(0, 3)
-            .map((id) => getScanAnswers(areaId).find((a) => a.id === id)?.label_fr || id);
-        items.push(
-            en
-                ? `${areaLabel(areaId, "en")}: ${labels.join(", ")}.`
-                : `${areaLabel(areaId, "fr")} : ${labels.join(", ")}.`,
-        );
+        const labels = answers.slice(0, 3).map((id) => scanAnswerLabel(areaId, id, locale));
+        items.push(en ? `${areaLabel(areaId, "en")}: ${labels.join(", ")}.` : `${areaLabel(areaId, "fr")} : ${labels.join(", ")}.`);
         if (items.length >= 6) break;
     }
     return items;
@@ -421,10 +384,7 @@ function confidenceRank(c: GeneratedOpportunity["confidence"]) {
     return c === "high" ? 3 : c === "medium" ? 2 : 1;
 }
 
-function findAreaForCapability(
-    capability: string,
-    areaAnswers: Partial<Record<AreaId, AreaAnswerValue>>,
-): AreaId | undefined {
+function findAreaForCapability(capability: string, areaAnswers: Partial<Record<AreaId, AreaAnswerValue>>): AreaId | undefined {
     for (const areaId of Object.keys(areaAnswers) as AreaId[]) {
         if (getScanAnswers(areaId).some((a) => a.capability === capability)) return areaId;
     }
@@ -444,9 +404,7 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
     const declared = declaredList(input.ambitions);
     const prioritySet = new Set(input.prioritySections || []);
     const nonePriority = prioritySet.has("none_priority");
-    const effectivePriorities = nonePriority
-        ? ([] as AreaId[])
-        : ([...prioritySet].filter((id) => id !== "none_priority") as AreaId[]);
+    const effectivePriorities = nonePriority ? ([] as AreaId[]) : ([...prioritySet].filter((id) => id !== "none_priority") as AreaId[]);
 
     const capabilities = resolveCapabilities({
         areaAnswers: input.areaAnswers,
@@ -502,15 +460,8 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
     }
 
     const autoPrioritized =
-        effectivePriorities.includes("work_operations") ||
-        effectivePriorities.includes("information_ways") ||
-        effectivePriorities.includes("tools_systems");
-    const automation = addAutomationOpportunity(
-        input.automationInterest,
-        declared,
-        autoPrioritized,
-        locale,
-    );
+        effectivePriorities.includes("work_operations") || effectivePriorities.includes("information_ways") || effectivePriorities.includes("tools_systems");
+    const automation = addAutomationOpportunity(input.automationInterest, declared, autoPrioritized, locale);
     if (automation) {
         if (autoPrioritized) automation.confidence = "high";
         candidates.push(automation);
@@ -528,16 +479,15 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
             .filter((o) => o && !o.exclusive && o.id !== "other" && o.id !== "working_well")
             .slice(0, 2);
         if (opts.length === 0) continue;
-        const activity = opts[0]!.label_fr;
+        const activity = scanAnswerLabel(areaId, opts[0]!.id, locale);
+        const optionLabels = opts.map((option) => scanAnswerLabel(areaId, option!.id, locale));
         candidates.push({
             id: `priority_${areaId}`,
             type: "improvement",
-            title: en
-                ? `Make “${activity}” clearer day to day`
-                : `Rendre « ${activity} » plus clair au quotidien`,
+            title: en ? `Make “${activity}” clearer day to day` : `Rendre « ${activity} » plus clair au quotidien`,
             whatWeSee: en
-                ? `You selected this in ${areaLabel(areaId, "en")}: ${opts.map((o) => o!.label_fr).join(", ")}.`
-                : `Vous avez sélectionné ceci dans ${areaLabel(areaId, "fr")} : ${opts.map((o) => o!.label_fr).join(", ")}.`,
+                ? `You selected this in ${areaLabel(areaId, "en")}: ${optionLabels.join(", ")}.`
+                : `Vous avez sélectionné ceci dans ${areaLabel(areaId, "fr")} : ${optionLabels.join(", ")}.`,
             whatCouldImprove: en
                 ? `Improve how “${activity}” works in daily practice.`
                 : `Améliorer la façon dont « ${activity} » fonctionne dans la pratique quotidienne.`,
@@ -558,7 +508,7 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
                 ? "You marked this business section as worth improving."
                 : "Vous avez indiqué que cette section de l’entreprise valait la peine d’être améliorée.",
             potentialGain: "important",
-            whatWeNoticed: opts.map((o) => o!.label_fr),
+            whatWeNoticed: optionLabels,
             opportunity: en
                 ? `Improve how “${activity}” works in daily practice.`
                 : `Améliorer la façon dont « ${activity} » fonctionne dans la pratique quotidienne.`,
@@ -578,24 +528,11 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
         const bPri = b.areaId && effectivePriorities.includes(b.areaId) ? 1 : 0;
         const aTpl = a.id.startsWith("tpl_") ? 1 : 0;
         const bTpl = b.id.startsWith("tpl_") ? 1 : 0;
-        return (
-            bTpl - aTpl ||
-            bPri - aPri ||
-            confidenceRank(b.confidence) - confidenceRank(a.confidence)
-        );
+        return bTpl - aTpl || bPri - aPri || confidenceRank(b.confidence) - confidenceRank(a.confidence);
     });
 
-    const prioritizedMain = all.filter(
-        (o) =>
-            (o.confidence === "high" || o.confidence === "medium") &&
-            o.areaId &&
-            effectivePriorities.includes(o.areaId),
-    );
-    const otherMain = all.filter(
-        (o) =>
-            (o.confidence === "high" || o.confidence === "medium") &&
-            !prioritizedMain.some((p) => p.id === o.id),
-    );
+    const prioritizedMain = all.filter((o) => (o.confidence === "high" || o.confidence === "medium") && o.areaId && effectivePriorities.includes(o.areaId));
+    const otherMain = all.filter((o) => (o.confidence === "high" || o.confidence === "medium") && !prioritizedMain.some((p) => p.id === o.id));
     const main = [...prioritizedMain, ...otherMain].slice(0, 3);
 
     const exploratory =
@@ -617,21 +554,25 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
         automationInterest: input.automationInterest,
         locale,
     });
-    const selectedResolved = resolveSelectedPossibilities(
-        input.selectedPossibilities || [],
-        possibilityCandidates,
-    );
+    const selectedResolved = resolveSelectedPossibilities(input.selectedPossibilities || [], possibilityCandidates);
     const declinedAll = (input.selectedPossibilities || []).includes("none_selected");
+    const ambitionAreas = areasFromAmbitions(declared, input.companyContext);
 
     const serviceSections =
         selectedResolved.length > 0 || declinedAll
             ? buildServiceSectionsFromPossibilities({
                   selected: selectedResolved,
                   fallbackCandidates: declinedAll ? possibilityCandidates : undefined,
+                  allCandidates: possibilityCandidates,
+                  ambitionAreas,
+                  locale,
               })
             : buildServiceSectionsFromPossibilities({
                   selected: [],
                   fallbackCandidates: possibilityCandidates,
+                  allCandidates: possibilityCandidates,
+                  ambitionAreas,
+                  locale,
               });
 
     // Fallback to legacy evidence if library somehow empty
@@ -643,22 +584,18 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
                   automationInterest: input.automationInterest,
                   fitChecks: input.fitChecks,
                   prioritySections: input.prioritySections,
+                  ambitionAreas,
+                  locale,
               });
 
     const hasCredibleOpportunity = true; // v8 never concludes “no opportunity”
 
-    const priorityAreas = [
-        ...new Set(
-            (selectedResolved.length > 0 ? selectedResolved : possibilityCandidates.slice(0, 3)).map(
-                (p) => p.areaId,
-            ),
-        ),
-    ] as AreaId[];
+    const priorityAreas = [...new Set((selectedResolved.length > 0 ? selectedResolved : possibilityCandidates.slice(0, 3)).map((p) => p.areaId))] as AreaId[];
 
     const prioritySections = priorityAreas.map((areaId) => {
         const answers = input.areaAnswers[areaId] || [];
         const signals = answers
-            .map((id) => getScanAnswers(areaId).find((a) => a.id === id)?.label_fr)
+            .map((id) => scanAnswerLabel(areaId, id, locale))
             .filter(Boolean)
             .slice(0, 3) as string[];
         return {
@@ -676,8 +613,7 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
             ? "Even if nothing is a priority for you right now, some possibilities may still be worth keeping in mind."
             : "Même si aucun sujet n’est une priorité pour vous en ce moment, certaines possibilités peuvent rester utiles à garder en tête.";
     } else if (en) {
-        message =
-            "Here are the improvement possibilities best supported by your answers, and why they deserve your attention.";
+        message = "Here are the improvement possibilities best supported by your answers, and why they deserve your attention.";
     }
 
     return {
@@ -698,20 +634,14 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
 export function summarizeResult(result: DiagnosticV7Result, locale?: string): string {
     const en = isEnglish(locale);
     if (!result.hasCredibleOpportunity) {
-        return en
-            ? "Diagnostic complete — no urgent opportunity highlighted."
-            : "Diagnostic terminé — aucune opportunité urgente mise de l’avant.";
+        return en ? "Diagnostic complete — no urgent opportunity highlighted." : "Diagnostic terminé — aucune opportunité urgente mise de l’avant.";
     }
     if (result.serviceSections?.length) {
         const titles = result.serviceSections.map((s) => s.title).join("; ");
-        return en
-            ? `Sections highlighted: ${titles}`
-            : `Sections mises de l’avant : ${titles}`;
+        return en ? `Sections highlighted: ${titles}` : `Sections mises de l’avant : ${titles}`;
     }
     const titles = result.opportunities.map((o) => o.title).join("; ");
-    return en
-        ? `Opportunities highlighted: ${titles}`
-        : `Possibilités mises de l’avant : ${titles}`;
+    return en ? `Opportunities highlighted: ${titles}` : `Possibilités mises de l’avant : ${titles}`;
 }
 
 // Keep helper referenced for capability-area lookups in future soft gaps

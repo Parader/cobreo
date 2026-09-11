@@ -3,33 +3,16 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
+import { CobreoButton } from "@/components/cobreo/cobreo-button";
 import { DiagnosticShell } from "@/components/cobreo/diagnostic/diagnostic-shell";
 import { IntroGate } from "@/components/cobreo/diagnostic/intro-gate";
 import { ResumeGate } from "@/components/cobreo/diagnostic/resume-gate";
-import {
-    CompanyScreen,
-    DeclaredAmbitionsScreen,
-} from "@/components/cobreo/diagnostic/v7/company-ambition-screens";
-import {
-    AreaScanScreen,
-    OptionalNotesScreen,
-    ToolsFitScreen,
-} from "@/components/cobreo/diagnostic/v7/coverage-screens";
-import {
-    ChooseTopicsScreen,
-    SimplificationScreen,
-} from "@/components/cobreo/diagnostic/v7/priority-screens";
+import { CompanyScreen, DeclaredAmbitionsScreen } from "@/components/cobreo/diagnostic/v7/company-ambition-screens";
+import { AreaScanScreen, OptionalNotesScreen, ToolsFitScreen } from "@/components/cobreo/diagnostic/v7/coverage-screens";
+import { ChooseTopicsScreen, SimplificationScreen } from "@/components/cobreo/diagnostic/v7/priority-screens";
 import { ResultScreenV7 } from "@/components/cobreo/diagnostic/v7/result-screen";
-import { CobreoButton } from "@/components/cobreo/cobreo-button";
 import { easeLuxury } from "@/components/cobreo/motion";
 import { getProgressStages } from "@/content/diagnostic/v7/catalog";
-import { resolveCapabilities } from "@/lib/diagnostic/v7/coverage";
-import { areasFromAmbitions } from "@/lib/diagnostic/v7/ambition-areas";
-import { buildPossibilityCandidates } from "@/lib/diagnostic/v7/possibilities";
-import {
-    buildTopicCandidates,
-    resolvePossibilitiesFromTopics,
-} from "@/lib/diagnostic/v7/topics";
 import type {
     AmbitionsState,
     AreaAnswerValue,
@@ -46,16 +29,20 @@ import type {
 } from "@/content/diagnostic/v7/types";
 import { AnalyticsEvents } from "@/lib/analytics/events";
 import { trackEvent } from "@/lib/analytics/posthog";
+import { areasFromAmbitions } from "@/lib/diagnostic/v7/ambition-areas";
+import { resolveCapabilities } from "@/lib/diagnostic/v7/coverage";
 import {
+    type DiagnosticV7Draft,
     clearDiagnosticDraft,
     emptyDraft,
     hasDiagnosticProgress,
     loadDiagnosticDraft,
     saveDiagnosticDraft,
-    type DiagnosticV7Draft,
 } from "@/lib/diagnostic/v7/persistence";
-import { buildFlowSteps, progressStageForStep, stepKey } from "@/lib/diagnostic/v7/sequence";
+import { buildPossibilityCandidates } from "@/lib/diagnostic/v7/possibilities";
 import { generateDiagnosticResult, summarizeResult } from "@/lib/diagnostic/v7/scoring";
+import { buildFlowSteps, progressStageForStep, stepKey } from "@/lib/diagnostic/v7/sequence";
+import { buildTopicCandidates, resolvePossibilitiesFromTopics } from "@/lib/diagnostic/v7/topics";
 
 function resetScroll() {
     if (typeof window === "undefined") return;
@@ -167,14 +154,13 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
             buildTopicCandidates({
                 companyContext,
                 candidates: possibilityCandidates,
+                locale,
             }),
-        [companyContext, possibilityCandidates],
+        [companyContext, possibilityCandidates, locale],
     );
 
     const currentStep = steps[Math.min(stepIndex, Math.max(0, steps.length - 1))];
-    const progressStage = progressStageForStep(
-        phase === "result" || phase === "done" ? "result" : (currentStep?.type ?? "company"),
-    );
+    const progressStage = progressStageForStep(phase === "result" || phase === "done" ? "result" : (currentStep?.type ?? "company"));
 
     useEffect(() => {
         if (!hydrated || phase === "resume" || phase === "intro") return;
@@ -230,13 +216,7 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
     }, [hydrated, phase, stepIndex]);
 
     useEffect(() => {
-        if (
-            !hydrated ||
-            phase === "resume" ||
-            phase === "intro" ||
-            phase === "result" ||
-            phase === "done"
-        ) {
+        if (!hydrated || phase === "resume" || phase === "intro" || phase === "result" || phase === "done") {
             return;
         }
         if (!currentStep) return;
@@ -244,12 +224,7 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
             locale,
             step_type: currentStep.type,
             step_index: stepIndex,
-            question_id:
-                "questionId" in currentStep
-                    ? String(currentStep.questionId)
-                    : "areaId" in currentStep
-                      ? String(currentStep.areaId)
-                      : undefined,
+            question_id: "questionId" in currentStep ? String(currentStep.questionId) : "areaId" in currentStep ? String(currentStep.areaId) : undefined,
         });
     }, [hydrated, phase, stepIndex, currentStep, locale]);
 
@@ -356,9 +331,7 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
         });
 
         const current = steps[stepIndex] as FlowStep | undefined;
-        const currentPos = current
-            ? nextSteps.findIndex((s) => stepKey(s) === stepKey(current))
-            : stepIndex;
+        const currentPos = current ? nextSteps.findIndex((s) => stepKey(s) === stepKey(current)) : stepIndex;
         const nextIndex = (currentPos >= 0 ? currentPos : stepIndex) + 1;
 
         if (nextIndex >= nextSteps.length) {
@@ -453,9 +426,7 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
         return (
             <DiagnosticShell progressStage="results" stages={getProgressStages(locale)}>
                 <div className="mx-auto flex max-w-xl flex-col gap-6 py-8">
-                    <h2 className="font-display text-[28px] font-normal tracking-[-0.02em] text-[#171717] md:text-[36px]">
-                        {t("doneTitle")}
-                    </h2>
+                    <h2 className="font-display text-[28px] font-normal tracking-[-0.02em] text-[#171717] md:text-[36px]">{t("doneTitle")}</h2>
                     <p className="text-base leading-relaxed text-[#525252] md:text-lg">{t("doneBody")}</p>
                     <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                         <CobreoButton href="/" variant="primary" size="lg">
@@ -554,22 +525,14 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
                     <AreaScanScreen
                         areaId={currentStep.areaId}
                         value={areaAnswers[currentStep.areaId] || []}
-                        onChange={(next) =>
-                            setAreaAnswers((prev) => ({ ...prev, [currentStep.areaId]: next }))
-                        }
+                        onChange={(next) => setAreaAnswers((prev) => ({ ...prev, [currentStep.areaId]: next }))}
                         onContinue={() => advance()}
                         companyContext={companyContext}
                         declaredAmbitions={ambitions.declared}
                     />
                 );
             case "simplification":
-                return (
-                    <SimplificationScreen
-                        value={automationInterest}
-                        onChange={setAutomationInterest}
-                        onContinue={() => advance({ automationInterest })}
-                    />
-                );
+                return <SimplificationScreen value={automationInterest} onChange={setAutomationInterest} onContinue={() => advance({ automationInterest })} />;
             case "choose_topics":
                 return (
                     <ChooseTopicsScreen
@@ -577,22 +540,12 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
                         value={selectedTopics}
                         onChange={setSelectedTopics}
                         onContinue={() => {
-                            const derivedPossibilities = resolvePossibilitiesFromTopics(
-                                selectedTopics,
-                                possibilityCandidates,
-                            );
+                            const derivedPossibilities = resolvePossibilitiesFromTopics(selectedTopics, possibilityCandidates);
                             setSelectedPossibilities(derivedPossibilities);
                             const derived: Array<AreaId | "none_priority"> =
-                                derivedPossibilities.includes("none_selected") ||
-                                selectedTopics.includes("none_selected")
+                                derivedPossibilities.includes("none_selected") || selectedTopics.includes("none_selected")
                                     ? ["none_priority"]
-                                    : Array.from(
-                                          new Set(
-                                              topicCandidates
-                                                  .filter((c) => selectedTopics.includes(c.id))
-                                                  .flatMap((c) => c.sourceSections),
-                                          ),
-                                      );
+                                    : Array.from(new Set(topicCandidates.filter((c) => selectedTopics.includes(c.id)).flatMap((c) => c.sourceSections)));
                             setPrioritySections(derived);
                             advance({
                                 selectedTopics,
@@ -624,12 +577,7 @@ function DiagnosticFlowSession({ onRestartSession }: { onRestartSession: () => v
     })();
 
     return (
-        <DiagnosticShell
-            progressStage={progressStage}
-            stages={getProgressStages(locale)}
-            onBack={goBack}
-            backLabel={t("back")}
-        >
+        <DiagnosticShell progressStage={progressStage} stages={getProgressStages(locale)} onBack={goBack} backLabel={t("back")}>
             <AnimatePresence mode="wait">
                 <motion.div
                     key={stepKey(currentStep)}

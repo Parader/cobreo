@@ -74,6 +74,12 @@ export function runDiagnosticV7Selftests() {
             finance!.services.every((s) => !/^[a-z_]+$/.test(s.label) || s.label.includes(" ")),
             "service labels are human-readable",
         );
+        assert(sections[0]?.priorityBand === "start_here", "top card is start_here");
+        assert(Boolean(sections[0]?.priorityWhy?.trim()), "priority why is concrete");
+        assert(
+            /fondation|confirm|friction|gain|effort|ambition|besoin|quick|ops|automat/i.test(sections[0]!.priorityWhy!),
+            "priority why mentions a real ranking factor",
+        );
     }
 
     {
