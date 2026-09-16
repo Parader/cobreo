@@ -15,6 +15,7 @@ import {
 } from "@/components/cobreo/admin-booking-settings";
 import { AdminAnalytics } from "@/components/cobreo/admin-analytics";
 import { AdminCreateLead } from "@/components/cobreo/admin-create-lead";
+import { AdminEditLead } from "@/components/cobreo/admin-edit-lead";
 import { AdminLeadCrm, type CrmActivity, type CrmAppointment, type CrmNextStep, type CrmPerson } from "@/components/cobreo/admin-lead-crm";
 import type {
     CrmFunnelStats,
@@ -35,6 +36,7 @@ import {
 import { cx } from "@/utils/cx";
 
 type Contact = {
+    id?: string;
     full_name: string | null;
     email: string | null;
     company_name: string | null;
@@ -69,6 +71,7 @@ type BookingRow = {
 
 type LeadRow = {
     id: string;
+    contact_id?: string;
     title: string | null;
     source: string;
     status: string;
@@ -118,6 +121,7 @@ export function AdminDashboard({
     const locale = useLocale();
     const [tab, setTab] = useState<"leads" | "booking" | "analytics">("leads");
     const [openId, setOpenId] = useState<string | null>(null);
+    const [editingId, setEditingId] = useState<string | null>(null);
     const [pending, startTransition] = useTransition();
     const [actionError, setActionError] = useState<string | null>(null);
 
@@ -361,9 +365,26 @@ export function AdminDashboard({
                                                     <Button
                                                         color="secondary"
                                                         size="sm"
-                                                        onClick={() => setOpenId(open ? null : lead.id)}
+                                                        onClick={() => {
+                                                            if (open) {
+                                                                setOpenId(null);
+                                                                setEditingId(null);
+                                                            } else {
+                                                                setOpenId(lead.id);
+                                                            }
+                                                        }}
                                                     >
                                                         {open ? t("hideDetail") : t("viewDetail")}
+                                                    </Button>
+                                                    <Button
+                                                        color="secondary"
+                                                        size="sm"
+                                                        onClick={() => {
+                                                            setOpenId(lead.id);
+                                                            setEditingId(lead.id);
+                                                        }}
+                                                    >
+                                                        {t("crmEdit")}
                                                     </Button>
                                                     <Button
                                                         color="primary-destructive"
@@ -380,6 +401,21 @@ export function AdminDashboard({
                                         {open ? (
                                             <tr className="border-t border-secondary bg-secondary/25">
                                                 <td colSpan={7} className="px-4 py-5">
+                                                    {editingId === lead.id && (lead.contact_id || c?.id) ? (
+                                                        <AdminEditLead
+                                                            leadId={lead.id}
+                                                            contactId={(lead.contact_id || c?.id)!}
+                                                            initial={{
+                                                                title: lead.title || "",
+                                                                notes: lead.notes || "",
+                                                                companyName: c?.company_name || "",
+                                                                personName: c?.full_name || "",
+                                                                phone: c?.phone || "",
+                                                                email: c?.email || "",
+                                                            }}
+                                                            onDone={() => setEditingId(null)}
+                                                        />
+                                                    ) : null}
                                                     {isDiagnostic && diag ? (
                                                         <div className="flex max-w-4xl flex-col gap-6">
                                                             {booking ? (

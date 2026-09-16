@@ -16,6 +16,7 @@ import {
     deleteLeadPerson,
     updateLeadAppointmentStatus,
     updateLeadNextStepStatus,
+    updateLeadPerson,
 } from "@/app/actions/crm";
 
 export type CrmPerson = {
@@ -138,10 +139,27 @@ export function AdminLeadCrm({
     }
 
     // People form
+    const [editingPersonId, setEditingPersonId] = useState<string | null>(null);
     const [personNameInput, setPersonNameInput] = useState("");
     const [personRole, setPersonRole] = useState("");
     const [personPhone, setPersonPhone] = useState("");
     const [personEmail, setPersonEmail] = useState("");
+
+    function resetPersonForm() {
+        setEditingPersonId(null);
+        setPersonNameInput("");
+        setPersonRole("");
+        setPersonPhone("");
+        setPersonEmail("");
+    }
+
+    function startEditPerson(person: CrmPerson) {
+        setEditingPersonId(person.id);
+        setPersonNameInput(person.full_name);
+        setPersonRole(person.role || "");
+        setPersonPhone(person.phone || "");
+        setPersonEmail(person.email || "");
+    }
 
     // Activity form
     const [activityKind, setActivityKind] = useState<string>("call");
@@ -211,14 +229,24 @@ export function AdminLeadCrm({
                                         {[person.role, person.phone, person.email].filter(Boolean).join(" · ") || "—"}
                                     </div>
                                 </div>
-                                <Button
-                                    color="link-destructive"
-                                    size="sm"
-                                    isDisabled={pending}
-                                    onClick={() => run(() => deleteLeadPerson(person.id))}
-                                >
-                                    {t("delete")}
-                                </Button>
+                                <div className="flex flex-wrap gap-2">
+                                    <Button
+                                        color="link-color"
+                                        size="sm"
+                                        isDisabled={pending}
+                                        onClick={() => startEditPerson(person)}
+                                    >
+                                        {t("crmEdit")}
+                                    </Button>
+                                    <Button
+                                        color="link-destructive"
+                                        size="sm"
+                                        isDisabled={pending}
+                                        onClick={() => run(() => deleteLeadPerson(person.id))}
+                                    >
+                                        {t("delete")}
+                                    </Button>
+                                </div>
                             </li>
                         ))}
                     </ul>
@@ -254,26 +282,35 @@ export function AdminLeadCrm({
                         isDisabled={pending || !personNameInput.trim()}
                         onClick={() =>
                             run(async () => {
-                                const result = await addLeadPerson({
-                                    leadId,
-                                    fullName: personNameInput,
-                                    role: personRole,
-                                    phone: personPhone,
-                                    email: personEmail,
-                                    isPrimary: people.length === 0,
-                                });
-                                if (result.ok) {
-                                    setPersonNameInput("");
-                                    setPersonRole("");
-                                    setPersonPhone("");
-                                    setPersonEmail("");
-                                }
+                                const result = editingPersonId
+                                    ? await updateLeadPerson({
+                                          personId: editingPersonId,
+                                          leadId,
+                                          fullName: personNameInput,
+                                          role: personRole,
+                                          phone: personPhone,
+                                          email: personEmail,
+                                      })
+                                    : await addLeadPerson({
+                                          leadId,
+                                          fullName: personNameInput,
+                                          role: personRole,
+                                          phone: personPhone,
+                                          email: personEmail,
+                                          isPrimary: people.length === 0,
+                                      });
+                                if (result.ok) resetPersonForm();
                                 return result;
                             })
                         }
                     >
-                        {t("crmAddPerson")}
+                        {editingPersonId ? t("crmSaveEdits") : t("crmAddPerson")}
                     </Button>
+                    {editingPersonId ? (
+                        <Button color="tertiary" size="sm" onClick={resetPersonForm}>
+                            {t("crmCancel")}
+                        </Button>
+                    ) : null}
                 </div>
             </section>
 

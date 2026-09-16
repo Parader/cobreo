@@ -181,6 +181,134 @@ export async function updateLeadNotes(leadId: string, notes: string) {
     return { ok: true as const };
 }
 
+export type UpdateLeadDetailsInput = {
+    leadId: string;
+    contactId: string;
+    title?: string;
+    notes?: string;
+    companyName?: string;
+    personName?: string;
+    phone?: string;
+    email?: string;
+};
+
+export async function updateLeadDetails(input: UpdateLeadDetailsInput) {
+    const auth = await requireAdmin();
+    if (!auth.ok || !auth.supabase) return { ok: false as const, error: "unauthorized" as const };
+
+    const companyName = clean(input.companyName);
+    const personName = clean(input.personName);
+    const phone = clean(input.phone);
+    const email = clean(input.email)?.toLowerCase() ?? null;
+    const title = clean(input.title);
+    const notes = clean(input.notes);
+
+    if (!companyName || !personName) {
+        return { ok: false as const, error: "invalid" as const };
+    }
+    if (!phone && !email) {
+        return { ok: false as const, error: "need_contact" as const };
+    }
+
+    const now = new Date().toISOString();
+
+    const { error: contactError } = await auth.supabase
+        .from("contacts")
+        .update({
+            full_name: personName,
+            company_name: companyName,
+            phone,
+            email,
+            updated_at: now,
+        })
+        .eq("id", input.contactId);
+
+    if (contactError) {
+        console.error("[updateLeadDetails] contact", contactError);
+        return { ok: false as const, error: "server" as const };
+    }
+
+    const { error: leadError } = await auth.supabase
+        .from("leads")
+        .update({
+            title: title || `${companyName} — prospection`,
+            notes,
+            updated_at: now,
+        })
+        .eq("id", input.leadId);
+
+    if (leadError) {
+        console.error("[updateLeadDetails] lead", leadError);
+        return { ok: false as const, error: "server" as const };
+    }
+
+    // Keep primary CRM person in sync when present
+    const { data: primary } = await auth.supabase
+        .from("lead_people")
+        .select("id")
+        .eq("lead_id", input.leadId)
+        .eq("is_primary", true)
+        .maybeSingle();
+
+    if (primary?.id) {
+        await auth.supabase
+            .from("lead_people")
+            .update({
+                full_name: personName,
+                email,
+                phone,
+                updated_at: now,
+            })
+            .eq("id", primary.id);
+    }
+
+    return { ok: true as const };
+}
+
+export async function updateLeadPerson(input: {
+    personId: string;
+    fullName: string;
+    role?: string;
+    email?: string;
+    phone?: string;
+    isPrimary?: boolean;
+    leadId?: string;
+}) {
+    const auth = await requireAdmin();
+    if (!auth.ok || !auth.supabase) return { ok: false as const, error: "unauthorized" as const };
+
+    const fullName = clean(input.fullName);
+    if (!fullName) return { ok: false as const, error: "invalid" as const };
+
+    if (input.isPrimary && input.leadId) {
+        await auth.supabase.from("lead_people").update({ is_primary: false }).eq("lead_id", input.leadId);
+    }
+
+    const patch: {
+        full_name: string;
+        role: string | null;
+        email: string | null;
+        phone: string | null;
+        updated_at: string;
+        is_primary?: boolean;
+    } = {
+        full_name: fullName,
+        role: clean(input.role),
+        email: clean(input.email)?.toLowerCase() ?? null,
+        phone: clean(input.phone),
+        updated_at: new Date().toISOString(),
+    };
+    if (input.isPrimary !== undefined) patch.is_primary = Boolean(input.isPrimary);
+
+    const { error } = await auth.supabase.from("lead_people").update(patch).eq("id", input.personId);
+
+    if (error) {
+        console.error("[updateLeadPerson]", error);
+        return { ok: false as const, error: "server" as const };
+    }
+    return { ok: true as const };
+}
+
 export async function addLeadPerson(input: {
     leadId: string;
     fullName: string;
