@@ -50,10 +50,10 @@ export default async function AdminHomePage({ params }: { params: Promise<{ loca
         supabase
             .from("leads")
             .select(
-                "id, title, source, status, created_at, contacts(full_name, email, company_name, phone), diagnostic_submissions(id, summary, answers, locale, created_at), contact_submissions(id, message, locale, created_at), bookings(id, starts_at, ends_at, timezone, status, declared_ambitions, selected_sections, suggested_services)",
+                "id, title, source, status, notes, created_at, contacts(full_name, email, company_name, phone), diagnostic_submissions(id, summary, answers, locale, created_at), contact_submissions(id, message, locale, created_at), bookings(id, starts_at, ends_at, timezone, status, declared_ambitions, selected_sections, suggested_services), lead_people(id, full_name, role, email, phone, is_primary), lead_activities(id, kind, summary, details, occurred_at, person_id), lead_next_steps(id, title, due_at, status, notes, person_id), lead_appointments(id, title, starts_at, ends_at, location_or_link, status, notes, person_id)",
             )
             .order("created_at", { ascending: false })
-            .limit(50),
+            .limit(100),
         db
             .from("booking_availability_rules")
             .select(

@@ -14,6 +14,8 @@ import {
     type AdminUpcomingBooking,
 } from "@/components/cobreo/admin-booking-settings";
 import { AdminAnalytics } from "@/components/cobreo/admin-analytics";
+import { AdminCreateLead } from "@/components/cobreo/admin-create-lead";
+import { AdminLeadCrm, type CrmActivity, type CrmAppointment, type CrmNextStep, type CrmPerson } from "@/components/cobreo/admin-lead-crm";
 import type {
     CrmFunnelStats,
     OrphanContact,
@@ -71,10 +73,15 @@ type LeadRow = {
     source: string;
     status: string;
     created_at: string;
+    notes?: string | null;
     contacts: Contact | Contact[] | null;
     diagnostic_submissions?: DiagnosticSubmission[] | null;
     contact_submissions?: ContactSubmission[] | null;
     bookings?: BookingRow[] | BookingRow | null;
+    lead_people?: CrmPerson[] | CrmPerson | null;
+    lead_activities?: CrmActivity[] | CrmActivity | null;
+    lead_next_steps?: CrmNextStep[] | CrmNextStep | null;
+    lead_appointments?: CrmAppointment[] | CrmAppointment | null;
 };
 
 const STATUSES = ["new", "in_progress", "won", "archived"] as const;
@@ -258,6 +265,8 @@ export function AdminDashboard({
             ) : (
                 <>
             {actionError ? <p className="text-sm text-error-primary">{actionError}</p> : null}
+
+            <AdminCreateLead onCreated={(leadId) => setOpenId(leadId)} />
 
             {leads.length === 0 ? (
                 <p className="text-tertiary">{t("empty")}</p>
@@ -570,9 +579,23 @@ export function AdminDashboard({
                                                                 {contactSub.message}
                                                             </p>
                                                         </div>
+                                                    ) : lead.notes ? (
+                                                        <div className="space-y-2">
+                                                            <h3 className="text-sm font-semibold text-primary">{t("crmNotes")}</h3>
+                                                            <p className="whitespace-pre-wrap text-secondary">{lead.notes}</p>
+                                                        </div>
                                                     ) : (
-                                                        <p className="text-tertiary">{t("noDetail")}</p>
+                                                        <p className="text-tertiary">{t("crmNoInboundDetail")}</p>
                                                     )}
+
+                                                    <AdminLeadCrm
+                                                        leadId={lead.id}
+                                                        contact={c}
+                                                        people={lead.lead_people}
+                                                        activities={lead.lead_activities}
+                                                        nextSteps={lead.lead_next_steps}
+                                                        appointments={lead.lead_appointments}
+                                                    />
                                                 </td>
                                             </tr>
                                         ) : null}
