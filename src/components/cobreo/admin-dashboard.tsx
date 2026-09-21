@@ -14,6 +14,7 @@ import {
     type AdminUpcomingBooking,
 } from "@/components/cobreo/admin-booking-settings";
 import { AdminAnalytics } from "@/components/cobreo/admin-analytics";
+import { AdminChangePassword } from "@/components/cobreo/admin-change-password";
 import { AdminCreateLead } from "@/components/cobreo/admin-create-lead";
 import { AdminEditLead } from "@/components/cobreo/admin-edit-lead";
 import { AdminLeadCrm, type CrmActivity, type CrmAppointment, type CrmNextStep, type CrmPerson } from "@/components/cobreo/admin-lead-crm";
@@ -250,9 +251,12 @@ export function AdminDashboard({
                         </Button>
                     </div>
                 </div>
-                <Button color="secondary" size="md" onClick={logout}>
-                    {t("logout")}
-                </Button>
+                <div className="flex flex-wrap items-center gap-2">
+                    <AdminChangePassword />
+                    <Button color="secondary" size="md" onClick={logout}>
+                        {t("logout")}
+                    </Button>
+                </div>
             </div>
 
             {tab === "booking" ? (
