@@ -4,6 +4,7 @@ import { Resend } from "resend";
 import { contactSchema, diagnosticSchema } from "@/lib/validators";
 import { createServiceClient } from "@/lib/supabase/admin";
 import { ensureServerEnv } from "@/lib/server-env";
+import { syncLeadToTwenty } from "@/lib/twenty/sync-lead";
 
 function isHoneypotFilled(website?: string) {
     return Boolean(website && website.length > 0);
@@ -110,6 +111,23 @@ export async function submitContact(formData: FormData) {
             `[Cobreo] Nouveau contact — ${parsed.data.name}`,
             `Nom: ${parsed.data.name}\nEmail: ${parsed.data.email}\nEntreprise: ${parsed.data.company}\n\n${parsed.data.message}`,
         );
+
+        await syncLeadToTwenty({
+            cobreoLeadId: lead.id,
+            title: `Contact — ${parsed.data.name}`,
+            status: "new",
+            source: "contact_form",
+            companyName: parsed.data.company || null,
+            people: [
+                {
+                    fullName: parsed.data.name,
+                    email: parsed.data.email,
+                    phone: parsed.data.phone || null,
+                },
+            ],
+            notes: [{ title: "Message", body: parsed.data.message }],
+            tasks: [],
+        });
 
         return { ok: true as const };
     } catch (error) {
@@ -229,6 +247,17 @@ export async function submitDiagnostic(formData: FormData) {
                     : "—"
             }`,
         );
+
+        await syncLeadToTwenty({
+            cobreoLeadId: lead.id,
+            title: `Diagnostic — ${fullName} · ${titleCompany}`,
+            status: "new",
+            source: "diagnostic",
+            companyName: company,
+            people: [{ fullName, email, phone }],
+            notes: summary ? [{ title: "Résumé", body: summary }] : [],
+            tasks: [],
+        });
 
         return { ok: true as const };
     } catch (error) {

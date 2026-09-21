@@ -18,6 +18,7 @@ import {
     looksLikePhone,
 } from "@/lib/booking/email-copy";
 import { ensureServerEnv } from "@/lib/server-env";
+import { syncLeadToTwenty } from "@/lib/twenty/sync-lead";
 
 const HOLD_MINUTES = 5;
 
@@ -534,6 +535,26 @@ export async function confirmBooking(
         if (issues.length) {
             console.warn("[confirmBooking] email issues", { bookingId: booking.id, issues });
         }
+
+        await syncLeadToTwenty({
+            cobreoLeadId: lead.id,
+            title: `Appel découverte — ${slotLabel} · ${name}`,
+            status: "new",
+            source: "diagnostic_booking",
+            companyName: company,
+            people: [{ fullName: name, email, phone }],
+            notes: [
+                input.summary ? { title: "Résumé", body: input.summary } : null,
+                { title: "Rendez-vous", body: eventDescription },
+            ].filter((note): note is { title: string; body: string } => Boolean(note)),
+            tasks: [
+                {
+                    title: `Appel découverte — ${name}`,
+                    dueAt: starts.toISOString(),
+                    body: [slotLabel, meetLink].filter(Boolean).join("\n"),
+                },
+            ],
+        });
 
         return {
             ok: true,

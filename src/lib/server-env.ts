@@ -14,6 +14,10 @@ export function ensureServerEnv(keys: string[] = [
     "CONTACT_NOTIFY_EMAIL",
     "BOOKING_ORGANIZER_EMAIL",
     "BOOKING_MEET_LINK",
+    "TWENTY_API_URL",
+    "TWENTY_API_KEY",
+    "TWENTY_CF_ACCESS_CLIENT_ID",
+    "TWENTY_CF_ACCESS_CLIENT_SECRET",
 ]) {
     const missing = keys.some((key) => !process.env[key]?.trim());
     if (loaded && !missing) return;

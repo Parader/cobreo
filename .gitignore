@@ -34,6 +34,9 @@ yarn-error.log*
 .env.local
 .env.*.local
 
+# Cursor MCP config holds the Twenty API key
+.cursor/mcp.json
+
 # vercel
 .vercel
 
