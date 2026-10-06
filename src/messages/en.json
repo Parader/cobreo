@@ -279,7 +279,7 @@
                 },
                 {
                     "title": "7. Connected mailbox",
-                    "body": "The Cobreo application (app.cobreo.ca) is separate from the cobreo.ca website. A client organization may connect its own Gmail mailbox. The same principle will apply to another mailbox it connects, such as Outlook.\n\nCobreo requests read-only access. With Gmail, the permissions are openid, the account email address, and https://www.googleapis.com/auth/gmail.readonly. Cobreo does not request permission to send, modify, label, or delete messages.\n\nCobreo reads the mailbox to display, on the record of a person already registered in that organization, a message in which a participant — other than the mailbox itself — has exactly that person’s email address. The record shows the date, the participants, the subject, and the text. A message that matches no one is not copied into Cobreo and remains in the mailbox.\n\nThis data is used only for that function, which is visible in the application. Cobreo does not sell it, does not use it for advertising, and does not disclose it to third parties, except to the providers that host the application, for security, or if the law requires it.\n\nUse of data obtained through Google APIs complies with the Google API Services User Data Policy, including the Limited Use requirements. Cobreo staff do not read these messages, except if the organization asks for help, if security requires it, or if the law requires it.\n\nDisconnecting the mailbox stops further reads. Messages already placed on a record remain that organization’s data. A request for access, correction, or deletion is made to contact@cobreo.ca.\n\nApplication data is hosted in Canada (Montreal region)."
+                    "body": "The Cobreo application (app.cobreo.ca) is separate from the cobreo.ca website. A client organization may connect one or more of its own mailboxes, Gmail or Outlook.\n\nCobreo requests read access and send access. With Gmail, the permissions are openid, the account email address, https://www.googleapis.com/auth/gmail.readonly, and https://www.googleapis.com/auth/gmail.send. With Outlook, the permissions are Mail.Read and Mail.Send. Cobreo does not request permission to modify, label, or delete messages.\n\nCobreo reads each mailbox to display, on the record of a person already registered in that organization, a message in which a participant — other than one of those mailboxes — has exactly that person’s email address. The record shows the date, the participants, the subject, and the text. A message that matches no one is not copied into Cobreo and remains in the mailbox.\n\nA person in the organization may reply from the record. When several mailboxes are connected, that person chooses the sending address. Cobreo sends only that text, from that address. Cobreo does not send a message on its own initiative.\n\nThis data is used only for these functions, which are visible in the application. Cobreo does not sell it, does not use it for advertising, and does not disclose it to third parties, except to the providers that host the application, for security, or if the law requires it.\n\nUse of data obtained through Google APIs complies with the Google API Services User Data Policy, including the Limited Use requirements. Cobreo staff do not read these messages, except if the organization asks for help, if security requires it, or if the law requires it.\n\nDisconnecting a mailbox stops further reads and further sends from that address. Messages already placed on a record remain that organization’s data. A request for access, correction, or deletion is made to contact@cobreo.ca.\n\nApplication data is hosted in Canada (Montreal region)."
                 },
                 {
                     "title": "8. Cookies",
@@ -293,8 +293,8 @@
         },
         "terms": {
             "title": "Terms of use",
-            "updated": "Last updated: August 12, 2026",
-            "intro": "By using cobreo.ca, you agree to these terms. If you do not agree, please do not use the site.",
+            "updated": "Last updated: October 6, 2026",
+            "intro": "By using cobreo.ca or the Cobreo application (app.cobreo.ca), you agree to these terms. If you do not agree, please do not use the site or the application.",
             "sections": [
                 {
                     "title": "1. Purpose of the site",
@@ -313,19 +313,23 @@
                     "body": "Information you send must be accurate. We may refuse or ignore abusive requests. An exchange through the site does not automatically create a service contract."
                 },
                 {
-                    "title": "5. Availability and liability",
+                    "title": "5. Application and mailboxes",
+                    "body": "The application lets an organization connect one or more of its mailboxes, Gmail or Outlook. The organization authorizes Cobreo to read those mailboxes and to send, from the address a person in the organization chooses, the reply that person writes. Cobreo does not send a message on its own initiative.\n\nThe organization remains responsible for the content sent and for the choice of address. Disconnecting a mailbox stops further reads and further sends from that address."
+                },
+                {
+                    "title": "6. Availability and liability",
                     "body": "We aim to keep the site available and accurate, without guaranteeing uninterrupted access or error-free content. To the extent permitted by law, Cobreo is not liable for indirect damages arising from use of the site."
                 },
                 {
-                    "title": "6. Third-party links",
+                    "title": "7. Third-party links",
                     "body": "The site may link to third-party websites. We do not control their content and are not responsible for them."
                 },
                 {
-                    "title": "7. Governing law",
+                    "title": "8. Governing law",
                     "body": "These terms are governed by the applicable laws of Quebec and Canada. Disputes will be submitted to the competent courts of Quebec, subject to any mandatory rights you may have."
                 },
                 {
-                    "title": "8. Contact",
+                    "title": "9. Contact",
                     "body": "Questions: contact@cobreo.ca"
                 }
             ]
