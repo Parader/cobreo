@@ -250,7 +250,7 @@
     "legal": {
         "privacy": {
             "title": "Privacy policy",
-            "updated": "Last updated: August 12, 2026",
+            "updated": "Last updated: October 6, 2026",
             "intro": "At Cobreo (cobreo.ca), we protect the personal information you share with us. This policy explains what we collect, why, and your rights under applicable Quebec and Canadian law, as well as GDPR principles where relevant.",
             "sections": [
                 {
@@ -278,11 +278,15 @@
                     "body": "Depending on applicable law, you may request access, correction, deletion, restriction, portability, or withdrawal of consent. To exercise your rights: contact@cobreo.ca.\n\nYou may also file a complaint with the Commission d’accès à l’information du Québec or another competent authority."
                 },
                 {
-                    "title": "7. Cookies",
+                    "title": "7. Connected mailbox",
+                    "body": "The Cobreo application (app.cobreo.ca) is separate from the cobreo.ca website. A client organization may connect its own Gmail mailbox. The same principle will apply to another mailbox it connects, such as Outlook.\n\nCobreo requests read-only access. With Gmail, the permissions are openid, the account email address, and https://www.googleapis.com/auth/gmail.readonly. Cobreo does not request permission to send, modify, label, or delete messages.\n\nCobreo reads the mailbox to display, on the record of a person already registered in that organization, a message in which a participant — other than the mailbox itself — has exactly that person’s email address. The record shows the date, the participants, the subject, and the text. A message that matches no one is not copied into Cobreo and remains in the mailbox.\n\nThis data is used only for that function, which is visible in the application. Cobreo does not sell it, does not use it for advertising, and does not disclose it to third parties, except to the providers that host the application, for security, or if the law requires it.\n\nUse of data obtained through Google APIs complies with the Google API Services User Data Policy, including the Limited Use requirements. Cobreo staff do not read these messages, except if the organization asks for help, if security requires it, or if the law requires it.\n\nDisconnecting the mailbox stops further reads. Messages already placed on a record remain that organization’s data. A request for access, correction, or deletion is made to contact@cobreo.ca.\n\nApplication data is hosted in Canada (Montreal region)."
+                },
+                {
+                    "title": "8. Cookies",
                     "body": "See our Cookie policy for categories and how to manage your choices."
                 },
                 {
-                    "title": "8. Changes",
+                    "title": "9. Changes",
                     "body": "We may update this policy. The date at the top shows the current version. For material changes, we will adjust the on-site notice as needed."
                 }
             ]

@@ -250,7 +250,7 @@
     "legal": {
         "privacy": {
             "title": "Politique de confidentialité",
-            "updated": "Dernière mise à jour : 12 août 2026",
+            "updated": "Dernière mise à jour : 6 octobre 2026",
             "intro": "Chez Cobreo (cobreo.ca), nous protégeons les renseignements personnels que vous nous confiez. Cette politique explique quelles données nous collectons, pourquoi, et quels sont vos droits en vertu du droit applicable au Québec et au Canada, ainsi que des principes du RGPD lorsque pertinent.",
             "sections": [
                 {
@@ -278,11 +278,15 @@
                     "body": "Selon la loi applicable, vous pouvez demander l’accès, la rectification, la suppression, la limitation, la portabilité ou le retrait de votre consentement. Pour exercer vos droits : contact@cobreo.ca.\n\nVous pouvez aussi déposer une plainte auprès de la Commission d’accès à l’information du Québec ou de l’autorité compétente."
                 },
                 {
-                    "title": "7. Cookies",
+                    "title": "7. Boîte de courriel connectée",
+                    "body": "L’application Cobreo (app.cobreo.ca) est distincte du site cobreo.ca. Une organisation cliente peut connecter sa propre boîte Gmail. Le même principe vaudra pour une autre boîte qu’elle connecte, comme Outlook.\n\nCobreo demande l’accès en lecture seule. Avec Gmail, les autorisations sont openid, l’adresse du compte, et https://www.googleapis.com/auth/gmail.readonly. Cobreo ne demande pas d’envoyer, de modifier, d’étiqueter ni de supprimer des messages.\n\nCobreo lit la boîte pour afficher, sur la fiche d’une personne déjà inscrite dans cette organisation, un message dont un participant — autre que la boîte elle-même — a exactement le courriel de cette personne. La fiche montre la date, les participants, le titre et le texte. Un message qui ne correspond à personne n’est pas copié dans Cobreo et reste dans la boîte.\n\nCes données servent uniquement à cette fonction, visible dans l’application. Cobreo ne les vend pas, ne les utilise pas pour la publicité, et ne les transmet pas à des tiers, sauf aux fournisseurs qui hébergent l’application, pour la sécurité, ou si la loi l’exige.\n\nL’usage des données obtenues par les API Google respecte la politique Google API Services User Data Policy, y compris les exigences Limited Use. Le personnel de Cobreo ne lit pas ces messages, sauf si l’organisation le demande pour obtenir de l’aide, si la sécurité l’exige, ou si la loi l’exige.\n\nDéconnecter la boîte arrête les lectures suivantes. Les messages déjà déposés sur une fiche restent les données de cette organisation. Une demande d’accès, de rectification ou de suppression se fait à contact@cobreo.ca.\n\nLes données de l’application sont hébergées au Canada (région Montréal)."
+                },
+                {
+                    "title": "8. Cookies",
                     "body": "Consultez notre Politique de cookies pour le détail des catégories et de vos choix."
                 },
                 {
-                    "title": "8. Modifications",
+                    "title": "9. Modifications",
                     "body": "Nous pouvons mettre à jour cette politique. La date en tête de page indique la version en vigueur. En cas de changement important, nous adapterons l’avis sur le site au besoin."
                 }
             ]
