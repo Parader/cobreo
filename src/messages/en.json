@@ -25,12 +25,12 @@
         "demoCta": "Request a demo",
         "diagnosticCta": "Start the analysis",
         "catalogTitle": "What you activate becomes the platform.",
-        "catalogBody": "The rest of the catalog stays out.",
-        "catalogLink": "Browse the catalog",
+        "catalogBody": "The others are not part of your platform.",
+        "catalogLink": "See the modules",
         "depthTitle": "Each module stays with its subject.",
         "depthBody": "The screens stay readable: a list, a record, a calendar, a set of responses. Nothing is added just to fill the page.",
         "customTitle": "Custom modules and plugins.",
-        "customBody": "A private build, or a published plugin, joins the same catalog.",
+        "customBody": "A private build, or a published plugin, sits with the modules already there.",
         "storeTitle": "A module store.",
         "storeBody": "A published module can be added by another organization.",
         "assistantTitle": "An assistant to configure and guide.",
@@ -44,7 +44,7 @@
         "quoteRole": "Director of development, M&H",
         "closeTitle": "See it against the way you work.",
         "closeBody": "A demo, or the analysis to choose where to start.",
-        "catalogEyebrow": "Catalog",
+        "catalogEyebrow": "Modules",
         "stageEyebrow": "Up close",
         "stageTitle": "The work, shown up close.",
         "stageBody": "Four ways in. The same standard for the rest.",
@@ -791,7 +791,7 @@
         "crmLabel": "CRM",
         "on": "On",
         "off": "Off",
-        "catalogLabel": "Catalog",
+        "catalogLabel": "Modules",
         "calendarLabel": "Booking",
         "days": [
             "Mon",
@@ -923,12 +923,12 @@
             {
                 "title": "Site follow-up",
                 "meta": "Private",
-                "status": "In the catalog"
+                "status": "Available"
             },
             {
                 "title": "Contributor portal",
                 "meta": "Published",
-                "status": "In the catalog"
+                "status": "Available"
             },
             {
                 "title": "Inspection grid",

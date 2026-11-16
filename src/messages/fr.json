@@ -25,12 +25,12 @@
         "demoCta": "Demander une démo",
         "diagnosticCta": "Commencer l’analyse",
         "catalogTitle": "Ce que vous activez devient la plateforme.",
-        "catalogBody": "Le reste du catalogue n’entre pas.",
-        "catalogLink": "Voir le catalogue",
+        "catalogBody": "Les autres ne font pas partie de votre plateforme.",
+        "catalogLink": "Voir les modules",
         "depthTitle": "Chaque module va au bout de son sujet.",
         "depthBody": "Les écrans restent lisibles : une liste, une fiche, un calendrier, des réponses. Rien n’y est ajouté pour faire nombre.",
         "customTitle": "Des modules et des plugins sur mesure.",
-        "customBody": "Un développement privé, ou un plugin publié, entre dans le même catalogue.",
+        "customBody": "Un développement privé, ou un plugin publié, s’ajoute aux modules déjà là.",
         "storeTitle": "Une boutique de modules.",
         "storeBody": "Un module publié peut être ajouté par une autre organisation.",
         "assistantTitle": "Un assistant pour configurer et guider.",
@@ -44,7 +44,7 @@
         "quoteRole": "Directeur de développement, M&H",
         "closeTitle": "À voir avec votre façon de travailler.",
         "closeBody": "Une démonstration, ou l’analyse pour choisir par où entrer.",
-        "catalogEyebrow": "Catalogue",
+        "catalogEyebrow": "Modules",
         "stageEyebrow": "Au plus près",
         "stageTitle": "Le travail, montré de près.",
         "stageBody": "Quatre portes d’entrée. La même exigence pour le reste.",
@@ -791,7 +791,7 @@
         "crmLabel": "CRM",
         "on": "Activé",
         "off": "Inactif",
-        "catalogLabel": "Catalogue",
+        "catalogLabel": "Modules",
         "calendarLabel": "Réservations",
         "days": [
             "Lun",
@@ -923,12 +923,12 @@
             {
                 "title": "Suivi de chantier",
                 "meta": "Privé",
-                "status": "Au catalogue"
+                "status": "Disponible"
             },
             {
                 "title": "Portail intervenant",
                 "meta": "Publié",
-                "status": "Au catalogue"
+                "status": "Disponible"
             },
             {
                 "title": "Grille d’inspection",
