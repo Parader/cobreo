@@ -24,8 +24,8 @@
         "heroSubtitle": "Composez votre plateforme à partir d’un catalogue de modules conçus pour votre réalité.",
         "demoCta": "Demander une démo",
         "diagnosticCta": "Commencer l’analyse",
-        "catalogTitle": "Activez seulement ce qui vous sert.",
-        "catalogBody": "Chaque module couvre un domaine. Votre plateforme réunit ceux qui correspondent à votre façon de travailler, et laisse les autres de côté.",
+        "catalogTitle": "Ce que vous activez devient la plateforme.",
+        "catalogBody": "Le reste du catalogue n’entre pas.",
         "catalogLink": "Voir le catalogue",
         "depthTitle": "Chaque module va au bout de son sujet.",
         "depthBody": "Les écrans restent lisibles : une liste, une fiche, un calendrier, des réponses. Rien n’y est ajouté pour faire nombre.",
@@ -36,14 +36,21 @@
         "assistantTitle": "Un assistant pour configurer et guider.",
         "assistantBody": "Il aide à mettre Cobreo en place et accompagne les personnes qui travaillent dans la plateforme.",
         "billingTitle": "Vous payez les modules que vous activez.",
-        "billingBody": "La facturation suit les modules activés. Ceux que vous n’activez pas ne font pas partie de votre plateforme.",
+        "billingBody": "Ce qui reste éteint ne fait pas partie de votre plateforme.",
         "trustTitle": "Hébergé au Canada.",
-        "trustBody": "Les données de l’application sont hébergées au Canada.",
+        "trustBody": "Les données de l’application restent au Canada.",
         "quote": "La rapidité d’exécution nous a particulièrement impressionnés. Nous avons pu voir et tester une première version très tôt, puis l’ajuster à partir des commentaires de notre équipe.",
         "quoteName": "Jérémie",
         "quoteRole": "Directeur de développement, M&H",
-        "closeTitle": "Voir la plateforme dans votre contexte.",
-        "closeBody": "La démonstration parcourt le catalogue. L’outil d’analyse sert à repérer un point de départ."
+        "closeTitle": "À voir avec votre façon de travailler.",
+        "closeBody": "Une démonstration, ou l’analyse pour choisir par où entrer.",
+        "catalogEyebrow": "Catalogue",
+        "stageEyebrow": "Au plus près",
+        "stageTitle": "Le travail, montré de près.",
+        "stageBody": "Quatre portes d’entrée. La même exigence pour le reste.",
+        "contrastEyebrow": "Au-delà",
+        "contrastTitle": "Le catalogue ne s’arrête pas là.",
+        "contrastBody": "Un module privé. Un plugin publié. Un assistant pour configurer et pour guider."
     },
     "footer": {
         "services": "Services",
@@ -1123,70 +1130,70 @@
         "metaTitle": "Modules · Cobreo",
         "metaDescription": "Le catalogue Cobreo : CRM, événements, satisfaction, réservations, et d’autres modules à activer selon votre façon de travailler.",
         "title": "Le catalogue.",
-        "body": "Ces modules forment le catalogue Cobreo. Vous pouvez n’en activer qu’un.",
+        "body": "Activez-en un, ou plusieurs. La plateforme se limite à ce choix.",
         "restTitle": "Également au catalogue.",
         "restBody": "Ils s’activent de la même manière, seuls ou avec d’autres modules.",
-        "extendTitle": "Au-delà du catalogue actuel.",
-        "extendBody": "Des modules sur mesure et des plugins, privés ou publiés, rejoignent la boutique. L’assistant aide à configurer Cobreo et guide les personnes qui l’utilisent.",
+        "extendTitle": "Et ce que vous ajoutez.",
+        "extendBody": "Des modules sur mesure et des plugins, privés ou publiés, rejoignent la boutique. L’assistant configure Cobreo et guide celles et ceux qui l’utilisent.",
         "items": [
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Tenir à jour les personnes, les organisations et les échanges.",
+                "summary": "Les personnes, les échanges, la suite.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Événements",
-                "summary": "Préparer un événement et suivre les inscriptions.",
+                "summary": "Une date, une salle, des présences.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Recueillir des réponses et les relire une à une.",
+                "summary": "Ce que les gens en retiennent.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Réservations",
-                "summary": "Tenir le calendrier des rendez-vous et des ressources.",
+                "summary": "Le temps, tenu au calendrier.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "summary": "Déclencher une action quand quelque chose change dans un module.",
+                "summary": "Une action, au moment où ça change.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "summary": "Publier des pages reliées à la plateforme.",
+                "summary": "Des pages reliées à la plateforme.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "summary": "Ouvrir un espace limité aux personnes concernées.",
+                "summary": "Un espace, pour ceux qui en ont besoin.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "RH",
-                "summary": "Suivre les dossiers d’équipe, les absences et les arrivées.",
+                "summary": "L’équipe, les absences, les arrivées.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finances",
-                "summary": "Suivre les factures, les paiements et les dépenses.",
+                "summary": "Factures, paiements, dépenses.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tâches",
-                "summary": "Répartir le travail, les responsables et les échéances.",
+                "summary": "Le travail, les responsables, les échéances.",
                 "scene": "records"
             }
         ]

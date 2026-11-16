@@ -24,8 +24,8 @@
         "heroSubtitle": "Compose your platform from a catalog of modules shaped to the way you operate.",
         "demoCta": "Request a demo",
         "diagnosticCta": "Start the analysis",
-        "catalogTitle": "Activate only what you need.",
-        "catalogBody": "Each module covers one area. Your platform brings together the ones that fit the way you work, and leaves the others out.",
+        "catalogTitle": "What you activate becomes the platform.",
+        "catalogBody": "The rest of the catalog stays out.",
         "catalogLink": "Browse the catalog",
         "depthTitle": "Each module stays with its subject.",
         "depthBody": "The screens stay readable: a list, a record, a calendar, a set of responses. Nothing is added just to fill the page.",
@@ -36,14 +36,21 @@
         "assistantTitle": "An assistant to configure and guide.",
         "assistantBody": "It helps set Cobreo up and stays with the people working in the platform.",
         "billingTitle": "You pay for the modules you activate.",
-        "billingBody": "Billing follows the modules that are on. What you leave off is not part of your platform.",
+        "billingBody": "What stays off is not part of your platform.",
         "trustTitle": "Hosted in Canada.",
-        "trustBody": "Application data is hosted in Canada.",
+        "trustBody": "Application data stays in Canada.",
         "quote": "The speed of execution particularly impressed us. We were able to see and test a first version very early, then adjust it from our team’s feedback.",
         "quoteName": "Jérémie",
         "quoteRole": "Director of development, M&H",
-        "closeTitle": "See the platform in your context.",
-        "closeBody": "A demo walks through the catalog. The analysis tool helps find a place to start."
+        "closeTitle": "See it against the way you work.",
+        "closeBody": "A demo, or the analysis to choose where to start.",
+        "catalogEyebrow": "Catalog",
+        "stageEyebrow": "Up close",
+        "stageTitle": "The work, shown up close.",
+        "stageBody": "Four ways in. The same standard for the rest.",
+        "contrastEyebrow": "Beyond",
+        "contrastTitle": "The catalog does not end here.",
+        "contrastBody": "A private module. A published plugin. An assistant to configure and to guide."
     },
     "footer": {
         "services": "Services",
@@ -1123,70 +1130,70 @@
         "metaTitle": "Modules · Cobreo",
         "metaDescription": "The Cobreo catalog: CRM, events, satisfaction, booking, and other modules you activate to match the way you work.",
         "title": "The catalog.",
-        "body": "These modules make up the Cobreo catalog. You can activate just one.",
+        "body": "Turn on one, or several. The platform stops at that choice.",
         "restTitle": "Also in the catalog.",
         "restBody": "They turn on the same way, on their own or alongside other modules.",
-        "extendTitle": "Beyond the current catalog.",
-        "extendBody": "Custom modules and plugins, private or published, join the store. The assistant helps configure Cobreo and guides the people using it.",
+        "extendTitle": "And what you add.",
+        "extendBody": "Custom modules and plugins, private or published, join the store. The assistant configures Cobreo and guides the people using it.",
         "items": [
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Keep people, organizations, and conversations up to date.",
+                "summary": "People, conversations, and what follows.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Events",
-                "summary": "Plan an event and track registrations.",
+                "summary": "A date, a room, a list of who is coming.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Collect responses and read them one by one.",
+                "summary": "What people actually remember.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Booking",
-                "summary": "Keep the calendar of appointments and resources.",
+                "summary": "Time, kept on the calendar.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automation",
-                "summary": "Start an action when something changes in a module.",
+                "summary": "An action, at the moment something changes.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "summary": "Publish pages connected to the platform.",
+                "summary": "Pages connected to the platform.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "User portals",
-                "summary": "Open a limited space for the people who need it.",
+                "summary": "A space, for the people who need it.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "HR",
-                "summary": "Keep team records, absences, and arrivals up to date.",
+                "summary": "The team, absences, and arrivals.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finance",
-                "summary": "Track invoices, payments, and expenses.",
+                "summary": "Invoices, payments, expenses.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tasks",
-                "summary": "Assign work, owners, and due dates.",
+                "summary": "The work, the owners, the dates.",
                 "scene": "records"
             }
         ]

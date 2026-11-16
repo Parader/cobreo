@@ -233,6 +233,15 @@ input[type="search"]::-webkit-search-cancel-button {
     }
 }
 
+.cobreo-swap-from {
+    animation: cobreo-status-out 420ms ease 1.7s forwards;
+}
+
+.cobreo-swap-to {
+    opacity: 0;
+    animation: cobreo-status-in 420ms ease 1.7s forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
     [data-enter][data-in="false"],
     [data-enter] [data-appear],
@@ -244,8 +253,16 @@ input[type="search"]::-webkit-search-cancel-button {
     }
 
     [data-status="from"],
-    .cobreo-live [data-status="from"] {
+    .cobreo-live [data-status="from"],
+    .cobreo-swap-from {
         display: none;
+    }
+
+    .cobreo-swap-to,
+    .cobreo-live [data-status="to"] {
+        opacity: 1;
+        animation: none;
+        transform: none;
     }
 
     [data-switch="pending"] {
@@ -255,10 +272,5 @@ input[type="search"]::-webkit-search-cancel-button {
     [data-switch="on"] .cobreo-knob,
     [data-switch="pending"] .cobreo-knob {
         transform: translateX(16px);
-    }
-
-    .cobreo-live [data-status="to"] {
-        animation: none;
-        opacity: 1;
     }
 }
