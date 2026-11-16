@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cobreo.ca";
 const locales = ["fr", "en"] as const;
-const paths = ["", "services", "a-propos", "contact", "diagnostic", "confidentialite", "conditions", "cookies"];
+const paths = ["", "modules", "a-propos", "contact", "diagnostic", "confidentialite", "conditions", "cookies"];
 
 /**
  * Bump when page content actually changes. A `lastmod` that moves on every build
  * tells Google nothing and gets discounted.
  */
-const lastModified = new Date("2026-08-31");
+const lastModified = new Date("2026-11-16");
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const entries: MetadataRoute.Sitemap = [];

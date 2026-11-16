@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { usePreferSimpleMotion } from "@/hooks/use-prefer-simple-motion";
-import { ArrowNarrowRight, MessageChatSquare } from "@untitledui/icons";
+import { ArrowNarrowRight } from "@untitledui/icons";
 import { Link } from "@/i18n/navigation";
-import { CobreoButton } from "@/components/cobreo/cobreo-button";
+import { DemoButton } from "@/components/cobreo/marketing/demo-button";
 import { DiagnosticEntryButton } from "@/components/cobreo/diagnostic/diagnostic-entry-button";
 import { DarkLogoMosaic } from "@/components/cobreo/dark-logo-mosaic";
 import {
@@ -207,7 +207,7 @@ export function AboutPage() {
                         </p>
                         <div className="mt-8">
                             <Link
-                                href="/services"
+                                href="/modules"
                                 className="group inline-flex items-center gap-2 text-base font-semibold text-[#4d6b97] transition-colors duration-100 ease-linear hover:text-[#253353] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]"
                             >
                                 {t("workLink")}
@@ -238,14 +238,9 @@ export function AboutPage() {
                             {t("ctaBody")}
                         </motion.p>
                         <motion.div variants={text} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                            <CobreoButton
-                                href="/contact"
-                                size="xl"
-                                iconLeading={<MessageChatSquare data-icon className="size-5" />}
-                                analytics={{ ctaId: "about_contact", destination: "contact", surface: "about_cta" }}
-                            >
+                            <DemoButton ctaId="about_demo" surface="about_cta" iconLeading={<ArrowNarrowRight data-icon className="size-5" />}>
                                 {t("ctaContact")}
-                            </CobreoButton>
+                            </DemoButton>
                             <DiagnosticEntryButton
                                 variant="ghost"
                                 size="xl"

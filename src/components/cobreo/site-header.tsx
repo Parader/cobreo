@@ -7,7 +7,8 @@ import { FileCheck02, Menu01, XClose } from "@untitledui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { getAdminSlug } from "@/lib/admin-path";
-import { DiagnosticEntryButton } from "@/components/cobreo/diagnostic/diagnostic-entry-button";
+import { APP_URL } from "@/lib/marketing";
+import { DemoButton } from "@/components/cobreo/marketing/demo-button";
 import { getDiagnosticStatus, type DiagnosticStatus } from "@/lib/diagnostic/v7/persistence";
 import { AnalyticsEvents } from "@/lib/analytics/events";
 import { trackEvent } from "@/lib/analytics/posthog";
@@ -109,7 +110,7 @@ export function SiteHeader() {
     const effectivelyHidden = hidden && !headerFocused && !menuOpen;
 
     const links = [
-        { href: "/services" as const, label: t("services") },
+        { href: "/modules" as const, label: t("modules") },
         { href: "/a-propos" as const, label: t("about") },
         { href: "/contact" as const, label: t("contact") },
     ];
@@ -150,7 +151,7 @@ export function SiteHeader() {
                     >
                         <Image src="/images/cobreologo.svg" alt="Cobreo" fill className="object-contain object-left" priority />
                     </Link>
-                    <nav className="hidden items-center gap-3 lg:gap-4 md:flex" aria-label={t("primaryNav")}>
+                    <nav className="hidden items-center gap-3 lg:flex lg:gap-4" aria-label={t("primaryNav")}>
                         {links.map((link) => {
                             const active = isNavActive(pathname, link.href);
                             return (
@@ -184,21 +185,29 @@ export function SiteHeader() {
                     >
                         {t("lang")}
                     </Link>
-                    <div className="hidden sm:block">
-                        <DiagnosticEntryButton
-                            variant="ghost"
-                            size="md"
-                            surface="header"
-                            ctaId="header_diagnostic"
-                            idleLabel={t("diagnostic")}
-                            iconLeading={<FileCheck02 className="size-5" />}
-                            className={isNavActive(pathname, "/diagnostic") ? "bg-[#4d6b97]/10" : undefined}
-                        />
-                    </div>
+                    <a
+                        href={APP_URL}
+                        className={cx("hidden rounded-md px-2 py-1.5 text-base font-semibold text-[#404040] lg:inline", focusRing)}
+                    >
+                        {t("login")}
+                    </a>
+                    <Link
+                        href="/diagnostic"
+                        className={cx(
+                            "hidden rounded-md px-2 py-1.5 text-base font-semibold lg:inline",
+                            focusRing,
+                            isNavActive(pathname, "/diagnostic") ? "text-[#253353]" : "text-[#404040] hover:text-[#171717]",
+                        )}
+                    >
+                        {t("diagnostic")}
+                    </Link>
+                    <DemoButton ctaId="header_demo" surface="header" size="md" className="max-sm:px-3">
+                        {t("cta")}
+                    </DemoButton>
                     <button
                         type="button"
                         className={cx(
-                            "inline-flex size-10 items-center justify-center rounded-lg text-[#404040] transition-colors duration-100 ease-linear hover:bg-[#171717]/5 md:hidden",
+                            "inline-flex size-10 items-center justify-center rounded-lg text-[#404040] transition-colors duration-100 ease-linear hover:bg-[#171717]/5 lg:hidden",
                             focusRing,
                         )}
                         aria-expanded={menuOpen}
@@ -214,9 +223,12 @@ export function SiteHeader() {
             {menuOpen ? (
                 <div
                     id={menuId}
-                    className="border-t border-[#171717]/10 bg-[#efedea] px-4 py-4 md:hidden"
+                    className="border-t border-[#171717]/10 bg-[#efedea] px-4 py-4 lg:hidden"
                 >
                     <nav className="flex flex-col gap-1.5" aria-label={t("primaryNav")}>
+                        <DemoButton ctaId="header_demo_mobile" surface="header_mobile" size="md" className="mb-2 w-full">
+                            {t("cta")}
+                        </DemoButton>
                         {links.map((link) => {
                             const active = isNavActive(pathname, link.href);
                             return (
@@ -231,6 +243,9 @@ export function SiteHeader() {
                                 </Link>
                             );
                         })}
+                        <a href={APP_URL} className={mobileNavLinkClassName(false)} onClick={() => setMenuOpen(false)}>
+                            {t("login")}
+                        </a>
                         <Link
                             href="/diagnostic"
                             className={cx(

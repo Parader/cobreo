@@ -1,8 +1,8 @@
 {
     "meta": {
         "siteName": "Cobreo",
-        "defaultTitle": "Cobreo | Software solutions and process automation for SMBs",
-        "defaultDescription": "Cobreo analyzes your processes, identifies the best opportunities, and builds software solutions that deliver measurable impact.",
+        "defaultTitle": "Cobreo | Tools that adapt to the way you work",
+        "defaultDescription": "Compose your platform from a catalog of modules shaped to the way you operate. Hosted in Canada.",
         "ogLocale": "en_CA"
     },
     "nav": {
@@ -10,227 +10,53 @@
         "about": "About",
         "contact": "Contact",
         "diagnostic": "Analysis tool",
-        "cta": "Tell us about your project",
+        "cta": "Request a demo",
         "lang": "FR",
         "skipToContent": "Skip to main content",
         "openMenu": "Open menu",
         "closeMenu": "Close menu",
-        "primaryNav": "Primary navigation"
+        "primaryNav": "Primary navigation",
+        "modules": "Modules",
+        "login": "Log in"
     },
     "home": {
-        "heroTitle": "Application solutions designed to improve your operations.",
-        "heroSubtitle": "We analyze your processes, identify the best opportunities, and build solutions that deliver measurable impact.",
-        "heroCta": "Tell us about your project",
-        "scrollToProcess": "Continue to next section",
-        "processTitleLine1": "Custom tools",
-        "processTitleLine2": "to support your growth.",
-        "processSubtitleLine1": "Simplify your operations by freeing your teams",
-        "processSubtitleLine2": "and automating repetitive work.",
-        "processCta": "Discover improvement opportunities",
-        "identifyBold": "Identify",
-        "identifyLine2": "the best",
-        "identifyLine3": "opportunities.",
-        "identifyRest": " the best opportunities.",
-        "validateBold": "Validate",
-        "validateLine2": "solutions",
-        "validateLine3": "before building them.",
-        "validateRest": " solutions before building them.",
-        "developBold": "Build",
-        "developLine2": "tools tailored",
-        "developLine3": "to your needs.",
-        "developRest": "tools tailored to your needs.",
-        "evolveBold": "Evolve",
-        "evolveLine2": "your solution",
-        "evolveLine3": "at the pace of your business.",
-        "evolveRest": "your solution at the pace of your business.",
-        "valueTitle": "How we create value.",
-        "valueSubtitle": "Solutions designed to simplify your operations, support your teams, and accompany your growth.",
-        "valueMockupBrand": "Your Company",
-        "valueMockups": {
-            "workspace": "Workspace",
-            "admin": "Admin",
-            "userName": "Alex Rivera",
-            "search": "Search",
-            "notifications": "Notifications",
-            "live": "Live",
-            "dayMon": "Mon",
-            "dayTue": "Tue",
-            "dayWed": "Wed",
-            "dayThu": "Thu",
-            "dayFri": "Fri",
-            "daySat": "Sat",
-            "daySun": "Sun",
-            "navHome": "Home",
-            "navOps": "Ops",
-            "navFlows": "Flows",
-            "navInsights": "Insights",
-            "navClients": "Clients",
-            "navSettings": "Settings",
-            "navRequests": "Requests",
-            "navProjects": "Projects",
-            "navReporting": "Reporting",
-            "navUsers": "Users",
-            "opsTitle": "Request inbox",
-            "opsSubtitle": "Track approvals and handoffs in one place",
-            "opsNew": "New request",
-            "opsOpen": "Open",
-            "opsCycle": "Avg. cycle",
-            "opsSla": "SLA",
-            "opsColId": "ID",
-            "opsColTeam": "Team",
-            "opsColRequest": "Request",
-            "opsColStatus": "Status",
-            "opsTeamOps": "Ops",
-            "opsTeamFinance": "Finance",
-            "opsTeamLegal": "Legal",
-            "opsTeamHr": "HR",
-            "opsRow1": "Vendor onboarding",
-            "opsRow2": "Invoice approval",
-            "opsRow3": "Contract review",
-            "opsRow4": "Access request",
-            "opsRow5": "Equipment checkout",
-            "opsStatusProgress": "In progress",
-            "opsStatusWaiting": "Waiting",
-            "opsStatusDone": "Done",
-            "autoTitle": "Automations",
-            "autoSubtitle": "Reduce repetitive work across tools",
-            "autoLiveCount": "12 live",
-            "autoNew": "New flow",
-            "autoFlow1": "Invoice reminder",
-            "autoFlow1Runs": "128 runs / wk",
-            "autoFlow2": "Doc generation",
-            "autoFlow2Runs": "64 runs / wk",
-            "autoFlow3": "CRM sync",
-            "autoFlow3Runs": "210 runs / wk",
-            "autoFlow4": "Onboarding alerts",
-            "autoFlow4Runs": "41 runs / wk",
-            "autoHoursSaved": "Hours saved",
-            "autoTrend": "18% this month",
-            "autoEvent1": "Reminder sent to 14 vendors",
-            "autoEvent2": "Contract PDF generated",
-            "autoEvent3": "Synced 38 CRM records",
-            "infoOverview": "Overview",
-            "infoReports": "Reports",
-            "infoCosts": "Costs",
-            "infoExports": "Exports",
-            "infoRevenue": "Revenue",
-            "infoCostsMetric": "Costs",
-            "infoMargin": "Margin",
-            "infoUsers": "Active users",
-            "infoChartTitle": "Weekly throughput",
-            "infoChartSubtitle": "Centralized KPIs across teams",
-            "cxInbox": "Inbox",
-            "cxClients": "Clients",
-            "cxBookings": "Bookings",
-            "cxReply": "Reply",
-            "cxListTitle": "Client requests",
-            "cxListSubtitle": "38 active conversations",
-            "cxTicket1": "Portal access",
-            "cxTicket2": "Schedule change",
-            "cxTicket3": "Quote follow-up",
-            "cxTicket4": "Form reply",
-            "cxTicket5": "Billing question",
-            "cxStatusOpen": "Open",
-            "cxStatusResolved": "Resolved",
-            "cxStatusWaiting": "Waiting",
-            "cxDetailMeta": "Northwind · opened 2h ago",
-            "cxMessage": "Hi — can we invite two more teammates to the client portal and keep the same approval flow?",
-            "cxSender": "Camille · Northwind",
-            "cxApprove": "Approve access",
-            "cxAsk": "Ask for details",
-            "cxActive": "Active",
-            "cxCsat": "CSAT",
-            "cxResponse": "Response",
-            "decBoard": "Decision board",
-            "decOverview": "Overview",
-            "decForecast": "Forecast",
-            "decAlerts": "Alerts",
-            "decGoals": "Goals",
-            "decForecastMetric": "Forecast",
-            "decRisk": "Risk score",
-            "decRiskValue": "Low",
-            "decRiskDelta": "Stable",
-            "decMix": "Priority mix",
-            "decCard1Title": "Pipeline health",
-            "decCard1Body": "On track vs target",
-            "decCard2Title": "Alert",
-            "decCard2Body": "2 thresholds crossed",
-            "decCard3Title": "Review",
-            "decCard3Body": "Friday 10:00",
-            "customSprint": "Sprint 4",
-            "customBuild": "Build module",
-            "customTitle": "Custom toolkit",
-            "customSubtitle": "Products shaped around your process",
-            "customTool1": "Inspection CRM",
-            "customTool1Meta": "Field + office",
-            "customTool2": "Member space",
-            "customTool2Meta": "Self-serve portal",
-            "customTool3": "Internal ops",
-            "customTool3Meta": "Custom workflows",
-            "customTool4": "Eval 360°",
-            "customTool4Meta": "Teams + managers",
-            "customRoadmap": "Delivery roadmap",
-            "customComplete": "68% complete",
-            "customPhases": "Prototype → pilot → rollout"
-        },
-        "value1Title": "Operations",
-        "value1Body": "Remove unnecessary steps and streamline how your teams work.",
-        "value1Hint": "Request management, document workflows, case tracking, internal approvals.",
-        "value2Title": "Automation",
-        "value2Body": "Reduce manual work and save time every day.",
-        "value2Hint": "Automatic reminders, document generation, data sync, notifications, software integrations.",
-        "value3Title": "Information",
-        "value3Body": "Keep your data in one place so teams can work more effectively.",
-        "value3Hint": "Dashboards, KPIs, cost analysis, reports, centralized data.",
-        "value4Title": "Customer experience",
-        "value4Body": "Simple tools that make client interactions easier.",
-        "value4Hint": "Client portal, scheduling, request tracking, forms, member space.",
-        "value5Title": "Decision-making",
-        "value5Body": "Dashboards built around the indicators that matter.",
-        "value5Hint": "Real-time reports, financial analysis, forecasts, custom alerts, goal tracking.",
-        "value6Title": "Custom tools",
-        "value6Body": "Solutions that grow with your business.",
-        "value6Hint": "Websites, internal tools, specialized CRMs, 360° evaluation, inspection management.",
-        "valueCtaPrompt": "Ready to improve your operations?",
-        "valueCta": "Tell us about your project",
-        "philosophyTitle": "Move faster without cutting corners.",
-        "philosophyBody": "Our experience in design and development helps us know where to focus. New AI tools now let us explore, prototype, and validate solutions much faster. We use them as an accelerator while keeping control over decisions, design, and final product quality.",
-        "philosophyLink": "About Cobreo",
-        "testimonialTitle": "What our clients say",
-        "testimonialPrev": "Previous testimonial",
-        "testimonialNext": "Next testimonial",
-        "testimonials": [
-            {
-                "quote": "The speed of execution particularly impressed us. We could see and test an early version very quickly, then refine it from our team's feedback.",
-                "name": "Jérémie",
-                "role": "Development Director, M&H"
-            },
-            {
-                "quote": "Cobreo clarified our priorities and delivered a concrete tool, without the jargon. The team turned our business needs into something usable from the first iteration.",
-                "name": "Camille",
-                "role": "Head of Operations, Atelier Nord"
-            },
-            {
-                "quote": "Finally a partner who understands design and development equally well. We saved weeks on a project we thought was stuck for good.",
-                "name": "Marc-André",
-                "role": "Founder, Flux Commerce"
-            }
-        ],
-        "diagnosticTitle": "Discover your improvement opportunities",
-        "diagnosticBody": "A few questions to walk through different areas of your business and spot where you could save time and simplify operations.",
-        "diagnosticCta": "Start the analysis"
+        "heroTitle": "Tools that adapt to the way you work.",
+        "heroSubtitle": "Compose your platform from a catalog of modules shaped to the way you operate.",
+        "demoCta": "Request a demo",
+        "diagnosticCta": "Start the analysis",
+        "catalogTitle": "Activate only what you need.",
+        "catalogBody": "Each module covers one area. Your platform brings together the ones that fit the way you work, and leaves the others out.",
+        "catalogLink": "Browse the catalog",
+        "depthTitle": "Each module stays with its subject.",
+        "depthBody": "The screens stay readable: a list, a record, a calendar, a set of responses. Nothing is added just to fill the page.",
+        "customTitle": "Custom modules and plugins.",
+        "customBody": "A private build, or a published plugin, joins the same catalog.",
+        "storeTitle": "A module store.",
+        "storeBody": "A published module can be added by another organization.",
+        "assistantTitle": "An assistant to configure and guide.",
+        "assistantBody": "It helps set Cobreo up and stays with the people working in the platform.",
+        "billingTitle": "You pay for the modules you activate.",
+        "billingBody": "Billing follows the modules that are on. What you leave off is not part of your platform.",
+        "trustTitle": "Hosted in Canada.",
+        "trustBody": "Application data is hosted in Canada.",
+        "quote": "The speed of execution particularly impressed us. We were able to see and test a first version very early, then adjust it from our team’s feedback.",
+        "quoteName": "Jérémie",
+        "quoteRole": "Director of development, M&H",
+        "closeTitle": "See the platform in your context.",
+        "closeBody": "A demo walks through the catalog. The analysis tool helps find a place to start."
     },
     "footer": {
         "services": "Services",
         "contact": "Contact",
         "about": "About",
         "privacy": "Privacy",
-        "cta": "Tell us about your project",
+        "cta": "Request a demo",
         "rights": "© {year} Cobreo. All rights reserved.",
         "terms": "Terms",
         "cookies": "Cookies",
         "followUs": "Follow us",
-        "linkedin": "Cobreo on LinkedIn"
+        "linkedin": "Cobreo on LinkedIn",
+        "modules": "Modules"
     },
     "cookiesBanner": {
         "title": "We respect your privacy",
@@ -678,7 +504,7 @@
         "originBody2": "We built Cobreo to help businesses spot those improvement opportunities, then design simple solutions rooted in their reality and able to create concrete value. The AI tools available today let us explore, iterate, and prototype much faster — without losing control over decisions and the quality of the outcome.",
         "foundersEyebrow": "Founders",
         "foundersTitle": "The people behind Cobreo.",
-        "foundersBody": "Passionate people, united by the same focus on efficiency — and a shared aim to make a real difference for SMEs.",
+        "foundersBody": "Passionate people, united by the same focus on efficiency — and a shared aim to be useful in day-to-day work.",
         "founder1Name": "Dérick Paradis",
         "founder1Role": "Co-founder",
         "founder1Bio": "Product, design, and development: clarifying the need, prototyping quickly, and shipping tools teams actually want to use.",
@@ -693,10 +519,10 @@
         "workEyebrow": "Method",
         "workTitle": "How we work.",
         "workBody": "We identify the best opportunities, validate before building, deliver tools tailored to your operations, then evolve them with you.",
-        "workLink": "See our services",
+        "workLink": "Browse the modules",
         "ctaTitle": "Let's talk about your context.",
         "ctaBody": "A short conversation to clarify your priorities and see how we can help.",
-        "ctaContact": "Tell us about your project",
+        "ctaContact": "Request a demo",
         "ctaDiagnostic": "Open the analysis tool"
     },
     "services": {
@@ -939,5 +765,437 @@
             "cancelled": "Cancelled",
             "no_show": "No-show"
         }
+    },
+    "scenes": {
+        "columns": [
+            "Name",
+            "Type",
+            "Status"
+        ],
+        "nav": [
+            "CRM",
+            "Events",
+            "Booking"
+        ],
+        "crmLabel": "CRM",
+        "on": "On",
+        "off": "Off",
+        "catalogLabel": "Catalog",
+        "calendarLabel": "Booking",
+        "days": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri"
+        ],
+        "customLabel": "Private modules",
+        "customColumns": [
+            "Module",
+            "Scope",
+            "Status"
+        ],
+        "storeLabel": "Store",
+        "storeColumns": [
+            "Module",
+            "Origin",
+            "Status"
+        ],
+        "assistantLabel": "Assistant",
+        "assistantPrompt": "How do I turn on appointment tracking?",
+        "assistantReply": "Turn on Booking in the catalog, then link it to the CRM records. I can walk through the steps.",
+        "billingLabel": "Active modules",
+        "billingColumns": [
+            "Module",
+            "Place",
+            "Status"
+        ],
+        "surveyQuestion": "How did your last visit go?",
+        "crm": [
+            {
+                "title": "Horizon Bois",
+                "meta": "Organization",
+                "status": "Following"
+            },
+            {
+                "title": "Inès Marchand",
+                "meta": "Person",
+                "status": "New",
+                "statusAlt": "In progress"
+            },
+            {
+                "title": "Clinique des Érables",
+                "meta": "Organization",
+                "status": "Following"
+            },
+            {
+                "title": "Groupe Sorel",
+                "meta": "Organization",
+                "status": "New",
+                "appear": true
+            }
+        ],
+        "picker": [
+            {
+                "name": "CRM",
+                "state": "on"
+            },
+            {
+                "name": "Events",
+                "state": "turn-on"
+            },
+            {
+                "name": "Satisfaction",
+                "state": "off"
+            },
+            {
+                "name": "Booking",
+                "state": "on"
+            },
+            {
+                "name": "Tasks",
+                "state": "off"
+            }
+        ],
+        "calendar": [
+            {
+                "day": 0,
+                "time": "09:00",
+                "title": "Visit"
+            },
+            {
+                "day": 2,
+                "time": "14:00",
+                "title": "Workshop"
+            },
+            {
+                "day": 3,
+                "time": "11:00",
+                "title": "Review",
+                "appear": true
+            }
+        ],
+        "events": [
+            {
+                "title": "Autumn forum",
+                "meta": "12 November",
+                "status": "Registration open"
+            },
+            {
+                "title": "Thursday workshop",
+                "meta": "20 November",
+                "status": "In preparation"
+            },
+            {
+                "title": "Site visit",
+                "meta": "3 December",
+                "status": "Draft",
+                "appear": true
+            }
+        ],
+        "survey": [
+            {
+                "name": "Claire M.",
+                "text": "The welcome was clear, and so was the follow-up."
+            },
+            {
+                "name": "Julien P.",
+                "text": "The wait before the appointment was long."
+            },
+            {
+                "name": "Nadia K.",
+                "text": "Straightforward from start to finish.",
+                "appear": true
+            }
+        ],
+        "custom": [
+            {
+                "title": "Site follow-up",
+                "meta": "Private",
+                "status": "In the catalog"
+            },
+            {
+                "title": "Contributor portal",
+                "meta": "Published",
+                "status": "In the catalog"
+            },
+            {
+                "title": "Inspection grid",
+                "meta": "Private",
+                "status": "In review",
+                "appear": true
+            }
+        ],
+        "store": [
+            {
+                "title": "Contributor portal",
+                "meta": "Published",
+                "status": "Available"
+            },
+            {
+                "title": "Registration",
+                "meta": "Published",
+                "status": "Available"
+            },
+            {
+                "title": "Site follow-up",
+                "meta": "Private",
+                "status": "Kept in the organization"
+            }
+        ],
+        "billing": [
+            {
+                "title": "CRM",
+                "meta": "On",
+                "status": "Billed"
+            },
+            {
+                "title": "Booking",
+                "meta": "On",
+                "status": "Billed"
+            },
+            {
+                "title": "Events",
+                "meta": "Off",
+                "status": "Outside the platform"
+            },
+            {
+                "title": "Tasks",
+                "meta": "Off",
+                "status": "Outside the platform"
+            }
+        ],
+        "records": {
+            "automation": {
+                "columns": [
+                    "Action",
+                    "Trigger",
+                    "Status"
+                ],
+                "rows": [
+                    {
+                        "title": "Appointment reminder",
+                        "meta": "Booking",
+                        "status": "Active"
+                    },
+                    {
+                        "title": "Registration confirmation",
+                        "meta": "Events",
+                        "status": "Active"
+                    },
+                    {
+                        "title": "Acknowledgement",
+                        "meta": "CRM",
+                        "status": "Draft",
+                        "appear": true
+                    }
+                ]
+            },
+            "sites": {
+                "columns": [
+                    "Page",
+                    "Place",
+                    "Status"
+                ],
+                "rows": [
+                    {
+                        "title": "Home page",
+                        "meta": "Public",
+                        "status": "Published"
+                    },
+                    {
+                        "title": "Registration",
+                        "meta": "Public",
+                        "status": "Draft"
+                    },
+                    {
+                        "title": "Confirmation",
+                        "meta": "Public",
+                        "status": "Published",
+                        "appear": true
+                    }
+                ]
+            },
+            "portals": {
+                "columns": [
+                    "Space",
+                    "Organization",
+                    "Status"
+                ],
+                "rows": [
+                    {
+                        "title": "Client space",
+                        "meta": "Horizon Bois",
+                        "status": "Open"
+                    },
+                    {
+                        "title": "Contributor space",
+                        "meta": "Clinique des Érables",
+                        "status": "Open"
+                    },
+                    {
+                        "title": "Supplier space",
+                        "meta": "Groupe Sorel",
+                        "status": "Invitation",
+                        "appear": true
+                    }
+                ]
+            },
+            "hr": {
+                "columns": [
+                    "Person",
+                    "Record",
+                    "Status"
+                ],
+                "rows": [
+                    {
+                        "title": "Inès Marchand",
+                        "meta": "Arrival",
+                        "status": "In progress"
+                    },
+                    {
+                        "title": "Marc Pelletier",
+                        "meta": "Record",
+                        "status": "Current"
+                    },
+                    {
+                        "title": "Sofia Nguyen",
+                        "meta": "Absence",
+                        "status": "Upcoming",
+                        "appear": true
+                    }
+                ]
+            },
+            "finance": {
+                "columns": [
+                    "Document",
+                    "Organization",
+                    "Status"
+                ],
+                "rows": [
+                    {
+                        "title": "October invoice",
+                        "meta": "Horizon Bois",
+                        "status": "Sent"
+                    },
+                    {
+                        "title": "Workshop expense",
+                        "meta": "Studio Marin",
+                        "status": "To review"
+                    },
+                    {
+                        "title": "Payment received",
+                        "meta": "Clinique des Érables",
+                        "status": "Matched",
+                        "appear": true
+                    }
+                ]
+            },
+            "tasks": {
+                "columns": [
+                    "Task",
+                    "Linked to",
+                    "Status"
+                ],
+                "rows": [
+                    {
+                        "title": "Prepare the room",
+                        "meta": "Events",
+                        "status": "In progress"
+                    },
+                    {
+                        "title": "Read the responses",
+                        "meta": "Satisfaction",
+                        "status": "To do"
+                    },
+                    {
+                        "title": "Confirm Thursday",
+                        "meta": "Booking",
+                        "status": "To do",
+                        "appear": true
+                    }
+                ]
+            }
+        },
+        "search": "Search"
+    },
+    "modules": {
+        "metaTitle": "Modules · Cobreo",
+        "metaDescription": "The Cobreo catalog: CRM, events, satisfaction, booking, and other modules you activate to match the way you work.",
+        "title": "The catalog.",
+        "body": "These modules make up the Cobreo catalog. You can activate just one.",
+        "restTitle": "Also in the catalog.",
+        "restBody": "They turn on the same way, on their own or alongside other modules.",
+        "extendTitle": "Beyond the current catalog.",
+        "extendBody": "Custom modules and plugins, private or published, join the store. The assistant helps configure Cobreo and guides the people using it.",
+        "items": [
+            {
+                "id": "crm",
+                "name": "CRM",
+                "summary": "Keep people, organizations, and conversations up to date.",
+                "scene": "crm"
+            },
+            {
+                "id": "events",
+                "name": "Events",
+                "summary": "Plan an event and track registrations.",
+                "scene": "events"
+            },
+            {
+                "id": "satisfaction",
+                "name": "Satisfaction",
+                "summary": "Collect responses and read them one by one.",
+                "scene": "survey"
+            },
+            {
+                "id": "booking",
+                "name": "Booking",
+                "summary": "Keep the calendar of appointments and resources.",
+                "scene": "calendar"
+            },
+            {
+                "id": "automation",
+                "name": "Automation",
+                "summary": "Start an action when something changes in a module.",
+                "scene": "records"
+            },
+            {
+                "id": "sites",
+                "name": "Public sites and pages",
+                "summary": "Publish pages connected to the platform.",
+                "scene": "records"
+            },
+            {
+                "id": "portals",
+                "name": "User portals",
+                "summary": "Open a limited space for the people who need it.",
+                "scene": "records"
+            },
+            {
+                "id": "hr",
+                "name": "HR",
+                "summary": "Keep team records, absences, and arrivals up to date.",
+                "scene": "records"
+            },
+            {
+                "id": "finance",
+                "name": "Finance",
+                "summary": "Track invoices, payments, and expenses.",
+                "scene": "records"
+            },
+            {
+                "id": "tasks",
+                "name": "Tasks",
+                "summary": "Assign work, owners, and due dates.",
+                "scene": "records"
+            }
+        ]
+    },
+    "notFound": {
+        "code": "404",
+        "title": "This page does not exist.",
+        "body": "The link may be out of date, or the address may have been typed incorrectly.",
+        "home": "Back to home",
+        "modules": "See the modules"
     }
 }

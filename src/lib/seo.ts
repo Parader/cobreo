@@ -73,8 +73,8 @@ export const LINKEDIN_URL = "https://www.linkedin.com/company/cobreo";
 const sameAs: string[] = [LINKEDIN_URL];
 
 const descriptions: Record<Locale, string> = {
-    fr: "Cobreo est un studio québécois qui conçoit des solutions applicatives et automatise les processus d’affaires des PME afin d’améliorer leurs opérations.",
-    en: "Cobreo is a Quebec studio that designs software solutions and automates business processes for small and mid-sized companies to improve their operations.",
+    fr: "Cobreo est une plateforme que l’on compose à partir d’un catalogue de modules. Les données de l’application sont hébergées au Canada.",
+    en: "Cobreo is a platform you compose from a catalog of modules. Application data is hosted in Canada.",
 };
 
 /**
