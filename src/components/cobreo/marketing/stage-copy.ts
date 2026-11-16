@@ -14,7 +14,7 @@ const fr = {
     search: "Rechercher",
     kbd: "⌘K",
     home: "Accueil",
-    modules: ["CRM", "Événements", "Réservations"] as const,
+    modules: ["CRM", "Événements", "Réservations", "Satisfaction"] as const,
     snap: "Activé",
     people: "Personnes",
     activity: "Activité",
@@ -58,17 +58,22 @@ const fr = {
         { name: "Julien P.", text: "Le délai avant le rendez-vous était long." },
         { name: "Nadia K.", text: "Simple du début à la fin.", appear: true },
     ],
+    pipeline: [
+        { label: "Nouveau", name: "Groupe Sorel", org: "Organisation" },
+        { label: "En cours", name: "Inès Marchand", org: "Horizon Bois" },
+        { label: "Suivi", name: "Marc Pelletier", org: "Studio Marin" },
+    ],
     private: "Privé",
     published: "Publié",
     prompt: "Comment relier les réservations aux fiches ?",
-    reply: "Activez Réservations, puis rattachez-le au CRM. Je peux montrer les étapes.",
+    reply: "Activez Réservations, puis reliez-le au CRM. Je peux vous montrer les étapes.",
 };
 
 const en = {
     search: "Search",
     kbd: "⌘K",
     home: "Home",
-    modules: ["CRM", "Events", "Booking"] as const,
+    modules: ["CRM", "Events", "Booking", "Satisfaction"] as const,
     snap: "On",
     people: "People",
     activity: "Activity",
@@ -112,10 +117,15 @@ const en = {
         { name: "Julien P.", text: "The wait before the appointment was long." },
         { name: "Nadia K.", text: "Straightforward from start to finish.", appear: true },
     ],
+    pipeline: [
+        { label: "New", name: "Groupe Sorel", org: "Organization" },
+        { label: "In progress", name: "Inès Marchand", org: "Horizon Bois" },
+        { label: "Following", name: "Marc Pelletier", org: "Studio Marin" },
+    ],
     private: "Private",
     published: "Published",
     prompt: "How do I link bookings to records?",
-    reply: "Turn on Booking, then attach it to the CRM. I can show the steps.",
+    reply: "Turn on Booking, then link it to the CRM. I can show you the steps.",
 };
 
 export function stageCopy(locale: string) {

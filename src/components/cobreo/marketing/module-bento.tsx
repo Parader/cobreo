@@ -8,12 +8,7 @@ export type BentoItem = {
     lead?: boolean;
 };
 
-const wash = [
-    "bg-[#f7f4ef]",
-    "bg-[#eef2f7]",
-    "bg-[#f3f5f1]",
-    "bg-[#f6f1ee]",
-];
+const wash = ["bg-[#f4f7fb]", "bg-[#eef3f8]", "bg-white", "bg-[#f7f9fb]"];
 
 export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]; linkLabel?: string; linkHref?: string }) {
     const lead = items.filter((item) => item.lead);
@@ -38,7 +33,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                             {index === 0 ? (
                                 <div className="flex -space-x-2">
                                     {["IM", "MP", "SN"].map((initials) => (
-                                        <span key={initials} className="grid size-8 place-items-center rounded-full border-2 border-[#f7f4ef] bg-[#d5e0ee] text-[10px] font-semibold text-[#253353]">
+                                        <span key={initials} className="grid size-8 place-items-center rounded-full border-2 border-[#f4f7fb] bg-[#d5e0ee] text-[10px] font-semibold text-[#253353]">
                                             {initials}
                                         </span>
                                     ))}
@@ -47,7 +42,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                             {index === 1 ? (
                                 <div className="grid grid-cols-6 gap-1">
                                     {Array.from({ length: 18 }).map((_, i) => (
-                                        <span key={i} className={i % 3 ? "h-2.5 w-3 rounded-[3px] bg-[#4d6b97]" : "h-2.5 w-3 rounded-[3px] bg-[#ddd9d2]"} />
+                                        <span key={i} className={i % 3 ? "h-2.5 w-3 rounded-[3px] bg-[#4d6b97]" : "h-2.5 w-3 rounded-[3px] bg-[#d5deea]"} />
                                     ))}
                                 </div>
                             ) : null}
@@ -61,7 +56,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                             {index === 3 ? (
                                 <div className="grid grid-cols-5 gap-1">
                                     {Array.from({ length: 5 }).map((_, i) => (
-                                        <span key={i} className={i === 2 ? "h-8 w-3 rounded bg-[#253353]" : "h-8 w-3 rounded bg-[#e4e0da]"} />
+                                        <span key={i} className={i === 2 ? "h-8 w-3 rounded bg-[#4d6b97]" : "h-8 w-3 rounded bg-[#d5deea]"} />
                                     ))}
                                 </div>
                             ) : null}

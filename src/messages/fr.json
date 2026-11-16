@@ -2,7 +2,7 @@
     "meta": {
         "siteName": "Cobreo",
         "defaultTitle": "Cobreo | Des outils qui s’adaptent à votre façon de travailler",
-        "defaultDescription": "Composez votre plateforme à partir d’un catalogue de modules conçus pour votre réalité. Hébergé au Canada.",
+        "defaultDescription": "Composez votre plateforme à partir de modules conçus pour votre réalité. Hébergé au Canada.",
         "ogLocale": "fr_CA"
     },
     "nav": {
@@ -21,7 +21,7 @@
     },
     "home": {
         "heroTitle": "Des outils qui s’adaptent à votre façon de travailler.",
-        "heroSubtitle": "Composez votre plateforme à partir d’un catalogue de modules conçus pour votre réalité.",
+        "heroSubtitle": "Composez votre plateforme à partir de modules conçus pour votre réalité.",
         "demoCta": "Demander une démo",
         "diagnosticCta": "Commencer l’analyse",
         "catalogTitle": "Ce que vous activez devient la plateforme.",
@@ -48,9 +48,13 @@
         "stageEyebrow": "Au plus près",
         "stageTitle": "Le travail, montré de près.",
         "stageBody": "Quatre portes d’entrée. La même exigence pour le reste.",
-        "contrastEyebrow": "Au-delà",
-        "contrastTitle": "Le catalogue ne s’arrête pas là.",
-        "contrastBody": "Un module privé. Un plugin publié. Un assistant pour configurer et pour guider."
+        "contrastEyebrow": "Sur mesure",
+        "contrastTitle": "Vous pouvez ajouter les vôtres.",
+        "contrastBody": "Un module développé pour vous, ou un plugin que d’autres peuvent reprendre, s’ajoute à ceux que vous avez déjà. L’assistant aide à configurer Cobreo et à s’y retrouver.",
+        "modulesEyebrow": "Modules",
+        "modulesTitle": "Vous activez seulement ceux qui vous servent.",
+        "modulesBody": "Les autres ne font pas partie de votre plateforme.",
+        "modulesLink": "Voir les modules"
     },
     "footer": {
         "services": "Services",
@@ -810,7 +814,7 @@
         ],
         "assistantLabel": "Assistant",
         "assistantPrompt": "Comment activer le suivi des réservations?",
-        "assistantReply": "Activez Réservations dans le catalogue, puis reliez-le aux fiches du CRM. Je peux détailler les étapes.",
+        "assistantReply": "Activez Réservations, puis reliez-le au CRM. Je peux vous montrer les étapes.",
         "billingLabel": "Modules activés",
         "billingColumns": [
             "Module",
@@ -1128,72 +1132,72 @@
     },
     "modules": {
         "metaTitle": "Modules · Cobreo",
-        "metaDescription": "Le catalogue Cobreo : CRM, événements, satisfaction, réservations, et d’autres modules à activer selon votre façon de travailler.",
-        "title": "Le catalogue.",
-        "body": "Activez-en un, ou plusieurs. La plateforme se limite à ce choix.",
-        "restTitle": "Également au catalogue.",
-        "restBody": "Ils s’activent de la même manière, seuls ou avec d’autres modules.",
-        "extendTitle": "Et ce que vous ajoutez.",
-        "extendBody": "Des modules sur mesure et des plugins, privés ou publiés, rejoignent la boutique. L’assistant configure Cobreo et guide celles et ceux qui l’utilisent.",
+        "metaDescription": "Les modules Cobreo : CRM, événements, satisfaction, réservations, et d’autres que vous activez selon votre façon de travailler.",
+        "title": "Les modules.",
+        "body": "Activez-en un, ou plusieurs. Votre plateforme s’arrête là.",
+        "restTitle": "Les autres modules.",
+        "restBody": "Ils s’activent de la même façon, seuls ou avec d’autres.",
+        "extendTitle": "Vous pouvez ajouter les vôtres.",
+        "extendBody": "Un module développé pour vous, ou un plugin que d’autres peuvent reprendre, s’ajoute à ceux que vous avez déjà. L’assistant aide à configurer Cobreo et à s’y retrouver.",
         "items": [
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Les personnes, les échanges, la suite.",
+                "summary": "Les personnes et les organisations avec qui vous travaillez.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Événements",
-                "summary": "Une date, une salle, des présences.",
+                "summary": "Qui vient, et à quel événement.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Ce que les gens en retiennent.",
+                "summary": "Les réponses, lues une par une.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Réservations",
-                "summary": "Le temps, tenu au calendrier.",
+                "summary": "Les rendez-vous, sur un calendrier.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "summary": "Une action, au moment où ça change.",
+                "summary": "Une action lancée quand quelque chose change.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "summary": "Des pages reliées à la plateforme.",
+                "summary": "Des pages publiques liées à vos modules.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "summary": "Un espace, pour ceux qui en ont besoin.",
+                "summary": "Un accès limité, pour les personnes concernées.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "RH",
-                "summary": "L’équipe, les absences, les arrivées.",
+                "summary": "Les dossiers de l’équipe, les absences et les arrivées.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finances",
-                "summary": "Factures, paiements, dépenses.",
+                "summary": "Les factures et les paiements.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tâches",
-                "summary": "Le travail, les responsables, les échéances.",
+                "summary": "Qui fait quoi, et pour quand.",
                 "scene": "records"
             }
         ]

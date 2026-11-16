@@ -2,7 +2,7 @@
     "meta": {
         "siteName": "Cobreo",
         "defaultTitle": "Cobreo | Tools that adapt to the way you work",
-        "defaultDescription": "Compose your platform from a catalog of modules shaped to the way you operate. Hosted in Canada.",
+        "defaultDescription": "Compose your platform from modules shaped to the way you operate. Hosted in Canada.",
         "ogLocale": "en_CA"
     },
     "nav": {
@@ -21,7 +21,7 @@
     },
     "home": {
         "heroTitle": "Tools that adapt to the way you work.",
-        "heroSubtitle": "Compose your platform from a catalog of modules shaped to the way you operate.",
+        "heroSubtitle": "Compose your platform from modules shaped to the way you operate.",
         "demoCta": "Request a demo",
         "diagnosticCta": "Start the analysis",
         "catalogTitle": "What you activate becomes the platform.",
@@ -48,9 +48,13 @@
         "stageEyebrow": "Up close",
         "stageTitle": "The work, shown up close.",
         "stageBody": "Four ways in. The same standard for the rest.",
-        "contrastEyebrow": "Beyond",
-        "contrastTitle": "The catalog does not end here.",
-        "contrastBody": "A private module. A published plugin. An assistant to configure and to guide."
+        "contrastEyebrow": "Custom",
+        "contrastTitle": "You can add your own.",
+        "contrastBody": "A module built for you, or a plugin other organizations can pick up, sits alongside the ones you already have. The assistant helps set Cobreo up and find your way around it.",
+        "modulesEyebrow": "Modules",
+        "modulesTitle": "You turn on only the ones you need.",
+        "modulesBody": "The others are not part of your platform.",
+        "modulesLink": "See the modules"
     },
     "footer": {
         "services": "Services",
@@ -810,7 +814,7 @@
         ],
         "assistantLabel": "Assistant",
         "assistantPrompt": "How do I turn on appointment tracking?",
-        "assistantReply": "Turn on Booking in the catalog, then link it to the CRM records. I can walk through the steps.",
+        "assistantReply": "Turn on Booking, then link it to the CRM. I can show you the steps.",
         "billingLabel": "Active modules",
         "billingColumns": [
             "Module",
@@ -1128,72 +1132,72 @@
     },
     "modules": {
         "metaTitle": "Modules · Cobreo",
-        "metaDescription": "The Cobreo catalog: CRM, events, satisfaction, booking, and other modules you activate to match the way you work.",
-        "title": "The catalog.",
-        "body": "Turn on one, or several. The platform stops at that choice.",
-        "restTitle": "Also in the catalog.",
-        "restBody": "They turn on the same way, on their own or alongside other modules.",
-        "extendTitle": "And what you add.",
-        "extendBody": "Custom modules and plugins, private or published, join the store. The assistant configures Cobreo and guides the people using it.",
+        "metaDescription": "Cobreo modules: CRM, events, satisfaction, booking, and others you turn on to match the way you work.",
+        "title": "The modules.",
+        "body": "Turn on one, or several. Your platform stops there.",
+        "restTitle": "The other modules.",
+        "restBody": "They turn on the same way, alone or with others.",
+        "extendTitle": "You can add your own.",
+        "extendBody": "A module built for you, or a plugin other organizations can pick up, sits alongside the ones you already have. The assistant helps set Cobreo up and find your way around it.",
         "items": [
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "People, conversations, and what follows.",
+                "summary": "The people and organizations you work with.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Events",
-                "summary": "A date, a room, a list of who is coming.",
+                "summary": "Who is coming, and to which event.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "What people actually remember.",
+                "summary": "The replies, read one by one.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Booking",
-                "summary": "Time, kept on the calendar.",
+                "summary": "Appointments, on a calendar.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automation",
-                "summary": "An action, at the moment something changes.",
+                "summary": "An action that starts when something changes.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "summary": "Pages connected to the platform.",
+                "summary": "Public pages tied to your modules.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "User portals",
-                "summary": "A space, for the people who need it.",
+                "summary": "Limited access, for the people who need it.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "HR",
-                "summary": "The team, absences, and arrivals.",
+                "summary": "Team records, absences, and arrivals.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finance",
-                "summary": "Invoices, payments, expenses.",
+                "summary": "Invoices and payments.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tasks",
-                "summary": "The work, the owners, the dates.",
+                "summary": "Who is doing what, and by when.",
                 "scene": "records"
             }
         ]

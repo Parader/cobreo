@@ -13,7 +13,7 @@ export function ContrastBand({
     eyebrow: string;
     title: string;
     body: string;
-    copy: StageCopy;
+    copy: Pick<StageCopy, "prompt" | "reply">;
 }) {
     const reduce = useReducedMotion();
     const ref = useRef<HTMLDivElement>(null);
@@ -32,10 +32,6 @@ export function ContrastBand({
                         {title}
                     </h2>
                     <p className="mt-4 max-w-md text-lg leading-relaxed text-[#c8c8c8]">{body}</p>
-                    <div className="mt-6 flex gap-2">
-                        <span className="rounded-full bg-white/10 px-3 py-1 text-[12px]">{copy.private}</span>
-                        <span className="rounded-full bg-[#4d6b97] px-3 py-1 text-[12px] text-white">{copy.published}</span>
-                    </div>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur-md sm:p-5">
                     <p className="ml-auto max-w-[90%] rounded-2xl bg-white/10 px-4 py-3 text-[14px] leading-6 text-pretty">{copy.prompt}</p>

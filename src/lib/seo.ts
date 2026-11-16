@@ -73,8 +73,8 @@ export const LINKEDIN_URL = "https://www.linkedin.com/company/cobreo";
 const sameAs: string[] = [LINKEDIN_URL];
 
 const descriptions: Record<Locale, string> = {
-    fr: "Cobreo est une plateforme que l’on compose à partir d’un catalogue de modules. Les données de l’application sont hébergées au Canada.",
-    en: "Cobreo is a platform you compose from a catalog of modules. Application data is hosted in Canada.",
+    fr: "Cobreo est une plateforme que l’on compose à partir de modules. Les données de l’application sont hébergées au Canada.",
+    en: "Cobreo is a platform you compose from modules. Application data is hosted in Canada.",
 };
 
 /**
