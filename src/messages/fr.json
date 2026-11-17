@@ -1242,19 +1242,23 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Les relations et les suivis au même endroit.",
+                "tagline": "Contacts, échanges et relances, sans perdre le fil.",
                 "points": [
                     {
-                        "title": "Suivre les commanditaires d’un événement annuel"
+                        "title": "Commanditaires et partenaires",
+                        "body": "Suivez les relations liées à un événement ou à un mandat."
                     },
                     {
-                        "title": "Relancer les demandes de soumission restées sans réponse"
+                        "title": "Relances de soumissions",
+                        "body": "Relancez les demandes restées sans réponse."
                     },
                     {
-                        "title": "Garder l’historique des échanges avec un organisme partenaire"
+                        "title": "Historique des échanges",
+                        "body": "Gardez la trace des conversations avec chaque organisme."
                     },
                     {
-                        "title": "Partager les contacts d’une équipe de développement"
+                        "title": "Contacts partagés",
+                        "body": "Partagez les contacts entre les membres de l’équipe."
                     }
                 ],
                 "scene": "crm"
@@ -1262,7 +1266,7 @@
             {
                 "id": "events",
                 "name": "Événements",
-                "tagline": "Des événements bien organisés, du début à la fin.",
+                "tagline": "Inscriptions, billets et suivi des participants.",
                 "points": [
                     {
                         "title": "Billetterie",
@@ -1270,15 +1274,15 @@
                     },
                     {
                         "title": "Formulaires d’inscription",
-                        "body": "Recueillez les inscriptions au même endroit."
+                        "body": "Ouvrez l’inscription et recueillez les réponses."
                     },
                     {
                         "title": "Suivi des inscriptions",
                         "body": "Voyez qui s’est inscrit et où en est chaque dossier."
                     },
                     {
-                        "title": "Communications",
-                        "body": "Écrivez aux participants sans quitter Cobreo."
+                        "title": "Messages aux participants",
+                        "body": "Écrivez aux personnes inscrites depuis Cobreo."
                     }
                 ],
                 "scene": "events"
@@ -1286,11 +1290,11 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Des retours clairs pour améliorer vos services.",
+                "tagline": "Des sondages et des lectures utiles après chaque service.",
                 "points": [
                     {
-                        "title": "Communications",
-                        "body": "Relancez les personnes après un service ou une activité."
+                        "title": "Relances après un service",
+                        "body": "Relancez les personnes une fois le service terminé."
                     },
                     {
                         "title": "Sondages",
@@ -1299,10 +1303,6 @@
                     {
                         "title": "Détection des réactions",
                         "body": "Repérez rapidement les retours qui demandent une suite."
-                    },
-                    {
-                        "title": "Mieux connaître votre clientèle",
-                        "body": "Lisez ce que les gens disent de votre offre."
                     },
                     {
                         "title": "Visualisation des données",
@@ -1314,7 +1314,7 @@
             {
                 "id": "booking",
                 "name": "Réservations",
-                "tagline": "Des rendez-vous sans allers-retours.",
+                "tagline": "Prise de rendez-vous, horaires et rappels.",
                 "points": [
                     {
                         "title": "Gestion des rendez-vous",
@@ -1325,8 +1325,8 @@
                         "body": "Affichez les créneaux disponibles et évitez les doubles réservations."
                     },
                     {
-                        "title": "Communications",
-                        "body": "Envoyez des rappels avant chaque rendez-vous."
+                        "title": "Rappels automatiques",
+                        "body": "Envoyez un rappel avant chaque rendez-vous."
                     }
                 ],
                 "scene": "calendar"
@@ -1334,7 +1334,7 @@
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "tagline": "Des suivis qui se font tout seuls, selon vos règles.",
+                "tagline": "Des règles qui enchaînent les étapes à votre place.",
                 "points": [
                     {
                         "title": "Suivis",
@@ -1354,7 +1354,7 @@
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "tagline": "Un site que vous mettez à jour vous-même.",
+                "tagline": "Pages publiques que vous publiez et mettez à jour vous-même.",
                 "points": [
                     {
                         "title": "Pages ponctuelles",
@@ -1378,11 +1378,11 @@
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "tagline": "Un espace pour vos usagers, moins de courriels à gérer.",
+                "tagline": "Un espace partagé avec vos usagers, sans dépendre du courriel.",
                 "points": [
                     {
-                        "title": "Communications",
-                        "body": "Échangez avec l’usager au même endroit."
+                        "title": "Messagerie avec l’usager",
+                        "body": "Échangez des messages dans le portail."
                     },
                     {
                         "title": "Échange de fichiers",
@@ -1402,15 +1402,15 @@
             {
                 "id": "hr",
                 "name": "RH",
-                "tagline": "L’essentiel des RH au même endroit.",
+                "tagline": "Évaluations, climat d’équipe et commentaires confidentiels.",
                 "points": [
                     {
                         "title": "Évaluations",
-                        "body": "Recueillez les évaluations de l’équipe au même endroit."
+                        "body": "Recueillez les évaluations de l’équipe."
                     },
                     {
-                        "title": "Compréhension du climat chez les employés",
-                        "body": "Lisez ce que l’équipe dit de son quotidien."
+                        "title": "Climat chez les employés",
+                        "body": "Suivez comment l’équipe vit son quotidien."
                     },
                     {
                         "title": "Commentaires anonymisés",
@@ -1422,11 +1422,11 @@
             {
                 "id": "finance",
                 "name": "Finances",
-                "tagline": "Facturer et suivre ce qui reste dû.",
+                "tagline": "Facturation, soldes et échéances à suivre.",
                 "points": [
                     {
                         "title": "Formulaires simplifiés",
-                        "body": "Facturez et encaissez avec des formulaires clairs."
+                        "body": "Préparez factures et encaissements avec moins d’étapes."
                     },
                     {
                         "title": "Données centralisées",

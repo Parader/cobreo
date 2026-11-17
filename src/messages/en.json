@@ -1242,19 +1242,23 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Relationships and follow-ups in one place.",
+                "tagline": "Contacts, exchanges, and follow-ups, without losing the thread.",
                 "points": [
                     {
-                        "title": "Track sponsors for an annual event"
+                        "title": "Sponsors and partners",
+                        "body": "Track relationships tied to an event or a mandate."
                     },
                     {
-                        "title": "Follow up on proposals that never got a reply"
+                        "title": "Proposal follow-ups",
+                        "body": "Follow up on requests that never got a reply."
                     },
                     {
-                        "title": "Keep the exchange history with a partner organization"
+                        "title": "Exchange history",
+                        "body": "Keep a record of conversations with each organization."
                     },
                     {
-                        "title": "Share contacts across a development team"
+                        "title": "Shared contacts",
+                        "body": "Share contacts across the team."
                     }
                 ],
                 "scene": "crm"
@@ -1262,7 +1266,7 @@
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "Well-organized events, from start to finish.",
+                "tagline": "Registration, tickets, and participant tracking.",
                 "points": [
                     {
                         "title": "Ticketing",
@@ -1270,15 +1274,15 @@
                     },
                     {
                         "title": "Registration forms",
-                        "body": "Collect registrations in one place."
+                        "body": "Open registration and collect the responses."
                     },
                     {
                         "title": "Registration tracking",
                         "body": "See who signed up and where each file stands."
                     },
                     {
-                        "title": "Communications",
-                        "body": "Write to participants without leaving Cobreo."
+                        "title": "Messages to participants",
+                        "body": "Write to registered people from Cobreo."
                     }
                 ],
                 "scene": "events"
@@ -1286,11 +1290,11 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Clear feedback to improve your services.",
+                "tagline": "Surveys and useful readings after each service.",
                 "points": [
                     {
-                        "title": "Communications",
-                        "body": "Follow up with people after a service or activity."
+                        "title": "Follow-ups after a service",
+                        "body": "Follow up with people once the service is done."
                     },
                     {
                         "title": "Surveys",
@@ -1299,10 +1303,6 @@
                     {
                         "title": "Reaction detection",
                         "body": "Spot feedback that needs a follow-up."
-                    },
-                    {
-                        "title": "Know your clients better",
-                        "body": "Read what people say about your offer."
                     },
                     {
                         "title": "Data visualization",
@@ -1314,7 +1314,7 @@
             {
                 "id": "booking",
                 "name": "Booking",
-                "tagline": "Appointments without the back-and-forth.",
+                "tagline": "Appointments, schedules, and reminders.",
                 "points": [
                     {
                         "title": "Appointment management",
@@ -1325,8 +1325,8 @@
                         "body": "Show available slots and avoid double bookings."
                     },
                     {
-                        "title": "Communications",
-                        "body": "Send reminders before each appointment."
+                        "title": "Automatic reminders",
+                        "body": "Send a reminder before each appointment."
                     }
                 ],
                 "scene": "calendar"
@@ -1334,7 +1334,7 @@
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "Follow-ups that run on their own, by your rules.",
+                "tagline": "Rules that carry the next steps for you.",
                 "points": [
                     {
                         "title": "Follow-ups",
@@ -1354,7 +1354,7 @@
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "tagline": "A site you update yourself.",
+                "tagline": "Public pages you publish and update yourself.",
                 "points": [
                     {
                         "title": "One-off pages",
@@ -1378,11 +1378,11 @@
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "A space for your users, fewer emails to manage.",
+                "tagline": "A shared space with your users, without relying on email.",
                 "points": [
                     {
-                        "title": "Communications",
-                        "body": "Exchange with the user in one place."
+                        "title": "Messaging with the user",
+                        "body": "Exchange messages inside the portal."
                     },
                     {
                         "title": "File exchange",
@@ -1402,15 +1402,15 @@
             {
                 "id": "hr",
                 "name": "HR",
-                "tagline": "The essentials of HR in one place.",
+                "tagline": "Reviews, team climate, and confidential comments.",
                 "points": [
                     {
                         "title": "Reviews",
-                        "body": "Collect team reviews in one place."
+                        "body": "Collect team reviews."
                     },
                     {
-                        "title": "Understanding the employee climate",
-                        "body": "Read what the team says about day-to-day work."
+                        "title": "Employee climate",
+                        "body": "Follow how the team experiences day-to-day work."
                     },
                     {
                         "title": "Anonymous comments",
@@ -1422,11 +1422,11 @@
             {
                 "id": "finance",
                 "name": "Finance",
-                "tagline": "Invoice and track what is still owed.",
+                "tagline": "Invoicing, balances, and due dates to track.",
                 "points": [
                     {
                         "title": "Simplified forms",
-                        "body": "Invoice and collect payments with clear forms."
+                        "body": "Prepare invoices and payments with fewer steps."
                     },
                     {
                         "title": "Centralized data",
