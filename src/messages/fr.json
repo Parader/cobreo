@@ -52,7 +52,8 @@
         "contrastTitle": "Demandez-nous de développer le module ou le plugin que vous souhaitez.",
         "contrastBody": "Une fois Cobreo en place, la plateforme continue d’évoluer. Nous ajoutons des modules et publions des mises à jour, et votre organisation en profite sans travail supplémentaire de votre côté.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "Récupérez du temps avec le module adapté à votre contexte."
+        "modulesTitle": "Récupérez du temps avec le module adapté à votre contexte.",
+        "modulesLede": "Quatre portes d’entrée pour commencer, et d’autres modules lorsque votre organisation en a besoin."
     },
     "footer": {
         "services": "Services",
@@ -1141,61 +1142,61 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Vous gardez le fil de chaque client et de chaque suivi. Ce qui a été dit reste rattaché à la bonne personne, même quand plusieurs collègues touchent au dossier.",
+                "summary": "Le CRM rassemble les échanges et les prochaines étapes de chaque relation, pour que rien ne se perde entre deux suivis. Votre équipe voit où en est chaque dossier et sait qui relancer, au bon moment.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Événements",
-                "summary": "Vous arrivez le jour de l’événement avec une liste d’inscriptions à jour. Les noms se regroupent au fur et à mesure, sans reconstruction de dernière minute.",
+                "summary": "Organisez vos événements et ouvrez les inscriptions au public, tout en gardant une vue claire des participants. Les communications et l’accueil le jour même s’appuient sur une liste à jour.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Vous consultez les réponses des clients au moment de préparer une décision. Les retours restent accessibles après une visite ou un événement.",
+                "summary": "Envoyez des sondages que les usagers mènent jusqu’au bout, puis consultez les résultats dès qu’ils arrivent. L’équipe s’appuie sur ces retours pour ajuster le service et suivre la satisfaction dans le temps.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Réservations",
-                "summary": "Vos clients réservent un créneau sans plusieurs allers-retours. Votre équipe voit les disponibilités au même endroit.",
+                "summary": "Les usagers choisissent un créneau parmi ceux que vous avez libérés, et le rendez-vous s’inscrit dans le calendrier sans une suite de messages. Les confirmations et les rappels réduisent les absences.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "summary": "Un changement important déclenche le prochain suivi. Votre équipe garde son énergie pour les décisions qui demandent un jugement.",
+                "summary": "Les tâches répétitives, comme une relance ou une assignation, se déclenchent d’elles-mêmes selon les règles que vous avez définies. L’équipe passe moins de temps à recopier et à vérifier.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "summary": "Vous mettez en ligne une page utile à vos clients sans ouvrir un outil séparé. La page reste liée à ce que votre équipe utilise déjà.",
+                "summary": "Publiez un site ou des pages à l’image de votre organisation, et mettez-les à jour vous-même lorsqu’une offre ou un événement change. Les visiteurs peuvent vous écrire ou s’inscrire directement.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "summary": "Vos clients ou partenaires trouvent l’information dont ils ont besoin de leur côté. Vous limitez ce qui est visible selon la personne.",
+                "summary": "Offrez à vos usagers un espace à l’image de votre organisation, où ils consultent leurs dossiers et transmettent les documents demandés. Vous recevez moins de questions répétitives.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "RH",
-                "summary": "L’équipe trouve les absences et les dossiers sans multiplier les demandes internes. Ces informations restent au même endroit.",
+                "summary": "Les dossiers de l’équipe et les demandes de congé se rassemblent dans un seul espace, avec un accès limité aux renseignements personnels. L’accueil d’une nouvelle personne se fait sans courriels éparpillés.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finances",
-                "summary": "Vous préparez un point sur les factures et les paiements plus rapidement. Les montants et les statuts restent visibles sans feuille de calcul séparée.",
+                "summary": "Préparez et envoyez vos factures, puis suivez les paiements reçus et ceux qui restent en attente. Les relances partent au bon moment.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tâches",
-                "summary": "Chacun sait ce qu’il doit livrer et pour quelle date. Les responsabilités restent claires quand plusieurs personnes avancent en parallèle.",
+                "summary": "Chaque travail à faire a un responsable et un état d’avancement que l’équipe peut consulter. Vous voyez ce qui avance et ce qui attend, et les projets se terminent avec moins d’oublis.",
                 "scene": "records"
             }
         ]

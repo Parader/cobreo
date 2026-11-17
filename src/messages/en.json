@@ -52,7 +52,8 @@
         "contrastTitle": "Ask us to build the module or plugin you wish you had.",
         "contrastBody": "Once Cobreo is in place, the platform keeps evolving. We add modules and ship updates, and your organization benefits without extra work on your side.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "Get time back with the module that fits your context."
+        "modulesTitle": "Get time back with the module that fits your context.",
+        "modulesLede": "Four entry points to begin with, and more modules when your organization needs them."
     },
     "footer": {
         "services": "Services",
@@ -1141,61 +1142,61 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "You keep track of every client and every follow-up. What was said stays attached to the right person, even when several colleagues touch the file.",
+                "summary": "The CRM gathers the exchanges and next steps for each relationship, so nothing is lost between follow-ups. Your team can see where every file stands and who to follow up with, at the right time.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Events",
-                "summary": "You arrive on the day of the event with an up-to-date registration list. Names gather as people sign up, without a last-minute rebuild.",
+                "summary": "Organize your events and open registration to the public, while keeping a clear view of participants. Day-of communication and welcome work from an up-to-date list.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "You review client answers when you are preparing a decision. Feedback stays available after a visit or an event.",
+                "summary": "Send surveys that people finish, then review the results as soon as they arrive. The team uses that feedback to adjust the service and track satisfaction over time.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Booking",
-                "summary": "Your clients book a slot without several rounds of messages. Your team sees availability in the same place.",
+                "summary": "People choose a slot among those you have opened, and the appointment lands on the calendar without a chain of messages. Confirmations and reminders reduce no-shows.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automation",
-                "summary": "An important change starts the next follow-up. Your team keeps its energy for decisions that need judgment.",
+                "summary": "Repetitive work, such as a follow-up or an assignment, starts on its own according to the rules you set. The team spends less time copying and checking.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "summary": "You publish a useful page for your clients without opening a separate tool. The page stays tied to what your team already uses.",
+                "summary": "Publish a site or pages that match your organization, and update them yourself when an offer or an event changes. Visitors can write to you or register directly.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "User portals",
-                "summary": "Your clients or partners find the information they need on their side. You limit what is visible according to the person.",
+                "summary": "Give your users a space that matches your organization, where they review their files and submit the documents you request. You receive fewer repetitive questions.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "HR",
-                "summary": "The team finds absences and records without multiplying internal requests. That information stays in one place.",
+                "summary": "Team records and leave requests gather in one place, with limited access to personal information. Welcoming a new person no longer depends on scattered emails.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finance",
-                "summary": "You prepare a check-in on invoices and payments more quickly. Amounts and statuses stay visible without a separate spreadsheet.",
+                "summary": "Prepare and send your invoices, then follow payments received and those still waiting. Reminders go out at the right time.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tasks",
-                "summary": "Everyone knows what they need to deliver and by which date. Responsibilities stay clear when several people move in parallel.",
+                "summary": "Every piece of work has an owner and a progress state the team can consult. You can see what is moving and what is waiting, and projects finish with fewer oversights.",
                 "scene": "records"
             }
         ]

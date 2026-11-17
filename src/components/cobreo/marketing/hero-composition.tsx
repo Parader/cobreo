@@ -30,8 +30,8 @@ export function HeroComposition({ copy }: { copy: StageCopy }) {
     const reduce = useReducedMotion();
 
     return (
-        <div className="mt-10 overflow-hidden rounded-2xl border border-[#1c1c1c]/10 bg-white shadow-[0_30px_70px_-36px_rgba(37,51,83,0.45)]">
-            <div className="flex h-12 items-center gap-3 border-b border-[#1c1c1c]/8 px-4">
+        <div className="overflow-hidden rounded-2xl border border-[#1c1c1c]/10 bg-white shadow-[0_40px_90px_-42px_rgba(37,51,83,0.5)] ring-1 ring-[#253353]/[0.04]">
+            <div className="flex h-12 items-center gap-3 border-b border-[#1c1c1c]/8 bg-[#fbfcfd] px-4">
                 <span className="text-[13px] font-semibold tracking-tight">Cobreo</span>
                 <span className="hidden items-center rounded-md border border-[#1c1c1c]/8 bg-[#f4f7fb] px-2.5 py-1 text-[12px] text-[#737373] sm:inline-flex">
                     {copy.search}
