@@ -1242,7 +1242,7 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Contacts, échanges et relances, sans perdre le fil.",
+                "tagline": "Vous suivez vos contacts et vous relancez ce qui reste en attente.",
                 "points": [
                     {
                         "title": "Commanditaires et partenaires",
@@ -1266,7 +1266,7 @@
             {
                 "id": "events",
                 "name": "Événements",
-                "tagline": "Inscriptions, billets et suivi des participants.",
+                "tagline": "Vous organisez vos événements et vous suivez les personnes inscrites.",
                 "points": [
                     {
                         "title": "Billetterie",
@@ -1290,7 +1290,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Des sondages et des lectures utiles après chaque service.",
+                "tagline": "Vous recueillez les retours après un service et vous les lisez ensuite.",
                 "points": [
                     {
                         "title": "Relances après un service",
@@ -1305,6 +1305,10 @@
                         "body": "Repérez rapidement les retours qui demandent une suite."
                     },
                     {
+                        "title": "Mieux connaître votre clientèle",
+                        "body": "Voyez, au fil du temps, qui fait appel à vous et ce que ces personnes demandent."
+                    },
+                    {
                         "title": "Visualisation des données",
                         "body": "Voyez les tendances sans exporter vers un autre outil."
                     }
@@ -1314,7 +1318,7 @@
             {
                 "id": "booking",
                 "name": "Réservations",
-                "tagline": "Prise de rendez-vous, horaires et rappels.",
+                "tagline": "Vous offrez des créneaux et vous confirmez les rendez-vous en ligne.",
                 "points": [
                     {
                         "title": "Gestion des rendez-vous",
@@ -1334,7 +1338,7 @@
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "tagline": "Des règles qui enchaînent les étapes à votre place.",
+                "tagline": "Vous définissez des règles qui enchaînent les prochaines étapes.",
                 "points": [
                     {
                         "title": "Suivis",
@@ -1354,7 +1358,7 @@
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "tagline": "Pages publiques que vous publiez et mettez à jour vous-même.",
+                "tagline": "Vous publiez des pages publiques et vous les mettez à jour vous-même.",
                 "points": [
                     {
                         "title": "Pages ponctuelles",
@@ -1378,7 +1382,7 @@
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "tagline": "Un espace partagé avec vos usagers, sans dépendre du courriel.",
+                "tagline": "Vous donnez à vos usagers un espace pour échanger sans passer par le courriel.",
                 "points": [
                     {
                         "title": "Messagerie avec l’usager",
@@ -1402,7 +1406,7 @@
             {
                 "id": "hr",
                 "name": "RH",
-                "tagline": "Évaluations, climat d’équipe et commentaires confidentiels.",
+                "tagline": "Vous centralisez les évaluations et les commentaires de l’équipe.",
                 "points": [
                     {
                         "title": "Évaluations",
@@ -1422,7 +1426,7 @@
             {
                 "id": "finance",
                 "name": "Finances",
-                "tagline": "Facturation, soldes et échéances à suivre.",
+                "tagline": "Vous facturez votre activité et vous suivez ce qui reste dû.",
                 "points": [
                     {
                         "title": "Formulaires simplifiés",

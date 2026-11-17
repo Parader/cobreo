@@ -1242,7 +1242,7 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Contacts, exchanges, and follow-ups, without losing the thread.",
+                "tagline": "You follow your contacts and follow up on what is still waiting.",
                 "points": [
                     {
                         "title": "Sponsors and partners",
@@ -1266,7 +1266,7 @@
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "Registration, tickets, and participant tracking.",
+                "tagline": "You run your events and you follow the people who registered.",
                 "points": [
                     {
                         "title": "Ticketing",
@@ -1290,7 +1290,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Surveys and useful readings after each service.",
+                "tagline": "You collect feedback after a service and then review it.",
                 "points": [
                     {
                         "title": "Follow-ups after a service",
@@ -1305,6 +1305,10 @@
                         "body": "Spot feedback that needs a follow-up."
                     },
                     {
+                        "title": "Know your clients better",
+                        "body": "Over time, see who comes to you and what those people ask for."
+                    },
+                    {
                         "title": "Data visualization",
                         "body": "See trends without exporting to another tool."
                     }
@@ -1314,7 +1318,7 @@
             {
                 "id": "booking",
                 "name": "Booking",
-                "tagline": "Appointments, schedules, and reminders.",
+                "tagline": "You offer time slots and you confirm appointments online.",
                 "points": [
                     {
                         "title": "Appointment management",
@@ -1334,7 +1338,7 @@
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "Rules that carry the next steps for you.",
+                "tagline": "You set rules that carry out the next steps.",
                 "points": [
                     {
                         "title": "Follow-ups",
@@ -1354,7 +1358,7 @@
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "tagline": "Public pages you publish and update yourself.",
+                "tagline": "You publish public pages and update them yourself.",
                 "points": [
                     {
                         "title": "One-off pages",
@@ -1378,7 +1382,7 @@
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "A shared space with your users, without relying on email.",
+                "tagline": "You give users a space to exchange without relying on email.",
                 "points": [
                     {
                         "title": "Messaging with the user",
@@ -1402,7 +1406,7 @@
             {
                 "id": "hr",
                 "name": "HR",
-                "tagline": "Reviews, team climate, and confidential comments.",
+                "tagline": "You collect team reviews and confidential comments.",
                 "points": [
                     {
                         "title": "Reviews",
@@ -1422,7 +1426,7 @@
             {
                 "id": "finance",
                 "name": "Finance",
-                "tagline": "Invoicing, balances, and due dates to track.",
+                "tagline": "You invoice your work and track what is still owed.",
                 "points": [
                     {
                         "title": "Simplified forms",
