@@ -1242,23 +1242,23 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Relationships with your organizations stay gathered for the team.",
+                "tagline": "The whole team can see each contact’s history and who needs to make the next follow-up.",
                 "points": [
                     {
-                        "title": "Sponsors and partners",
-                        "body": "Track relationships tied to an event or a mandate."
+                        "title": "Sponsors and partners",
+                        "body": "Track each relationship from the first contact through renewal."
                     },
                     {
-                        "title": "Proposal follow-ups",
-                        "body": "Follow up on requests that never got a reply."
+                        "title": "Proposal follow-ups",
+                        "body": "See requests that still have no reply and follow up on time."
                     },
                     {
-                        "title": "Exchange history",
-                        "body": "Keep a record of conversations with each organization."
+                        "title": "Exchange history",
+                        "body": "Find the calls, emails, and notes tied to an organization."
                     },
                     {
-                        "title": "Shared contacts",
-                        "body": "Share contacts across the team."
+                        "title": "Shared contacts",
+                        "body": "The team works from the same contact list, always up to date."
                     }
                 ],
                 "scene": "crm"
@@ -1266,23 +1266,23 @@
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "Running an event no longer means switching from one tool to another.",
+                "tagline": "From opening registration to the day of the event, everything is managed in Cobreo.",
                 "points": [
                     {
                         "title": "Ticketing",
-                        "body": "Send and track tickets for your event."
+                        "body": "Sell or distribute tickets and track how they are used."
                     },
                     {
-                        "title": "Registration forms",
-                        "body": "Open registration and collect the responses."
+                        "title": "Registration forms",
+                        "body": "Build the form and share the link in a few minutes."
                     },
                     {
-                        "title": "Registration tracking",
-                        "body": "See who signed up and where each file stands."
+                        "title": "Registration tracking",
+                        "body": "See who is registered and which files are still incomplete."
                     },
                     {
-                        "title": "Messages to participants",
-                        "body": "Write to registered people from Cobreo."
+                        "title": "Messages to participants",
+                        "body": "Send instructions and reminders to people who registered."
                     }
                 ],
                 "scene": "events"
@@ -1290,27 +1290,27 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Once the service is done, the team can still hear what mattered.",
+                "tagline": "After each service, you know what people thought of it and what needs a follow-up.",
                 "points": [
                     {
-                        "title": "Follow-ups after a service",
-                        "body": "Follow up with people once the service is done."
+                        "title": "Follow-ups after a service",
+                        "body": "A survey goes out automatically once the service is done."
                     },
                     {
                         "title": "Surveys",
-                        "body": "Ask focused questions and collect the answers."
+                        "body": "Ask your questions online and collect the answers."
                     },
                     {
-                        "title": "Reaction detection",
-                        "body": "Spot feedback that needs a follow-up."
+                        "title": "Reaction detection",
+                        "body": "Spot unhappy comments so you can follow up quickly."
                     },
                     {
-                        "title": "Know your clients better",
-                        "body": "Over time, see who comes to you and what those people ask for."
+                        "title": "Know your clients better",
+                        "body": "Over time, see who comes to you and what those people ask for."
                     },
                     {
-                        "title": "Data visualization",
-                        "body": "See trends without exporting to another tool."
+                        "title": "Data visualization",
+                        "body": "Follow how results change in clear charts."
                     }
                 ],
                 "scene": "survey"
@@ -1318,19 +1318,19 @@
             {
                 "id": "booking",
                 "name": "Booking",
-                "tagline": "Each person picks a time that works with your team.",
+                "tagline": "Your clients book appointments online within the slots you open.",
                 "points": [
                     {
-                        "title": "Appointment management",
-                        "body": "Book and confirm appointments online."
+                        "title": "Appointment management",
+                        "body": "Confirm, move, or cancel an appointment in a few clicks."
                     },
                     {
                         "title": "Schedules",
-                        "body": "Show available slots and avoid double bookings."
+                        "body": "Open your available slots and avoid double bookings."
                     },
                     {
-                        "title": "Automatic reminders",
-                        "body": "Send a reminder before each appointment."
+                        "title": "Automatic reminders",
+                        "body": "A reminder goes out before each appointment to reduce no-shows."
                     }
                 ],
                 "scene": "calendar"
@@ -1338,19 +1338,19 @@
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "When a step repeats, Cobreo can carry it out for you.",
+                "tagline": "The tasks that come back every week start on their own, without anyone having to remember them.",
                 "points": [
                     {
                         "title": "Follow-ups",
-                        "body": "Automatically follow up on what still has no reply."
+                        "body": "A follow-up goes out when a request still has no reply."
                     },
                     {
-                        "title": "Automatic replies",
-                        "body": "Respond as soon as a form arrives."
+                        "title": "Automatic replies",
+                        "body": "Every form that arrives gets an immediate reply."
                     },
                     {
-                        "title": "Scheduled actions",
-                        "body": "Trigger an action on a date or when a status changes."
+                        "title": "Scheduled actions",
+                        "body": "Schedule an action for a specific date or based on a file’s status."
                     }
                 ],
                 "scene": "records"
@@ -1358,23 +1358,23 @@
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "tagline": "The public reads pages your team puts together as needed.",
+                "tagline": "Each campaign or announcement can have its own page, published by your team.",
                 "points": [
                     {
-                        "title": "One-off pages",
-                        "body": "Publish a page for a campaign or an event."
+                        "title": "One-off pages",
+                        "body": "Create a page for a campaign, an activity, or an announcement."
                     },
                     {
-                        "title": "Temporary pages",
-                        "body": "Open a page for a limited period, then take it down."
+                        "title": "Temporary pages",
+                        "body": "Set an end date and the page takes itself down."
                     },
                     {
-                        "title": "Interactive pages",
-                        "body": "Add a form or a registration on the page."
+                        "title": "Interactive pages",
+                        "body": "Add a form, a registration, or appointment booking."
                     },
                     {
-                        "title": "Easy to maintain",
-                        "body": "Update the content without calling a developer."
+                        "title": "Easy to maintain",
+                        "body": "Update the content yourself, without calling a developer."
                     }
                 ],
                 "scene": "records"
@@ -1382,23 +1382,23 @@
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "Exchange with the user stays in a space set aside for them.",
+                "tagline": "Your users follow their file and exchange with you in a space set aside for them.",
                 "points": [
                     {
-                        "title": "Messaging with the user",
-                        "body": "Exchange messages inside the portal."
+                        "title": "Messaging with the user",
+                        "body": "Exchanges stay attached to each person’s file."
                     },
                     {
-                        "title": "File exchange",
-                        "body": "Upload and receive documents without emailing them."
+                        "title": "File exchange",
+                        "body": "Upload and receive documents without going through email."
                     },
                     {
-                        "title": "User journeys",
-                        "body": "Guide the user through the steps of their file."
+                        "title": "User journeys",
+                        "body": "Show the user the steps in their file and what they still need to do."
                     },
                     {
                         "title": "Documentation",
-                        "body": "Make useful documents available to each person."
+                        "body": "Give each user access to the guides and documents that help them."
                     }
                 ],
                 "scene": "records"
@@ -1406,19 +1406,19 @@
             {
                 "id": "hr",
                 "name": "Human resources",
-                "tagline": "Internal feedback reaches the organization in a structured way.",
+                "tagline": "You collect reviews and feedback from your employees, who can choose to stay anonymous.",
                 "points": [
                     {
                         "title": "Reviews",
-                        "body": "Collect team reviews."
+                        "body": "Prepare and track the team’s annual reviews."
                     },
                     {
-                        "title": "Employee climate",
-                        "body": "Follow how the team experiences day-to-day work."
+                        "title": "Employee climate",
+                        "body": "Measure regularly how the team feels at work."
                     },
                     {
-                        "title": "Anonymous comments",
-                        "body": "Let people speak without being identified."
+                        "title": "Anonymous comments",
+                        "body": "Employees speak up without their name being tied to the comment."
                     }
                 ],
                 "scene": "records"
@@ -1426,19 +1426,19 @@
             {
                 "id": "finance",
                 "name": "Finance",
-                "tagline": "Financial tracking of the work happens in the same environment as the rest of the job.",
+                "tagline": "You track invoicing and due dates without keeping a separate spreadsheet.",
                 "points": [
                     {
-                        "title": "Simplified forms",
-                        "body": "Prepare invoices and payments with fewer steps."
+                        "title": "Simplified forms",
+                        "body": "Fill in invoices and reimbursement requests without retyping the same information."
                     },
                     {
-                        "title": "Centralized data",
-                        "body": "See what was invoiced and what is still owed."
+                        "title": "Centralized data",
+                        "body": "Invoicing, payments, and balances sit together in one view."
                     },
                     {
-                        "title": "Planning tools",
-                        "body": "Track upcoming due dates and amounts."
+                        "title": "Planning tools",
+                        "body": "Anticipate upcoming due dates and amounts."
                     }
                 ],
                 "scene": "records"

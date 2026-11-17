@@ -1242,23 +1242,23 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Les relations avec vos organismes restent regroupées pour l’équipe.",
+                "tagline": "Toute l’équipe voit l’historique de chaque contact et sait qui doit faire la prochaine relance.",
                 "points": [
                     {
-                        "title": "Commanditaires et partenaires",
-                        "body": "Suivez les relations liées à un événement ou à un mandat."
+                        "title": "Commanditaires et partenaires",
+                        "body": "Suivez chaque relation, de la première prise de contact au renouvellement."
                     },
                     {
-                        "title": "Relances de soumissions",
-                        "body": "Relancez les demandes restées sans réponse."
+                        "title": "Relances de soumissions",
+                        "body": "Voyez les demandes restées sans réponse et relancez-les à temps."
                     },
                     {
-                        "title": "Historique des échanges",
-                        "body": "Gardez la trace des conversations avec chaque organisme."
+                        "title": "Historique des échanges",
+                        "body": "Retrouvez les appels, les courriels et les notes liés à un organisme."
                     },
                     {
-                        "title": "Contacts partagés",
-                        "body": "Partagez les contacts entre les membres de l’équipe."
+                        "title": "Contacts partagés",
+                        "body": "L’équipe travaille avec la même liste de contacts, toujours à jour."
                     }
                 ],
                 "scene": "crm"
@@ -1266,23 +1266,23 @@
             {
                 "id": "events",
                 "name": "Événements",
-                "tagline": "Tenir un événement ne demande plus de passer d’un outil à l’autre.",
+                "tagline": "De l’ouverture des inscriptions jusqu’au jour de l’événement, tout se gère dans Cobreo.",
                 "points": [
                     {
                         "title": "Billetterie",
-                        "body": "Envoyez et suivez les billets de votre événement."
+                        "body": "Vendez ou distribuez des billets et suivez leur utilisation."
                     },
                     {
-                        "title": "Formulaires d’inscription",
-                        "body": "Ouvrez l’inscription et recueillez les réponses."
+                        "title": "Formulaires d’inscription",
+                        "body": "Créez le formulaire et partagez le lien en quelques minutes."
                     },
                     {
-                        "title": "Suivi des inscriptions",
-                        "body": "Voyez qui s’est inscrit et où en est chaque dossier."
+                        "title": "Suivi des inscriptions",
+                        "body": "Voyez qui est inscrit et quels dossiers sont incomplets."
                     },
                     {
-                        "title": "Messages aux participants",
-                        "body": "Écrivez aux personnes inscrites depuis Cobreo."
+                        "title": "Messages aux participants",
+                        "body": "Envoyez les consignes et les rappels aux personnes inscrites."
                     }
                 ],
                 "scene": "events"
@@ -1290,27 +1290,27 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Une fois le service rendu, l’équipe peut encore entendre ce qui a compté.",
+                "tagline": "Après chaque service, vous savez ce que les gens en ont pensé et ce qui mérite une suite.",
                 "points": [
                     {
-                        "title": "Relances après un service",
-                        "body": "Relancez les personnes une fois le service terminé."
+                        "title": "Relances après un service",
+                        "body": "Un sondage part automatiquement une fois le service terminé."
                     },
                     {
                         "title": "Sondages",
-                        "body": "Posez des questions ciblées et recueillez les réponses."
+                        "body": "Posez vos questions en ligne et recueillez les réponses."
                     },
                     {
-                        "title": "Détection des réactions",
-                        "body": "Repérez rapidement les retours qui demandent une suite."
+                        "title": "Détection des réactions",
+                        "body": "Repérez les commentaires mécontents pour y donner suite rapidement."
                     },
                     {
-                        "title": "Mieux connaître votre clientèle",
-                        "body": "Voyez, au fil du temps, qui fait appel à vous et ce que ces personnes demandent."
+                        "title": "Mieux connaître votre clientèle",
+                        "body": "Voyez, au fil du temps, qui fait appel à vous et ce que ces personnes demandent."
                     },
                     {
-                        "title": "Visualisation des données",
-                        "body": "Voyez les tendances sans exporter vers un autre outil."
+                        "title": "Visualisation des données",
+                        "body": "Suivez l’évolution des résultats dans des graphiques clairs."
                     }
                 ],
                 "scene": "survey"
@@ -1318,19 +1318,19 @@
             {
                 "id": "booking",
                 "name": "Réservations",
-                "tagline": "Chacun choisit un moment disponible auprès de votre équipe.",
+                "tagline": "Vos clients prennent rendez-vous en ligne selon les plages que vous ouvrez.",
                 "points": [
                     {
-                        "title": "Gestion des rendez-vous",
-                        "body": "Prenez et confirmez les rendez-vous en ligne."
+                        "title": "Gestion des rendez-vous",
+                        "body": "Confirmez, déplacez ou annulez un rendez-vous en quelques clics."
                     },
                     {
                         "title": "Horaires",
-                        "body": "Affichez les créneaux disponibles et évitez les doubles réservations."
+                        "body": "Ouvrez vos plages disponibles et évitez les doubles réservations."
                     },
                     {
-                        "title": "Rappels automatiques",
-                        "body": "Envoyez un rappel avant chaque rendez-vous."
+                        "title": "Rappels automatiques",
+                        "body": "Un rappel part avant chaque rendez-vous pour limiter les absences."
                     }
                 ],
                 "scene": "calendar"
@@ -1338,19 +1338,19 @@
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "tagline": "Quand une étape se répète, Cobreo peut l’enchaîner à votre place.",
+                "tagline": "Les tâches qui reviennent chaque semaine se déclenchent sans que personne ait à y penser.",
                 "points": [
                     {
                         "title": "Suivis",
-                        "body": "Relancez automatiquement ce qui reste sans réponse."
+                        "body": "Une relance part lorsqu’une demande reste sans réponse."
                     },
                     {
-                        "title": "Réponses automatiques",
-                        "body": "Répondez dès qu’un formulaire arrive."
+                        "title": "Réponses automatiques",
+                        "body": "Chaque formulaire reçu obtient une réponse immédiate."
                     },
                     {
-                        "title": "Actions planifiées",
-                        "body": "Déclenchez une action à une date ou selon un statut."
+                        "title": "Actions planifiées",
+                        "body": "Programmez une action à une date précise ou selon le statut d’un dossier."
                     }
                 ],
                 "scene": "records"
@@ -1358,23 +1358,23 @@
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "tagline": "Le public lit des pages que votre équipe compose selon le moment.",
+                "tagline": "Chaque campagne ou annonce peut avoir sa propre page, publiée par votre équipe.",
                 "points": [
                     {
-                        "title": "Pages ponctuelles",
-                        "body": "Publiez une page pour une campagne ou un événement."
+                        "title": "Pages ponctuelles",
+                        "body": "Créez une page pour une campagne, une activité ou une annonce."
                     },
                     {
-                        "title": "Pages temporaires",
-                        "body": "Ouvrez une page pour une période limitée, puis retirez-la."
+                        "title": "Pages temporaires",
+                        "body": "Fixez une date de fin et la page se retire d’elle-même."
                     },
                     {
-                        "title": "Pages interactives",
-                        "body": "Ajoutez un formulaire ou une inscription sur la page."
+                        "title": "Pages interactives",
+                        "body": "Intégrez un formulaire, une inscription ou une prise de rendez-vous."
                     },
                     {
-                        "title": "Faciles à maintenir",
-                        "body": "Mettez le contenu à jour sans faire appel à un développeur."
+                        "title": "Faciles à maintenir",
+                        "body": "Modifiez le contenu vous-même, sans faire appel à un développeur."
                     }
                 ],
                 "scene": "records"
@@ -1382,23 +1382,23 @@
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "tagline": "L’échange avec l’usager reste dans un espace qui lui est réservé.",
+                "tagline": "Vos usagers suivent leur dossier et échangent avec vous dans un espace qui leur est propre.",
                 "points": [
                     {
-                        "title": "Messagerie avec l’usager",
-                        "body": "Échangez des messages dans le portail."
+                        "title": "Messagerie avec l’usager",
+                        "body": "Les échanges restent rattachés au dossier de chaque personne."
                     },
                     {
-                        "title": "Échange de fichiers",
-                        "body": "Déposez et recevez des documents sans les envoyer par courriel."
+                        "title": "Échange de fichiers",
+                        "body": "Déposez et recevez des documents sans passer par le courriel."
                     },
                     {
-                        "title": "Parcours utilisateurs",
-                        "body": "Guidez l’usager dans les étapes de son dossier."
+                        "title": "Parcours utilisateurs",
+                        "body": "Montrez à l’usager les étapes de son dossier et ce qu’il lui reste à faire."
                     },
                     {
                         "title": "Documentation",
-                        "body": "Mettez à disposition les documents utiles à chaque personne."
+                        "body": "Donnez accès aux guides et aux documents utiles à chaque usager."
                     }
                 ],
                 "scene": "records"
@@ -1406,19 +1406,19 @@
             {
                 "id": "hr",
                 "name": "Ressources humaines",
-                "tagline": "Les retours internes remontent jusqu’à l’organisation de façon structurée.",
+                "tagline": "Vous recueillez les évaluations et l’avis de vos employés, qui peuvent choisir de rester anonymes.",
                 "points": [
                     {
                         "title": "Évaluations",
-                        "body": "Recueillez les évaluations de l’équipe."
+                        "body": "Préparez et suivez les évaluations annuelles de l’équipe."
                     },
                     {
-                        "title": "Climat chez les employés",
-                        "body": "Suivez comment l’équipe vit son quotidien."
+                        "title": "Climat chez les employés",
+                        "body": "Mesurez régulièrement comment l’équipe se sent au travail."
                     },
                     {
-                        "title": "Commentaires anonymisés",
-                        "body": "Laissez les personnes s’exprimer sans être identifiées."
+                        "title": "Commentaires anonymisés",
+                        "body": "Les employés s’expriment sans que leur nom soit associé à leur commentaire."
                     }
                 ],
                 "scene": "records"
@@ -1426,19 +1426,19 @@
             {
                 "id": "finance",
                 "name": "Finances",
-                "tagline": "Le suivi financier de l’activité se fait dans le même environnement que le reste du travail.",
+                "tagline": "Vous suivez la facturation et les échéances sans tenir un tableur à part.",
                 "points": [
                     {
-                        "title": "Formulaires simplifiés",
-                        "body": "Préparez factures et encaissements avec moins d’étapes."
+                        "title": "Formulaires simplifiés",
+                        "body": "Remplissez factures et demandes de remboursement sans ressaisir les mêmes informations."
                     },
                     {
-                        "title": "Données centralisées",
-                        "body": "Voyez ce qui a été facturé et ce qui reste dû."
+                        "title": "Données centralisées",
+                        "body": "La facturation, les paiements et les soldes sont regroupés dans une même vue."
                     },
                     {
-                        "title": "Outils de planification",
-                        "body": "Suivez les échéances et les montants à venir."
+                        "title": "Outils de planification",
+                        "body": "Anticipez les échéances et les montants à venir."
                     }
                 ],
                 "scene": "records"
