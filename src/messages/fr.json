@@ -2,7 +2,7 @@
     "meta": {
         "siteName": "Cobreo",
         "defaultTitle": "Cobreo | Des outils qui s’adaptent à votre façon de travailler",
-        "defaultDescription": "Composez votre plateforme à partir de modules adaptés à votre façon de travailler. Hébergé au Canada.",
+        "defaultDescription": "Composez votre plateforme en activant les modules qui aident votre équipe. Hébergé au Canada.",
         "ogLocale": "fr_CA"
     },
     "nav": {
@@ -23,7 +23,7 @@
         "heroTitle": "Des outils qui s’adaptent à votre façon de travailler.",
         "heroTitleLine1": "Des outils qui s’adaptent",
         "heroTitleLine2": "à votre façon de travailler.",
-        "heroSubtitle": "Composez votre plateforme à partir de modules conçus pour votre réalité.",
+        "heroSubtitle": "Vous composez votre plateforme en activant les modules qui aident votre équipe au quotidien.",
         "demoCta": "Demander une démo",
         "diagnosticCta": "Commencer l’analyse",
         "catalogTitle": "Les modules que vous activez forment votre plateforme.",
@@ -50,9 +50,9 @@
         "stageBody": "Quatre modules d’entrée, avec la même exigence pour le reste de la plateforme.",
         "contrastEyebrow": "Sur mesure",
         "contrastTitle": "Demandez-nous de développer le module ou le plugin que vous souhaitez.",
-        "contrastBody": "Cobreo continue d’évoluer après que vous l’avez adopté. Nous publions régulièrement des mises à jour et de nouveaux modules, de sorte que votre plateforme s’améliore sans que vous ayez à y travailler.",
+        "contrastBody": "Une fois Cobreo en place, la plateforme continue d’évoluer. Nous ajoutons des modules et publions des mises à jour, et votre organisation en profite sans travail supplémentaire de votre côté.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "Des contextes différents, le module qui fait gagner du temps."
+        "modulesTitle": "Récupérez du temps avec le module adapté à votre contexte."
     },
     "footer": {
         "services": "Services",
@@ -1136,66 +1136,66 @@
         "restTitle": "Les autres modules",
         "restBody": "Ils s’activent de la même façon, seuls ou avec d’autres modules.",
         "extendTitle": "Demandez-nous de développer le module ou le plugin que vous souhaitez.",
-        "extendBody": "Cobreo continue d’évoluer après que vous l’avez adopté. Nous publions régulièrement des mises à jour et de nouveaux modules, de sorte que votre plateforme s’améliore sans que vous ayez à y travailler.",
+        "extendBody": "Une fois Cobreo en place, la plateforme continue d’évoluer. Nous ajoutons des modules et publions des mises à jour, et votre organisation en profite sans travail supplémentaire de votre côté.",
         "items": [
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Vous évitez de perdre un client ou un suivi en cours. Ce qui a été dit et ce qui reste à faire restent rattachés à la bonne personne.",
+                "summary": "Vous gardez le fil de chaque client et de chaque suivi. Ce qui a été dit reste rattaché à la bonne personne, même quand plusieurs collègues touchent au dossier.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Événements",
-                "summary": "Vous savez qui s’est inscrit sans reconstruire une liste à la dernière minute. Les inscriptions restent regroupées jusqu’au jour de l’événement.",
+                "summary": "Vous arrivez le jour de l’événement avec une liste d’inscriptions à jour. Les noms se regroupent au fur et à mesure, sans reconstruction de dernière minute.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Vous lisez ce que vos clients ont répondu au moment où vous en avez besoin. Les retours restent faciles à consulter au fil du temps.",
+                "summary": "Vous consultez les réponses des clients au moment de préparer une décision. Les retours restent accessibles après une visite ou un événement.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Réservations",
-                "summary": "Les rendez-vous se confirment sans une chaîne d’échanges. Votre équipe voit les disponibilités au même endroit que vos clients.",
+                "summary": "Vos clients réservent un créneau sans plusieurs allers-retours. Votre équipe voit les disponibilités au même endroit.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "summary": "Quand quelque chose change, le suivi part sans que quelqu’un ait à s’en souvenir. Votre équipe garde son temps pour le travail qui demande de l’attention.",
+                "summary": "Un changement important déclenche le prochain suivi. Votre équipe garde son énergie pour les décisions qui demandent un jugement.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "summary": "Vous publiez une page pour vos clients sans gérer un site à part. Ce qu’ils voient reste lié à ce que vous utilisez déjà dans Cobreo.",
+                "summary": "Vous mettez en ligne une page utile à vos clients sans ouvrir un outil séparé. La page reste liée à ce que votre équipe utilise déjà.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "summary": "Les personnes concernées trouvent ce dont elles ont besoin sans vous écrire à chaque étape. Vous décidez ce qui reste accessible.",
+                "summary": "Vos clients ou partenaires trouvent l’information dont ils ont besoin de leur côté. Vous limitez ce qui est visible selon la personne.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "RH",
-                "summary": "Les informations sur l’équipe ne se dispersent plus dans des fichiers isolés. Absences et dossiers restent faciles à retrouver.",
+                "summary": "L’équipe trouve les absences et les dossiers sans multiplier les demandes internes. Ces informations restent au même endroit.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finances",
-                "summary": "Vous savez où en sont les factures et les paiements sans ouvrir plusieurs tableurs. Le point financier prend moins de temps à préparer.",
+                "summary": "Vous préparez un point sur les factures et les paiements plus rapidement. Les montants et les statuts restent visibles sans feuille de calcul séparée.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tâches",
-                "summary": "Chacun voit ce qui lui revient et pour quelle échéance. Le travail a moins de chances de tomber entre deux personnes.",
+                "summary": "Chacun sait ce qu’il doit livrer et pour quelle date. Les responsabilités restent claires quand plusieurs personnes avancent en parallèle.",
                 "scene": "records"
             }
         ]

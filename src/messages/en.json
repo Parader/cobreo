@@ -2,7 +2,7 @@
     "meta": {
         "siteName": "Cobreo",
         "defaultTitle": "Cobreo | Tools that adapt to the way you work",
-        "defaultDescription": "Compose your platform from modules adapted to the way you work. Hosted in Canada.",
+        "defaultDescription": "Build your platform by turning on the modules that help your team. Hosted in Canada.",
         "ogLocale": "en_CA"
     },
     "nav": {
@@ -23,7 +23,7 @@
         "heroTitle": "Tools that adapt to the way you work.",
         "heroTitleLine1": "Tools that adapt",
         "heroTitleLine2": "to the way you work.",
-        "heroSubtitle": "Compose your platform from modules shaped to the way you operate.",
+        "heroSubtitle": "You build your platform by turning on the modules that help your team day to day.",
         "demoCta": "Request a demo",
         "diagnosticCta": "Start the analysis",
         "catalogTitle": "The modules you turn on make up your platform.",
@@ -50,9 +50,9 @@
         "stageBody": "Four entry modules, with the same standard for the rest of the platform.",
         "contrastEyebrow": "Custom",
         "contrastTitle": "Ask us to build the module or plugin you wish you had.",
-        "contrastBody": "Cobreo keeps evolving after you adopt it. We ship regular updates and new modules, so your platform improves without you having to work on it.",
+        "contrastBody": "Once Cobreo is in place, the platform keeps evolving. We add modules and ship updates, and your organization benefits without extra work on your side.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "Different contexts, the module that saves time."
+        "modulesTitle": "Get time back with the module that fits your context."
     },
     "footer": {
         "services": "Services",
@@ -1136,66 +1136,66 @@
         "restTitle": "The other modules",
         "restBody": "They turn on the same way, on their own or alongside other modules.",
         "extendTitle": "Ask us to build the module or plugin you wish you had.",
-        "extendBody": "Cobreo keeps evolving after you adopt it. We ship regular updates and new modules, so your platform improves without you having to work on it.",
+        "extendBody": "Once Cobreo is in place, the platform keeps evolving. We add modules and ship updates, and your organization benefits without extra work on your side.",
         "items": [
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "You stop losing track of a client or an open follow-up. What was said and what still needs doing stay attached to the right person.",
+                "summary": "You keep track of every client and every follow-up. What was said stays attached to the right person, even when several colleagues touch the file.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Events",
-                "summary": "You know who registered without rebuilding a list at the last minute. Registrations stay gathered in one place until the day of the event.",
+                "summary": "You arrive on the day of the event with an up-to-date registration list. Names gather as people sign up, without a last-minute rebuild.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "You can read what clients answered whenever you need it. Feedback stays easy to consult over time.",
+                "summary": "You review client answers when you are preparing a decision. Feedback stays available after a visit or an event.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Booking",
-                "summary": "Appointments get confirmed without a long back-and-forth. Your team sees availability in the same place as your clients.",
+                "summary": "Your clients book a slot without several rounds of messages. Your team sees availability in the same place.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automation",
-                "summary": "When something changes, the follow-up starts without someone having to remember it. Your team keeps its time for work that needs attention.",
+                "summary": "An important change starts the next follow-up. Your team keeps its energy for decisions that need judgment.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "summary": "You publish a page for your clients without managing a separate site. What they see stays tied to what you already use in Cobreo.",
+                "summary": "You publish a useful page for your clients without opening a separate tool. The page stays tied to what your team already uses.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "User portals",
-                "summary": "The people involved find what they need without writing to you at every step. You decide what stays accessible.",
+                "summary": "Your clients or partners find the information they need on their side. You limit what is visible according to the person.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "HR",
-                "summary": "Team information no longer scatters across separate files. Absences and records stay easy to find.",
+                "summary": "The team finds absences and records without multiplying internal requests. That information stays in one place.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finance",
-                "summary": "You know where invoices and payments stand without opening several spreadsheets. Preparing a financial check-in takes less time.",
+                "summary": "You prepare a check-in on invoices and payments more quickly. Amounts and statuses stay visible without a separate spreadsheet.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tasks",
-                "summary": "Everyone can see what falls to them and by which deadline. Work is less likely to slip between two people.",
+                "summary": "Everyone knows what they need to deliver and by which date. Responsibilities stay clear when several people move in parallel.",
                 "scene": "records"
             }
         ]
