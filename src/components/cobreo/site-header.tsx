@@ -18,10 +18,23 @@ import { cx } from "@/utils/cx";
 const focusRing =
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]";
 
-function isNavActive(pathname: string | null, href: string) {
+type NavHref = string | { pathname: string; hash?: string };
+
+function hrefPath(href: NavHref) {
+    return typeof href === "string" ? href : href.pathname;
+}
+
+function hrefKey(href: NavHref) {
+    if (typeof href === "string") return href;
+    return href.hash ? `${href.pathname}#${href.hash}` : href.pathname;
+}
+
+function isNavActive(pathname: string | null, href: NavHref) {
     if (!pathname) return false;
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(`${href}/`);
+    if (typeof href === "object" && href.hash) return false;
+    const path = hrefPath(href);
+    if (path === "/") return pathname === "/";
+    return pathname === path || pathname.startsWith(`${path}/`);
 }
 
 function navLinkClassName(active: boolean) {
@@ -110,7 +123,7 @@ export function SiteHeader() {
     const effectivelyHidden = hidden && !headerFocused && !menuOpen;
 
     const links = [
-        { href: "/modules" as const, label: t("modules") },
+        { href: { pathname: "/", hash: "modules" } as const, label: t("modules") },
         { href: "/a-propos" as const, label: t("about") },
         { href: "/contact" as const, label: t("contact") },
     ];
@@ -156,7 +169,7 @@ export function SiteHeader() {
                             const active = isNavActive(pathname, link.href);
                             return (
                                 <Link
-                                    key={link.href}
+                                    key={hrefKey(link.href)}
                                     href={link.href}
                                     className={navLinkClassName(active)}
                                     aria-current={active ? "page" : undefined}
@@ -233,7 +246,7 @@ export function SiteHeader() {
                             const active = isNavActive(pathname, link.href);
                             return (
                                 <Link
-                                    key={link.href}
+                                    key={hrefKey(link.href)}
                                     href={link.href}
                                     className={mobileNavLinkClassName(active)}
                                     aria-current={active ? "page" : undefined}

@@ -21,7 +21,7 @@ export default function NotFound() {
                     {t("home")}
                 </Link>
                 <Link
-                    href="/modules"
+                    href={{ pathname: "/", hash: "modules" }}
                     className="inline-flex items-center justify-center rounded-lg border border-[#4d6b97] px-4 py-3 text-base font-semibold text-[#253353] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]"
                 >
                     {t("modules")}

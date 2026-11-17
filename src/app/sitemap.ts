@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cobreo.ca";
 const locales = ["fr", "en"] as const;
-const paths = ["", "modules", "a-propos", "contact", "diagnostic", "confidentialite", "conditions", "cookies"];
+const paths = ["", "a-propos", "contact", "diagnostic", "confidentialite", "conditions", "cookies"];
 
 /**
  * Bump when page content actually changes. A `lastmod` that moves on every build

@@ -21,11 +21,12 @@
     },
     "home": {
         "heroTitle": "Des outils qui s’adaptent à votre façon de travailler.",
+        "heroTitleLine1": "Des outils qui s’adaptent",
+        "heroTitleLine2": "à votre façon de travailler.",
         "heroSubtitle": "Composez votre plateforme à partir de modules conçus pour votre réalité.",
         "demoCta": "Demander une démo",
         "diagnosticCta": "Commencer l’analyse",
         "catalogTitle": "Ce que vous activez devient la plateforme.",
-        "catalogBody": "Les autres ne font pas partie de votre plateforme.",
         "catalogLink": "Voir les modules",
         "depthTitle": "Chaque module va au bout de son sujet.",
         "depthBody": "Les écrans restent lisibles : une liste, une fiche, un calendrier, des réponses. Rien n’y est ajouté pour faire nombre.",
@@ -36,7 +37,6 @@
         "assistantTitle": "Un assistant pour configurer et guider.",
         "assistantBody": "Il aide à mettre Cobreo en place et accompagne les personnes qui travaillent dans la plateforme.",
         "billingTitle": "Vous payez les modules que vous activez.",
-        "billingBody": "Ce qui reste éteint ne fait pas partie de votre plateforme.",
         "trustTitle": "Hébergé au Canada.",
         "trustBody": "Les données de l’application restent au Canada.",
         "quote": "La rapidité d’exécution nous a particulièrement impressionnés. Nous avons pu voir et tester une première version très tôt, puis l’ajuster à partir des commentaires de notre équipe.",
@@ -52,9 +52,7 @@
         "contrastTitle": "Vous pouvez ajouter les vôtres.",
         "contrastBody": "Un module développé pour vous, ou un plugin que d’autres peuvent reprendre, s’ajoute à ceux que vous avez déjà. L’assistant aide à configurer Cobreo et à s’y retrouver.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "Vous activez seulement ceux qui vous servent.",
-        "modulesBody": "Les autres ne font pas partie de votre plateforme.",
-        "modulesLink": "Voir les modules"
+        "modulesTitle": "Des contextes différents, le module qui fait gagner du temps."
     },
     "footer": {
         "services": "Services",

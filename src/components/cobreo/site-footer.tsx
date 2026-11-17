@@ -34,7 +34,7 @@ export function SiteFooter() {
                         </div>
                         <nav className="flex flex-wrap items-center gap-x-9 gap-y-4 text-sm font-semibold text-[#efedea]" aria-label="Footer">
                             <Link
-                                href="/modules"
+                                href={{ pathname: "/", hash: "modules" }}
                                 className="opacity-90 transition duration-100 ease-linear hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
                             >
                                 {t("modules")}

@@ -25,8 +25,10 @@ export async function HomePage() {
                 />
                 <div className="relative mx-auto max-w-[1200px] px-4 pt-6 pb-16 md:px-8 md:pt-10 md:pb-24">
                     <Rise>
-                        <h1 className="max-w-[16ch] font-display text-[clamp(2.7rem,6.4vw,4.6rem)] leading-[0.98] font-medium tracking-[-0.034em] text-balance text-[#121212]">
-                            {t("heroTitle")}
+                        <h1 className="max-w-[11.5em] font-display text-[clamp(2.5rem,5.2vw,4.4rem)] leading-[1.02] font-medium tracking-[-0.034em] text-[#121212] md:max-w-[18.5em]">
+                            <span className="md:whitespace-nowrap">{t("heroTitleLine1")}</span>
+                            <br className="hidden md:block" />
+                            <span className="md:whitespace-nowrap"> {t("heroTitleLine2")}</span>
                         </h1>
                     </Rise>
                     <Rise delay={0.08}>
@@ -43,14 +45,13 @@ export async function HomePage() {
                 </div>
             </section>
 
-            <section className="mx-auto max-w-[1200px] px-4 py-16 md:px-8 md:py-24">
+            <section id="modules" className="mx-auto max-w-[1200px] scroll-mt-28 px-4 py-16 md:scroll-mt-32 md:px-8 md:py-24">
                 <p className="text-[11px] font-medium tracking-[0.16em] text-[#4d6b97] uppercase">{t("modulesEyebrow")}</p>
-                <h2 className="mt-3 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.15rem)] leading-[1.05] font-medium tracking-[-0.03em] text-balance">
+                <h2 className="mt-3 max-w-[22ch] font-display text-[clamp(2rem,4vw,3.15rem)] leading-[1.05] font-medium tracking-[-0.03em] text-balance">
                     {t("modulesTitle")}
                 </h2>
-                <p className="mt-4 max-w-md text-lg text-[#5c6168]">{t("modulesBody")}</p>
                 <div className="mt-10">
-                    <ModuleBento items={items} linkLabel={t("modulesLink")} linkHref="/modules" />
+                    <ModuleBento items={items} />
                 </div>
             </section>
 
@@ -61,7 +62,6 @@ export async function HomePage() {
                 name={t("quoteName")}
                 role={t("quoteRole")}
                 billing={t("billingTitle")}
-                billingBody={t("billingBody")}
                 trust={t("trustTitle")}
                 trustBody={t("trustBody")}
                 cta={t("demoCta")}

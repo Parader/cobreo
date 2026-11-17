@@ -207,7 +207,7 @@ export function AboutPage() {
                         </p>
                         <div className="mt-8">
                             <Link
-                                href="/modules"
+                                href={{ pathname: "/", hash: "modules" }}
                                 className="group inline-flex items-center gap-2 text-base font-semibold text-[#4d6b97] transition-colors duration-100 ease-linear hover:text-[#253353] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]"
                             >
                                 {t("workLink")}

@@ -5,7 +5,6 @@ export function Closing({
     name,
     role,
     billing,
-    billingBody,
     trust,
     trustBody,
     cta,
@@ -16,7 +15,6 @@ export function Closing({
     name: string;
     role: string;
     billing: string;
-    billingBody: string;
     trust: string;
     trustBody: string;
     cta: string;
@@ -33,9 +31,7 @@ export function Closing({
             <p className="mt-5 text-sm font-semibold">{name}</p>
             <p className="text-sm text-[#5c6168]">{role}</p>
             <div className="mt-10 space-y-3 border-t border-[#1c1c1c]/10 pt-6 text-[15px] leading-6 text-[#5c6168]">
-                <p>
-                    <span className="font-medium text-[#253353]">{billing}</span> {billingBody}
-                </p>
+                <p className="font-medium text-[#253353]">{billing}</p>
                 <p>
                     <span className="font-medium text-[#253353]">{trust}</span> {trustBody}
                 </p>

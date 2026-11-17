@@ -21,11 +21,12 @@
     },
     "home": {
         "heroTitle": "Tools that adapt to the way you work.",
+        "heroTitleLine1": "Tools that adapt",
+        "heroTitleLine2": "to the way you work.",
         "heroSubtitle": "Compose your platform from modules shaped to the way you operate.",
         "demoCta": "Request a demo",
         "diagnosticCta": "Start the analysis",
         "catalogTitle": "What you activate becomes the platform.",
-        "catalogBody": "The others are not part of your platform.",
         "catalogLink": "See the modules",
         "depthTitle": "Each module stays with its subject.",
         "depthBody": "The screens stay readable: a list, a record, a calendar, a set of responses. Nothing is added just to fill the page.",
@@ -36,7 +37,6 @@
         "assistantTitle": "An assistant to configure and guide.",
         "assistantBody": "It helps set Cobreo up and stays with the people working in the platform.",
         "billingTitle": "You pay for the modules you activate.",
-        "billingBody": "What stays off is not part of your platform.",
         "trustTitle": "Hosted in Canada.",
         "trustBody": "Application data stays in Canada.",
         "quote": "The speed of execution particularly impressed us. We were able to see and test a first version very early, then adjust it from our team’s feedback.",
@@ -52,9 +52,7 @@
         "contrastTitle": "You can add your own.",
         "contrastBody": "A module built for you, or a plugin other organizations can pick up, sits alongside the ones you already have. The assistant helps set Cobreo up and find your way around it.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "You turn on only the ones you need.",
-        "modulesBody": "The others are not part of your platform.",
-        "modulesLink": "See the modules"
+        "modulesTitle": "Different contexts, the module that saves time."
     },
     "footer": {
         "services": "Services",
