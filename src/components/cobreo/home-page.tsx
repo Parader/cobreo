@@ -3,6 +3,7 @@ import { DemoButton } from "@/components/cobreo/marketing/demo-button";
 import { HeroComposition } from "@/components/cobreo/marketing/hero-composition";
 import { ModuleBento, type BentoItem } from "@/components/cobreo/marketing/module-bento";
 import { ContrastBand } from "@/components/cobreo/marketing/contrast-band";
+import { Advantages, type AdvantageItem } from "@/components/cobreo/marketing/advantages";
 import { Rise } from "@/components/cobreo/marketing/rise";
 import { stageCopy } from "@/components/cobreo/marketing/stage-copy";
 import { Closing } from "@/components/cobreo/marketing/closing";
@@ -13,6 +14,7 @@ export async function HomePage() {
     const locale = await getLocale();
     const copy = stageCopy(locale);
     const items = modules.raw("items") as BentoItem[];
+    const advantages = t.raw("advantages") as AdvantageItem[];
 
     return (
         <div className="bg-[#f4f6f8] text-[#171717]">
@@ -60,15 +62,20 @@ export async function HomePage() {
                 </div>
             </section>
 
-            <ContrastBand eyebrow={t("contrastEyebrow")} title={t("contrastTitle")} body={t("contrastBody")} copy={copy} />
+            <ContrastBand
+                eyebrow={t("contrastEyebrow")}
+                title={t("contrastTitle")}
+                body={t("contrastBody")}
+                body2={t("contrastBody2")}
+                copy={copy}
+            />
+
+            <Advantages title={t("advantagesTitle")} items={advantages} />
 
             <Closing
                 quote={t("quote")}
                 name={t("quoteName")}
                 role={t("quoteRole")}
-                billing={t("billingTitle")}
-                trust={t("trustTitle")}
-                trustBody={t("trustBody")}
                 cta={t("demoCta")}
                 ctaId="close_demo"
                 surface="home_close"

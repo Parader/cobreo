@@ -4,9 +4,6 @@ export function Closing({
     quote,
     name,
     role,
-    billing,
-    trust,
-    trustBody,
     cta,
     ctaId,
     surface,
@@ -14,9 +11,6 @@ export function Closing({
     quote: string;
     name: string;
     role: string;
-    billing: string;
-    trust: string;
-    trustBody?: string;
     cta: string;
     ctaId: string;
     surface: string;
@@ -33,19 +27,10 @@ export function Closing({
                 <p className="text-sm text-[#5c6168]">{role}</p>
             </div>
 
-            <div className="mx-auto mt-14 max-w-[520px] border-t border-[#1c1c1c]/10 pt-10 text-center">
-                <div className="space-y-3 text-[15px] leading-7 text-[#5c6168]">
-                    <p className="font-medium text-[#253353]">{billing}</p>
-                    <p className="font-medium text-[#253353]">
-                        {trust}
-                        {trustBody ? <> {trustBody}</> : null}
-                    </p>
-                </div>
-                <div className="mt-8 flex justify-center">
-                    <DemoButton ctaId={ctaId} surface={surface}>
-                        {cta}
-                    </DemoButton>
-                </div>
+            <div className="mt-12 flex justify-center md:mt-14">
+                <DemoButton ctaId={ctaId} surface={surface}>
+                    {cta}
+                </DemoButton>
             </div>
         </section>
     );

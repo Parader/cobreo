@@ -49,11 +49,27 @@
         "stageTitle": "Le travail, montré de près.",
         "stageBody": "Quatre modules d’entrée, avec la même exigence pour le reste de la plateforme.",
         "contrastEyebrow": "Sur mesure",
-        "contrastTitle": "Demandez-nous de développer le module ou le plugin que vous souhaitez.",
-        "contrastBody": "Une fois Cobreo en place, la plateforme continue d’évoluer. Nous ajoutons des modules et publions des mises à jour, et votre organisation en profite sans travail supplémentaire de votre côté.",
+        "contrastTitle": "Vous avez besoin d’un module qui n’existe pas encore ?",
+        "contrastBody": "Parlez-nous de votre projet. Nous pouvons développer un module ou un plugin adapté à vos besoins.",
+        "contrastBody2": "Une fois Cobreo en place, la plateforme continue d’évoluer. Nous ajoutons des modules et publions des mises à jour, et votre organisation en profite sans travail supplémentaire de votre côté.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "Récupérez du temps avec le module adapté à votre contexte.",
-        "modulesLede": "Quatre portes d’entrée pour commencer, et d’autres modules lorsque votre organisation en a besoin."
+        "modulesTitle": "Les bons outils, au bon endroit.",
+        "modulesLede": "Commencez avec les modules dont vous avez besoin. Ajoutez-en d’autres au fil de l’évolution de votre organisation.",
+        "advantagesTitle": "Une plateforme qui évolue avec vous.",
+        "advantages": [
+            {
+                "title": "Payez seulement ce que vous utilisez",
+                "body": "Vous ne payez que pour les modules activés dans votre organisation."
+            },
+            {
+                "title": "De nouveaux modules au fil du temps",
+                "body": "Les nouveaux modules et les améliorations s’ajoutent à votre plateforme, sans tout recommencer."
+            },
+            {
+                "title": "Vos données restent au Canada",
+                "body": "L’application et vos données sont hébergées au Canada."
+            }
+        ]
     },
     "footer": {
         "services": "Services",
@@ -1154,7 +1170,7 @@
             {
                 "id": "events",
                 "name": "Événements",
-                "tagline": "De l’annonce à l’accueil, sous contrôle.",
+                "tagline": "Des événements bien organisés, du début à la fin.",
                 "points": [
                     "Inscriptions en ligne",
                     "Billets et invitations",
@@ -1166,7 +1182,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Des retours clairs pour ajuster le service.",
+                "tagline": "Des retours clairs pour améliorer vos services.",
                 "points": [
                     "Sondages en ligne",
                     "Réponses en direct",
@@ -1190,9 +1206,9 @@
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "tagline": "Le suivi part selon vos règles.",
+                "tagline": "Des suivis qui se font tout seuls, selon vos règles.",
                 "points": [
-                    "Règles déclenchées",
+                    "Déclencheurs personnalisés",
                     "Relances automatiques",
                     "Assignations",
                     "Workflows simples"
@@ -1214,7 +1230,7 @@
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "tagline": "Un espace pour vos usagers, sans courriels.",
+                "tagline": "Un espace pour vos usagers, moins de courriels à gérer.",
                 "points": [
                     "Accès usagers",
                     "Dossiers partagés",
@@ -1226,12 +1242,12 @@
             {
                 "id": "hr",
                 "name": "RH",
-                "tagline": "L’essentiel RH dans un seul espace.",
+                "tagline": "L’essentiel des RH au même endroit.",
                 "points": [
                     "Dossiers employés",
                     "Demandes de congé",
                     "Accueil des nouvelles personnes",
-                    "Accès limité"
+                    "Accès limités"
                 ],
                 "scene": "records"
             },

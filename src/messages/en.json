@@ -49,11 +49,27 @@
         "stageTitle": "The work, shown up close.",
         "stageBody": "Four entry modules, with the same standard for the rest of the platform.",
         "contrastEyebrow": "Custom",
-        "contrastTitle": "Ask us to build the module or plugin you wish you had.",
-        "contrastBody": "Once Cobreo is in place, the platform keeps evolving. We add modules and ship updates, and your organization benefits without extra work on your side.",
+        "contrastTitle": "Need a module that does not exist yet?",
+        "contrastBody": "Tell us about your project. We can develop a module or plugin tailored to your needs.",
+        "contrastBody2": "Once Cobreo is in place, the platform keeps evolving. We add modules and ship updates, and your organization benefits without extra work on your side.",
         "modulesEyebrow": "Modules",
-        "modulesTitle": "Get time back with the module that fits your context.",
-        "modulesLede": "Four entry points to begin with, and more modules when your organization needs them."
+        "modulesTitle": "The right tools, in the right place.",
+        "modulesLede": "Start with the modules you need. Add more as your organization evolves.",
+        "advantagesTitle": "A platform that evolves with you.",
+        "advantages": [
+            {
+                "title": "Pay only for what you use",
+                "body": "You only pay for the modules activated in your organization."
+            },
+            {
+                "title": "New modules over time",
+                "body": "New modules and improvements are added to your platform, without starting over."
+            },
+            {
+                "title": "Your data stays in Canada",
+                "body": "The application and your data are hosted in Canada."
+            }
+        ]
     },
     "footer": {
         "services": "Services",
@@ -1154,7 +1170,7 @@
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "From announcement to check-in, under control.",
+                "tagline": "Well-organized events, from start to finish.",
                 "points": [
                     "Online registration",
                     "Tickets and invitations",
@@ -1166,7 +1182,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Clear feedback to adjust the service.",
+                "tagline": "Clear feedback to improve your services.",
                 "points": [
                     "Online surveys",
                     "Live responses",
@@ -1190,9 +1206,9 @@
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "Follow-ups start from your rules.",
+                "tagline": "Follow-ups that run on their own, by your rules.",
                 "points": [
-                    "Triggered rules",
+                    "Custom triggers",
                     "Automatic reminders",
                     "Assignments",
                     "Simple workflows"
@@ -1214,7 +1230,7 @@
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "A space for your users, without emails.",
+                "tagline": "A space for your users, fewer emails to manage.",
                 "points": [
                     "User access",
                     "Shared files",
@@ -1226,7 +1242,7 @@
             {
                 "id": "hr",
                 "name": "HR",
-                "tagline": "Essential HR in one place.",
+                "tagline": "The essentials of HR in one place.",
                 "points": [
                     "Employee records",
                     "Leave requests",

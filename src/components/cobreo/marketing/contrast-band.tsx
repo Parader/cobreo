@@ -8,11 +8,13 @@ export function ContrastBand({
     eyebrow,
     title,
     body,
+    body2,
     copy,
 }: {
     eyebrow: string;
     title: string;
     body: string;
+    body2: string;
     copy: Pick<StageCopy, "prompt" | "reply">;
 }) {
     const reduce = useReducedMotion();
@@ -28,10 +30,11 @@ export function ContrastBand({
             <div className="relative mx-auto grid max-w-[1100px] items-center gap-14 px-4 py-24 md:px-8 md:py-32 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
                 <div>
                     <p className="text-[11px] font-medium tracking-[0.16em] text-[#a6b5cb] uppercase">{eyebrow}</p>
-                    <h2 className="mt-3 max-w-[16ch] font-display text-[clamp(2.1rem,4.2vw,3.35rem)] leading-[1.05] font-medium tracking-[-0.03em]">
+                    <h2 className="mt-3 max-w-[18ch] font-display text-[clamp(2.1rem,4.2vw,3.35rem)] leading-[1.05] font-medium tracking-[-0.03em]">
                         {title}
                     </h2>
                     <p className="mt-5 max-w-md text-[16px] leading-7 text-[#c8c8c8] md:text-[17px] md:leading-8">{body}</p>
+                    <p className="mt-4 max-w-md text-[15px] leading-7 text-[#a8a8a8] md:text-[16px] md:leading-7">{body2}</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/[0.07] p-4 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.7)] backdrop-blur-md sm:p-5">
                     <p className="ml-auto max-w-[90%] rounded-2xl bg-white/10 px-4 py-3 text-[14px] leading-6 text-pretty">{copy.prompt}</p>
