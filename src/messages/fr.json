@@ -69,6 +69,54 @@
                 "title": "Vos données restent au Canada",
                 "body": "L’application et vos données sont hébergées au Canada."
             }
+        ],
+        "platformFeaturesTitle": "Inclus dans toute la plateforme.",
+        "platformFeaturesLede": "Ces fonctions restent disponibles, quel que soit le module que vous activez.",
+        "platformFeatures": [
+            {
+                "id": "tasks",
+                "name": "Tâches",
+                "body": "Assignez le travail et suivez où chaque dossier en est."
+            },
+            {
+                "id": "payments",
+                "name": "Paiements",
+                "body": "Encaissez et suivez les paiements liés à votre activité."
+            },
+            {
+                "id": "calendar",
+                "name": "Calendrier",
+                "body": "Voyez les rendez-vous et les échéances au même endroit."
+            },
+            {
+                "id": "importExport",
+                "name": "Import et export",
+                "body": "Apportez vos données dans Cobreo, ou exportez-les au besoin."
+            },
+            {
+                "id": "ai",
+                "name": "Analyse IA",
+                "body": "Obtenez des lectures utiles à partir de vos données existantes."
+            }
+        ],
+        "integrationsTitle": "Des branchements avec vos outils.",
+        "integrationsLede": "Cobreo se connecte à Google, Microsoft et Stripe.",
+        "integrations": [
+            {
+                "id": "google",
+                "name": "Google",
+                "body": "Agenda, courriel et fichiers, selon ce que vous activez."
+            },
+            {
+                "id": "microsoft",
+                "name": "Microsoft",
+                "body": "Comptes et outils Microsoft 365, lorsque c’est pertinent."
+            },
+            {
+                "id": "stripe",
+                "name": "Stripe",
+                "body": "Paiements en ligne traités avec Stripe."
+            }
         ]
     },
     "footer": {
@@ -1260,18 +1308,6 @@
                     "Suivi des paiements",
                     "Relances",
                     "Statuts à jour"
-                ],
-                "scene": "records"
-            },
-            {
-                "id": "tasks",
-                "name": "Tâches",
-                "tagline": "Qui fait quoi, et où ça en est.",
-                "points": [
-                    "Responsables",
-                    "États d’avancement",
-                    "Échéances",
-                    "Vue d’équipe"
                 ],
                 "scene": "records"
             }

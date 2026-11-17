@@ -69,6 +69,54 @@
                 "title": "Your data stays in Canada",
                 "body": "The application and your data are hosted in Canada."
             }
+        ],
+        "platformFeaturesTitle": "Included across the platform.",
+        "platformFeaturesLede": "These capabilities stay available no matter which module you turn on.",
+        "platformFeatures": [
+            {
+                "id": "tasks",
+                "name": "Tasks",
+                "body": "Assign the work and track where each item stands."
+            },
+            {
+                "id": "payments",
+                "name": "Payments",
+                "body": "Collect and track payments tied to your activity."
+            },
+            {
+                "id": "calendar",
+                "name": "Calendar",
+                "body": "See appointments and deadlines in one place."
+            },
+            {
+                "id": "importExport",
+                "name": "Import and export",
+                "body": "Bring your data into Cobreo, or export it when you need to."
+            },
+            {
+                "id": "ai",
+                "name": "AI analysis",
+                "body": "Get useful readings from the data you already have."
+            }
+        ],
+        "integrationsTitle": "Connections with tools you already use.",
+        "integrationsLede": "Cobreo connects to Google, Microsoft, and Stripe.",
+        "integrations": [
+            {
+                "id": "google",
+                "name": "Google",
+                "body": "Calendar, email, and files, according to what you turn on."
+            },
+            {
+                "id": "microsoft",
+                "name": "Microsoft",
+                "body": "Microsoft 365 accounts and tools, when that fits."
+            },
+            {
+                "id": "stripe",
+                "name": "Stripe",
+                "body": "Online payments processed with Stripe."
+            }
         ]
     },
     "footer": {
@@ -1260,18 +1308,6 @@
                     "Payment tracking",
                     "Reminders",
                     "Up-to-date statuses"
-                ],
-                "scene": "records"
-            },
-            {
-                "id": "tasks",
-                "name": "Tasks",
-                "tagline": "Who owns what, and where it stands.",
-                "points": [
-                    "Owners",
-                    "Progress states",
-                    "Deadlines",
-                    "Team view"
                 ],
                 "scene": "records"
             }

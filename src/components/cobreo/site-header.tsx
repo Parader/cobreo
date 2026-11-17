@@ -144,8 +144,8 @@ export function SiteHeader() {
             className={cx(
                 "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,backdrop-filter,border-color,transform,box-shadow] duration-300 ease-out",
                 atTop && !menuOpen
-                    ? "border-transparent bg-transparent shadow-none backdrop-blur-none"
-                    : "border-[#171717]/10 bg-[#efedea]/90 shadow-[0_1px_0_rgba(23,23,23,0.06)] backdrop-blur-xl",
+                    ? "border-transparent bg-white/80 shadow-none backdrop-blur-md"
+                    : "border-[#171717]/08 bg-white shadow-[0_1px_0_rgba(37,51,83,0.06)] backdrop-blur-xl",
                 effectivelyHidden ? "-translate-y-full" : "translate-y-0",
             )}
         >
@@ -236,7 +236,7 @@ export function SiteHeader() {
             {menuOpen ? (
                 <div
                     id={menuId}
-                    className="border-t border-[#171717]/10 bg-[#efedea] px-4 py-4 lg:hidden"
+                    className="border-t border-[#171717]/08 bg-white px-4 py-4 lg:hidden"
                 >
                     <nav className="flex flex-col gap-1.5" aria-label={t("primaryNav")}>
                         <DemoButton ctaId="header_demo_mobile" surface="header_mobile" size="md" className="mb-2 w-full">

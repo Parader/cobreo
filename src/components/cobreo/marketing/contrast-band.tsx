@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
+import { DarkLogoMosaic } from "@/components/cobreo/dark-logo-mosaic";
+import { MarkMotif } from "@/components/cobreo/marketing/mark-motif";
 import type { StageCopy } from "@/components/cobreo/marketing/stage-copy";
 
 export function ContrastBand({
@@ -27,10 +29,16 @@ export function ContrastBand({
                 aria-hidden
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_0%,rgba(77,107,151,0.45),transparent_55%),radial-gradient(ellipse_at_90%_80%,rgba(177,182,166,0.16),transparent_50%)]"
             />
-            <div className="relative mx-auto grid max-w-[1100px] items-center gap-14 px-4 py-24 md:px-8 md:py-32 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
+            <DarkLogoMosaic variant="flow" />
+            <MarkMotif
+                variant="contour"
+                opacity={0.1}
+                className="-right-[12%] bottom-[-18%] h-[340px] w-[560px] md:h-[420px] md:w-[700px]"
+            />
+            <div className="relative z-10 mx-auto grid max-w-[1100px] items-center gap-14 px-4 py-24 md:px-8 md:py-32 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
                 <div>
                     <p className="text-[11px] font-medium tracking-[0.16em] text-[#a6b5cb] uppercase">{eyebrow}</p>
-                    <h2 className="mt-3 max-w-[18ch] font-display text-[clamp(2.1rem,4.2vw,3.35rem)] leading-[1.05] font-medium tracking-[-0.03em]">
+                    <h2 className="mt-3 max-w-[18ch] font-display text-[clamp(2.1rem,4.2vw,3.35rem)] leading-[1.05] font-normal tracking-[-0.03em]">
                         {title}
                     </h2>
                     <p className="mt-5 max-w-md text-[16px] leading-7 text-[#c8c8c8] md:text-[17px] md:leading-8">{body}</p>

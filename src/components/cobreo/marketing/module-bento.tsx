@@ -4,7 +4,6 @@ import { useEffect, useLayoutEffect, useRef, useState, type FC } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
     Calendar,
-    CheckDone01,
     CurrencyDollarCircle,
     Globe01,
     Heart,
@@ -15,6 +14,7 @@ import {
     Zap,
 } from "@untitledui/icons";
 import { Link } from "@/i18n/navigation";
+import { MarkMotif } from "@/components/cobreo/marketing/mark-motif";
 import { easeLuxury } from "@/components/cobreo/motion";
 import { cx } from "@/utils/cx";
 
@@ -102,13 +102,6 @@ const accents: Record<string, Accent> = {
         iconClass: "text-[#4d6b97]",
         chip: "bg-[#4d6b97]/[0.08] text-[#404040]",
     },
-    tasks: {
-        icon: CheckDone01,
-        wash: "from-[#b1b6a6]/35 via-[#efedea] to-[#efedea]",
-        tile: "bg-[#b1b6a6]/28 text-[#253353]",
-        iconClass: "text-[#5a6254]",
-        chip: "bg-[#b1b6a6]/22 text-[#404040]",
-    },
 };
 
 const fallbackAccent: Accent = accents.crm;
@@ -125,9 +118,16 @@ function ModuleVisual({ item }: { item: BentoItem }) {
             )}
         >
             <div aria-hidden className={cx("pointer-events-none absolute inset-0 bg-gradient-to-br", accent.wash)} />
-            <div className="relative flex min-h-[280px] flex-col justify-between p-6 sm:min-h-[320px] sm:p-8 lg:min-h-[380px]">
-                <div className={cx("inline-flex size-14 items-center justify-center rounded-2xl sm:size-16", accent.tile)}>
-                    <Icon className={cx("size-7 sm:size-8", accent.iconClass)} aria-hidden />
+            <div className="relative flex min-h-[320px] flex-col p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
+                {/* Reserved for upcoming module illustrations */}
+                <div
+                    data-module-illustration
+                    className="relative mb-6 flex min-h-[120px] flex-1 items-center justify-center overflow-hidden rounded-xl border border-[#4d6b97]/10 bg-white/50 sm:min-h-[140px]"
+                >
+                    <MarkMotif variant="outline" opacity={0.18} className="inset-0 m-auto h-[72%] w-[72%]" />
+                    <div className={cx("relative z-10 inline-flex size-12 items-center justify-center rounded-2xl sm:size-14", accent.tile)}>
+                        <Icon className={cx("size-6 sm:size-7", accent.iconClass)} aria-hidden />
+                    </div>
                 </div>
                 <div>
                     <h3 className="font-display text-[clamp(1.5rem,2.4vw,2rem)] font-normal tracking-[-0.03em] text-[#090a24]">
