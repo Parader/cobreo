@@ -61,7 +61,8 @@ const accents: Record<string, Accent> = {
 
 const fallbackAccent: Accent = accents.crm;
 
-function ModuleIllustration({ item }: { item: BentoItem }) {
+/** Modest, frameless art — supports the copy, does not dominate. */
+function ModuleIllustration({ item, className }: { item: BentoItem; className?: string }) {
     const locale = useLocale();
     const file = illustrationFiles[item.id];
     const accent = accents[item.id] ?? fallbackAccent;
@@ -71,8 +72,8 @@ function ModuleIllustration({ item }: { item: BentoItem }) {
 
     if (!file) {
         return (
-            <div className={cx("mx-auto flex size-16 items-center justify-center rounded-2xl", accent.tile)}>
-                <Icon className={cx("size-8", accent.iconClass)} aria-hidden />
+            <div className={cx("flex size-14 items-center justify-center rounded-2xl", accent.tile, className)}>
+                <Icon className={cx("size-7", accent.iconClass)} aria-hidden />
             </div>
         );
     }
@@ -81,20 +82,19 @@ function ModuleIllustration({ item }: { item: BentoItem }) {
         <div
             data-module-illustration
             className={cx(
-                "relative w-full",
-                /* Mobile: full-bleed within padded section */
-                "-mx-4 sm:mx-0",
-                /* Desktop: larger art that breaks the grid edge */
-                "lg:-mt-6 lg:-mr-[max(1.5rem,calc((100vw-1200px)/2+1.5rem))] lg:ml-[-1.25rem] lg:w-[calc(100%+1.25rem+max(1.5rem,calc((100vw-1200px)/2+1.5rem)))]",
+                "relative w-full max-w-[16.5rem] sm:max-w-[18rem] lg:max-w-[19rem] xl:max-w-[21rem]",
+                /* Slight editorial break past the content edge — still secondary */
+                "lg:-mr-2 xl:-mr-5",
+                className,
             )}
         >
             <Image
                 src={`/images/modules/${file}.webp`}
                 alt={alt}
-                width={1024}
-                height={768}
+                width={640}
+                height={480}
                 className="h-auto w-full object-contain object-center"
-                sizes="(max-width: 1023px) 100vw, min(56vw, 720px)"
+                sizes="(max-width: 1023px) 18rem, 21rem"
                 priority={false}
             />
         </div>
@@ -141,8 +141,8 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
 
     return (
         <div>
-            <div className="relative min-w-0 lg:grid lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] xl:gap-10">
-                <div ref={listRef} className="relative z-20" role="listbox" aria-label="Modules">
+            <div className="relative min-w-0 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,19rem)] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] xl:gap-10">
+                <div ref={listRef} className="relative z-20 min-w-0" role="listbox" aria-label="Modules">
                     <motion.span
                         aria-hidden
                         className="pointer-events-none absolute left-0 w-1 rounded-full bg-[#5f7aa1]"
@@ -158,7 +158,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                         const isActive = index === active;
                         const accent = accents[item.id] ?? fallbackAccent;
                         const Icon = accent.icon;
-                        const preview = item.points[0] ?? item.tagline;
+                        const preview = item.tagline || item.points[0] || "";
 
                         return (
                             <motion.button
@@ -182,7 +182,9 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                     <span
                                         className={cx(
                                             "mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-200",
-                                            isActive ? accent.tile : "bg-[#4d6b97]/[0.06] text-[#737373] group-hover:bg-[#4d6b97]/10 group-hover:text-[#4d6b97]",
+                                            isActive
+                                                ? accent.tile
+                                                : "bg-[#4d6b97]/[0.06] text-[#737373] group-hover:bg-[#4d6b97]/10 group-hover:text-[#4d6b97]",
                                         )}
                                     >
                                         <Icon className={cx("size-4", isActive ? accent.iconClass : undefined)} aria-hidden />
@@ -207,16 +209,30 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                                     transition={{ duration: 0.35, ease: easeLuxury }}
                                                     className="overflow-hidden"
                                                 >
-                                                    <ul className="mt-2.5 space-y-1.5">
+                                                    {item.tagline ? (
+                                                        <p className="mt-2 max-w-[40ch] text-[15px] leading-relaxed text-[#525252] sm:text-[16px] sm:leading-7">
+                                                            {item.tagline}
+                                                        </p>
+                                                    ) : null}
+                                                    <ul className="mt-3 space-y-2 sm:mt-3.5 sm:space-y-2.5">
                                                         {item.points.map((point) => (
                                                             <li
                                                                 key={point}
-                                                                className="text-[14px] leading-snug text-[#525252] sm:text-[15px] sm:leading-6"
+                                                                className="flex gap-2.5 text-[15px] leading-snug text-[#404040] sm:text-[16px] sm:leading-6"
                                                             >
-                                                                {point}
+                                                                <span
+                                                                    className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-[#5f7aa1]"
+                                                                    aria-hidden
+                                                                />
+                                                                <span>{point}</span>
                                                             </li>
                                                         ))}
                                                     </ul>
+
+                                                    {/* Mobile: modest illustration under the examples */}
+                                                    <div className="mt-5 lg:hidden">
+                                                        <ModuleIllustration item={item} />
+                                                    </div>
                                                 </motion.div>
                                             ) : (
                                                 <p className="mt-1 line-clamp-1 text-[14px] leading-relaxed text-[#525252]/70 transition-colors group-hover:text-[#525252] sm:text-[15px]">
@@ -231,33 +247,20 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                     })}
                 </div>
 
-                <div className="relative z-10 mt-8 lg:mt-0">
+                {/* Desktop: secondary illustration column — crossfades with selection */}
+                <div className="relative z-10 mt-2 hidden lg:mt-1 lg:block">
                     <AnimatePresence mode="wait" initial={false}>
                         <motion.div
                             key={current.id}
-                            initial={reduce ? false : { opacity: 0, y: 10 }}
+                            initial={reduce ? false : { opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={reduce ? undefined : { opacity: 0, y: -6 }}
-                            transition={{ duration: 0.45, ease: easeLuxury }}
-                            className="hidden lg:block"
+                            transition={{ duration: 0.4, ease: easeLuxury }}
+                            className="lg:sticky lg:top-28"
                         >
                             <ModuleIllustration item={current} />
                         </motion.div>
                     </AnimatePresence>
-
-                    <div className="lg:hidden">
-                        <AnimatePresence mode="wait" initial={false}>
-                            <motion.div
-                                key={`mobile-${current.id}`}
-                                initial={reduce ? false : { opacity: 0, y: 12 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={reduce ? undefined : { opacity: 0, y: -8 }}
-                                transition={{ duration: 0.4, ease: easeLuxury }}
-                            >
-                                <ModuleIllustration item={current} />
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
                 </div>
             </div>
 
