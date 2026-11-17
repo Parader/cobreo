@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState, type FC } from "react";
+import Image from "next/image";
+import { useLocale } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
     Calendar,
@@ -14,9 +16,21 @@ import {
     Zap,
 } from "@untitledui/icons";
 import { Link } from "@/i18n/navigation";
-import { MarkMotif } from "@/components/cobreo/marketing/mark-motif";
 import { easeLuxury } from "@/components/cobreo/motion";
 import { cx } from "@/utils/cx";
+
+/** Filename stem under /public/images/modules/ */
+const illustrationFiles: Record<string, string> = {
+    crm: "crm",
+    events: "events",
+    satisfaction: "satisfaction",
+    booking: "bookings",
+    automation: "automation",
+    sites: "sites",
+    portals: "portals",
+    hr: "hr",
+    finance: "finances",
+};
 
 export type BentoItem = {
     id: string;
@@ -107,27 +121,40 @@ const accents: Record<string, Accent> = {
 const fallbackAccent: Accent = accents.crm;
 
 function ModuleVisual({ item }: { item: BentoItem }) {
+    const locale = useLocale();
     const accent = accents[item.id] ?? fallbackAccent;
     const Icon = accent.icon;
+    const file = illustrationFiles[item.id];
+    const alt =
+        locale === "en" ? `Illustration of the ${item.name} module` : `Illustration du module ${item.name}`;
 
     return (
         <div
             className={cx(
-                "relative overflow-hidden rounded-2xl border border-[#171717]/8 bg-[#efedea]",
+                "relative overflow-hidden rounded-2xl border border-[#171717]/8 bg-white",
                 "shadow-[0_24px_60px_-36px_rgba(37,51,83,0.35)]",
             )}
         >
-            <div aria-hidden className={cx("pointer-events-none absolute inset-0 bg-gradient-to-br", accent.wash)} />
-            <div className="relative flex min-h-[320px] flex-col p-6 sm:min-h-[360px] sm:p-8 lg:min-h-[420px]">
-                {/* Reserved for upcoming module illustrations */}
+            <div className="relative flex flex-col p-5 sm:p-6 lg:p-7">
                 <div
                     data-module-illustration
-                    className="relative mb-6 flex min-h-[120px] flex-1 items-center justify-center overflow-hidden rounded-xl border border-[#4d6b97]/10 bg-white/50 sm:min-h-[140px]"
+                    className="relative mb-5 aspect-[4/3] w-full overflow-hidden rounded-xl bg-white"
                 >
-                    <MarkMotif variant="outline" opacity={0.18} className="inset-0 m-auto h-[72%] w-[72%]" />
-                    <div className={cx("relative z-10 inline-flex size-12 items-center justify-center rounded-2xl sm:size-14", accent.tile)}>
-                        <Icon className={cx("size-6 sm:size-7", accent.iconClass)} aria-hidden />
-                    </div>
+                    {file ? (
+                        <Image
+                            src={`/images/modules/${file}.webp`}
+                            alt={alt}
+                            width={1024}
+                            height={768}
+                            className="h-full w-full object-contain object-center"
+                            sizes="(max-width: 1024px) 100vw, 36rem"
+                            priority={false}
+                        />
+                    ) : (
+                        <div className={cx("absolute inset-0 m-auto flex size-14 items-center justify-center rounded-2xl", accent.tile)}>
+                            <Icon className={cx("size-7", accent.iconClass)} aria-hidden />
+                        </div>
+                    )}
                 </div>
                 <div>
                     <h3 className="font-display text-[clamp(1.5rem,2.4vw,2rem)] font-normal tracking-[-0.03em] text-[#090a24]">
