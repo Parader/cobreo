@@ -1244,10 +1244,18 @@
                 "name": "CRM",
                 "tagline": "Les relations et les suivis au même endroit.",
                 "points": [
-                    "Suivre les commanditaires d’un événement annuel",
-                    "Relancer les demandes de soumission restées sans réponse",
-                    "Garder l’historique des échanges avec un organisme partenaire",
-                    "Partager les contacts d’une équipe de développement"
+                    {
+                        "title": "Suivre les commanditaires d’un événement annuel"
+                    },
+                    {
+                        "title": "Relancer les demandes de soumission restées sans réponse"
+                    },
+                    {
+                        "title": "Garder l’historique des échanges avec un organisme partenaire"
+                    },
+                    {
+                        "title": "Partager les contacts d’une équipe de développement"
+                    }
                 ],
                 "scene": "crm"
             },
@@ -1256,10 +1264,22 @@
                 "name": "Événements",
                 "tagline": "Des événements bien organisés, du début à la fin.",
                 "points": [
-                    "Ouvrir les inscriptions à une assemblée générale",
-                    "Gérer les places d’une formation en atelier",
-                    "Préparer la liste d’accueil pour une soirée-bénéfice",
-                    "Envoyer les billets d’une conférence sectorielle"
+                    {
+                        "title": "Billetterie",
+                        "body": "Envoyez et suivez les billets de votre événement."
+                    },
+                    {
+                        "title": "Formulaires d’inscription",
+                        "body": "Recueillez les inscriptions au même endroit."
+                    },
+                    {
+                        "title": "Suivi des inscriptions",
+                        "body": "Voyez qui s’est inscrit et où en est chaque dossier."
+                    },
+                    {
+                        "title": "Communications",
+                        "body": "Écrivez aux participants sans quitter Cobreo."
+                    }
                 ],
                 "scene": "events"
             },
@@ -1268,10 +1288,26 @@
                 "name": "Satisfaction",
                 "tagline": "Des retours clairs pour améliorer vos services.",
                 "points": [
-                    "Mesurer la satisfaction après un service de consultation",
-                    "Recueillir les commentaires d’une cohorte de formation",
-                    "Suivre le NPS d’un programme d’accompagnement",
-                    "Lire les retours d’une clinique après chaque visite"
+                    {
+                        "title": "Communications",
+                        "body": "Relancez les personnes après un service ou une activité."
+                    },
+                    {
+                        "title": "Sondages",
+                        "body": "Posez des questions ciblées et recueillez les réponses."
+                    },
+                    {
+                        "title": "Détection des réactions",
+                        "body": "Repérez rapidement les retours qui demandent une suite."
+                    },
+                    {
+                        "title": "Mieux connaître votre clientèle",
+                        "body": "Lisez ce que les gens disent de votre offre."
+                    },
+                    {
+                        "title": "Visualisation des données",
+                        "body": "Voyez les tendances sans exporter vers un autre outil."
+                    }
                 ],
                 "scene": "survey"
             },
@@ -1280,10 +1316,18 @@
                 "name": "Réservations",
                 "tagline": "Des rendez-vous sans allers-retours.",
                 "points": [
-                    "Laisser les clients réserver une consultation en ligne",
-                    "Offrir des créneaux de visite pour un local communautaire",
-                    "Confirmer les rendez-vous d’une équipe de service",
-                    "Réduire les allers-retours pour une clinique privée"
+                    {
+                        "title": "Gestion des rendez-vous",
+                        "body": "Prenez et confirmez les rendez-vous en ligne."
+                    },
+                    {
+                        "title": "Horaires",
+                        "body": "Affichez les créneaux disponibles et évitez les doubles réservations."
+                    },
+                    {
+                        "title": "Communications",
+                        "body": "Envoyez des rappels avant chaque rendez-vous."
+                    }
                 ],
                 "scene": "calendar"
             },
@@ -1292,10 +1336,18 @@
                 "name": "Automatisation",
                 "tagline": "Des suivis qui se font tout seuls, selon vos règles.",
                 "points": [
-                    "Relancer automatiquement une soumission sans réponse",
-                    "Assigner un dossier dès qu’un formulaire est reçu",
-                    "Envoyer un rappel avant une échéance de renouvellement",
-                    "Prévenir l’équipe quand un statut change"
+                    {
+                        "title": "Suivis",
+                        "body": "Relancez automatiquement ce qui reste sans réponse."
+                    },
+                    {
+                        "title": "Réponses automatiques",
+                        "body": "Répondez dès qu’un formulaire arrive."
+                    },
+                    {
+                        "title": "Actions planifiées",
+                        "body": "Déclenchez une action à une date ou selon un statut."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1304,10 +1356,22 @@
                 "name": "Sites et pages publiques",
                 "tagline": "Un site que vous mettez à jour vous-même.",
                 "points": [
-                    "Publier la page d’inscription d’un organisme",
-                    "Mettre à jour l’horaire d’une clinique sans développeur",
-                    "Afficher les services d’un cabinet-conseil",
-                    "Ouvrir un formulaire public pour une demande d’adhésion"
+                    {
+                        "title": "Pages ponctuelles",
+                        "body": "Publiez une page pour une campagne ou un événement."
+                    },
+                    {
+                        "title": "Pages temporaires",
+                        "body": "Ouvrez une page pour une période limitée, puis retirez-la."
+                    },
+                    {
+                        "title": "Pages interactives",
+                        "body": "Ajoutez un formulaire ou une inscription sur la page."
+                    },
+                    {
+                        "title": "Faciles à maintenir",
+                        "body": "Mettez le contenu à jour sans faire appel à un développeur."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1316,10 +1380,22 @@
                 "name": "Portails usagers",
                 "tagline": "Un espace pour vos usagers, moins de courriels à gérer.",
                 "points": [
-                    "Laisser un usager déposer ses documents au même endroit",
-                    "Partager le dossier d’un client avec son chargé de projet",
-                    "Donner accès aux relevés d’un membre d’association",
-                    "Réduire les échanges de pièces jointes par courriel"
+                    {
+                        "title": "Communications",
+                        "body": "Échangez avec l’usager au même endroit."
+                    },
+                    {
+                        "title": "Échange de fichiers",
+                        "body": "Déposez et recevez des documents sans les envoyer par courriel."
+                    },
+                    {
+                        "title": "Parcours utilisateurs",
+                        "body": "Guidez l’usager dans les étapes de son dossier."
+                    },
+                    {
+                        "title": "Documentation",
+                        "body": "Mettez à disposition les documents utiles à chaque personne."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1328,10 +1404,18 @@
                 "name": "RH",
                 "tagline": "L’essentiel des RH au même endroit.",
                 "points": [
-                    "Centraliser les dossiers d’une équipe de terrain",
-                    "Recevoir les demandes de congé sans tableur",
-                    "Accueillir une nouvelle personne dans un organisme",
-                    "Limiter l’accès RH aux seules personnes autorisées"
+                    {
+                        "title": "Évaluations",
+                        "body": "Recueillez les évaluations de l’équipe au même endroit."
+                    },
+                    {
+                        "title": "Compréhension du climat chez les employés",
+                        "body": "Lisez ce que l’équipe dit de son quotidien."
+                    },
+                    {
+                        "title": "Commentaires anonymisés",
+                        "body": "Laissez les personnes s’exprimer sans être identifiées."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1340,10 +1424,18 @@
                 "name": "Finances",
                 "tagline": "Facturer et suivre ce qui reste dû.",
                 "points": [
-                    "Facturer les honoraires d’un mandat de service",
-                    "Suivre les paiements d’une campagne de cotisations",
-                    "Relancer une facture restée en souffrance",
-                    "Voir ce qui reste dû après un événement payant"
+                    {
+                        "title": "Formulaires simplifiés",
+                        "body": "Facturez et encaissez avec des formulaires clairs."
+                    },
+                    {
+                        "title": "Données centralisées",
+                        "body": "Voyez ce qui a été facturé et ce qui reste dû."
+                    },
+                    {
+                        "title": "Outils de planification",
+                        "body": "Suivez les échéances et les montants à venir."
+                    }
                 ],
                 "scene": "records"
             }

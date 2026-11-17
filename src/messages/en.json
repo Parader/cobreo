@@ -1244,10 +1244,18 @@
                 "name": "CRM",
                 "tagline": "Relationships and follow-ups in one place.",
                 "points": [
-                    "Track sponsors for an annual event",
-                    "Follow up on proposals that never got a reply",
-                    "Keep the exchange history with a partner organization",
-                    "Share contacts across a development team"
+                    {
+                        "title": "Track sponsors for an annual event"
+                    },
+                    {
+                        "title": "Follow up on proposals that never got a reply"
+                    },
+                    {
+                        "title": "Keep the exchange history with a partner organization"
+                    },
+                    {
+                        "title": "Share contacts across a development team"
+                    }
                 ],
                 "scene": "crm"
             },
@@ -1256,10 +1264,22 @@
                 "name": "Events",
                 "tagline": "Well-organized events, from start to finish.",
                 "points": [
-                    "Open registration for a general assembly",
-                    "Manage seats for a workshop series",
-                    "Prepare the check-in list for a fundraising evening",
-                    "Send tickets for an industry conference"
+                    {
+                        "title": "Ticketing",
+                        "body": "Send and track tickets for your event."
+                    },
+                    {
+                        "title": "Registration forms",
+                        "body": "Collect registrations in one place."
+                    },
+                    {
+                        "title": "Registration tracking",
+                        "body": "See who signed up and where each file stands."
+                    },
+                    {
+                        "title": "Communications",
+                        "body": "Write to participants without leaving Cobreo."
+                    }
                 ],
                 "scene": "events"
             },
@@ -1268,10 +1288,26 @@
                 "name": "Satisfaction",
                 "tagline": "Clear feedback to improve your services.",
                 "points": [
-                    "Measure satisfaction after a consulting engagement",
-                    "Collect feedback from a training cohort",
-                    "Track NPS for a coaching program",
-                    "Read visit feedback for a clinic"
+                    {
+                        "title": "Communications",
+                        "body": "Follow up with people after a service or activity."
+                    },
+                    {
+                        "title": "Surveys",
+                        "body": "Ask focused questions and collect the answers."
+                    },
+                    {
+                        "title": "Reaction detection",
+                        "body": "Spot feedback that needs a follow-up."
+                    },
+                    {
+                        "title": "Know your clients better",
+                        "body": "Read what people say about your offer."
+                    },
+                    {
+                        "title": "Data visualization",
+                        "body": "See trends without exporting to another tool."
+                    }
                 ],
                 "scene": "survey"
             },
@@ -1280,10 +1316,18 @@
                 "name": "Booking",
                 "tagline": "Appointments without the back-and-forth.",
                 "points": [
-                    "Let clients book a consultation online",
-                    "Offer visit slots for a community space",
-                    "Confirm appointments for a service team",
-                    "Cut back-and-forth for a private clinic"
+                    {
+                        "title": "Appointment management",
+                        "body": "Book and confirm appointments online."
+                    },
+                    {
+                        "title": "Schedules",
+                        "body": "Show available slots and avoid double bookings."
+                    },
+                    {
+                        "title": "Communications",
+                        "body": "Send reminders before each appointment."
+                    }
                 ],
                 "scene": "calendar"
             },
@@ -1292,10 +1336,18 @@
                 "name": "Automation",
                 "tagline": "Follow-ups that run on their own, by your rules.",
                 "points": [
-                    "Automatically follow up on a silent proposal",
-                    "Assign a file as soon as a form arrives",
-                    "Send a reminder before a renewal deadline",
-                    "Alert the team when a status changes"
+                    {
+                        "title": "Follow-ups",
+                        "body": "Automatically follow up on what still has no reply."
+                    },
+                    {
+                        "title": "Automatic replies",
+                        "body": "Respond as soon as a form arrives."
+                    },
+                    {
+                        "title": "Scheduled actions",
+                        "body": "Trigger an action on a date or when a status changes."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1304,10 +1356,22 @@
                 "name": "Public sites and pages",
                 "tagline": "A site you update yourself.",
                 "points": [
-                    "Publish an organization’s registration page",
-                    "Update a clinic schedule without a developer",
-                    "Show a consulting firm’s services",
-                    "Open a public form for membership requests"
+                    {
+                        "title": "One-off pages",
+                        "body": "Publish a page for a campaign or an event."
+                    },
+                    {
+                        "title": "Temporary pages",
+                        "body": "Open a page for a limited period, then take it down."
+                    },
+                    {
+                        "title": "Interactive pages",
+                        "body": "Add a form or a registration on the page."
+                    },
+                    {
+                        "title": "Easy to maintain",
+                        "body": "Update the content without calling a developer."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1316,10 +1380,22 @@
                 "name": "User portals",
                 "tagline": "A space for your users, fewer emails to manage.",
                 "points": [
-                    "Let a user upload documents in one place",
-                    "Share a client file with their project lead",
-                    "Give a member access to their statements",
-                    "Cut down on email attachments"
+                    {
+                        "title": "Communications",
+                        "body": "Exchange with the user in one place."
+                    },
+                    {
+                        "title": "File exchange",
+                        "body": "Upload and receive documents without emailing them."
+                    },
+                    {
+                        "title": "User journeys",
+                        "body": "Guide the user through the steps of their file."
+                    },
+                    {
+                        "title": "Documentation",
+                        "body": "Make useful documents available to each person."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1328,10 +1404,18 @@
                 "name": "HR",
                 "tagline": "The essentials of HR in one place.",
                 "points": [
-                    "Centralize records for a field team",
-                    "Receive leave requests without a spreadsheet",
-                    "Onboard a new hire in an organization",
-                    "Limit HR access to authorized people only"
+                    {
+                        "title": "Reviews",
+                        "body": "Collect team reviews in one place."
+                    },
+                    {
+                        "title": "Understanding the employee climate",
+                        "body": "Read what the team says about day-to-day work."
+                    },
+                    {
+                        "title": "Anonymous comments",
+                        "body": "Let people speak without being identified."
+                    }
                 ],
                 "scene": "records"
             },
@@ -1340,10 +1424,18 @@
                 "name": "Finance",
                 "tagline": "Invoice and track what is still owed.",
                 "points": [
-                    "Invoice fees for a service mandate",
-                    "Track payments from a membership drive",
-                    "Follow up on an unpaid invoice",
-                    "See what is still owed after a ticketed event"
+                    {
+                        "title": "Simplified forms",
+                        "body": "Invoice and collect payments with clear forms."
+                    },
+                    {
+                        "title": "Centralized data",
+                        "body": "See what was invoiced and what is still owed."
+                    },
+                    {
+                        "title": "Planning tools",
+                        "body": "Track upcoming due dates and amounts."
+                    }
                 ],
                 "scene": "records"
             }

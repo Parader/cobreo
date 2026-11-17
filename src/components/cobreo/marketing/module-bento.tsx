@@ -32,11 +32,16 @@ const illustrationFiles: Record<string, string> = {
     finance: "finances",
 };
 
+export type BentoPoint = {
+    title: string;
+    body?: string;
+};
+
 export type BentoItem = {
     id: string;
     name: string;
     tagline: string;
-    points: string[];
+    points: BentoPoint[];
     lead?: boolean;
 };
 
@@ -61,6 +66,15 @@ const accents: Record<string, Accent> = {
 
 const fallbackAccent: Accent = accents.crm;
 
+/** Distinct brand accents for use-case points — cycle by index. */
+const pointStyles = [
+    { num: "text-[#4d6b97]", rule: "bg-[#4d6b97]", pill: "bg-[#4d6b97]/15 text-[#4d6b97]" },
+    { num: "text-[#5f7aa1]", rule: "bg-[#5f7aa1]", pill: "bg-[#eef3f9] text-[#253353]" },
+    { num: "text-[#5a6254]", rule: "bg-[#b1b6a6]", pill: "bg-[#b1b6a6]/40 text-[#5a6254]" },
+    { num: "text-[#253353]", rule: "bg-[#253353]", pill: "bg-[#253353]/10 text-[#253353]" },
+    { num: "text-[#4d6b97]", rule: "bg-[#5f7aa1]", pill: "bg-[#eef3f9] text-[#4d6b97]" },
+] as const;
+
 function padIndex(n: number) {
     return String(n).padStart(2, "0");
 }
@@ -68,6 +82,7 @@ function padIndex(n: number) {
 /**
  * Full-bleed page art — anchored to the right viewport edge, outside the content
  * grid. Soft mask only on the text-facing side; overall opacity stays strong.
+ * Outline mark sits behind/with the illustration as one composed graphic.
  */
 function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop" | "mobile" }) {
     const file = illustrationFiles[item.id];
@@ -98,15 +113,27 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
                       ),
             )}
         >
-            <Image
-                src={`/images/modules/${file}.webp`}
-                alt=""
-                width={1024}
-                height={768}
-                className="h-auto w-full object-contain object-right"
-                sizes={isDesktop ? "min(58vw, 820px)" : "min(92vw, 460px)"}
-                priority={false}
-            />
+            <div className="relative">
+                <MarkMotif
+                    variant="outline"
+                    opacity={0.55}
+                    className={cx(
+                        "absolute z-0",
+                        isDesktop
+                            ? "-left-[18%] top-[6%] h-[78%] w-[78%] -rotate-6"
+                            : "-left-[14%] top-[4%] h-[72%] w-[72%] -rotate-6",
+                    )}
+                />
+                <Image
+                    src={`/images/modules/${file}.webp`}
+                    alt=""
+                    width={1024}
+                    height={768}
+                    className="relative z-10 h-auto w-full object-contain object-right"
+                    sizes={isDesktop ? "min(58vw, 820px)" : "min(92vw, 460px)"}
+                    priority={false}
+                />
+            </div>
         </div>
     );
 }
@@ -124,6 +151,7 @@ function ModuleDetailCopy({
 }) {
     const accent = accents[item.id] ?? fallbackAccent;
     const Icon = accent.icon;
+    const pointCount = item.points.length;
     const stagger = reduce
         ? undefined
         : {
@@ -139,17 +167,11 @@ function ModuleDetailCopy({
 
     return (
         <motion.div
-            className="relative z-10 max-w-[36rem]"
+            className="relative z-10 max-w-[38rem]"
             variants={stagger}
             initial={reduce ? false : "hidden"}
             animate="show"
         >
-            <MarkMotif
-                variant="outline"
-                opacity={0.07}
-                className="-right-6 -top-8 h-28 w-44 sm:-right-4 sm:h-32 sm:w-52"
-            />
-
             <motion.div variants={rise} className="relative flex items-center gap-3">
                 <span className="font-display text-[13px] font-medium tracking-[0.14em] text-[#4d6b97] tabular-nums">
                     {padIndex(index + 1)}
@@ -182,15 +204,33 @@ function ModuleDetailCopy({
                 variants={stagger}
                 className="relative mt-8 grid grid-cols-1 gap-x-6 gap-y-5 sm:mt-9 sm:grid-cols-2 sm:gap-y-6"
             >
-                {item.points.map((point, pointIndex) => (
-                    <motion.li key={point} variants={rise} className="relative min-w-0 pt-3">
-                        <span className="absolute inset-x-0 top-0 h-px bg-[#4d6b97]/25" aria-hidden />
-                        <span className="mb-2 block font-display text-[11px] font-medium tracking-[0.14em] text-[#4d6b97] tabular-nums">
-                            {padIndex(pointIndex + 1)}
-                        </span>
-                        <p className="text-[14px] leading-snug text-[#090a24]/85 sm:text-[15px] sm:leading-6">{point}</p>
-                    </motion.li>
-                ))}
+                {item.points.map((point, pointIndex) => {
+                    const style = pointStyles[pointIndex % pointStyles.length]!;
+                    const wideLast = pointCount % 2 === 1 && pointIndex === pointCount - 1;
+                    return (
+                        <motion.li
+                            key={`${point.title}-${pointIndex}`}
+                            variants={rise}
+                            className={cx("relative min-w-0 pt-3", wideLast && "sm:col-span-2 sm:max-w-[22rem]")}
+                        >
+                            <span className={cx("absolute inset-x-0 top-0 h-[2px] rounded-full", style.rule)} aria-hidden />
+                            <span
+                                className={cx(
+                                    "mb-2.5 inline-flex size-6 items-center justify-center rounded-full font-display text-[10px] font-semibold tracking-[0.08em] tabular-nums",
+                                    style.pill,
+                                )}
+                            >
+                                {padIndex(pointIndex + 1)}
+                            </span>
+                            <p className="text-[15px] font-semibold leading-snug tracking-[-0.01em] text-[#090a24] sm:text-[16px] sm:leading-6">
+                                {point.title}
+                            </p>
+                            {point.body ? (
+                                <p className="mt-1.5 text-[13px] leading-snug text-[#525252] sm:text-[14px] sm:leading-5">{point.body}</p>
+                            ) : null}
+                        </motion.li>
+                    );
+                })}
             </motion.ul>
         </motion.div>
     );
@@ -271,7 +311,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                             const isActive = index === active;
                             const accent = accents[item.id] ?? fallbackAccent;
                             const Icon = accent.icon;
-                            const preview = item.tagline || item.points[0] || "";
+                            const preview = item.tagline || item.points[0]?.title || "";
 
                             return (
                                 <div key={item.id} className="relative">
