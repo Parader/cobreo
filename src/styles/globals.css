@@ -39,6 +39,15 @@ body {
     font-kerning: normal;
 }
 
+/* Avoid lone last words / punctuation on headings and body copy */
+:where(h1, h2, h3, h4) {
+    text-wrap: balance;
+}
+
+:where(p) {
+    text-wrap: pretty;
+}
+
 /* Hide the default expand arrow on Safari.  */
 details summary::-webkit-details-marker {
     display: none;

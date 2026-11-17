@@ -1,3 +1,5 @@
+import { formatMessageTree } from "@/utils/public-typography";
+
 export type LocaleCopy = "fr" | "en";
 
 export type Person = {
@@ -129,7 +131,8 @@ const en = {
 };
 
 export function stageCopy(locale: string) {
-    return locale === "en" ? en : fr;
+    const base = locale === "en" ? en : fr;
+    return formatMessageTree(base, locale === "en" ? "en" : "fr");
 }
 
 export type StageCopy = ReturnType<typeof stageCopy>;

@@ -16,6 +16,7 @@ import type {
 } from "@/content/diagnostic/v7/types";
 import type { PossibilityCandidate, SelectedPossibility } from "@/content/diagnostic/v7/types";
 import { pickLocalized } from "@/lib/diagnostic/localize";
+import { formatPublicCopy } from "@/utils/public-typography";
 import { isSoloCompany, resolveCapabilities } from "./coverage";
 import { areasFromAmbitions } from "./ambition-areas";
 import { buildPossibilityCandidates, resolveSelectedPossibilities } from "./possibilities";
@@ -484,13 +485,21 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
         candidates.push({
             id: `priority_${areaId}`,
             type: "improvement",
-            title: en ? `Make “${activity}” clearer day to day` : `Rendre « ${activity} » plus clair au quotidien`,
+            title: en
+                ? `Make “${activity}” clearer day to day`
+                : formatPublicCopy(`Rendre « ${activity} » plus clair au quotidien`, "fr"),
             whatWeSee: en
                 ? `You selected this in ${areaLabel(areaId, "en")}: ${optionLabels.join(", ")}.`
-                : `Vous avez sélectionné ceci dans ${areaLabel(areaId, "fr")} : ${optionLabels.join(", ")}.`,
+                : formatPublicCopy(
+                      `Vous avez sélectionné ceci dans ${areaLabel(areaId, "fr")} : ${optionLabels.join(", ")}.`,
+                      "fr",
+                  ),
             whatCouldImprove: en
                 ? `Improve how “${activity}” works in daily practice.`
-                : `Améliorer la façon dont « ${activity} » fonctionne dans la pratique quotidienne.`,
+                : formatPublicCopy(
+                      `Améliorer la façon dont « ${activity} » fonctionne dans la pratique quotidienne.`,
+                      "fr",
+                  ),
             whatItCouldBring: en
                 ? "Clearer follow-through and less friction on a step you already care about."
                 : "Un suivi plus clair et moins de friction sur une étape qui vous tient déjà à cœur.",
@@ -511,7 +520,10 @@ export function generateDiagnosticResult(input: ScoreInput): DiagnosticV7Result 
             whatWeNoticed: optionLabels,
             opportunity: en
                 ? `Improve how “${activity}” works in daily practice.`
-                : `Améliorer la façon dont « ${activity} » fonctionne dans la pratique quotidienne.`,
+                : formatPublicCopy(
+                      `Améliorer la façon dont « ${activity} » fonctionne dans la pratique quotidienne.`,
+                      "fr",
+                  ),
         });
     }
 

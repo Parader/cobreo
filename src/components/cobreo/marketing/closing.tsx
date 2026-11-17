@@ -19,7 +19,9 @@ export function Closing({
         <section className="mx-auto max-w-[920px] px-4 py-24 md:px-8 md:py-32">
             <blockquote className="mx-auto max-w-[760px]">
                 <p className="font-display text-[clamp(1.7rem,3.2vw,2.5rem)] leading-[1.2] font-medium tracking-[-0.03em] text-pretty text-[#121212]">
-                    « {quote} »
+                    «{"\u00A0"}
+                    {quote}
+                    {"\u00A0"}»
                 </p>
             </blockquote>
             <div className="mt-6">
