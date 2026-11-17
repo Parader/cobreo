@@ -1242,7 +1242,7 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Vous suivez vos contacts et vous relancez ce qui reste en attente.",
+                "tagline": "Les relations avec vos organismes restent regroupées pour l’équipe.",
                 "points": [
                     {
                         "title": "Commanditaires et partenaires",
@@ -1266,7 +1266,7 @@
             {
                 "id": "events",
                 "name": "Événements",
-                "tagline": "Vous organisez vos événements et vous suivez les personnes inscrites.",
+                "tagline": "Tenir un événement ne demande plus de passer d’un outil à l’autre.",
                 "points": [
                     {
                         "title": "Billetterie",
@@ -1290,7 +1290,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Vous recueillez les retours après un service et vous les lisez ensuite.",
+                "tagline": "Une fois le service rendu, l’équipe peut encore entendre ce qui a compté.",
                 "points": [
                     {
                         "title": "Relances après un service",
@@ -1318,7 +1318,7 @@
             {
                 "id": "booking",
                 "name": "Réservations",
-                "tagline": "Vous offrez des créneaux et vous confirmez les rendez-vous en ligne.",
+                "tagline": "Chacun choisit un moment disponible auprès de votre équipe.",
                 "points": [
                     {
                         "title": "Gestion des rendez-vous",
@@ -1338,7 +1338,7 @@
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "tagline": "Vous définissez des règles qui enchaînent les prochaines étapes.",
+                "tagline": "Quand une étape se répète, Cobreo peut l’enchaîner à votre place.",
                 "points": [
                     {
                         "title": "Suivis",
@@ -1358,7 +1358,7 @@
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "tagline": "Vous publiez des pages publiques et vous les mettez à jour vous-même.",
+                "tagline": "Le public lit des pages que votre équipe compose selon le moment.",
                 "points": [
                     {
                         "title": "Pages ponctuelles",
@@ -1382,7 +1382,7 @@
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "tagline": "Vous donnez à vos usagers un espace pour échanger sans passer par le courriel.",
+                "tagline": "L’échange avec l’usager reste dans un espace qui lui est réservé.",
                 "points": [
                     {
                         "title": "Messagerie avec l’usager",
@@ -1406,7 +1406,7 @@
             {
                 "id": "hr",
                 "name": "RH",
-                "tagline": "Vous centralisez les évaluations et les commentaires de l’équipe.",
+                "tagline": "Les retours internes remontent jusqu’à l’organisation de façon structurée.",
                 "points": [
                     {
                         "title": "Évaluations",
@@ -1426,7 +1426,7 @@
             {
                 "id": "finance",
                 "name": "Finances",
-                "tagline": "Vous facturez votre activité et vous suivez ce qui reste dû.",
+                "tagline": "Le suivi financier de l’activité se fait dans le même environnement que le reste du travail.",
                 "points": [
                     {
                         "title": "Formulaires simplifiés",

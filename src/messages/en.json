@@ -1242,7 +1242,7 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "You follow your contacts and follow up on what is still waiting.",
+                "tagline": "Relationships with your organizations stay gathered for the team.",
                 "points": [
                     {
                         "title": "Sponsors and partners",
@@ -1266,7 +1266,7 @@
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "You run your events and you follow the people who registered.",
+                "tagline": "Running an event no longer means switching from one tool to another.",
                 "points": [
                     {
                         "title": "Ticketing",
@@ -1290,7 +1290,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "You collect feedback after a service and then review it.",
+                "tagline": "Once the service is done, the team can still hear what mattered.",
                 "points": [
                     {
                         "title": "Follow-ups after a service",
@@ -1318,7 +1318,7 @@
             {
                 "id": "booking",
                 "name": "Booking",
-                "tagline": "You offer time slots and you confirm appointments online.",
+                "tagline": "Each person picks a time that works with your team.",
                 "points": [
                     {
                         "title": "Appointment management",
@@ -1338,7 +1338,7 @@
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "You set rules that carry out the next steps.",
+                "tagline": "When a step repeats, Cobreo can carry it out for you.",
                 "points": [
                     {
                         "title": "Follow-ups",
@@ -1358,7 +1358,7 @@
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "tagline": "You publish public pages and update them yourself.",
+                "tagline": "The public reads pages your team puts together as needed.",
                 "points": [
                     {
                         "title": "One-off pages",
@@ -1382,7 +1382,7 @@
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "You give users a space to exchange without relying on email.",
+                "tagline": "Exchange with the user stays in a space set aside for them.",
                 "points": [
                     {
                         "title": "Messaging with the user",
@@ -1406,7 +1406,7 @@
             {
                 "id": "hr",
                 "name": "HR",
-                "tagline": "You collect team reviews and confidential comments.",
+                "tagline": "Internal feedback reaches the organization in a structured way.",
                 "points": [
                     {
                         "title": "Reviews",
@@ -1426,7 +1426,7 @@
             {
                 "id": "finance",
                 "name": "Finance",
-                "tagline": "You invoice your work and track what is still owed.",
+                "tagline": "Financial tracking of the work happens in the same environment as the rest of the job.",
                 "points": [
                     {
                         "title": "Simplified forms",
