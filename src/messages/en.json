@@ -1141,61 +1141,61 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Keep track of the people and organizations you work with.",
+                "summary": "You stop losing track of a client or an open follow-up. What was said and what still needs doing stay attached to the right person.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Events",
-                "summary": "Manage who registers and which event they join.",
+                "summary": "You know who registered without rebuilding a list at the last minute. Registrations stay gathered in one place until the day of the event.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Read survey replies one at a time.",
+                "summary": "You can read what clients answered whenever you need it. Feedback stays easy to consult over time.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Booking",
-                "summary": "Schedule appointments directly on a calendar.",
+                "summary": "Appointments get confirmed without a long back-and-forth. Your team sees availability in the same place as your clients.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automation",
-                "summary": "Trigger an action when something changes in your data.",
+                "summary": "When something changes, the follow-up starts without someone having to remember it. Your team keeps its time for work that needs attention.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "summary": "Publish public pages connected to your modules.",
+                "summary": "You publish a page for your clients without managing a separate site. What they see stays tied to what you already use in Cobreo.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "User portals",
-                "summary": "Give limited access to the people who need it.",
+                "summary": "The people involved find what they need without writing to you at every step. You decide what stays accessible.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "HR",
-                "summary": "Keep team records, absences, and arrivals in one place.",
+                "summary": "Team information no longer scatters across separate files. Absences and records stay easy to find.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finance",
-                "summary": "Track invoices and payments.",
+                "summary": "You know where invoices and payments stand without opening several spreadsheets. Preparing a financial check-in takes less time.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tasks",
-                "summary": "Assign work and follow who is doing what, and by when.",
+                "summary": "Everyone can see what falls to them and by which deadline. Work is less likely to slip between two people.",
                 "scene": "records"
             }
         ]

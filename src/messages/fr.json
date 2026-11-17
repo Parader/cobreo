@@ -1141,61 +1141,61 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Suivez les personnes et les organisations avec qui vous travaillez.",
+                "summary": "Vous évitez de perdre un client ou un suivi en cours. Ce qui a été dit et ce qui reste à faire restent rattachés à la bonne personne.",
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Événements",
-                "summary": "Gérez qui s’inscrit et à quel événement.",
+                "summary": "Vous savez qui s’est inscrit sans reconstruire une liste à la dernière minute. Les inscriptions restent regroupées jusqu’au jour de l’événement.",
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Lisez les réponses aux sondages, une à la fois.",
+                "summary": "Vous lisez ce que vos clients ont répondu au moment où vous en avez besoin. Les retours restent faciles à consulter au fil du temps.",
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Réservations",
-                "summary": "Planifiez les rendez-vous directement sur un calendrier.",
+                "summary": "Les rendez-vous se confirment sans une chaîne d’échanges. Votre équipe voit les disponibilités au même endroit que vos clients.",
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "summary": "Déclenchez une action quand quelque chose change dans vos données.",
+                "summary": "Quand quelque chose change, le suivi part sans que quelqu’un ait à s’en souvenir. Votre équipe garde son temps pour le travail qui demande de l’attention.",
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "summary": "Publiez des pages publiques reliées à vos modules.",
+                "summary": "Vous publiez une page pour vos clients sans gérer un site à part. Ce qu’ils voient reste lié à ce que vous utilisez déjà dans Cobreo.",
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "summary": "Donnez un accès limité aux personnes concernées.",
+                "summary": "Les personnes concernées trouvent ce dont elles ont besoin sans vous écrire à chaque étape. Vous décidez ce qui reste accessible.",
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "RH",
-                "summary": "Centralisez les dossiers de l’équipe, les absences et les arrivées.",
+                "summary": "Les informations sur l’équipe ne se dispersent plus dans des fichiers isolés. Absences et dossiers restent faciles à retrouver.",
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finances",
-                "summary": "Suivez les factures et les paiements.",
+                "summary": "Vous savez où en sont les factures et les paiements sans ouvrir plusieurs tableurs. Le point financier prend moins de temps à préparer.",
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tâches",
-                "summary": "Assignez le travail et suivez qui fait quoi, et pour quand.",
+                "summary": "Chacun voit ce qui lui revient et pour quelle échéance. Le travail a moins de chances de tomber entre deux personnes.",
                 "scene": "records"
             }
         ]
