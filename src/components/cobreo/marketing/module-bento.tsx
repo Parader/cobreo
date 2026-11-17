@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type FC } from "react";
+import { useState, type FC } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
@@ -79,8 +79,8 @@ function padIndex(n: number) {
 }
 
 /**
- * Full-bleed art: large plane on the right page edge, outline mark, subtle dots.
- * Soft left mask only — no border, frame, or hairline on the art.
+ * Module art lives in a reserved right lane (parent). Soft left mask only —
+ * no borders/frames. Triangles in the webp are part of the asset, not CSS.
  */
 function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop" | "mobile" }) {
     const file = illustrationFiles[item.id];
@@ -93,37 +93,37 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
             aria-hidden
             data-module-illustration
             className={cx(
-                "pointer-events-none absolute",
+                "pointer-events-none",
                 isDesktop
-                    ? "top-[4%] right-0 z-0 hidden h-[92%] w-[min(50vw,700px)] opacity-[0.75] lg:block xl:w-[min(48vw,740px)]"
+                    ? "absolute inset-0 z-0"
                     : "relative right-0 z-0 mt-6 w-[min(94vw,440px)] translate-x-[2%] opacity-[0.7] sm:w-[min(90vw,480px)] sm:translate-x-[6%]",
             )}
         >
             <div
-                className="absolute inset-0 opacity-[0.28]"
+                className="absolute inset-0 opacity-[0.22]"
                 style={{
                     backgroundImage: "radial-gradient(circle, rgba(77,107,151,0.5) 0.55px, transparent 0.65px)",
                     backgroundSize: "13px 13px",
-                    maskImage: "linear-gradient(90deg, transparent 0%, #000 22%, #000 100%)",
-                    WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 22%, #000 100%)",
+                    maskImage: "linear-gradient(90deg, transparent 0%, #000 28%, #000 100%)",
+                    WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 28%, #000 100%)",
                 }}
             />
 
             <div
                 className={cx(
                     "relative h-full w-full",
-                    /* slight bleed past the page edge — keep most of the figure on-screen */
-                    isDesktop && "translate-x-[2%] xl:translate-x-[4%]",
-                    "[mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.45)_12%,#000_32%,#000_100%)]",
-                    "[-webkit-mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.45)_12%,#000_32%,#000_100%)]",
+                    /* bleed only past the right page edge — never into the text column */
+                    isDesktop && "translate-x-[4%] xl:translate-x-[6%]",
+                    "[mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.25)_20%,#000_48%,#000_100%)]",
+                    "[-webkit-mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.25)_20%,#000_48%,#000_100%)]",
                 )}
             >
                 <MarkMotif
                     variant="outline"
-                    opacity={0.42}
+                    opacity={0.32}
                     className={cx(
                         "absolute z-0",
-                        isDesktop ? "-left-[12%] top-[10%] h-[68%] w-[68%]" : "-left-[8%] top-[6%] h-[66%] w-[66%]",
+                        isDesktop ? "left-[8%] top-[14%] h-[52%] w-[52%]" : "-left-[8%] top-[6%] h-[66%] w-[66%]",
                     )}
                 />
                 <Image
@@ -131,8 +131,12 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
                     alt=""
                     width={1024}
                     height={768}
-                    className="relative z-10 h-full w-full object-contain object-right"
-                    sizes={isDesktop ? "min(50vw, 740px)" : "min(94vw, 480px)"}
+                    className={cx(
+                        "relative z-10 object-contain object-right",
+                        /* scale slightly so left-side asset decorations clip inside the lane */
+                        isDesktop ? "h-full w-[115%] max-w-none -mr-[8%]" : "h-auto w-full",
+                    )}
+                    sizes={isDesktop ? "min(42vw, 600px)" : "min(94vw, 480px)"}
                     priority={false}
                 />
             </div>
@@ -169,7 +173,7 @@ function ModuleDetailCopy({
 
     return (
         <motion.div
-            className="relative z-10 max-w-[40rem]"
+            className="relative z-10 w-full max-w-[32rem]"
             variants={stagger}
             initial={reduce ? false : "hidden"}
             animate="show"
@@ -195,7 +199,7 @@ function ModuleDetailCopy({
             {item.tagline ? (
                 <motion.p
                     variants={rise}
-                    className="mt-3 max-w-[38ch] text-[18px] leading-7 tracking-[-0.01em] text-[#5f7aa1] sm:text-[20px] sm:leading-8"
+                    className="mt-3 max-w-[32ch] text-[18px] leading-7 tracking-[-0.01em] text-[#5f7aa1] sm:text-[20px] sm:leading-8"
                 >
                     {item.tagline}
                 </motion.p>
@@ -203,7 +207,7 @@ function ModuleDetailCopy({
 
             <motion.ul
                 variants={stagger}
-                className="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 sm:mt-10 sm:grid-cols-2 sm:gap-y-7"
+                className="mt-8 grid grid-cols-1 gap-x-7 gap-y-6 sm:mt-10 sm:grid-cols-2 sm:gap-y-7"
             >
                 {item.points.map((point, pointIndex) => {
                     const style = pointStyles[pointIndex % pointStyles.length]!;
@@ -212,7 +216,7 @@ function ModuleDetailCopy({
                         <motion.li
                             key={`${point.title}-${pointIndex}`}
                             variants={rise}
-                            className={cx("min-w-0", wideLast && "sm:col-span-2 sm:max-w-[24rem]")}
+                            className={cx("min-w-0", wideLast && "sm:col-span-2 sm:max-w-[22rem]")}
                         >
                             <div className="mb-2 flex items-center gap-2.5">
                                 <span className={cx("h-px w-5", style.rule)} aria-hidden />
@@ -237,37 +241,6 @@ function ModuleDetailCopy({
 export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]; linkLabel?: string; linkHref?: string }) {
     const reduce = useReducedMotion();
     const [active, setActive] = useState(0);
-    const listRef = useRef<HTMLDivElement>(null);
-    const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
-    const [indicator, setIndicator] = useState({ top: 0, height: 0 });
-
-    const syncIndicator = () => {
-        const list = listRef.current;
-        const item = itemRefs.current[active];
-        if (!list || !item) return;
-        const listRect = list.getBoundingClientRect();
-        const itemRect = item.getBoundingClientRect();
-        setIndicator({
-            top: itemRect.top - listRect.top,
-            height: itemRect.height,
-        });
-    };
-
-    useLayoutEffect(() => {
-        syncIndicator();
-    }, [active, items]);
-
-    useEffect(() => {
-        const item = itemRefs.current[active];
-        if (!item) return;
-        const ro = new ResizeObserver(() => syncIndicator());
-        ro.observe(item);
-        window.addEventListener("resize", syncIndicator);
-        return () => {
-            ro.disconnect();
-            window.removeEventListener("resize", syncIndicator);
-        };
-    }, [active]);
 
     const current = items[active] ?? items[0];
     if (!current) return null;
@@ -275,7 +248,19 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
     return (
         /* overflow-x: clip keeps overflow-y visible (unlike hidden) */
         <div className="relative overflow-x-clip">
-            <div className="pointer-events-none absolute inset-x-0 inset-y-0 z-0 hidden lg:block">
+            {/*
+              Reserved art lane — never under the text:
+              lg (1024–1279): ~32vw, lower opacity, shifted right
+              xl+ (≥1280): ~40vw (38–42%), stronger presence
+            */}
+            <div
+                className={cx(
+                    "pointer-events-none absolute inset-y-0 right-0 z-0 hidden overflow-hidden lg:block",
+                    "w-[min(32vw,420px)] translate-x-[10%] opacity-50",
+                    "xl:w-[min(40vw,560px)] xl:translate-x-[3%] xl:opacity-[0.72]",
+                    "2xl:w-[min(42vw,600px)] 2xl:translate-x-[1%]",
+                )}
+            >
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={`art-${current.id}`}
@@ -290,20 +275,21 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                 </AnimatePresence>
             </div>
 
-            <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
-                <div className="relative min-w-0 lg:grid lg:min-h-[680px] lg:grid-cols-[minmax(0,17.5rem)_minmax(0,1fr)] lg:items-center lg:gap-12 xl:min-h-[720px] xl:grid-cols-[minmax(0,18.5rem)_minmax(0,38rem)] xl:gap-16">
-                    <div ref={listRef} className="relative z-20 min-w-0" role="listbox" aria-label="Modules">
-                        <motion.span
-                            aria-hidden
-                            className="pointer-events-none absolute top-0 left-0 w-px bg-[#4d6b97]"
-                            initial={false}
-                            animate={{
-                                top: indicator.top,
-                                height: Math.max(indicator.height, 8),
-                            }}
-                            transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 480, damping: 40, mass: 0.6 }}
-                        />
-
+            {/*
+              Content padding-right reserves the art lane + ≥48px gap
+              so tagline/points never draw under the illustration.
+            */}
+            <div
+                className={cx(
+                    "relative z-10 mx-auto max-w-[1200px] px-4 md:px-8",
+                    /* art lane width + ≥48px (3rem) clear gap — never under the art */
+                    "lg:pr-[max(3rem,calc(min(32vw,420px)+3.5rem))]",
+                    "xl:pr-[max(3rem,calc(min(40vw,560px)+4rem))]",
+                    "2xl:pr-[max(3rem,calc(min(42vw,600px)+4rem))]",
+                )}
+            >
+                <div className="relative min-w-0 lg:grid lg:min-h-[680px] lg:grid-cols-[minmax(0,15.5rem)_minmax(0,1fr)] lg:items-center lg:gap-8 xl:min-h-[720px] xl:grid-cols-[minmax(0,16.5rem)_minmax(0,1fr)] xl:gap-10">
+                    <div className="relative z-20 min-w-0" role="listbox" aria-label="Modules">
                         {items.map((item, index) => {
                             const isActive = index === active;
                             const accent = accents[item.id] ?? fallbackAccent;
@@ -312,16 +298,13 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                             return (
                                 <div key={item.id} className="relative">
                                     <motion.button
-                                        ref={(el) => {
-                                            itemRefs.current[index] = el;
-                                        }}
                                         type="button"
                                         role="option"
                                         aria-selected={isActive}
                                         aria-pressed={isActive}
                                         onClick={() => setActive(index)}
                                         className={cx(
-                                            "group relative w-full cursor-pointer py-3.5 pr-3 pl-4 text-left transition-colors duration-100 ease-linear sm:py-4 sm:pl-5",
+                                            "group relative w-full cursor-pointer py-3.5 pr-3 pl-3 text-left transition-colors duration-100 ease-linear sm:py-4 sm:pl-4",
                                             "hover:bg-[#eef3f9]/50",
                                             "focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#4d6b97]",
                                             isActive && "bg-[#eef3f9]/70",
