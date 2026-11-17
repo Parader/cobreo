@@ -70,7 +70,7 @@ export async function HomePage() {
                 </div>
             </section>
 
-            <section id="modules" className="relative scroll-mt-28 overflow-x-clip bg-white py-16 sm:py-20 md:scroll-mt-32 md:py-24 lg:py-[120px]">
+            <section id="modules" className="relative scroll-mt-28 overflow-x-hidden bg-white py-16 sm:py-20 md:scroll-mt-32 md:py-24 lg:py-[120px]">
                 <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
                     <div className="mb-8 flex max-w-4xl flex-col gap-3 sm:mb-10 md:mb-12 md:gap-4 lg:mb-14">
                         <p className="text-sm font-semibold tracking-[0.1em] text-[#4d6b97] uppercase">{t("modulesEyebrow")}</p>
@@ -81,8 +81,9 @@ export async function HomePage() {
                             {t("modulesLede")}
                         </p>
                     </div>
-                    <ModuleBento items={items} />
                 </div>
+                {/* Full-bleed shell so the illustration can anchor to the viewport edge */}
+                <ModuleBento items={items} />
             </section>
 
             <PlatformFeatures
