@@ -15,7 +15,7 @@ export function Advantages({ title, items }: { title: string; items: AdvantageIt
     const inView = useInView(ref, { once: true, amount: 0.25 });
 
     return (
-        <section className="relative overflow-hidden bg-[#efedea] py-20 md:py-28">
+        <section className="relative overflow-hidden bg-white py-20 md:py-28">
             <MarkMotif
                 variant="pattern"
                 opacity={0.05}

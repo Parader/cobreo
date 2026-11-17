@@ -70,8 +70,8 @@
                 "body": "L’application et vos données sont hébergées au Canada."
             }
         ],
-        "platformFeaturesTitle": "Inclus dans toute la plateforme.",
-        "platformFeaturesLede": "Ces fonctions restent disponibles, quel que soit le module que vous activez.",
+        "platformFeaturesTitle": "Des fonctions qui suivent chaque module.",
+        "platformFeaturesLede": "Elles restent actives dans Cobreo, même lorsque vous changez de module.",
         "platformFeatures": [
             {
                 "id": "tasks",
@@ -1206,108 +1206,108 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Les relations et les suivis au même endroit.",
+                "tagline": "",
                 "points": [
-                    "Pipeline de ventes",
-                    "Suivis et relances",
-                    "Historique des échanges",
-                    "Contacts et organisations"
+                    "Suivre les commanditaires d’un événement annuel",
+                    "Relancer les demandes de soumission restées sans réponse",
+                    "Garder l’historique des échanges avec un organisme partenaire",
+                    "Partager les contacts d’une équipe de développement"
                 ],
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Événements",
-                "tagline": "Des événements bien organisés, du début à la fin.",
+                "tagline": "",
                 "points": [
-                    "Inscriptions en ligne",
-                    "Billets et invitations",
-                    "Liste des participants",
-                    "Accueil le jour J"
+                    "Ouvrir les inscriptions à une assemblée générale",
+                    "Gérer les places d’une formation en atelier",
+                    "Préparer la liste d’accueil pour une soirée-bénéfice",
+                    "Envoyer les billets d’une conférence sectorielle"
                 ],
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Des retours clairs pour améliorer vos services.",
+                "tagline": "",
                 "points": [
-                    "Sondages en ligne",
-                    "Réponses en direct",
-                    "Résultats et tendances",
-                    "NPS et satisfaction"
+                    "Mesurer la satisfaction après un service de consultation",
+                    "Recueillir les commentaires d’une cohorte de formation",
+                    "Suivre le NPS d’un programme d’accompagnement",
+                    "Lire les retours d’une clinique après chaque visite"
                 ],
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Réservations",
-                "tagline": "Des rendez-vous sans allers-retours.",
+                "tagline": "",
                 "points": [
-                    "Créneaux disponibles",
-                    "Réservation en ligne",
-                    "Confirmations et rappels",
-                    "Calendrier synchronisé"
+                    "Laisser les clients réserver une consultation en ligne",
+                    "Offrir des créneaux de visite pour un local communautaire",
+                    "Confirmer les rendez-vous d’une équipe de service",
+                    "Réduire les allers-retours pour une clinique privée"
                 ],
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "tagline": "Des suivis qui se font tout seuls, selon vos règles.",
+                "tagline": "",
                 "points": [
-                    "Déclencheurs personnalisés",
-                    "Relances automatiques",
-                    "Assignations",
-                    "Workflows simples"
+                    "Relancer automatiquement une soumission sans réponse",
+                    "Assigner un dossier dès qu’un formulaire est reçu",
+                    "Envoyer un rappel avant une échéance de renouvellement",
+                    "Prévenir l’équipe quand un statut change"
                 ],
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "tagline": "Un site que vous mettez à jour vous-même.",
+                "tagline": "",
                 "points": [
-                    "Pages à votre image",
-                    "Formulaires et inscriptions",
-                    "Mises à jour simples",
-                    "Publication autonome"
+                    "Publier la page d’inscription d’un organisme",
+                    "Mettre à jour l’horaire d’une clinique sans développeur",
+                    "Afficher les services d’un cabinet-conseil",
+                    "Ouvrir un formulaire public pour une demande d’adhésion"
                 ],
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "tagline": "Un espace pour vos usagers, moins de courriels à gérer.",
+                "tagline": "",
                 "points": [
-                    "Accès usagers",
-                    "Dossiers partagés",
-                    "Documents à transmettre",
-                    "Espace à votre image"
+                    "Laisser un usager déposer ses documents au même endroit",
+                    "Partager le dossier d’un client avec son chargé de projet",
+                    "Donner accès aux relevés d’un membre d’association",
+                    "Réduire les échanges de pièces jointes par courriel"
                 ],
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "RH",
-                "tagline": "L’essentiel des RH au même endroit.",
+                "tagline": "",
                 "points": [
-                    "Dossiers employés",
-                    "Demandes de congé",
-                    "Accueil des nouvelles personnes",
-                    "Accès limités"
+                    "Centraliser les dossiers d’une équipe de terrain",
+                    "Recevoir les demandes de congé sans tableur",
+                    "Accueillir une nouvelle personne dans un organisme",
+                    "Limiter l’accès RH aux seules personnes autorisées"
                 ],
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finances",
-                "tagline": "Facturer et suivre ce qui reste dû.",
+                "tagline": "",
                 "points": [
-                    "Factures",
-                    "Suivi des paiements",
-                    "Relances",
-                    "Statuts à jour"
+                    "Facturer les honoraires d’un mandat de service",
+                    "Suivre les paiements d’une campagne de cotisations",
+                    "Relancer une facture restée en souffrance",
+                    "Voir ce qui reste dû après un événement payant"
                 ],
                 "scene": "records"
             }

@@ -20,7 +20,7 @@ export default async function DiagnosticPage({ params }: { params: Promise<{ loc
     setRequestLocale(locale);
 
     return (
-        <div className="relative min-h-[calc(100dvh-5rem)] bg-[#efedea]">
+        <div className="relative min-h-[calc(100dvh-5rem)] bg-white">
             <div
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(ellipse_at_top,_rgba(77,107,151,0.12),_transparent_65%)]"

@@ -70,8 +70,8 @@
                 "body": "The application and your data are hosted in Canada."
             }
         ],
-        "platformFeaturesTitle": "Included across the platform.",
-        "platformFeaturesLede": "These capabilities stay available no matter which module you turn on.",
+        "platformFeaturesTitle": "Capabilities that stay with every module.",
+        "platformFeaturesLede": "They remain available in Cobreo even when you switch modules.",
         "platformFeatures": [
             {
                 "id": "tasks",
@@ -1206,108 +1206,108 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "Relationships and follow-ups in one place.",
+                "tagline": "",
                 "points": [
-                    "Sales pipeline",
-                    "Follow-ups and reminders",
-                    "Exchange history",
-                    "Contacts and organizations"
+                    "Track sponsors for an annual event",
+                    "Follow up on proposals that never got a reply",
+                    "Keep the exchange history with a partner organization",
+                    "Share contacts across a development team"
                 ],
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "Well-organized events, from start to finish.",
+                "tagline": "",
                 "points": [
-                    "Online registration",
-                    "Tickets and invitations",
-                    "Participant list",
-                    "Day-of check-in"
+                    "Open registration for a general assembly",
+                    "Manage seats for a workshop series",
+                    "Prepare the check-in list for a fundraising evening",
+                    "Send tickets for an industry conference"
                 ],
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "Clear feedback to improve your services.",
+                "tagline": "",
                 "points": [
-                    "Online surveys",
-                    "Live responses",
-                    "Results and trends",
-                    "NPS and satisfaction"
+                    "Measure satisfaction after a consulting engagement",
+                    "Collect feedback from a training cohort",
+                    "Track NPS for a coaching program",
+                    "Read visit feedback for a clinic"
                 ],
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Booking",
-                "tagline": "Appointments without the back-and-forth.",
+                "tagline": "",
                 "points": [
-                    "Open time slots",
-                    "Online booking",
-                    "Confirmations and reminders",
-                    "Synced calendar"
+                    "Let clients book a consultation online",
+                    "Offer visit slots for a community space",
+                    "Confirm appointments for a service team",
+                    "Cut back-and-forth for a private clinic"
                 ],
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "Follow-ups that run on their own, by your rules.",
+                "tagline": "",
                 "points": [
-                    "Custom triggers",
-                    "Automatic reminders",
-                    "Assignments",
-                    "Simple workflows"
+                    "Automatically follow up on a silent proposal",
+                    "Assign a file as soon as a form arrives",
+                    "Send a reminder before a renewal deadline",
+                    "Alert the team when a status changes"
                 ],
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "tagline": "A site you update yourself.",
+                "tagline": "",
                 "points": [
-                    "On-brand pages",
-                    "Forms and sign-ups",
-                    "Simple updates",
-                    "Self-serve publishing"
+                    "Publish an organization’s registration page",
+                    "Update a clinic schedule without a developer",
+                    "Show a consulting firm’s services",
+                    "Open a public form for membership requests"
                 ],
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "A space for your users, fewer emails to manage.",
+                "tagline": "",
                 "points": [
-                    "User access",
-                    "Shared files",
-                    "Document uploads",
-                    "On-brand space"
+                    "Let a user upload documents in one place",
+                    "Share a client file with their project lead",
+                    "Give a member access to their statements",
+                    "Cut down on email attachments"
                 ],
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "HR",
-                "tagline": "The essentials of HR in one place.",
+                "tagline": "",
                 "points": [
-                    "Employee records",
-                    "Leave requests",
-                    "New-hire onboarding",
-                    "Limited access"
+                    "Centralize records for a field team",
+                    "Receive leave requests without a spreadsheet",
+                    "Onboard a new hire in an organization",
+                    "Limit HR access to authorized people only"
                 ],
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finance",
-                "tagline": "Invoice and track what is still owed.",
+                "tagline": "",
                 "points": [
-                    "Invoices",
-                    "Payment tracking",
-                    "Reminders",
-                    "Up-to-date statuses"
+                    "Invoice fees for a service mandate",
+                    "Track payments from a membership drive",
+                    "Follow up on an unpaid invoice",
+                    "See what is still owed after a ticketed event"
                 ],
                 "scene": "records"
             }

@@ -23,7 +23,7 @@ export default function NotFound() {
             <body
                 style={{
                     margin: 0,
-                    background: "#efedea",
+                    background: "#ffffff",
                     color: "#171717",
                     fontFamily: '"SN Pro Variable", ui-sans-serif, sans-serif',
                 }}

@@ -39,7 +39,7 @@ export function PlatformFeatures({
     const inView = useInView(ref, { once: true, amount: 0.2 });
 
     return (
-        <section className="relative overflow-hidden bg-[#f7f8fa] py-16 md:py-20">
+        <section className="relative overflow-hidden bg-[#eef3f9] py-16 md:py-20">
             <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
                 <div className="max-w-2xl">
                     <h2 className="font-display text-[clamp(1.45rem,2.6vw,2rem)] font-normal tracking-[-0.03em] text-[#090a24]">

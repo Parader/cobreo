@@ -88,6 +88,7 @@ export function SiteHeader() {
         const onScroll = () => {
             const y = window.scrollY;
             const delta = y - lastY.current;
+            /* Transparent at the hero; solidify after a short scroll. */
             setAtTop(y < 12);
             if (y < 48) {
                 setHidden(false);
@@ -144,8 +145,8 @@ export function SiteHeader() {
             className={cx(
                 "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,backdrop-filter,border-color,transform,box-shadow] duration-300 ease-out",
                 atTop && !menuOpen
-                    ? "border-transparent bg-white/80 shadow-none backdrop-blur-md"
-                    : "border-[#171717]/08 bg-white shadow-[0_1px_0_rgba(37,51,83,0.06)] backdrop-blur-xl",
+                    ? "border-transparent bg-transparent shadow-none backdrop-blur-none"
+                    : "border-[#171717]/08 bg-white/90 shadow-[0_1px_0_rgba(37,51,83,0.06)] backdrop-blur-md",
                 effectivelyHidden ? "-translate-y-full" : "translate-y-0",
             )}
         >

@@ -22,11 +22,11 @@ export async function HomePage() {
     const integrations = t.raw("integrations") as IntegrationItem[];
 
     return (
-        <div className="bg-[#efedea] text-[#171717]">
-            <section className="relative overflow-hidden bg-[#f7f8fa]">
+        <div className="bg-white text-[#171717]">
+            <section className="relative overflow-hidden bg-white">
                 <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-x-0 top-0 h-[min(90vh,920px)] bg-[radial-gradient(ellipse_78%_58%_at_12%_-8%,rgba(77,107,151,0.22),transparent_58%),radial-gradient(ellipse_64%_46%_at_96%_8%,rgba(177,182,166,0.38),transparent_54%)]"
+                    className="pointer-events-none absolute inset-x-0 top-0 h-[min(90vh,920px)] bg-[radial-gradient(ellipse_78%_58%_at_12%_-8%,rgba(77,107,151,0.18),transparent_58%),radial-gradient(ellipse_64%_46%_at_96%_8%,rgba(177,182,166,0.28),transparent_54%)]"
                 />
                 <MarkMotif
                     variant="crop"
@@ -62,7 +62,7 @@ export async function HomePage() {
                 </div>
             </section>
 
-            <section id="modules" className="relative scroll-mt-28 overflow-x-clip bg-[#efedea] py-16 sm:py-20 md:scroll-mt-32 md:py-24 lg:py-[120px]">
+            <section id="modules" className="relative scroll-mt-28 overflow-x-clip bg-white py-16 sm:py-20 md:scroll-mt-32 md:py-24 lg:py-[120px]">
                 <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
                     <div className="mb-8 flex max-w-4xl flex-col gap-3 sm:mb-10 md:mb-12 md:gap-4 lg:mb-14">
                         <p className="text-sm font-semibold tracking-[0.1em] text-[#4d6b97] uppercase">{t("modulesEyebrow")}</p>

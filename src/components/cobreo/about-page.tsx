@@ -49,7 +49,7 @@ export function AboutPage() {
     const inViewAmount = 0.15;
 
     return (
-        <div className="relative overflow-x-clip bg-[#efedea]">
+        <div className="relative overflow-x-clip bg-white">
             <MarketingAtmosphere />
 
             <section className="relative z-10 mx-auto max-w-container px-4 pb-16 pt-12 md:px-8 md:pb-24 md:pt-16">
