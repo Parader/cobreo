@@ -79,8 +79,9 @@ function padIndex(n: number) {
 }
 
 /**
- * Full-bleed art on the page edge — calm frame (one hairline), subtle dots,
- * outline mark under the illustration. No fixed height; sizes to the image.
+ * Full-bleed art as in a00ac25: large plane on the right page edge, outline mark,
+ * subtle dots. Calmed to one hairline. Opacity ~0.7. Height is a % of the
+ * section min-height — not a scrollport.
  */
 function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop" | "mobile" }) {
     const file = illustrationFiles[item.id];
@@ -93,43 +94,45 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
             aria-hidden
             data-module-illustration
             className={cx(
-                "pointer-events-none",
+                "pointer-events-none absolute",
                 isDesktop
-                    ? "absolute top-0 right-0 z-0 hidden w-[min(48vw,640px)] translate-x-[10%] lg:block xl:w-[min(44vw,680px)] xl:translate-x-[14%]"
-                    : "relative right-0 z-0 mt-5 w-[min(92vw,400px)] translate-x-[6%] sm:w-[min(88vw,440px)] sm:translate-x-[10%]",
+                    ? "top-[4%] right-0 z-0 hidden h-[92%] w-[min(50vw,700px)] opacity-[0.75] lg:block xl:w-[min(48vw,740px)]"
+                    : "relative right-0 z-0 mt-6 w-[min(94vw,440px)] translate-x-[2%] opacity-[0.7] sm:w-[min(90vw,480px)] sm:translate-x-[6%]",
             )}
         >
             <div
-                className="absolute inset-0 opacity-[0.18]"
+                className="absolute inset-0 opacity-[0.28]"
                 style={{
                     backgroundImage: "radial-gradient(circle, rgba(77,107,151,0.5) 0.55px, transparent 0.65px)",
-                    backgroundSize: "14px 14px",
-                    maskImage: "linear-gradient(90deg, transparent 0%, #000 40%, #000 100%)",
-                    WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 40%, #000 100%)",
+                    backgroundSize: "13px 13px",
+                    maskImage: "linear-gradient(90deg, transparent 0%, #000 22%, #000 100%)",
+                    WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 22%, #000 100%)",
                 }}
             />
 
-            {/* Single hairline — left edge of the art plane, extending right off-page */}
+            {/* One calm left hairline — no full art frame grid */}
             <div
                 className={cx(
-                    "absolute top-[8%] bottom-[8%] left-0 border-l border-[#4d6b97]/30",
-                    isDesktop ? "right-[-10%]" : "right-[-6%]",
+                    "absolute top-[4%] bottom-[4%] left-[2%] border-l border-[#4d6b97]/28",
+                    isDesktop ? "right-[-8%]" : "right-[-4%]",
                 )}
             />
 
             <div
                 className={cx(
-                    "relative",
-                    "[mask-image:linear-gradient(90deg,transparent_0%,#000_18%,#000_100%)]",
-                    "[-webkit-mask-image:linear-gradient(90deg,transparent_0%,#000_18%,#000_100%)]",
+                    "relative h-full w-full",
+                    /* slight bleed past the page edge — keep most of the figure on-screen */
+                    isDesktop && "translate-x-[2%] xl:translate-x-[4%]",
+                    "[mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.45)_12%,#000_32%,#000_100%)]",
+                    "[-webkit-mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.45)_12%,#000_32%,#000_100%)]",
                 )}
             >
                 <MarkMotif
                     variant="outline"
-                    opacity={0.32}
+                    opacity={0.42}
                     className={cx(
                         "absolute z-0",
-                        isDesktop ? "-left-[8%] top-[10%] h-[62%] w-[62%]" : "-left-[6%] top-[8%] h-[58%] w-[58%]",
+                        isDesktop ? "-left-[12%] top-[10%] h-[68%] w-[68%]" : "-left-[8%] top-[6%] h-[66%] w-[66%]",
                     )}
                 />
                 <Image
@@ -137,8 +140,8 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
                     alt=""
                     width={1024}
                     height={768}
-                    className="relative z-10 h-auto w-full object-contain object-right"
-                    sizes={isDesktop ? "min(48vw, 680px)" : "min(92vw, 440px)"}
+                    className="relative z-10 h-full w-full object-contain object-right"
+                    sizes={isDesktop ? "min(50vw, 740px)" : "min(94vw, 480px)"}
                     priority={false}
                 />
             </div>
@@ -164,36 +167,36 @@ function ModuleDetailCopy({
         ? undefined
         : {
               hidden: {},
-              show: { transition: { staggerChildren: 0.045, delayChildren: 0.02 } },
+              show: { transition: { staggerChildren: 0.05, delayChildren: 0.03 } },
           };
     const rise = reduce
         ? undefined
         : {
-              hidden: { opacity: 0, y: 6 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.28, ease: easeLuxury } },
+              hidden: { opacity: 0, y: 8 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: easeLuxury } },
           };
 
     return (
         <motion.div
-            className="relative z-10 max-w-[36rem]"
+            className="relative z-10 max-w-[40rem]"
             variants={stagger}
             initial={reduce ? false : "hidden"}
             animate="show"
         >
-            <motion.div variants={rise} className="flex items-center gap-2.5">
-                <span className="font-mono text-[11px] font-medium tracking-[0.08em] text-[#4d6b97] tabular-nums">
+            <motion.div variants={rise} className="flex items-center gap-3">
+                <span className="font-mono text-[12px] font-medium tracking-[0.08em] text-[#4d6b97] tabular-nums">
                     {padIndex(index + 1)}
-                    <span className="mx-1 text-[#4d6b97]/35">/</span>
+                    <span className="mx-1 text-[#4d6b97]/40">/</span>
                     {padIndex(total)}
                 </span>
-                <span className={cx("inline-flex size-5 items-center justify-center rounded-[2px]", accent.tile)}>
-                    <Icon className={cx("size-3", accent.iconClass)} aria-hidden />
+                <span className={cx("inline-flex size-7 items-center justify-center rounded-[2px]", accent.tile)}>
+                    <Icon className={cx("size-4", accent.iconClass)} aria-hidden />
                 </span>
             </motion.div>
 
             <motion.h3
                 variants={rise}
-                className="mt-2.5 font-display text-[clamp(1.55rem,2.5vw,2.1rem)] font-normal leading-[1.1] tracking-[-0.04em] text-[#090a24]"
+                className="mt-4 font-display text-[clamp(2rem,3.4vw,2.75rem)] font-normal leading-[1.05] tracking-[-0.04em] text-[#090a24]"
             >
                 {item.name}
             </motion.h3>
@@ -201,7 +204,7 @@ function ModuleDetailCopy({
             {item.tagline ? (
                 <motion.p
                     variants={rise}
-                    className="mt-1.5 max-w-[36ch] text-[13px] leading-5 tracking-[-0.01em] text-[#5f7aa1] sm:text-[14px] sm:leading-5"
+                    className="mt-3 max-w-[38ch] text-[18px] leading-7 tracking-[-0.01em] text-[#5f7aa1] sm:text-[20px] sm:leading-8"
                 >
                     {item.tagline}
                 </motion.p>
@@ -209,7 +212,7 @@ function ModuleDetailCopy({
 
             <motion.ul
                 variants={stagger}
-                className="mt-5 grid grid-cols-1 gap-x-6 gap-y-4 sm:mt-6 sm:grid-cols-2 sm:gap-y-5"
+                className="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 sm:mt-10 sm:grid-cols-2 sm:gap-y-7"
             >
                 {item.points.map((point, pointIndex) => {
                     const style = pointStyles[pointIndex % pointStyles.length]!;
@@ -218,21 +221,19 @@ function ModuleDetailCopy({
                         <motion.li
                             key={`${point.title}-${pointIndex}`}
                             variants={rise}
-                            className={cx("min-w-0", wideLast && "sm:col-span-2 sm:max-w-[20rem]")}
+                            className={cx("min-w-0", wideLast && "sm:col-span-2 sm:max-w-[24rem]")}
                         >
-                            <div className="mb-1.5 flex items-center gap-2">
-                                <span className={cx("h-px w-4", style.rule)} aria-hidden />
-                                <span className={cx("font-mono text-[10px] font-medium tracking-[0.1em] tabular-nums", style.num)}>
+                            <div className="mb-2 flex items-center gap-2.5">
+                                <span className={cx("h-px w-5", style.rule)} aria-hidden />
+                                <span className={cx("font-mono text-[11px] font-medium tracking-[0.1em] tabular-nums", style.num)}>
                                     {padIndex(pointIndex + 1)}
                                 </span>
                             </div>
-                            <p className="text-[13px] font-semibold leading-snug tracking-[-0.02em] text-[#090a24] sm:text-[14px]">
+                            <p className="text-[16px] font-semibold leading-snug tracking-[-0.02em] text-[#090a24]">
                                 {point.title}
                             </p>
                             {point.body ? (
-                                <p className="mt-1 text-[12px] leading-4.5 text-[#525252] sm:text-[12.5px] sm:leading-5">
-                                    {point.body}
-                                </p>
+                                <p className="mt-1.5 text-[15px] leading-6 text-[#525252]">{point.body}</p>
                             ) : null}
                         </motion.li>
                     );
@@ -281,16 +282,17 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
     if (!current) return null;
 
     return (
-        /* overflow-x only — never create a vertical scrollport inside the section */
-        <div className="relative overflow-x-hidden overflow-y-visible">
-            <div className="pointer-events-none absolute inset-x-0 top-0 z-0 hidden overflow-x-hidden lg:block">
+        /* overflow-x: clip keeps overflow-y visible (unlike hidden) */
+        <div className="relative overflow-x-clip">
+            <div className="pointer-events-none absolute inset-x-0 inset-y-0 z-0 hidden lg:block">
                 <AnimatePresence mode="wait" initial={false}>
                     <motion.div
                         key={`art-${current.id}`}
                         initial={reduce ? false : { opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={reduce ? undefined : { opacity: 0 }}
-                        transition={{ duration: 0.3, ease: easeLuxury }}
+                        transition={{ duration: 0.35, ease: easeLuxury }}
+                        className="absolute inset-0"
                     >
                         <ModuleBleedArt item={current} variant="desktop" />
                     </motion.div>
@@ -298,7 +300,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
             </div>
 
             <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
-                <div className="relative min-w-0 lg:grid lg:grid-cols-[minmax(0,16.5rem)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,17.5rem)_minmax(0,34rem)] xl:gap-14">
+                <div className="relative min-w-0 lg:grid lg:min-h-[680px] lg:grid-cols-[minmax(0,17.5rem)_minmax(0,1fr)] lg:items-center lg:gap-12 xl:min-h-[720px] xl:grid-cols-[minmax(0,18.5rem)_minmax(0,38rem)] xl:gap-16">
                     <div ref={listRef} className="relative z-20 min-w-0" role="listbox" aria-label="Modules">
                         <motion.span
                             aria-hidden
@@ -328,32 +330,32 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                         aria-pressed={isActive}
                                         onClick={() => setActive(index)}
                                         className={cx(
-                                            "group relative w-full cursor-pointer py-2 pr-2 pl-3.5 text-left transition-colors duration-100 ease-linear sm:py-2.5 sm:pl-4",
-                                            "hover:bg-[#eef3f9]/45",
+                                            "group relative w-full cursor-pointer py-3.5 pr-3 pl-4 text-left transition-colors duration-100 ease-linear sm:py-4 sm:pl-5",
+                                            "hover:bg-[#eef3f9]/50",
                                             "focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#4d6b97]",
-                                            isActive && "bg-[#eef3f9]/55",
+                                            isActive && "bg-[#eef3f9]/70",
                                         )}
                                     >
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex items-center gap-2.5">
                                             <span
                                                 className={cx(
-                                                    "inline-flex size-5 shrink-0 items-center justify-center rounded-[2px] transition-colors duration-100",
+                                                    "inline-flex size-6 shrink-0 items-center justify-center rounded-[2px] transition-colors duration-100",
                                                     isActive ? accent.tile : "text-[#737373] group-hover:text-[#4d6b97]",
                                                 )}
                                             >
-                                                <Icon className={cx("size-3", isActive ? accent.iconClass : undefined)} aria-hidden />
+                                                <Icon className={cx("size-3.5", isActive ? accent.iconClass : undefined)} aria-hidden />
                                             </span>
                                             <span
                                                 className={cx(
-                                                    "font-mono text-[10px] font-medium tracking-[0.08em] tabular-nums transition-colors",
-                                                    isActive ? "text-[#4d6b97]" : "text-[#4d6b97]/40 group-hover:text-[#5f7aa1]",
+                                                    "font-mono text-[11px] font-medium tracking-[0.1em] tabular-nums transition-colors",
+                                                    isActive ? "text-[#4d6b97]" : "text-[#4d6b97]/45 group-hover:text-[#5f7aa1]",
                                                 )}
                                             >
                                                 {padIndex(index + 1)}
                                             </span>
                                             <h3
                                                 className={cx(
-                                                    "text-[13px] font-semibold tracking-[-0.02em] transition-colors duration-100",
+                                                    "text-[15px] font-semibold tracking-[-0.02em] transition-colors duration-100",
                                                     isActive ? "text-[#090a24]" : "text-[#090a24]/65 group-hover:text-[#090a24]",
                                                 )}
                                             >
@@ -369,10 +371,10 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                                 initial={reduce ? false : { opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={reduce ? undefined : { opacity: 0 }}
-                                                transition={{ duration: 0.25, ease: easeLuxury }}
+                                                transition={{ duration: 0.3, ease: easeLuxury }}
                                                 className="lg:hidden"
                                             >
-                                                <div className="px-1 pt-4 pb-2 sm:px-2">
+                                                <div className="px-1 pt-5 pb-3 sm:px-2">
                                                     <ModuleDetailCopy
                                                         item={item}
                                                         index={index}
@@ -390,8 +392,8 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                                 initial={reduce ? false : { opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={reduce ? undefined : { opacity: 0 }}
-                                                transition={{ duration: 0.25, ease: easeLuxury }}
-                                                className="relative overflow-x-hidden pb-4 lg:hidden"
+                                                transition={{ duration: 0.3, ease: easeLuxury }}
+                                                className="relative overflow-x-clip pb-5 lg:hidden"
                                             >
                                                 <ModuleBleedArt item={item} variant="mobile" />
                                             </motion.div>
@@ -402,7 +404,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                         })}
                     </div>
 
-                    <div className="relative z-10 mt-1 hidden min-w-0 overflow-visible lg:mt-0 lg:block">
+                    <div className="relative z-10 mt-2 hidden min-w-0 lg:mt-0 lg:block">
                         <AnimatePresence mode="wait" initial={false}>
                             <motion.div
                                 key={current.id}
@@ -423,7 +425,7 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                 </div>
 
                 {linkHref && linkLabel ? (
-                    <Link href={linkHref} className="mt-8 inline-flex text-sm font-semibold text-[#253353]">
+                    <Link href={linkHref} className="mt-10 inline-flex text-sm font-semibold text-[#253353]">
                         {linkLabel}
                     </Link>
                 ) : null}
