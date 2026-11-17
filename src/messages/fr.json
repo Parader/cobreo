@@ -127,7 +127,7 @@
             },
             {
                 "question": "Quels modules sont disponibles ?",
-                "answer": "Les modules couvrent notamment le CRM, les événements, la satisfaction, les réservations, l’automatisation, les sites et pages publiques, les portails usagers, les RH et les finances. Des fonctions transversales — tâches, paiements, calendrier, import et export, analyse IA — restent disponibles d’un module à l’autre."
+                "answer": "Les modules couvrent notamment le CRM, les événements, la satisfaction, les réservations, l’automatisation, les sites et pages publiques, les portails usagers, les ressources humaines et les finances. Des fonctions transversales — tâches, paiements, calendrier, import et export, analyse IA — restent disponibles d’un module à l’autre."
             },
             {
                 "question": "Peut-on commencer avec un seul module ?",
@@ -1405,7 +1405,7 @@
             },
             {
                 "id": "hr",
-                "name": "RH",
+                "name": "Ressources humaines",
                 "tagline": "Les retours internes remontent jusqu’à l’organisation de façon structurée.",
                 "points": [
                     {

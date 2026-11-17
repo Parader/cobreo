@@ -127,7 +127,7 @@
             },
             {
                 "question": "Which modules are available?",
-                "answer": "Modules cover CRM, events, satisfaction, booking, automation, sites and public pages, user portals, HR, and finances. Cross-cutting capabilities — tasks, payments, calendar, import and export, AI analysis — stay available from one module to another."
+                "answer": "Modules cover CRM, events, satisfaction, booking, automation, sites and public pages, user portals, human resources, and finances. Cross-cutting capabilities — tasks, payments, calendar, import and export, AI analysis — stay available from one module to another."
             },
             {
                 "question": "Can we start with a single module?",
@@ -1405,7 +1405,7 @@
             },
             {
                 "id": "hr",
-                "name": "HR",
+                "name": "Human resources",
                 "tagline": "Internal feedback reaches the organization in a structured way.",
                 "points": [
                     {

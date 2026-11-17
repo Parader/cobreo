@@ -28,7 +28,7 @@ Cobreo est une plateforme logicielle composée de modules. Une organisation acti
 - Automatisation — Relances et assignations automatiques
 - Sites et pages publiques — Pages et formulaires publics
 - Portails usagers — Espace partagé pour documents et dossiers
-- RH — Dossiers d’équipe et demandes internes
+- Ressources humaines — Dossiers d’équipe et demandes internes
 - Finances — Facturation et suivi des paiements
 
 ### Fonctions de plateforme
@@ -56,7 +56,7 @@ Cobreo is a software platform composed of modules. An organization turns on the 
 - Automation — Automatic follow-ups and assignments
 - Sites and public pages — Public pages and forms
 - User portals — Shared space for documents and files
-- HR — Team records and internal requests
+- Human resources — Team records and internal requests
 - Finances — Invoicing and payment tracking
 
 ### Platform capabilities
@@ -123,7 +123,7 @@ Public registration pages, schedules, service pages, and membership request form
 ### User portals / Portails usagers
 A shared place for users to upload documents, access statements, and reduce email attachments.
 
-### HR / RH
+### Human resources / Ressources humaines
 Team records, leave requests, onboarding, and access limited to authorized people.
 
 ### Finances

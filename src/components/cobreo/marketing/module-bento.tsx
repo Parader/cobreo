@@ -79,9 +79,8 @@ function padIndex(n: number) {
 }
 
 /**
- * Full-bleed art as in a00ac25: large plane on the right page edge, outline mark,
- * subtle dots. Calmed to one hairline. Opacity ~0.7. Height is a % of the
- * section min-height — not a scrollport.
+ * Full-bleed art: large plane on the right page edge, outline mark, subtle dots.
+ * Soft left mask only — no border, frame, or hairline on the art.
  */
 function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop" | "mobile" }) {
     const file = illustrationFiles[item.id];
@@ -108,14 +107,6 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
                     maskImage: "linear-gradient(90deg, transparent 0%, #000 22%, #000 100%)",
                     WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 22%, #000 100%)",
                 }}
-            />
-
-            {/* One calm left hairline — no full art frame grid */}
-            <div
-                className={cx(
-                    "absolute top-[4%] bottom-[4%] left-[2%] border-l border-[#4d6b97]/28",
-                    isDesktop ? "right-[-8%]" : "right-[-4%]",
-                )}
             />
 
             <div
