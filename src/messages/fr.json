@@ -1242,7 +1242,7 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "",
+                "tagline": "Les relations et les suivis au même endroit.",
                 "points": [
                     "Suivre les commanditaires d’un événement annuel",
                     "Relancer les demandes de soumission restées sans réponse",
@@ -1254,7 +1254,7 @@
             {
                 "id": "events",
                 "name": "Événements",
-                "tagline": "",
+                "tagline": "Des événements bien organisés, du début à la fin.",
                 "points": [
                     "Ouvrir les inscriptions à une assemblée générale",
                     "Gérer les places d’une formation en atelier",
@@ -1266,7 +1266,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "",
+                "tagline": "Des retours clairs pour améliorer vos services.",
                 "points": [
                     "Mesurer la satisfaction après un service de consultation",
                     "Recueillir les commentaires d’une cohorte de formation",
@@ -1278,7 +1278,7 @@
             {
                 "id": "booking",
                 "name": "Réservations",
-                "tagline": "",
+                "tagline": "Des rendez-vous sans allers-retours.",
                 "points": [
                     "Laisser les clients réserver une consultation en ligne",
                     "Offrir des créneaux de visite pour un local communautaire",
@@ -1290,7 +1290,7 @@
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "tagline": "",
+                "tagline": "Des suivis qui se font tout seuls, selon vos règles.",
                 "points": [
                     "Relancer automatiquement une soumission sans réponse",
                     "Assigner un dossier dès qu’un formulaire est reçu",
@@ -1302,7 +1302,7 @@
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "tagline": "",
+                "tagline": "Un site que vous mettez à jour vous-même.",
                 "points": [
                     "Publier la page d’inscription d’un organisme",
                     "Mettre à jour l’horaire d’une clinique sans développeur",
@@ -1314,7 +1314,7 @@
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "tagline": "",
+                "tagline": "Un espace pour vos usagers, moins de courriels à gérer.",
                 "points": [
                     "Laisser un usager déposer ses documents au même endroit",
                     "Partager le dossier d’un client avec son chargé de projet",
@@ -1326,7 +1326,7 @@
             {
                 "id": "hr",
                 "name": "RH",
-                "tagline": "",
+                "tagline": "L’essentiel des RH au même endroit.",
                 "points": [
                     "Centraliser les dossiers d’une équipe de terrain",
                     "Recevoir les demandes de congé sans tableur",
@@ -1338,7 +1338,7 @@
             {
                 "id": "finance",
                 "name": "Finances",
-                "tagline": "",
+                "tagline": "Facturer et suivre ce qui reste dû.",
                 "points": [
                     "Facturer les honoraires d’un mandat de service",
                     "Suivre les paiements d’une campagne de cotisations",

@@ -2,7 +2,6 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, type FC } from "react";
 import Image from "next/image";
-import { useLocale } from "next-intl";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
     Calendar,
@@ -61,42 +60,85 @@ const accents: Record<string, Accent> = {
 
 const fallbackAccent: Accent = accents.crm;
 
-/** Modest, frameless art — supports the copy, does not dominate. */
-function ModuleIllustration({ item, className }: { item: BentoItem; className?: string }) {
-    const locale = useLocale();
+/**
+ * Large, frameless illustration used as a set-back background — offset, bleeding,
+ * low opacity + soft mask so foreground copy stays dominant.
+ */
+function ModuleBackdrop({ item }: { item: BentoItem }) {
     const file = illustrationFiles[item.id];
-    const accent = accents[item.id] ?? fallbackAccent;
-    const Icon = accent.icon;
-    const alt =
-        locale === "en" ? `Illustration of the ${item.name} module` : `Illustration du module ${item.name}`;
-
-    if (!file) {
-        return (
-            <div className={cx("flex size-14 items-center justify-center rounded-2xl", accent.tile, className)}>
-                <Icon className={cx("size-7", accent.iconClass)} aria-hidden />
-            </div>
-        );
-    }
+    if (!file) return null;
 
     return (
         <div
+            aria-hidden
             data-module-illustration
             className={cx(
-                "relative w-full max-w-[16.5rem] sm:max-w-[18rem] lg:max-w-[19rem] xl:max-w-[21rem]",
-                /* Slight editorial break past the content edge — still secondary */
-                "lg:-mr-2 xl:-mr-5",
-                className,
+                "pointer-events-none absolute inset-0 overflow-visible",
+                "opacity-[0.18] sm:opacity-[0.2] lg:opacity-[0.22]",
             )}
         >
-            <Image
-                src={`/images/modules/${file}.webp`}
-                alt={alt}
-                width={640}
-                height={480}
-                className="h-auto w-full object-contain object-center"
-                sizes="(max-width: 1023px) 18rem, 21rem"
-                priority={false}
-            />
+            <div
+                className={cx(
+                    "absolute",
+                    /* Offset toward the bottom-right / edge and bleed past the panel */
+                    "-right-[18%] -bottom-[22%] w-[118%] max-w-none sm:-right-[14%] sm:-bottom-[18%] sm:w-[108%]",
+                    "lg:-right-[22%] lg:-bottom-[28%] lg:w-[125%] xl:-right-[26%] xl:w-[132%]",
+                    /* Soft fade so art dissolves under the copy */
+                    "[mask-image:radial-gradient(ellipse_72%_68%_at_72%_78%,#000_28%,transparent_78%)]",
+                    "[-webkit-mask-image:radial-gradient(ellipse_72%_68%_at_72%_78%,#000_28%,transparent_78%)]",
+                )}
+            >
+                <Image
+                    src={`/images/modules/${file}.webp`}
+                    alt=""
+                    width={1024}
+                    height={768}
+                    className="h-auto w-full object-contain object-right-bottom"
+                    sizes="(max-width: 1023px) 90vw, min(52vw, 640px)"
+                    priority={false}
+                />
+            </div>
+        </div>
+    );
+}
+
+function ModuleDetailPanel({ item }: { item: BentoItem }) {
+    const accent = accents[item.id] ?? fallbackAccent;
+    const Icon = accent.icon;
+
+    return (
+        <div className="relative min-h-[16rem] overflow-hidden sm:min-h-[18rem] lg:min-h-[22rem]">
+            <ModuleBackdrop item={item} />
+
+            <div className="relative z-10 max-w-[34rem] pr-2 sm:pr-4">
+                <div className="flex items-start gap-3">
+                    <span className={cx("mt-1 inline-flex size-9 shrink-0 items-center justify-center rounded-lg", accent.tile)}>
+                        <Icon className={cx("size-4", accent.iconClass)} aria-hidden />
+                    </span>
+                    <div className="min-w-0">
+                        <h3 className="font-display text-[clamp(1.55rem,2.6vw,2.15rem)] font-normal tracking-[-0.03em] text-[#090a24]">
+                            {item.name}
+                        </h3>
+                        {item.tagline ? (
+                            <p className="mt-2 max-w-[36ch] text-[15px] leading-relaxed text-[#525252] sm:text-[16px] sm:leading-7">
+                                {item.tagline}
+                            </p>
+                        ) : null}
+                    </div>
+                </div>
+
+                <ul className="mt-6 space-y-2.5 sm:mt-7 sm:space-y-3">
+                    {item.points.map((point) => (
+                        <li
+                            key={point}
+                            className="flex gap-2.5 text-[15px] leading-snug text-[#404040] sm:text-[16px] sm:leading-6"
+                        >
+                            <span className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-[#5f7aa1]" aria-hidden />
+                            <span>{point}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 }
@@ -141,7 +183,8 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
 
     return (
         <div>
-            <div className="relative min-w-0 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,19rem)] lg:items-start lg:gap-8 xl:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] xl:gap-10">
+            <div className="relative min-w-0 lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,24rem)_minmax(0,1fr)] xl:gap-12">
+                {/* Left: compact module selector */}
                 <div ref={listRef} className="relative z-20 min-w-0" role="listbox" aria-label="Modules">
                     <motion.span
                         aria-hidden
@@ -161,104 +204,90 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                         const preview = item.tagline || item.points[0] || "";
 
                         return (
-                            <motion.button
-                                key={item.id}
-                                ref={(el) => {
-                                    itemRefs.current[index] = el;
-                                }}
-                                type="button"
-                                role="option"
-                                aria-selected={isActive}
-                                aria-pressed={isActive}
-                                onClick={() => setActive(index)}
-                                className={cx(
-                                    "group relative w-full cursor-pointer rounded-r-xl py-4 pr-4 pl-8 text-left transition-colors duration-200 sm:py-5 sm:pr-5",
-                                    "hover:bg-[#4d6b97]/[0.04]",
-                                    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]",
-                                    isActive && "bg-[#4d6b97]/[0.03]",
-                                )}
-                            >
-                                <div className="flex items-start gap-3">
-                                    <span
-                                        className={cx(
-                                            "mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-200",
-                                            isActive
-                                                ? accent.tile
-                                                : "bg-[#4d6b97]/[0.06] text-[#737373] group-hover:bg-[#4d6b97]/10 group-hover:text-[#4d6b97]",
-                                        )}
-                                    >
-                                        <Icon className={cx("size-4", isActive ? accent.iconClass : undefined)} aria-hidden />
-                                    </span>
-                                    <div className="min-w-0 flex-1">
-                                        <h3
+                            <div key={item.id} className="relative">
+                                <motion.button
+                                    ref={(el) => {
+                                        itemRefs.current[index] = el;
+                                    }}
+                                    type="button"
+                                    role="option"
+                                    aria-selected={isActive}
+                                    aria-pressed={isActive}
+                                    onClick={() => setActive(index)}
+                                    className={cx(
+                                        "group relative w-full cursor-pointer rounded-r-xl py-3.5 pr-4 pl-8 text-left transition-colors duration-200 sm:py-4 sm:pr-5",
+                                        "hover:bg-[#4d6b97]/[0.04]",
+                                        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]",
+                                        isActive && "bg-[#4d6b97]/[0.03]",
+                                    )}
+                                >
+                                    <div className="flex items-start gap-3">
+                                        <span
                                             className={cx(
-                                                "text-[17px] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 sm:text-[19px] sm:leading-[1.35]",
-                                                isActive ? "text-[#090a24]" : "text-[#090a24]/75 group-hover:text-[#090a24]",
+                                                "mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-200",
+                                                isActive
+                                                    ? accent.tile
+                                                    : "bg-[#4d6b97]/[0.06] text-[#737373] group-hover:bg-[#4d6b97]/10 group-hover:text-[#4d6b97]",
                                             )}
                                         >
-                                            {item.name}
-                                        </h3>
-
-                                        <AnimatePresence initial={false}>
-                                            {isActive ? (
-                                                <motion.div
-                                                    key="details"
-                                                    initial={reduce ? false : { opacity: 0, height: 0 }}
-                                                    animate={{ opacity: 1, height: "auto" }}
-                                                    exit={reduce ? undefined : { opacity: 0, height: 0 }}
-                                                    transition={{ duration: 0.35, ease: easeLuxury }}
-                                                    className="overflow-hidden"
-                                                >
-                                                    {item.tagline ? (
-                                                        <p className="mt-2 max-w-[40ch] text-[15px] leading-relaxed text-[#525252] sm:text-[16px] sm:leading-7">
-                                                            {item.tagline}
-                                                        </p>
-                                                    ) : null}
-                                                    <ul className="mt-3 space-y-2 sm:mt-3.5 sm:space-y-2.5">
-                                                        {item.points.map((point) => (
-                                                            <li
-                                                                key={point}
-                                                                className="flex gap-2.5 text-[15px] leading-snug text-[#404040] sm:text-[16px] sm:leading-6"
-                                                            >
-                                                                <span
-                                                                    className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-[#5f7aa1]"
-                                                                    aria-hidden
-                                                                />
-                                                                <span>{point}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-
-                                                    {/* Mobile: modest illustration under the examples */}
-                                                    <div className="mt-5 lg:hidden">
-                                                        <ModuleIllustration item={item} />
-                                                    </div>
-                                                </motion.div>
-                                            ) : (
-                                                <p className="mt-1 line-clamp-1 text-[14px] leading-relaxed text-[#525252]/70 transition-colors group-hover:text-[#525252] sm:text-[15px]">
-                                                    {preview}
-                                                </p>
-                                            )}
-                                        </AnimatePresence>
+                                            <Icon className={cx("size-4", isActive ? accent.iconClass : undefined)} aria-hidden />
+                                        </span>
+                                        <div className="min-w-0 flex-1">
+                                            <h3
+                                                className={cx(
+                                                    "text-[16px] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 sm:text-[17px] sm:leading-[1.35]",
+                                                    isActive ? "text-[#090a24]" : "text-[#090a24]/75 group-hover:text-[#090a24]",
+                                                )}
+                                            >
+                                                {item.name}
+                                            </h3>
+                                            <p
+                                                className={cx(
+                                                    "mt-1 line-clamp-1 text-[13px] leading-relaxed transition-colors sm:text-[14px]",
+                                                    isActive
+                                                        ? "text-[#525252]"
+                                                        : "text-[#525252]/70 group-hover:text-[#525252]",
+                                                )}
+                                            >
+                                                {preview}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </motion.button>
+                                </motion.button>
+
+                                {/* Mobile: detail panel under the selected item */}
+                                <AnimatePresence initial={false}>
+                                    {isActive ? (
+                                        <motion.div
+                                            key={`mobile-detail-${item.id}`}
+                                            initial={reduce ? false : { opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={reduce ? undefined : { opacity: 0, height: 0 }}
+                                            transition={{ duration: 0.4, ease: easeLuxury }}
+                                            className="overflow-hidden lg:hidden"
+                                        >
+                                            <div className="px-2 pb-5 pt-2 sm:px-3">
+                                                <ModuleDetailPanel item={item} />
+                                            </div>
+                                        </motion.div>
+                                    ) : null}
+                                </AnimatePresence>
+                            </div>
                         );
                     })}
                 </div>
 
-                {/* Desktop: secondary illustration column — crossfades with selection */}
-                <div className="relative z-10 mt-2 hidden lg:mt-1 lg:block">
+                {/* Desktop: right detail panel with background illustration */}
+                <div className="relative z-10 mt-2 hidden min-w-0 overflow-x-clip lg:mt-0 lg:block">
                     <AnimatePresence mode="wait" initial={false}>
                         <motion.div
                             key={current.id}
-                            initial={reduce ? false : { opacity: 0, y: 8 }}
+                            initial={reduce ? false : { opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={reduce ? undefined : { opacity: 0, y: -6 }}
-                            transition={{ duration: 0.4, ease: easeLuxury }}
-                            className="lg:sticky lg:top-28"
+                            transition={{ duration: 0.45, ease: easeLuxury }}
                         >
-                            <ModuleIllustration item={current} />
+                            <ModuleDetailPanel item={current} />
                         </motion.div>
                     </AnimatePresence>
                 </div>

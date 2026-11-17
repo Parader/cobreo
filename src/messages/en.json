@@ -1242,7 +1242,7 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "",
+                "tagline": "Relationships and follow-ups in one place.",
                 "points": [
                     "Track sponsors for an annual event",
                     "Follow up on proposals that never got a reply",
@@ -1254,7 +1254,7 @@
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "",
+                "tagline": "Well-organized events, from start to finish.",
                 "points": [
                     "Open registration for a general assembly",
                     "Manage seats for a workshop series",
@@ -1266,7 +1266,7 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "",
+                "tagline": "Clear feedback to improve your services.",
                 "points": [
                     "Measure satisfaction after a consulting engagement",
                     "Collect feedback from a training cohort",
@@ -1278,7 +1278,7 @@
             {
                 "id": "booking",
                 "name": "Booking",
-                "tagline": "",
+                "tagline": "Appointments without the back-and-forth.",
                 "points": [
                     "Let clients book a consultation online",
                     "Offer visit slots for a community space",
@@ -1290,7 +1290,7 @@
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "",
+                "tagline": "Follow-ups that run on their own, by your rules.",
                 "points": [
                     "Automatically follow up on a silent proposal",
                     "Assign a file as soon as a form arrives",
@@ -1302,7 +1302,7 @@
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "tagline": "",
+                "tagline": "A site you update yourself.",
                 "points": [
                     "Publish an organization’s registration page",
                     "Update a clinic schedule without a developer",
@@ -1314,7 +1314,7 @@
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "",
+                "tagline": "A space for your users, fewer emails to manage.",
                 "points": [
                     "Let a user upload documents in one place",
                     "Share a client file with their project lead",
@@ -1326,7 +1326,7 @@
             {
                 "id": "hr",
                 "name": "HR",
-                "tagline": "",
+                "tagline": "The essentials of HR in one place.",
                 "points": [
                     "Centralize records for a field team",
                     "Receive leave requests without a spreadsheet",
@@ -1338,7 +1338,7 @@
             {
                 "id": "finance",
                 "name": "Finance",
-                "tagline": "",
+                "tagline": "Invoice and track what is still owed.",
                 "points": [
                     "Invoice fees for a service mandate",
                     "Track payments from a membership drive",
