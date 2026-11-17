@@ -7,14 +7,12 @@ import { Rise } from "@/components/cobreo/marketing/rise";
 import { stageCopy } from "@/components/cobreo/marketing/stage-copy";
 import { Closing } from "@/components/cobreo/marketing/closing";
 
-const leadIds = new Set(["crm", "events", "satisfaction", "booking"]);
-
 export async function HomePage() {
     const t = await getTranslations("home");
     const modules = await getTranslations("modules");
     const locale = await getLocale();
     const copy = stageCopy(locale);
-    const items = (modules.raw("items") as BentoItem[]).map((item) => ({ ...item, lead: leadIds.has(item.id) }));
+    const items = modules.raw("items") as BentoItem[];
 
     return (
         <div className="bg-[#f4f6f8] text-[#171717]">

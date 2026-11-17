@@ -1142,61 +1142,121 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "The CRM gathers the exchanges and next steps for each relationship, so nothing is lost between follow-ups. Your team can see where every file stands and who to follow up with, at the right time.",
+                "tagline": "Relationships and follow-ups in one place.",
+                "points": [
+                    "Sales pipeline",
+                    "Follow-ups and reminders",
+                    "Exchange history",
+                    "Contacts and organizations"
+                ],
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Events",
-                "summary": "Organize your events and open registration to the public, while keeping a clear view of participants. Day-of communication and welcome work from an up-to-date list.",
+                "tagline": "From announcement to check-in, under control.",
+                "points": [
+                    "Online registration",
+                    "Tickets and invitations",
+                    "Participant list",
+                    "Day-of check-in"
+                ],
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Send surveys that people finish, then review the results as soon as they arrive. The team uses that feedback to adjust the service and track satisfaction over time.",
+                "tagline": "Clear feedback to adjust the service.",
+                "points": [
+                    "Online surveys",
+                    "Live responses",
+                    "Results and trends",
+                    "NPS and satisfaction"
+                ],
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Booking",
-                "summary": "People choose a slot among those you have opened, and the appointment lands on the calendar without a chain of messages. Confirmations and reminders reduce no-shows.",
+                "tagline": "Appointments without the back-and-forth.",
+                "points": [
+                    "Open time slots",
+                    "Online booking",
+                    "Confirmations and reminders",
+                    "Synced calendar"
+                ],
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automation",
-                "summary": "Repetitive work, such as a follow-up or an assignment, starts on its own according to the rules you set. The team spends less time copying and checking.",
+                "tagline": "Follow-ups start from your rules.",
+                "points": [
+                    "Triggered rules",
+                    "Automatic reminders",
+                    "Assignments",
+                    "Simple workflows"
+                ],
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "summary": "Publish a site or pages that match your organization, and update them yourself when an offer or an event changes. Visitors can write to you or register directly.",
+                "tagline": "A site you update yourself.",
+                "points": [
+                    "On-brand pages",
+                    "Forms and sign-ups",
+                    "Simple updates",
+                    "Self-serve publishing"
+                ],
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "User portals",
-                "summary": "Give your users a space that matches your organization, where they review their files and submit the documents you request. You receive fewer repetitive questions.",
+                "tagline": "A space for your users, without emails.",
+                "points": [
+                    "User access",
+                    "Shared files",
+                    "Document uploads",
+                    "On-brand space"
+                ],
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "HR",
-                "summary": "Team records and leave requests gather in one place, with limited access to personal information. Welcoming a new person no longer depends on scattered emails.",
+                "tagline": "Essential HR in one place.",
+                "points": [
+                    "Employee records",
+                    "Leave requests",
+                    "New-hire onboarding",
+                    "Limited access"
+                ],
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finance",
-                "summary": "Prepare and send your invoices, then follow payments received and those still waiting. Reminders go out at the right time.",
+                "tagline": "Invoice and track what is still owed.",
+                "points": [
+                    "Invoices",
+                    "Payment tracking",
+                    "Reminders",
+                    "Up-to-date statuses"
+                ],
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tasks",
-                "summary": "Every piece of work has an owner and a progress state the team can consult. You can see what is moving and what is waiting, and projects finish with fewer oversights.",
+                "tagline": "Who owns what, and where it stands.",
+                "points": [
+                    "Owners",
+                    "Progress states",
+                    "Deadlines",
+                    "Team view"
+                ],
                 "scene": "records"
             }
         ]

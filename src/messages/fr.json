@@ -1142,61 +1142,121 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "summary": "Le CRM rassemble les échanges et les prochaines étapes de chaque relation, pour que rien ne se perde entre deux suivis. Votre équipe voit où en est chaque dossier et sait qui relancer, au bon moment.",
+                "tagline": "Les relations et les suivis au même endroit.",
+                "points": [
+                    "Pipeline de ventes",
+                    "Suivis et relances",
+                    "Historique des échanges",
+                    "Contacts et organisations"
+                ],
                 "scene": "crm"
             },
             {
                 "id": "events",
                 "name": "Événements",
-                "summary": "Organisez vos événements et ouvrez les inscriptions au public, tout en gardant une vue claire des participants. Les communications et l’accueil le jour même s’appuient sur une liste à jour.",
+                "tagline": "De l’annonce à l’accueil, sous contrôle.",
+                "points": [
+                    "Inscriptions en ligne",
+                    "Billets et invitations",
+                    "Liste des participants",
+                    "Accueil le jour J"
+                ],
                 "scene": "events"
             },
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "summary": "Envoyez des sondages que les usagers mènent jusqu’au bout, puis consultez les résultats dès qu’ils arrivent. L’équipe s’appuie sur ces retours pour ajuster le service et suivre la satisfaction dans le temps.",
+                "tagline": "Des retours clairs pour ajuster le service.",
+                "points": [
+                    "Sondages en ligne",
+                    "Réponses en direct",
+                    "Résultats et tendances",
+                    "NPS et satisfaction"
+                ],
                 "scene": "survey"
             },
             {
                 "id": "booking",
                 "name": "Réservations",
-                "summary": "Les usagers choisissent un créneau parmi ceux que vous avez libérés, et le rendez-vous s’inscrit dans le calendrier sans une suite de messages. Les confirmations et les rappels réduisent les absences.",
+                "tagline": "Des rendez-vous sans allers-retours.",
+                "points": [
+                    "Créneaux disponibles",
+                    "Réservation en ligne",
+                    "Confirmations et rappels",
+                    "Calendrier synchronisé"
+                ],
                 "scene": "calendar"
             },
             {
                 "id": "automation",
                 "name": "Automatisation",
-                "summary": "Les tâches répétitives, comme une relance ou une assignation, se déclenchent d’elles-mêmes selon les règles que vous avez définies. L’équipe passe moins de temps à recopier et à vérifier.",
+                "tagline": "Le suivi part selon vos règles.",
+                "points": [
+                    "Règles déclenchées",
+                    "Relances automatiques",
+                    "Assignations",
+                    "Workflows simples"
+                ],
                 "scene": "records"
             },
             {
                 "id": "sites",
                 "name": "Sites et pages publiques",
-                "summary": "Publiez un site ou des pages à l’image de votre organisation, et mettez-les à jour vous-même lorsqu’une offre ou un événement change. Les visiteurs peuvent vous écrire ou s’inscrire directement.",
+                "tagline": "Un site que vous mettez à jour vous-même.",
+                "points": [
+                    "Pages à votre image",
+                    "Formulaires et inscriptions",
+                    "Mises à jour simples",
+                    "Publication autonome"
+                ],
                 "scene": "records"
             },
             {
                 "id": "portals",
                 "name": "Portails usagers",
-                "summary": "Offrez à vos usagers un espace à l’image de votre organisation, où ils consultent leurs dossiers et transmettent les documents demandés. Vous recevez moins de questions répétitives.",
+                "tagline": "Un espace pour vos usagers, sans courriels.",
+                "points": [
+                    "Accès usagers",
+                    "Dossiers partagés",
+                    "Documents à transmettre",
+                    "Espace à votre image"
+                ],
                 "scene": "records"
             },
             {
                 "id": "hr",
                 "name": "RH",
-                "summary": "Les dossiers de l’équipe et les demandes de congé se rassemblent dans un seul espace, avec un accès limité aux renseignements personnels. L’accueil d’une nouvelle personne se fait sans courriels éparpillés.",
+                "tagline": "L’essentiel RH dans un seul espace.",
+                "points": [
+                    "Dossiers employés",
+                    "Demandes de congé",
+                    "Accueil des nouvelles personnes",
+                    "Accès limité"
+                ],
                 "scene": "records"
             },
             {
                 "id": "finance",
                 "name": "Finances",
-                "summary": "Préparez et envoyez vos factures, puis suivez les paiements reçus et ceux qui restent en attente. Les relances partent au bon moment.",
+                "tagline": "Facturer et suivre ce qui reste dû.",
+                "points": [
+                    "Factures",
+                    "Suivi des paiements",
+                    "Relances",
+                    "Statuts à jour"
+                ],
                 "scene": "records"
             },
             {
                 "id": "tasks",
                 "name": "Tâches",
-                "summary": "Chaque travail à faire a un responsable et un état d’avancement que l’équipe peut consulter. Vous voyez ce qui avance et ce qui attend, et les projets se terminent avec moins d’oublis.",
+                "tagline": "Qui fait quoi, et où ça en est.",
+                "points": [
+                    "Responsables",
+                    "États d’avancement",
+                    "Échéances",
+                    "Vue d’équipe"
+                ],
                 "scene": "records"
             }
         ]
