@@ -47,17 +47,17 @@ export async function HomePage() {
                 </div>
             </section>
 
-            <section id="modules" className="mx-auto max-w-[1200px] scroll-mt-28 px-4 py-24 md:scroll-mt-32 md:px-8 md:py-32">
-                <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end lg:gap-12">
-                    <div>
-                        <p className="text-[11px] font-medium tracking-[0.16em] text-[#4d6b97] uppercase">{t("modulesEyebrow")}</p>
-                        <h2 className="mt-3 max-w-[18ch] font-display text-[clamp(2.1rem,4.2vw,3.35rem)] leading-[1.05] font-medium tracking-[-0.03em]">
+            <section id="modules" className="relative scroll-mt-28 overflow-x-clip bg-[#efedea] py-16 sm:py-20 md:scroll-mt-32 md:py-24 lg:py-[120px]">
+                <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
+                    <div className="mb-8 flex max-w-4xl flex-col gap-3 sm:mb-10 md:mb-12 md:gap-4 lg:mb-14">
+                        <p className="text-sm font-semibold tracking-[0.1em] text-[#4d6b97] uppercase">{t("modulesEyebrow")}</p>
+                        <h2 className="max-w-[18ch] font-display text-[clamp(1.75rem,4vw,3rem)] font-normal tracking-[-0.96px] text-[#090a24] md:leading-[1.2]">
                             {t("modulesTitle")}
                         </h2>
+                        <p className="max-w-3xl font-display text-[clamp(1.05rem,2.2vw,1.5rem)] font-light leading-[1.4] text-[#090a24]">
+                            {t("modulesLede")}
+                        </p>
                     </div>
-                    <p className="max-w-[34rem] text-[16px] leading-7 text-[#5c6168] lg:pb-1">{t("modulesLede")}</p>
-                </div>
-                <div className="mt-12 md:mt-14">
                     <ModuleBento items={items} />
                 </div>
             </section>
