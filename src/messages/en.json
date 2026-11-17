@@ -117,6 +117,42 @@
                 "name": "Stripe",
                 "body": "Online payments processed with Stripe."
             }
+        ],
+        "faqTitle": "Frequently asked questions",
+        "faqLede": "Short answers about Cobreo, the modules, and getting started.",
+        "faq": [
+            {
+                "question": "What is Cobreo?",
+                "answer": "Cobreo is a software platform composed of modules. You turn on the ones your organization needs, and you can add more later."
+            },
+            {
+                "question": "Which modules are available?",
+                "answer": "Modules cover CRM, events, satisfaction, booking, automation, sites and public pages, user portals, HR, and finances. Cross-cutting capabilities — tasks, payments, calendar, import and export, AI analysis — stay available from one module to another."
+            },
+            {
+                "question": "Can we start with a single module?",
+                "answer": "Yes. You begin with the module or modules you need, then turn on others as your organization evolves."
+            },
+            {
+                "question": "Can you build a custom module?",
+                "answer": "Yes. We can develop a private module for your organization, or a plugin that other organizations can add as well."
+            },
+            {
+                "question": "Where is the data hosted?",
+                "answer": "The application and your data are hosted in Canada."
+            },
+            {
+                "question": "Which tools does Cobreo integrate with?",
+                "answer": "Cobreo connects to Google, Microsoft, and Stripe, according to what you turn on."
+            },
+            {
+                "question": "How does pricing work?",
+                "answer": "You only pay for the modules activated in your organization. Details are shared in a demonstration, according to your needs."
+            },
+            {
+                "question": "How do we get a demo?",
+                "answer": "Request a demo from the Contact page, or write to contact@cobreo.ca. We can then see how Cobreo fits the way you work."
+            }
         ]
     },
     "footer": {

@@ -117,6 +117,42 @@
                 "name": "Stripe",
                 "body": "Paiements en ligne traités avec Stripe."
             }
+        ],
+        "faqTitle": "Questions fréquentes",
+        "faqLede": "Des réponses courtes sur Cobreo, les modules et la mise en place.",
+        "faq": [
+            {
+                "question": "Qu’est-ce que Cobreo ?",
+                "answer": "Cobreo est une plateforme logicielle composée de modules. Vous activez ceux dont votre organisation a besoin, et vous pouvez en ajouter d’autres plus tard."
+            },
+            {
+                "question": "Quels modules sont disponibles ?",
+                "answer": "Les modules couvrent notamment le CRM, les événements, la satisfaction, les réservations, l’automatisation, les sites et pages publiques, les portails usagers, les RH et les finances. Des fonctions transversales — tâches, paiements, calendrier, import et export, analyse IA — restent disponibles d’un module à l’autre."
+            },
+            {
+                "question": "Peut-on commencer avec un seul module ?",
+                "answer": "Oui. Vous démarrez avec le ou les modules nécessaires, puis vous en activez d’autres selon l’évolution de votre organisation."
+            },
+            {
+                "question": "Pouvez-vous développer un module sur mesure ?",
+                "answer": "Oui. Nous pouvons développer un module privé pour votre organisation, ou un plugin que d’autres organisations pourront aussi ajouter."
+            },
+            {
+                "question": "Où sont hébergées les données ?",
+                "answer": "L’application et vos données sont hébergées au Canada."
+            },
+            {
+                "question": "Avec quels outils Cobreo s’intègre-t-il ?",
+                "answer": "Cobreo se connecte à Google, Microsoft et Stripe, selon ce que vous activez."
+            },
+            {
+                "question": "Comment fonctionne la tarification ?",
+                "answer": "Vous ne payez que pour les modules activés dans votre organisation. Le détail est présenté lors d’une démonstration, selon vos besoins."
+            },
+            {
+                "question": "Comment obtenir une démonstration ?",
+                "answer": "Demandez une démonstration depuis la page Contact, ou écrivez à contact@cobreo.ca. Nous pourrons ensuite voir comment Cobreo s’applique à votre façon de travailler."
+            }
         ]
     },
     "footer": {

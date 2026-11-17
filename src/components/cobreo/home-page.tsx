@@ -10,6 +10,9 @@ import { MarkMotif } from "@/components/cobreo/marketing/mark-motif";
 import { Rise } from "@/components/cobreo/marketing/rise";
 import { stageCopy } from "@/components/cobreo/marketing/stage-copy";
 import { Closing } from "@/components/cobreo/marketing/closing";
+import { FaqSection, type FaqSectionItem } from "@/components/cobreo/marketing/faq-section";
+import { faqPageJsonLd } from "@/lib/seo";
+import type { Locale } from "@/i18n/routing";
 
 export async function HomePage() {
     const t = await getTranslations("home");
@@ -20,9 +23,14 @@ export async function HomePage() {
     const advantages = t.raw("advantages") as AdvantageItem[];
     const platformFeatures = t.raw("platformFeatures") as PlatformFeatureItem[];
     const integrations = t.raw("integrations") as IntegrationItem[];
+    const faq = t.raw("faq") as FaqSectionItem[];
 
     return (
         <div className="bg-white text-[#171717]">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(locale as Locale, faq)) }}
+            />
             <section className="relative overflow-hidden bg-white">
                 <div
                     aria-hidden
@@ -94,6 +102,8 @@ export async function HomePage() {
             />
 
             <Advantages title={t("advantagesTitle")} items={advantages} />
+
+            <FaqSection title={t("faqTitle")} lede={t("faqLede")} items={faq} />
 
             <Closing
                 quote={t("quote")}

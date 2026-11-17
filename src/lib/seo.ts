@@ -77,6 +77,11 @@ const descriptions: Record<Locale, string> = {
     en: "Cobreo is a platform you compose from modules. Application data is hosted in Canada.",
 };
 
+export type FaqItem = {
+    question: string;
+    answer: string;
+};
+
 /**
  * Site-wide entity graph, rendered on every page. Organization and WebSite share
  * stable `@id`s so Google merges them into a single Cobreo entity rather than
@@ -84,6 +89,9 @@ const descriptions: Record<Locale, string> = {
  */
 export function siteJsonLd(locale: Locale) {
     const organizationId = `${siteUrl}/#organization`;
+    const websiteId = `${siteUrl}/#website`;
+    const softwareId = `${siteUrl}/#software`;
+    const description = descriptions[locale];
 
     return {
         "@context": "https://schema.org",
@@ -97,12 +105,11 @@ export function siteJsonLd(locale: Locale) {
                 url: siteUrl,
                 logo: {
                     "@type": "ImageObject",
-                    url: `${siteUrl}/og/default.png?v=7`,
-                    width: 1200,
-                    height: 630,
+                    url: `${siteUrl}/images/cobreologo.svg`,
+                    contentUrl: `${siteUrl}/images/cobreologo.svg`,
                 },
                 image: `${siteUrl}/og/default.png?v=7`,
-                description: descriptions[locale],
+                description,
                 email: "contact@cobreo.ca",
                 knowsLanguage: ["fr-CA", "en-CA"],
                 areaServed: { "@type": "Country", name: "Canada" },
@@ -117,19 +124,53 @@ export function siteJsonLd(locale: Locale) {
                     contactType: "customer support",
                     email: "contact@cobreo.ca",
                     availableLanguage: ["French", "English"],
+                    url: `${siteUrl}/${locale}/contact`,
                 },
                 ...(sameAs.length > 0 ? { sameAs } : {}),
             },
             {
                 "@type": "WebSite",
-                "@id": `${siteUrl}/#website`,
+                "@id": websiteId,
                 url: siteUrl,
                 name: "Cobreo",
                 alternateName: "Cobreo.ca",
-                description: descriptions[locale],
+                description,
                 inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
                 publisher: { "@id": organizationId },
             },
+            {
+                "@type": "SoftwareApplication",
+                "@id": softwareId,
+                name: "Cobreo",
+                applicationCategory: "BusinessApplication",
+                operatingSystem: "Web",
+                url: siteUrl,
+                description,
+                inLanguage: ["fr-CA", "en-CA"],
+                provider: { "@id": organizationId },
+                publisher: { "@id": organizationId },
+                isAccessibleForFree: false,
+                countriesSupported: "CA",
+            },
         ],
+    };
+}
+
+/** FAQPage graph for the landing page only. */
+export function faqPageJsonLd(locale: Locale, items: FaqItem[]) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/${locale}#faq`,
+        url: `${siteUrl}/${locale}`,
+        inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
+        mainEntity: items.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+            },
+        })),
     };
 }
