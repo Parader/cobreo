@@ -15,6 +15,7 @@ import {
     Zap,
 } from "@untitledui/icons";
 import { Link } from "@/i18n/navigation";
+import { MarkMotif } from "@/components/cobreo/marketing/mark-motif";
 import { easeLuxury } from "@/components/cobreo/motion";
 import { cx } from "@/utils/cx";
 
@@ -60,6 +61,10 @@ const accents: Record<string, Accent> = {
 
 const fallbackAccent: Accent = accents.crm;
 
+function padIndex(n: number) {
+    return String(n).padStart(2, "0");
+}
+
 /**
  * Full-bleed page art — anchored to the right viewport edge, outside the content
  * grid. Soft mask only on the text-facing side; overall opacity stays strong.
@@ -79,11 +84,9 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
                 isDesktop
                     ? cx(
                           "top-1/2 right-0 z-0 hidden -translate-y-[42%] lg:block",
-                          /* Large art living in the right margin and beyond the viewport */
                           "w-[min(58vw,760px)] xl:w-[min(54vw,820px)]",
                           "translate-x-[12%] xl:translate-x-[16%]",
                           "opacity-[0.68]",
-                          /* Fade only toward the copy (left), keep the outer edge solid */
                           "[mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.35)_18%,#000_42%,#000_100%)]",
                           "[-webkit-mask-image:linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.35)_18%,#000_42%,#000_100%)]",
                       )
@@ -108,40 +111,88 @@ function ModuleBleedArt({ item, variant }: { item: BentoItem; variant: "desktop"
     );
 }
 
-function ModuleDetailCopy({ item }: { item: BentoItem }) {
+function ModuleDetailCopy({
+    item,
+    index,
+    total,
+    reduce,
+}: {
+    item: BentoItem;
+    index: number;
+    total: number;
+    reduce: boolean | null;
+}) {
     const accent = accents[item.id] ?? fallbackAccent;
     const Icon = accent.icon;
+    const stagger = reduce
+        ? undefined
+        : {
+              hidden: {},
+              show: { transition: { staggerChildren: 0.06, delayChildren: 0.04 } },
+          };
+    const rise = reduce
+        ? undefined
+        : {
+              hidden: { opacity: 0, y: 10 },
+              show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: easeLuxury } },
+          };
 
     return (
-        <div className="relative z-10 max-w-[32rem]">
-            <div className="flex items-start gap-3">
-                <span className={cx("mt-1 inline-flex size-9 shrink-0 items-center justify-center rounded-lg", accent.tile)}>
-                    <Icon className={cx("size-4", accent.iconClass)} aria-hidden />
-                </span>
-                <div className="min-w-0">
-                    <h3 className="font-display text-[clamp(1.55rem,2.6vw,2.15rem)] font-normal tracking-[-0.03em] text-[#090a24]">
-                        {item.name}
-                    </h3>
-                    {item.tagline ? (
-                        <p className="mt-2 max-w-[36ch] text-[15px] leading-relaxed text-[#525252] sm:text-[16px] sm:leading-7">
-                            {item.tagline}
-                        </p>
-                    ) : null}
-                </div>
-            </div>
+        <motion.div
+            className="relative z-10 max-w-[36rem]"
+            variants={stagger}
+            initial={reduce ? false : "hidden"}
+            animate="show"
+        >
+            <MarkMotif
+                variant="outline"
+                opacity={0.07}
+                className="-right-6 -top-8 h-28 w-44 sm:-right-4 sm:h-32 sm:w-52"
+            />
 
-            <ul className="mt-6 space-y-2.5 sm:mt-7 sm:space-y-3">
-                {item.points.map((point) => (
-                    <li
-                        key={point}
-                        className="flex gap-2.5 text-[15px] leading-snug text-[#404040] sm:text-[16px] sm:leading-6"
-                    >
-                        <span className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-[#5f7aa1]" aria-hidden />
-                        <span>{point}</span>
-                    </li>
+            <motion.div variants={rise} className="relative flex items-center gap-3">
+                <span className="font-display text-[13px] font-medium tracking-[0.14em] text-[#4d6b97] tabular-nums">
+                    {padIndex(index + 1)}
+                    <span className="mx-1.5 text-[#b1b6a6]">/</span>
+                    {padIndex(total)}
+                </span>
+                <span className="h-px w-8 bg-[#4d6b97]/35 sm:w-10" aria-hidden />
+                <span className={cx("inline-flex size-7 items-center justify-center rounded-md", accent.tile)}>
+                    <Icon className={cx("size-3.5", accent.iconClass)} aria-hidden />
+                </span>
+            </motion.div>
+
+            <motion.h3
+                variants={rise}
+                className="relative mt-4 font-display text-[clamp(1.85rem,3.2vw,2.65rem)] font-normal leading-[1.05] tracking-[-0.035em] text-[#090a24]"
+            >
+                {item.name}
+            </motion.h3>
+
+            {item.tagline ? (
+                <motion.p
+                    variants={rise}
+                    className="relative mt-3 max-w-[28ch] font-display text-[clamp(1.05rem,1.7vw,1.25rem)] font-light leading-[1.4] tracking-[-0.015em] text-[#5f7aa1]"
+                >
+                    {item.tagline}
+                </motion.p>
+            ) : null}
+
+            <motion.ul
+                variants={stagger}
+                className="relative mt-8 grid grid-cols-1 gap-x-6 gap-y-5 sm:mt-9 sm:grid-cols-2 sm:gap-y-6"
+            >
+                {item.points.map((point, pointIndex) => (
+                    <motion.li key={point} variants={rise} className="relative min-w-0 pt-3">
+                        <span className="absolute inset-x-0 top-0 h-px bg-[#4d6b97]/25" aria-hidden />
+                        <span className="mb-2 block font-display text-[11px] font-medium tracking-[0.14em] text-[#4d6b97] tabular-nums">
+                            {padIndex(pointIndex + 1)}
+                        </span>
+                        <p className="text-[14px] leading-snug text-[#090a24]/85 sm:text-[15px] sm:leading-6">{point}</p>
+                    </motion.li>
                 ))}
-            </ul>
-        </div>
+            </motion.ul>
+        </motion.div>
     );
 }
 
@@ -202,12 +253,12 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
             </div>
 
             <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
-                <div className="relative min-w-0 lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,24rem)_minmax(0,36rem)] xl:gap-14">
-                    {/* Left: compact module selector */}
+                <div className="relative min-w-0 lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,24rem)_minmax(0,38rem)] xl:gap-14">
+                    {/* Left: crafted module selector */}
                     <div ref={listRef} className="relative z-20 min-w-0" role="listbox" aria-label="Modules">
                         <motion.span
                             aria-hidden
-                            className="pointer-events-none absolute left-0 w-1 rounded-full bg-[#5f7aa1]"
+                            className="pointer-events-none absolute left-0 w-[3px] rounded-full bg-[#4d6b97]"
                             initial={false}
                             animate={{
                                 top: indicator.top,
@@ -235,9 +286,9 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                         onClick={() => setActive(index)}
                                         className={cx(
                                             "group relative w-full cursor-pointer rounded-r-xl py-3.5 pr-4 pl-8 text-left transition-colors duration-200 sm:py-4 sm:pr-5",
-                                            "hover:bg-[#4d6b97]/[0.04]",
+                                            "hover:bg-[#eef3f9]/70",
                                             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]",
-                                            isActive && "bg-[#4d6b97]/[0.03]",
+                                            isActive && "bg-[#eef3f9]",
                                         )}
                                     >
                                         <div className="flex items-start gap-3">
@@ -246,26 +297,36 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                                     "mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg transition-colors duration-200",
                                                     isActive
                                                         ? accent.tile
-                                                        : "bg-[#4d6b97]/[0.06] text-[#737373] group-hover:bg-[#4d6b97]/10 group-hover:text-[#4d6b97]",
+                                                        : "bg-[#eef3f9] text-[#737373] group-hover:bg-[#4d6b97]/12 group-hover:text-[#4d6b97]",
                                                 )}
                                             >
                                                 <Icon className={cx("size-4", isActive ? accent.iconClass : undefined)} aria-hidden />
                                             </span>
                                             <div className="min-w-0 flex-1">
-                                                <h3
-                                                    className={cx(
-                                                        "text-[16px] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 sm:text-[17px] sm:leading-[1.35]",
-                                                        isActive ? "text-[#090a24]" : "text-[#090a24]/75 group-hover:text-[#090a24]",
-                                                    )}
-                                                >
-                                                    {item.name}
-                                                </h3>
+                                                <div className="flex items-baseline gap-2">
+                                                    <span
+                                                        className={cx(
+                                                            "font-display text-[11px] font-medium tracking-[0.12em] tabular-nums transition-colors",
+                                                            isActive ? "text-[#4d6b97]" : "text-[#b1b6a6] group-hover:text-[#5f7aa1]",
+                                                        )}
+                                                    >
+                                                        {padIndex(index + 1)}
+                                                    </span>
+                                                    <h3
+                                                        className={cx(
+                                                            "text-[16px] font-semibold leading-snug tracking-[-0.01em] transition-colors duration-200 sm:text-[17px] sm:leading-[1.35]",
+                                                            isActive ? "text-[#090a24]" : "text-[#090a24]/70 group-hover:text-[#090a24]",
+                                                        )}
+                                                    >
+                                                        {item.name}
+                                                    </h3>
+                                                </div>
                                                 <p
                                                     className={cx(
                                                         "mt-1 line-clamp-1 text-[13px] leading-relaxed transition-colors sm:text-[14px]",
                                                         isActive
-                                                            ? "text-[#525252]"
-                                                            : "text-[#525252]/70 group-hover:text-[#525252]",
+                                                            ? "text-[#5f7aa1]"
+                                                            : "text-[#525252]/65 group-hover:text-[#525252]",
                                                     )}
                                                 >
                                                     {preview}
@@ -285,8 +346,13 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                                                 transition={{ duration: 0.4, ease: easeLuxury }}
                                                 className="overflow-hidden lg:hidden"
                                             >
-                                                <div className="px-2 pt-3 pb-1 sm:px-3">
-                                                    <ModuleDetailCopy item={item} />
+                                                <div className="px-2 pt-4 pb-1 sm:px-3">
+                                                    <ModuleDetailCopy
+                                                        item={item}
+                                                        index={index}
+                                                        total={items.length}
+                                                        reduce={reduce}
+                                                    />
                                                 </div>
                                             </motion.div>
                                         ) : null}
@@ -310,17 +376,22 @@ export function ModuleBento({ items, linkLabel, linkHref }: { items: BentoItem[]
                         })}
                     </div>
 
-                    {/* Desktop: text-only detail — art lives outside this column */}
+                    {/* Desktop: designed detail — art lives outside this column */}
                     <div className="relative z-10 mt-2 hidden min-w-0 lg:mt-1 lg:block">
                         <AnimatePresence mode="wait" initial={false}>
                             <motion.div
                                 key={current.id}
-                                initial={reduce ? false : { opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={reduce ? undefined : { opacity: 0, y: -6 }}
-                                transition={{ duration: 0.45, ease: easeLuxury }}
+                                initial={reduce ? false : { opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={reduce ? undefined : { opacity: 0 }}
+                                transition={{ duration: 0.25, ease: easeLuxury }}
                             >
-                                <ModuleDetailCopy item={current} />
+                                <ModuleDetailCopy
+                                    item={current}
+                                    index={active}
+                                    total={items.length}
+                                    reduce={reduce}
+                                />
                             </motion.div>
                         </AnimatePresence>
                     </div>
