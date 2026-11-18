@@ -37,6 +37,17 @@ function isNavActive(pathname: string | null, href: NavHref) {
     return pathname === path || pathname.startsWith(`${path}/`);
 }
 
+/** Same-page hash links (e.g. Modules on the home page) glide instead of jumping. */
+function scrollToHash(e: React.MouseEvent, pathname: string | null, href: NavHref) {
+    if (typeof href !== "object" || !href.hash || pathname !== href.pathname) return;
+    const target = document.getElementById(href.hash);
+    if (!target) return;
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${href.hash}`);
+}
+
 function navLinkClassName(active: boolean) {
     return cx(
         "rounded-md px-2 py-1.5 text-base font-semibold transition-colors duration-100 ease-linear",
@@ -174,6 +185,7 @@ export function SiteHeader() {
                                     href={link.href}
                                     className={navLinkClassName(active)}
                                     aria-current={active ? "page" : undefined}
+                                    onClick={(e) => scrollToHash(e, pathname, link.href)}
                                 >
                                     {link.label}
                                 </Link>
@@ -251,7 +263,10 @@ export function SiteHeader() {
                                     href={link.href}
                                     className={mobileNavLinkClassName(active)}
                                     aria-current={active ? "page" : undefined}
-                                    onClick={() => setMenuOpen(false)}
+                                    onClick={(e) => {
+                                        setMenuOpen(false);
+                                        scrollToHash(e, pathname, link.href);
+                                    }}
                                 >
                                     {link.label}
                                 </Link>

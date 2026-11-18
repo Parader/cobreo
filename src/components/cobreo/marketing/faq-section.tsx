@@ -56,7 +56,7 @@ export function FaqSection({
                                     </svg>
                                 </span>
                             </summary>
-                            <p className="mt-3 max-w-[38rem] pr-8 text-[14px] leading-6 text-[#525252] md:text-[15px] md:leading-7">
+                            <p className="mt-3 max-w-[38rem] pr-8 text-[15px] leading-7 text-[#525252] md:text-[16px]">
                                 {item.answer}
                             </p>
                         </details>

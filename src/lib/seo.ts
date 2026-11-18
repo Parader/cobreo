@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n/routing";
+import en from "@/messages/en.json";
+import fr from "@/messages/fr.json";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cobreo.ca";
 
@@ -77,6 +79,16 @@ const descriptions: Record<Locale, string> = {
     en: "Cobreo is a platform you compose from modules. Application data is hosted in Canada.",
 };
 
+type ModuleCopy = { id: string; name: string; tagline: string };
+
+/** One "Module — what it does" line per module, from the landing-page copy. */
+function moduleFeatureList(locale: Locale): string[] {
+    const items = (locale === "fr" ? fr : en).modules.items as ModuleCopy[];
+    return items
+        .filter((item) => item.id !== "tasks")
+        .map((item) => `${item.name} — ${item.tagline}`.replace(/[\u00a0\u202f]/g, " "));
+}
+
 export type FaqItem = {
     question: string;
     answer: string;
@@ -151,6 +163,7 @@ export function siteJsonLd(locale: Locale) {
                 publisher: { "@id": organizationId },
                 isAccessibleForFree: false,
                 countriesSupported: "CA",
+                featureList: moduleFeatureList(locale),
             },
         ],
     };
@@ -172,5 +185,35 @@ export function faqPageJsonLd(locale: Locale, items: FaqItem[]) {
                 text: item.answer,
             },
         })),
+    };
+}
+
+export type FounderSchema = { name: string; jobTitle: string; image: string };
+
+/** About page graph: the page, and the founders as people working for the Cobreo organization. */
+export function aboutPageJsonLd(locale: Locale, founders: FounderSchema[]) {
+    const organizationId = `${siteUrl}/#organization`;
+    const url = `${siteUrl}/${locale}/a-propos`;
+    const people = founders.map((founder) => ({
+        "@type": "Person",
+        "@id": `${siteUrl}/#${founder.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-")}`,
+        name: founder.name,
+        jobTitle: founder.jobTitle,
+        image: `${siteUrl}${founder.image}`,
+        worksFor: { "@id": organizationId },
+    }));
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "AboutPage",
+                "@id": `${url}#page`,
+                url,
+                inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
+                about: { "@id": organizationId },
+            },
+            { "@id": organizationId, founder: people.map((person) => ({ "@id": person["@id"] })) },
+            ...people,
+        ],
     };
 }

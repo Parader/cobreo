@@ -1,8 +1,8 @@
 {
     "meta": {
         "siteName": "Cobreo",
-        "defaultTitle": "Cobreo | Tools that adapt to the way you work",
-        "defaultDescription": "Build your platform by turning on the modules that help your team. Hosted in Canada.",
+        "defaultTitle": "Cobreo | Modular software for organizations, hosted in Canada",
+        "defaultDescription": "CRM, events, booking, surveys, user portals, HR, and finance: turn on only the modules your organization needs. Hosted in Canada.",
         "ogLocale": "en_CA"
     },
     "nav": {
@@ -48,13 +48,11 @@
         "stageEyebrow": "Up close",
         "stageTitle": "The work, shown up close.",
         "stageBody": "Four entry modules, with the same standard for the rest of the platform.",
-        "contrastEyebrow": "Custom",
-        "contrastTitle": "Need a module that does not exist yet?",
-        "contrastBody": "Tell us about your project. We can develop a module or plugin tailored to your needs.",
-        "contrastBody2": "Once Cobreo is in place, the platform keeps evolving. We add modules and ship updates, and your organization benefits without extra work on your side.",
-        "modulesEyebrow": "Modules",
-        "modulesTitle": "The right tools, in the right place.",
-        "modulesLede": "Start with the modules you need. Add more as your organization evolves.",
+        "contrastTitle": "Custom modules for your business.",
+        "contrastBody": "Missing a tool? We build the module you need, private to your organization or as a plugin others can add.",
+        "contrastBody2": "And the platform keeps evolving: new modules and updates arrive with no extra work on your side.",
+        "modulesTitle": "Choose the modules your team needs.",
+        "modulesLede": "Improve each part of your organization, one module at a time.",
         "advantagesTitle": "A platform that evolves with you.",
         "advantages": [
             {
@@ -70,8 +68,8 @@
                 "body": "The application and your data are hosted in Canada."
             }
         ],
-        "platformFeaturesTitle": "Capabilities that stay with every module.",
-        "platformFeaturesLede": "They remain available in Cobreo even when you switch modules.",
+        "platformFeaturesTitle": "Features built into the whole platform.",
+        "platformFeaturesLede": "Tasks, payments, calendar, import and export, AI analysis: add them wherever your team needs them.",
         "platformFeatures": [
             {
                 "id": "tasks",
@@ -99,23 +97,23 @@
                 "body": "Get useful readings from the data you already have."
             }
         ],
-        "integrationsTitle": "Connections with tools you already use.",
-        "integrationsLede": "Cobreo connects to Google, Microsoft, and Stripe.",
+        "integrationsTitle": "Cobreo works with the tools you already use.",
+        "integrationsLede": "Connect Google, Microsoft, or Stripe as you need them.",
         "integrations": [
             {
                 "id": "google",
                 "name": "Google",
-                "body": "Calendar, email, and files, according to what you turn on."
+                "body": "Calendar, email, and files, depending on what you turn on."
             },
             {
                 "id": "microsoft",
                 "name": "Microsoft",
-                "body": "Microsoft 365 accounts and tools, when that fits."
+                "body": "Your Microsoft 365 accounts and tools."
             },
             {
                 "id": "stripe",
                 "name": "Stripe",
-                "body": "Online payments processed with Stripe."
+                "body": "Collect online payments with Stripe."
             }
         ],
         "faqTitle": "Frequently asked questions",
@@ -153,7 +151,210 @@
                 "question": "How do we get a demo?",
                 "answer": "Request a demo from the Contact page, or write to contact@cobreo.ca. We can then see how Cobreo fits the way you work."
             }
-        ]
+        ],
+        "contrastCta": "Tell us about your project",
+        "contrastCustomTile": "Your custom module",
+        "heroAssistantSend": "Send",
+        "heroScenariosLabel": "Example requests",
+        "heroScenarios": [
+            {
+                "label": "Events",
+                "prompt": "We run events and need to keep better track of our sponsors.",
+                "reply": "The Events module handles registration, and CRM keeps each sponsor’s history. They work well together.",
+                "actions": [
+                    {
+                        "module": "events",
+                        "status": "suggested"
+                    },
+                    {
+                        "module": "crm",
+                        "status": "suggested"
+                    }
+                ],
+                "next": {
+                    "type": "decision",
+                    "question": "Would you like to turn on Events and CRM to try them?",
+                    "confirm": "Turn on",
+                    "cancel": "Not now"
+                }
+            },
+            {
+                "label": "Follow-ups",
+                "prompt": "Which proposals are still waiting for a reply?",
+                "reply": "Six proposals have had no reply for two weeks. Here’s a follow-up I can send them.",
+                "actions": [
+                    {
+                        "module": "crm",
+                        "status": "6 proposals"
+                    }
+                ],
+                "next": {
+                    "type": "preview",
+                    "label": "Follow-up preview",
+                    "title": "Subject: our November 3 proposal",
+                    "body": "Hello, I’m following up on our proposal. Have you had a chance to look at it?",
+                    "confirm": "Send the 6 follow-ups",
+                    "cancel": "Edit"
+                }
+            },
+            {
+                "label": "Statistics",
+                "prompt": "How did participants feel about the fall forum?",
+                "reply": "Here’s a summary of the 48 responses. Waiting time at check-in comes up often in the comments.",
+                "actions": [
+                    {
+                        "module": "satisfaction",
+                        "status": "48 responses"
+                    }
+                ],
+                "next": {
+                    "type": "chart",
+                    "title": "Satisfaction · Fall forum",
+                    "rows": [
+                        {
+                            "label": "Very satisfied",
+                            "value": 46
+                        },
+                        {
+                            "label": "Satisfied",
+                            "value": 36
+                        },
+                        {
+                            "label": "Neutral",
+                            "value": 12
+                        },
+                        {
+                            "label": "Dissatisfied",
+                            "value": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "label": "Reminders",
+                "prompt": "Our clients often forget their appointment.",
+                "reply": "An automatic reminder the day before could cut no-shows. Here’s what it would look like.",
+                "actions": [
+                    {
+                        "module": "booking",
+                        "status": "suggested"
+                    },
+                    {
+                        "module": "automation",
+                        "status": "to confirm"
+                    }
+                ],
+                "next": {
+                    "type": "preview",
+                    "label": "Reminder preview",
+                    "title": "Reminder · the day before",
+                    "body": "Hello, a quick reminder of your appointment tomorrow at 10 a.m. Need to move it? Use the link below.",
+                    "confirm": "Turn on the reminder",
+                    "cancel": "Edit"
+                }
+            },
+            {
+                "label": "User portal",
+                "prompt": "Our members often write to ask where their file stands.",
+                "reply": "A portal would let them follow their file themselves. Here’s what a member would see.",
+                "actions": [
+                    {
+                        "module": "portals",
+                        "status": "suggested"
+                    }
+                ],
+                "next": {
+                    "type": "preview",
+                    "label": "Portal preview",
+                    "title": "Your file · step 2 of 4",
+                    "body": "Documents received. Next step: an assessment meeting to schedule with your advisor.",
+                    "confirm": "Turn on User portals",
+                    "cancel": "Later"
+                }
+            },
+            {
+                "label": "Team climate",
+                "prompt": "How is team morale this quarter?",
+                "reply": "Here are the results of the latest anonymous survey, answered by 21 employees. Workload stands out as something to watch.",
+                "actions": [
+                    {
+                        "module": "hr",
+                        "status": "21 responses"
+                    }
+                ],
+                "next": {
+                    "type": "chart",
+                    "title": "Workplace climate · favourable answers",
+                    "rows": [
+                        {
+                            "label": "Collaboration",
+                            "value": 88
+                        },
+                        {
+                            "label": "Recognition",
+                            "value": 74
+                        },
+                        {
+                            "label": "Balance",
+                            "value": 69
+                        },
+                        {
+                            "label": "Workload",
+                            "value": 62
+                        }
+                    ]
+                }
+            },
+            {
+                "label": "Overdue invoices",
+                "prompt": "Which invoices are overdue this month?",
+                "reply": "Four invoices are past due, for a total of $3,250. I can prepare a payment reminder for each client.",
+                "actions": [
+                    {
+                        "module": "finance",
+                        "status": "4 invoices"
+                    }
+                ],
+                "next": {
+                    "type": "decision",
+                    "question": "Would you like me to prepare the 4 payment reminders?",
+                    "confirm": "Prepare the reminders",
+                    "cancel": "Not now"
+                }
+            },
+            {
+                "label": "Signup page",
+                "prompt": "We need a signup page for the fundraising evening.",
+                "reply": "I can prepare a page with a signup form linked to Events.",
+                "actions": [
+                    {
+                        "module": "sites",
+                        "status": "suggested"
+                    },
+                    {
+                        "module": "events",
+                        "status": "suggested"
+                    }
+                ],
+                "next": {
+                    "type": "decision",
+                    "question": "Would you like me to prepare a draft of the page?",
+                    "confirm": "Prepare the draft",
+                    "cancel": "Later"
+                }
+            }
+        ],
+        "heroChrome": {
+            "home": "Home",
+            "search": "Search",
+            "help": "Help",
+            "greeting": "Good morning,",
+            "modules": "Modules",
+            "composer": "Ask a question or describe what you want to get done…",
+            "meetings": "Appointments",
+            "today": "Today",
+            "tasks": "Tasks"
+        }
     },
     "footer": {
         "services": "Services",
@@ -603,16 +804,13 @@
         }
     },
     "about": {
-        "title": "About Cobreo",
-        "metaDescription": "Cobreo builds custom applications that simplify day-to-day work and support operations.",
-        "eyebrow": "About",
-        "heroTitle": "Partners for improving your operations.",
-        "heroBody": "Cobreo builds custom applications. We analyze your operations, design the tool, then develop it with concrete deliverables at each step.",
-        "originEyebrow": "Origin",
-        "originTitle": "How Cobreo started",
-        "originBody1": "Across our careers, we often saw solid companies slowed down by heavy processes, manual work, and tools that don’t quite fit how they operate.",
-        "originBody2": "We built Cobreo to help those teams spot where they can save time, then build simple tools that fit day-to-day work. AI tools help us explore and prototype faster, while we keep control over decisions and the quality of the result.",
-        "foundersEyebrow": "Founders",
+        "title": "About Cobreo",
+        "metaDescription": "Cobreo is a modular platform for organizations, built in Lévis, Quebec, by Nicolas Stoltz and Dérick Paradis. Turn on what you need.",
+        "heroTitle": "We make day-to-day work simpler.",
+        "heroBody": "Cobreo is a modular platform for organizations. You turn on what you need, and we build what’s missing.",
+        "originTitle": "Why Cobreo exists.",
+        "originBody1": "Across our careers, we often saw solid organizations slowed down by heavy processes, manual work, and tools that don’t fit how they operate.",
+        "originBody2": "We built Cobreo to give them tools that fit their reality: a platform you compose module by module, and custom modules when nothing exists yet.",
         "foundersTitle": "The people behind Cobreo.",
         "foundersBody": "A small team united by the aim of making day-to-day work simpler and more useful.",
         "founder1Name": "Dérick Paradis",
@@ -623,13 +821,10 @@
         "founder2Role": "Co-founder",
         "founder2Bio": "Development and delivery. Turning clear intent into a reliable, maintainable solution that fits day-to-day work.",
         "founder2Experience": "Background in finance, hospitality, and automation.",
-        "approachEyebrow": "Approach",
         "approachTitle": "Move faster without giving up on quality.",
-        "approachBody": "Our experience in design and development helps us know where to focus. AI tools let us explore, prototype, and validate more quickly. We use them as an accelerator while keeping control over decisions, design, and final product quality.",
-        "workEyebrow": "Method",
-        "workTitle": "How we work.",
-        "workBody": "We look first for where the gain is clearest, validate the approach before building, then deliver a tool tailored to your operations and keep evolving it with you.",
-        "workLink": "See the modules",
+        "approachBody": "Our experience in design and development helps us know where to focus. AI tools let us explore, prototype, and validate more quickly, while we keep control over decisions and the quality of the final product.",
+        "workBody": "For each organization, we first look for where the gain is clearest, validate the approach before building, then keep evolving the platform with you.",
+        "workLink": "See the modules",
         "ctaTitle": "Let’s talk about your project.",
         "ctaBody": "A short conversation to clarify your priorities and see how we can help.",
         "ctaContact": "Request a demo",
@@ -1242,23 +1437,23 @@
             {
                 "id": "crm",
                 "name": "CRM",
-                "tagline": "The whole team can see each contact’s history and who needs to make the next follow-up.",
+                "tagline": "The whole team sees each contact’s history and knows who handles the next follow-up.",
                 "points": [
                     {
-                        "title": "Sponsors and partners",
-                        "body": "Track each relationship from the first contact through renewal."
+                        "title": "Partners and sponsors",
+                        "body": "Track each relationship from first contact to renewal."
                     },
                     {
-                        "title": "Proposal follow-ups",
-                        "body": "See requests that still have no reply and follow up on time."
+                        "title": "Unanswered proposals",
+                        "body": "Spot proposals still waiting for a reply and follow up at the right time."
                     },
                     {
                         "title": "Exchange history",
-                        "body": "Find the calls, emails, and notes tied to an organization."
+                        "body": "Calls, emails, and notes, grouped by organization."
                     },
                     {
                         "title": "Shared contacts",
-                        "body": "The team works from the same contact list, always up to date."
+                        "body": "One contact list, kept up to date for the whole team."
                     }
                 ],
                 "scene": "crm"
@@ -1266,23 +1461,23 @@
             {
                 "id": "events",
                 "name": "Events",
-                "tagline": "From opening registration to the day of the event, everything is managed in Cobreo.",
+                "tagline": "From the first registration to event day, everything is handled in one place.",
                 "points": [
                     {
                         "title": "Ticketing",
-                        "body": "Sell or distribute tickets and track how they are used."
+                        "body": "Sell or hand out tickets and track how they’re used."
                     },
                     {
                         "title": "Registration forms",
-                        "body": "Build the form and share the link in a few minutes."
+                        "body": "Build the form and share the link in minutes."
                     },
                     {
                         "title": "Registration tracking",
-                        "body": "See who is registered and which files are still incomplete."
+                        "body": "See who’s registered and which files are incomplete."
                     },
                     {
-                        "title": "Messages to participants",
-                        "body": "Send instructions and reminders to people who registered."
+                        "title": "Messages to participants",
+                        "body": "Send instructions and reminders to everyone who registered."
                     }
                 ],
                 "scene": "events"
@@ -1290,27 +1485,23 @@
             {
                 "id": "satisfaction",
                 "name": "Satisfaction",
-                "tagline": "After each service, you know what people thought of it and what needs a follow-up.",
+                "tagline": "After each service, you know what people thought and who needs a follow-up.",
                 "points": [
                     {
-                        "title": "Follow-ups after a service",
-                        "body": "A survey goes out automatically once the service is done."
+                        "title": "Automatic surveys",
+                        "body": "A survey goes out as soon as a service ends. You can also send one at any time."
                     },
                     {
-                        "title": "Surveys",
-                        "body": "Ask your questions online and collect the answers."
+                        "title": "Negative feedback flagged",
+                        "body": "Unhappy comments stand out, so you can respond quickly."
                     },
                     {
-                        "title": "Reaction detection",
-                        "body": "Spot unhappy comments so you can follow up quickly."
+                        "title": "A clearer picture of your clients",
+                        "body": "Over time, see who comes to you and what they ask for."
                     },
                     {
-                        "title": "Know your clients better",
-                        "body": "Over time, see who comes to you and what those people ask for."
-                    },
-                    {
-                        "title": "Data visualization",
-                        "body": "Follow how results change in clear charts."
+                        "title": "Results in charts",
+                        "body": "Follow how responses change in clear charts."
                     }
                 ],
                 "scene": "survey"
@@ -1318,19 +1509,19 @@
             {
                 "id": "booking",
                 "name": "Booking",
-                "tagline": "Your clients book appointments online within the slots you open.",
+                "tagline": "Your clients book online, in the time slots you open.",
                 "points": [
                     {
                         "title": "Appointment management",
-                        "body": "Confirm, move, or cancel an appointment in a few clicks."
+                        "body": "Confirm, move, or cancel an appointment in a few clicks."
                     },
                     {
-                        "title": "Schedules",
-                        "body": "Open your available slots and avoid double bookings."
+                        "title": "Availability",
+                        "body": "Open your time slots and avoid double bookings."
                     },
                     {
                         "title": "Automatic reminders",
-                        "body": "A reminder goes out before each appointment to reduce no-shows."
+                        "body": "A reminder goes out before each appointment to cut no-shows."
                     }
                 ],
                 "scene": "calendar"
@@ -1338,19 +1529,19 @@
             {
                 "id": "automation",
                 "name": "Automation",
-                "tagline": "The tasks that come back every week start on their own, without anyone having to remember them.",
+                "tagline": "Recurring tasks run on their own, without anyone having to remember them.",
                 "points": [
                     {
                         "title": "Follow-ups",
-                        "body": "A follow-up goes out when a request still has no reply."
+                        "body": "A follow-up goes out when a request goes unanswered."
                     },
                     {
                         "title": "Automatic replies",
-                        "body": "Every form that arrives gets an immediate reply."
+                        "body": "Every form you receive gets an immediate reply."
                     },
                     {
                         "title": "Scheduled actions",
-                        "body": "Schedule an action for a specific date or based on a file’s status."
+                        "body": "Trigger an action on a set date or when a file changes status."
                     }
                 ],
                 "scene": "records"
@@ -1358,23 +1549,19 @@
             {
                 "id": "sites",
                 "name": "Public sites and pages",
-                "tagline": "Each campaign or announcement can have its own page, published by your team.",
+                "tagline": "Your team publishes its own page for each campaign, activity, or announcement.",
                 "points": [
                     {
-                        "title": "One-off pages",
-                        "body": "Create a page for a campaign, an activity, or an announcement."
+                        "title": "No developer needed",
+                        "body": "Write, edit, and publish the content yourselves."
                     },
                     {
                         "title": "Temporary pages",
-                        "body": "Set an end date and the page takes itself down."
+                        "body": "Set an end date and the page takes itself down."
                     },
                     {
                         "title": "Interactive pages",
-                        "body": "Add a form, a registration, or appointment booking."
-                    },
-                    {
-                        "title": "Easy to maintain",
-                        "body": "Update the content yourself, without calling a developer."
+                        "body": "Add a form, a registration, or appointment booking."
                     }
                 ],
                 "scene": "records"
@@ -1382,23 +1569,23 @@
             {
                 "id": "portals",
                 "name": "User portals",
-                "tagline": "Your users follow their file and exchange with you in a space set aside for them.",
+                "tagline": "Your users follow their file and talk with you in a space of their own.",
                 "points": [
                     {
-                        "title": "Messaging with the user",
-                        "body": "Exchanges stay attached to each person’s file."
+                        "title": "Messaging",
+                        "body": "Every exchange stays attached to the person’s file."
                     },
                     {
                         "title": "File exchange",
-                        "body": "Upload and receive documents without going through email."
+                        "body": "Send and receive documents without going through email."
                     },
                     {
-                        "title": "User journeys",
-                        "body": "Show the user the steps in their file and what they still need to do."
+                        "title": "File steps",
+                        "body": "Users see where their file stands and what they still need to do."
                     },
                     {
                         "title": "Documentation",
-                        "body": "Give each user access to the guides and documents that help them."
+                        "body": "Give each user access to the guides and documents they need."
                     }
                 ],
                 "scene": "records"
@@ -1406,19 +1593,19 @@
             {
                 "id": "hr",
                 "name": "Human resources",
-                "tagline": "You collect reviews and feedback from your employees, who can choose to stay anonymous.",
+                "tagline": "Reviews and workplace climate, with the option to answer anonymously.",
                 "points": [
                     {
                         "title": "Reviews",
-                        "body": "Prepare and track the team’s annual reviews."
+                        "body": "Prepare and track the team’s annual reviews."
                     },
                     {
-                        "title": "Employee climate",
-                        "body": "Measure regularly how the team feels at work."
+                        "title": "Workplace climate",
+                        "body": "Regularly measure how the team feels at work."
                     },
                     {
-                        "title": "Anonymous comments",
-                        "body": "Employees speak up without their name being tied to the comment."
+                        "title": "Anonymized feedback",
+                        "body": "Employees speak up without their name being tied to their answers."
                     }
                 ],
                 "scene": "records"
@@ -1426,24 +1613,25 @@
             {
                 "id": "finance",
                 "name": "Finance",
-                "tagline": "You track invoicing and due dates without keeping a separate spreadsheet.",
+                "tagline": "Track invoicing and due dates without a separate spreadsheet.",
                 "points": [
                     {
-                        "title": "Simplified forms",
-                        "body": "Fill in invoices and reimbursement requests without retyping the same information."
+                        "title": "Invoices and reimbursements",
+                        "body": "Fill in invoices and reimbursement requests without retyping the same details."
                     },
                     {
-                        "title": "Centralized data",
-                        "body": "Invoicing, payments, and balances sit together in one view."
+                        "title": "One overview",
+                        "body": "Invoicing, payments, and balances together in one view."
                     },
                     {
-                        "title": "Planning tools",
-                        "body": "Anticipate upcoming due dates and amounts."
+                        "title": "Forecasting",
+                        "body": "Plan ahead for upcoming due dates and amounts."
                     }
                 ],
                 "scene": "records"
             }
-        ]
+        ],
+        "demoLink": "See this module in a demo"
     },
     "notFound": {
         "code": "404",

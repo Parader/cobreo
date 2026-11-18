@@ -283,3 +283,33 @@ input[type="search"]::-webkit-search-cancel-button {
         transform: translateX(16px);
     }
 }
+
+/* Anchor links glide (respecting reduced motion). */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Hero mark: a slow band of light travels across the symbol, and its halo breathes. */
+@keyframes cobreo-sheen {
+    0%,
+    100% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes cobreo-glow {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.98);
+    }
+    50% {
+        opacity: 0.75;
+        transform: scale(1.02);
+    }
+}

@@ -1,4 +1,28 @@
+import en from "@/messages/en.json";
+import fr from "@/messages/fr.json";
+
 const SITE = "https://cobreo.ca";
+
+type ModuleCopy = { id: string; name: string; tagline: string; points: { title: string; body?: string }[] };
+
+/** Module copy comes from the same messages as the landing page, so AI summaries never drift from the site. */
+const clean = (text: string) => text.replace(/[\u00a0\u202f]/g, " ");
+const visible = (items: ModuleCopy[]) => items.filter((item) => item.id !== "tasks");
+const frModules = visible(fr.modules.items as ModuleCopy[]);
+const enModules = visible(en.modules.items as ModuleCopy[]);
+
+const moduleList = (items: ModuleCopy[]) => items.map((m) => `- ${clean(m.name)} — ${clean(m.tagline)}`).join("\n");
+
+const moduleDetail = () =>
+    enModules
+        .map((m) => {
+            const frItem = frModules.find((f) => f.id === m.id);
+            const heading = frItem && clean(frItem.name) !== clean(m.name) ? `${clean(m.name)} / ${clean(frItem.name)}` : clean(m.name);
+            const points = m.points.map((p) => `- ${clean(p.title)}: ${clean(p.body ?? "")}`).join("\n");
+            const frLine = frItem ? `\n\nEn français : ${clean(frItem.tagline)}` : "";
+            return `### ${heading}\n${clean(m.tagline)}\n\n${points}${frLine}`;
+        })
+        .join("\n\n");
 
 /**
  * Plain-Markdown summaries for AI crawlers (/llms.txt, /llms-full.txt).
@@ -21,15 +45,7 @@ Cobreo est une plateforme logicielle composée de modules. Une organisation acti
 
 ### Modules
 
-- CRM — Contacts, échanges et suivis
-- Événements — Inscriptions, places et billetterie
-- Satisfaction — Enquêtes et retours après un service
-- Réservations — Prise de rendez-vous en ligne
-- Automatisation — Relances et assignations automatiques
-- Sites et pages publiques — Pages et formulaires publics
-- Portails usagers — Espace partagé pour documents et dossiers
-- Ressources humaines — Dossiers d’équipe et demandes internes
-- Finances — Facturation et suivi des paiements
+${moduleList(frModules)}
 
 ### Fonctions de plateforme
 
@@ -49,15 +65,7 @@ Cobreo is a software platform composed of modules. An organization turns on the 
 
 ### Modules
 
-- CRM — Contacts, exchanges, and follow-ups
-- Events — Registration, seats, and ticketing
-- Satisfaction — Surveys and feedback after a service
-- Booking — Online appointment booking
-- Automation — Automatic follow-ups and assignments
-- Sites and public pages — Public pages and forms
-- User portals — Shared space for documents and files
-- Human resources — Team records and internal requests
-- Finances — Invoicing and payment tracking
+${moduleList(enModules)}
 
 ### Platform capabilities
 
@@ -102,32 +110,7 @@ The application and customer data are hosted in Canada.
 
 ## Modules (detail)
 
-### CRM
-Contacts, exchange history, and follow-ups (for example sponsors, proposals, partner organizations).
-
-### Events / Événements
-Registration, seats, check-in lists, and tickets (assemblies, workshops, fundraisers, conferences).
-
-### Satisfaction
-Post-service surveys, cohort feedback, NPS, and visit comments.
-
-### Booking / Réservations
-Online booking for consultations, visits, and service appointments.
-
-### Automation / Automatisation
-Automatic follow-ups, assignment when a form arrives, reminders before deadlines, status alerts.
-
-### Sites and public pages / Sites et pages publiques
-Public registration pages, schedules, service pages, and membership request forms — without requiring a developer for routine updates.
-
-### User portals / Portails usagers
-A shared place for users to upload documents, access statements, and reduce email attachments.
-
-### Human resources / Ressources humaines
-Team records, leave requests, onboarding, and access limited to authorized people.
-
-### Finances
-Invoicing, membership or campaign payments, unpaid follow-ups, amounts still owed after ticketed events.
+${moduleDetail()}
 
 ## Platform capabilities
 

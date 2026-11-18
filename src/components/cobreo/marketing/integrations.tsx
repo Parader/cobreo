@@ -68,9 +68,9 @@ export function Integrations({
                                                 className="size-5 object-contain"
                                             />
                                         ) : null}
-                                        <h3 className="text-[14px] font-semibold text-white">{item.name}</h3>
+                                        <h3 className="text-[16px] font-semibold text-white">{item.name}</h3>
                                     </div>
-                                    <p className="mt-2 text-[13px] leading-5 text-[#d5e0ee]">{item.body}</p>
+                                    <p className="mt-2 text-[15px] leading-6 text-[#d5e0ee]">{item.body}</p>
                                 </motion.article>
                             );
                         })}
