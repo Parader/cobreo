@@ -1,379 +1,516 @@
 {
     "meta": {
         "siteName": "Cobreo",
-        "defaultTitle": "Cobreo | Solutions applicatives et automatisation pour PME",
-        "defaultDescription": "Cobreo analyse vos processus, identifie les meilleures opportunités et développe des solutions applicatives qui génèrent un impact mesurable.",
+        "defaultTitle": "Cobreo | Plateforme modulaire pour organisations, hébergée au Canada",
+        "defaultDescription": "CRM, événements, réservations, sondages, portails usagers, RH et finances : activez seulement les modules dont votre organisation a besoin. Hébergé au Canada.",
         "ogLocale": "fr_CA"
     },
     "nav": {
         "services": "Services",
-        "about": "À propos",
+        "about": "À propos",
         "contact": "Contact",
-        "diagnostic": "Outil d'analyse",
-        "cta": "Parlez-nous de votre projet",
+        "diagnostic": "Outil d'analyse",
+        "cta": "Demander une démo",
         "lang": "EN",
-        "skipToContent": "Aller au contenu principal",
-        "openMenu": "Ouvrir le menu",
-        "closeMenu": "Fermer le menu",
-        "primaryNav": "Navigation principale"
+        "skipToContent": "Aller au contenu principal",
+        "openMenu": "Ouvrir le menu",
+        "closeMenu": "Fermer le menu",
+        "primaryNav": "Navigation principale",
+        "modules": "Modules",
+        "login": "Connexion"
     },
     "home": {
-        "heroTitle": "Des solutions applicatives conçues pour améliorer vos opérations.",
-        "heroSubtitle": "Nous analysons vos processus, identifions les meilleures opportunités et développons des solutions qui génèrent un impact mesurable.",
-        "heroCta": "Parlez-nous de votre projet",
-        "scrollToProcess": "Découvrir la suite",
-        "processTitleLine1": "Des outils sur mesure",
-        "processTitleLine2": "pour soutenir votre croissance.",
-        "processSubtitleLine1": "Simplifiez vos opérations en libérant vos équipes",
-        "processSubtitleLine2": "et en automatisant les tâches répétitives.",
-        "processCta": "Découvrir des opportunités d'amélioration",
-        "identifyBold": "Identifier",
-        "identifyLine2": "les meilleures",
-        "identifyLine3": "opportunités.",
-        "identifyRest": " les meilleures opportunités.",
-        "validateBold": "Valider",
-        "validateLine2": "les solutions",
-        "validateLine3": "avant de les développer.",
-        "validateRest": " les solutions avant de les développer.",
-        "developBold": "Développer",
-        "developLine2": "des outils adaptés",
-        "developLine3": "à vos besoins.",
-        "developRest": "des outils adaptés à vos besoins.",
-        "evolveBold": "Faire évoluer",
-        "evolveLine2": "votre solution",
-        "evolveLine3": "au rythme de votre entreprise.",
-        "evolveRest": "votre solution au rythme de votre entreprise.",
-        "valueTitle": "Comment nous créons de la valeur.",
-        "valueSubtitle": "Des solutions conçues pour simplifier vos opérations, soutenir vos équipes et accompagner votre croissance.",
-        "valueMockupBrand": "Votre entreprise",
-        "valueMockups": {
-            "workspace": "Espace de travail",
-            "admin": "Admin",
-            "userName": "Alex Rivera",
-            "search": "Rechercher",
-            "notifications": "Notifications",
-            "live": "Actif",
-            "dayMon": "Lun",
-            "dayTue": "Mar",
-            "dayWed": "Mer",
-            "dayThu": "Jeu",
-            "dayFri": "Ven",
-            "daySat": "Sam",
-            "daySun": "Dim",
-            "navHome": "Accueil",
-            "navOps": "Ops",
-            "navFlows": "Flux",
-            "navInsights": "Analyses",
-            "navClients": "Clients",
-            "navSettings": "Réglages",
-            "navRequests": "Demandes",
-            "navProjects": "Projets",
-            "navReporting": "Rapports",
-            "navUsers": "Usagers",
-            "opsTitle": "Boîte de demandes",
-            "opsSubtitle": "Suivez les approbations et les transferts au même endroit",
-            "opsNew": "Nouvelle demande",
-            "opsOpen": "Ouvertes",
-            "opsCycle": "Cycle moyen",
-            "opsSla": "SLA",
-            "opsColId": "ID",
-            "opsColTeam": "Équipe",
-            "opsColRequest": "Demande",
-            "opsColStatus": "Statut",
-            "opsTeamOps": "Ops",
-            "opsTeamFinance": "Finance",
-            "opsTeamLegal": "Juridique",
-            "opsTeamHr": "RH",
-            "opsRow1": "Intégration fournisseur",
-            "opsRow2": "Approbation de facture",
-            "opsRow3": "Révision de contrat",
-            "opsRow4": "Demande d’accès",
-            "opsRow5": "Sortie d’équipement",
-            "opsStatusProgress": "En cours",
-            "opsStatusWaiting": "En attente",
-            "opsStatusDone": "Terminé",
-            "autoTitle": "Automatisations",
-            "autoSubtitle": "Réduisez le travail répétitif entre vos outils",
-            "autoLiveCount": "12 actives",
-            "autoNew": "Nouveau flux",
-            "autoFlow1": "Rappel de facture",
-            "autoFlow1Runs": "128 exéc. / sem.",
-            "autoFlow2": "Génération de docs",
-            "autoFlow2Runs": "64 exéc. / sem.",
-            "autoFlow3": "Sync CRM",
-            "autoFlow3Runs": "210 exéc. / sem.",
-            "autoFlow4": "Alertes d’onboarding",
-            "autoFlow4Runs": "41 exéc. / sem.",
-            "autoHoursSaved": "Heures économisées",
-            "autoTrend": "18 % ce mois",
-            "autoEvent1": "Rappel envoyé à 14 fournisseurs",
-            "autoEvent2": "PDF de contrat généré",
-            "autoEvent3": "38 fiches CRM synchronisées",
-            "infoOverview": "Vue d’ensemble",
-            "infoReports": "Rapports",
-            "infoCosts": "Coûts",
-            "infoExports": "Exports",
-            "infoRevenue": "Revenus",
-            "infoCostsMetric": "Coûts",
-            "infoMargin": "Marge",
-            "infoUsers": "Usagers actifs",
-            "infoChartTitle": "Débit hebdomadaire",
-            "infoChartSubtitle": "KPIs centralisés pour toutes les équipes",
-            "cxInbox": "Boîte",
-            "cxClients": "Clients",
-            "cxBookings": "Rendez-vous",
-            "cxReply": "Répondre",
-            "cxListTitle": "Demandes clients",
-            "cxListSubtitle": "38 conversations actives",
-            "cxTicket1": "Accès au portail",
-            "cxTicket2": "Changement d’horaire",
-            "cxTicket3": "Suivi de soumission",
-            "cxTicket4": "Réponse au formulaire",
-            "cxTicket5": "Question de facturation",
-            "cxStatusOpen": "Ouvert",
-            "cxStatusResolved": "Résolu",
-            "cxStatusWaiting": "En attente",
-            "cxDetailMeta": "Northwind · ouvert il y a 2 h",
-            "cxMessage": "Bonjour — pouvons-nous inviter deux collègues au portail client en gardant le même flux d’approbation ?",
-            "cxSender": "Camille · Northwind",
-            "cxApprove": "Approuver l’accès",
-            "cxAsk": "Demander des précisions",
-            "cxActive": "Actives",
-            "cxCsat": "CSAT",
-            "cxResponse": "Réponse",
-            "decBoard": "Tableau de décisions",
-            "decOverview": "Vue d’ensemble",
-            "decForecast": "Prévisions",
-            "decAlerts": "Alertes",
-            "decGoals": "Objectifs",
-            "decForecastMetric": "Prévision",
-            "decRisk": "Niveau de risque",
-            "decRiskValue": "Faible",
-            "decRiskDelta": "Stable",
-            "decMix": "Mix de priorités",
-            "decCard1Title": "Santé du pipeline",
-            "decCard1Body": "En ligne avec la cible",
-            "decCard2Title": "Alerte",
-            "decCard2Body": "2 seuils dépassés",
-            "decCard3Title": "Revue",
-            "decCard3Body": "Vendredi 10 h",
-            "customSprint": "Sprint 4",
-            "customBuild": "Créer un module",
-            "customTitle": "Boîte à outils sur mesure",
-            "customSubtitle": "Des produits façonnés autour de votre processus",
-            "customTool1": "CRM d’inspection",
-            "customTool1Meta": "Terrain + bureau",
-            "customTool2": "Espace membre",
-            "customTool2Meta": "Portail libre-service",
-            "customTool3": "Ops internes",
-            "customTool3Meta": "Flux sur mesure",
-            "customTool4": "Éval. 360°",
-            "customTool4Meta": "Équipes + gestionnaires",
-            "customRoadmap": "Feuille de route",
-            "customComplete": "68 % terminé",
-            "customPhases": "Prototype → pilote → déploiement"
-        },
-        "value1Title": "Opérations",
-        "value1Body": "Éliminez les étapes inutiles et fluidifiez le travail de vos équipes.",
-        "value1Hint": "Gestion des demandes, gestion documentaire, suivi des dossiers, approbations internes.",
-        "value2Title": "Automatisation",
-        "value2Body": "Réduisez les manipulations manuelles et gagnez du temps au quotidien.",
-        "value2Hint": "Rappels automatiques, génération de documents, synchronisation de données, notifications, intégration entre logiciels.",
-        "value3Title": "Information",
-        "value3Body": "Regroupez vos données au même endroit pour travailler plus efficacement.",
-        "value3Hint": "Tableaux de bord, indicateurs de performance, analyse des coûts, rapports, données centralisées.",
-        "value4Title": "Expérience client",
-        "value4Body": "Des outils simples qui facilitent les échanges avec vos clients.",
-        "value4Hint": "Portail client, prise de rendez-vous, suivi des demandes, formulaires, espace membre.",
-        "value5Title": "Prise de décision",
-        "value5Body": "Des tableaux de bord conçus autour des indicateurs qui comptent.",
-        "value5Hint": "Rapports en temps réel, analyses financières, prévisions, alertes personnalisées, suivi des objectifs.",
-        "value6Title": "Outils sur mesure",
-        "value6Body": "Des solutions qui grandissent avec votre entreprise.",
-        "value6Hint": "Sites web, outils internes, CRM spécialisés, évaluation 360°, gestion des inspections.",
-        "valueCtaPrompt": "Prêt à améliorer vos opérations ?",
-        "valueCta": "Parlez-nous de votre projet",
-        "philosophyTitle": "Aller plus vite, sans prendre de raccourcis.",
-        "philosophyBody": "Notre expérience en design et en développement nous permet de savoir où concentrer nos efforts. Les nouveaux outils d'IA nous permettent maintenant d'explorer, de prototyper et de valider des solutions beaucoup plus rapidement. Nous les utilisons comme un accélérateur, tout en gardant le contrôle sur les décisions, la conception et la qualité du produit final.",
-        "philosophyLink": "À propos de Cobreo",
-        "testimonialTitle": "Ce qu'en disent nos clients",
-        "testimonialPrev": "Témoignage précédent",
-        "testimonialNext": "Témoignage suivant",
-        "testimonials": [
+        "heroTitle": "Des outils qui s’adaptent à votre façon de travailler.",
+        "heroTitleLine1": "Des outils qui s’adaptent",
+        "heroTitleLine2": "à votre façon de travailler.",
+        "heroSubtitle": "Composez votre plateforme à partir de modules conçus pour votre réalité.",
+        "demoCta": "Demander une démo",
+        "diagnosticCta": "Commencer l’analyse",
+        "catalogTitle": "Les modules que vous activez forment votre plateforme.",
+        "catalogLink": "Voir les modules",
+        "depthTitle": "Chaque module reste centré sur son sujet.",
+        "depthBody": "Les écrans restent simples à lire, selon le module. On n’ajoute pas d’écrans inutiles pour remplir la page.",
+        "customTitle": "Des modules et des plugins sur mesure.",
+        "customBody": "Nous pouvons développer un module privé pour vous, ou un plugin que d’autres organisations pourront aussi ajouter.",
+        "storeTitle": "Une boutique de modules.",
+        "storeBody": "Lorsqu’un module est publié, une autre organisation peut l’ajouter à sa plateforme.",
+        "assistantTitle": "Un assistant pour configurer et guider.",
+        "assistantBody": "Il aide à mettre Cobreo en place et accompagne les personnes qui travaillent dans la plateforme au quotidien.",
+        "billingTitle": "Vous ne payez que pour les modules activés dans votre organisation.",
+        "trustTitle": "L’application et vos données sont hébergées au Canada.",
+        "trustBody": "",
+        "quote": "La rapidité d’exécution nous a particulièrement impressionnés. Nous avons pu voir et tester une première version très tôt, puis l’ajuster à partir des commentaires de notre équipe.",
+        "quoteName": "Jérémie",
+        "quoteRole": "Directeur de développement, M&H",
+        "closeTitle": "Voyez comment ça s’applique à votre façon de travailler.",
+        "closeBody": "Demandez une démonstration, ou commencez par l’analyse pour choisir par où entrer.",
+        "catalogEyebrow": "Modules",
+        "stageEyebrow": "Au plus près",
+        "stageTitle": "Le travail, montré de près.",
+        "stageBody": "Quatre modules d’entrée, avec la même exigence pour le reste de la plateforme.",
+        "contrastTitle": "Des modules sur mesure pour votre entreprise.",
+        "contrastBody": "Il vous manque un outil ? Nous développons le module qu’il vous faut, réservé à votre organisation ou sous forme de plugin que d’autres pourront ajouter.",
+        "contrastBody2": "Et la plateforme continue d’évoluer : les nouveaux modules et les mises à jour s’ajoutent sans travail de votre côté.",
+        "modulesTitle": "Choisissez les modules dont votre équipe a besoin.",
+        "modulesLede": "Améliorez chaque aspect de votre organisation, un module à la fois.",
+        "advantagesTitle": "Une plateforme qui évolue avec vous.",
+        "advantages": [
             {
-                "quote": "La rapidité d'exécution nous a particulièrement impressionnés. Nous avons pu voir et tester une première version très tôt, puis l'ajuster à partir des commentaires de notre équipe.",
-                "name": "Jérémie",
-                "role": "Directeur de développement, M&H"
+                "title": "Payez seulement ce que vous utilisez",
+                "body": "Vous ne payez que pour les modules activés dans votre organisation."
             },
             {
-                "quote": "Cobreo a clarifié nos priorités et livré un outil concret, sans jargon. L'équipe a su traduire nos besoins métier en quelque chose d'utilisable dès la première itération.",
-                "name": "Camille",
-                "role": "Directrice des opérations, Atelier Nord"
+                "title": "De nouveaux modules au fil du temps",
+                "body": "Les nouveaux modules et les améliorations s’ajoutent à votre plateforme, sans tout recommencer."
             },
             {
-                "quote": "Enfin un partenaire qui comprend autant le design que le développement. On a gagné des semaines sur un projet qu'on pensait bloqué depuis longtemps.",
-                "name": "Marc-André",
-                "role": "Fondateur, Flux Commerce"
+                "title": "Vos données restent au Canada",
+                "body": "L’application et vos données sont hébergées au Canada."
             }
         ],
-        "diagnosticTitle": "Découvrez vos opportunités d'amélioration",
-        "diagnosticBody": "Quelques questions pour parcourir les différents secteurs de votre entreprise et repérer où vous pourriez gagner du temps et simplifier vos opérations.",
-        "diagnosticCta": "Commencer l'analyse"
+        "platformFeaturesTitle": "Des fonctions intégrées à toute la plateforme.",
+        "platformFeaturesLede": "Tâches, paiements, calendrier, import et export, analyse IA : ajoutez-les là où votre équipe en a besoin.",
+        "platformFeatures": [
+            {
+                "id": "tasks",
+                "name": "Tâches",
+                "body": "Assignez le travail et suivez où chaque dossier en est."
+            },
+            {
+                "id": "payments",
+                "name": "Paiements",
+                "body": "Encaissez et suivez les paiements liés à votre activité."
+            },
+            {
+                "id": "calendar",
+                "name": "Calendrier",
+                "body": "Voyez les rendez-vous et les échéances au même endroit."
+            },
+            {
+                "id": "importExport",
+                "name": "Import et export",
+                "body": "Apportez vos données dans Cobreo, ou exportez-les au besoin."
+            },
+            {
+                "id": "ai",
+                "name": "Analyse IA",
+                "body": "Obtenez des lectures utiles à partir de vos données existantes."
+            }
+        ],
+        "integrationsTitle": "Cobreo s’intègre aux outils que vous utilisez déjà.",
+        "integrationsLede": "Connectez Google, Microsoft ou Stripe selon vos besoins.",
+        "integrations": [
+            {
+                "id": "google",
+                "name": "Google",
+                "body": "Agenda, courriel et fichiers, selon ce que vous activez."
+            },
+            {
+                "id": "microsoft",
+                "name": "Microsoft",
+                "body": "Vos comptes et outils Microsoft 365."
+            },
+            {
+                "id": "stripe",
+                "name": "Stripe",
+                "body": "Encaissez vos paiements en ligne avec Stripe."
+            }
+        ],
+        "faqTitle": "Questions fréquentes",
+        "faqLede": "Des réponses courtes sur Cobreo, les modules et la mise en place.",
+        "faq": [
+            {
+                "question": "Qu’est-ce que Cobreo ?",
+                "answer": "Cobreo est une plateforme logicielle composée de modules. Vous activez ceux dont votre organisation a besoin, et vous pouvez en ajouter d’autres plus tard."
+            },
+            {
+                "question": "Quels modules sont disponibles ?",
+                "answer": "Les modules couvrent notamment le CRM, les événements, la satisfaction, les réservations, l’automatisation, les sites et pages publiques, les portails usagers, les ressources humaines et les finances. Des fonctions transversales — tâches, paiements, calendrier, import et export, analyse IA — restent disponibles d’un module à l’autre."
+            },
+            {
+                "question": "Peut-on commencer avec un seul module ?",
+                "answer": "Oui. Vous démarrez avec le ou les modules nécessaires, puis vous en activez d’autres selon l’évolution de votre organisation."
+            },
+            {
+                "question": "Pouvez-vous développer un module sur mesure ?",
+                "answer": "Oui. Nous pouvons développer un module privé pour votre organisation, ou un plugin que d’autres organisations pourront aussi ajouter."
+            },
+            {
+                "question": "Où sont hébergées les données ?",
+                "answer": "L’application et vos données sont hébergées au Canada."
+            },
+            {
+                "question": "Avec quels outils Cobreo s’intègre-t-il ?",
+                "answer": "Cobreo se connecte à Google, Microsoft et Stripe, selon ce que vous activez."
+            },
+            {
+                "question": "Comment fonctionne la tarification ?",
+                "answer": "Vous ne payez que pour les modules activés dans votre organisation. Le détail est présenté lors d’une démonstration, selon vos besoins."
+            },
+            {
+                "question": "Comment obtenir une démonstration ?",
+                "answer": "Demandez une démonstration depuis la page Contact, ou écrivez à contact@cobreo.ca. Nous pourrons ensuite voir comment Cobreo s’applique à votre façon de travailler."
+            }
+        ],
+        "contrastCta": "Parlez-nous de votre projet",
+        "contrastCustomTile": "Votre module sur mesure",
+        "heroAssistantSend": "Envoyer",
+        "heroScenariosLabel": "Exemples de demandes",
+        "heroScenarios": [
+            {
+                "label": "Événements",
+                "prompt": "Nous organisons des événements et devons mieux suivre nos commanditaires.",
+                "reply": "Le module Événements gère les inscriptions, et le CRM garde l’historique de chaque commanditaire. Ils fonctionnent bien ensemble.",
+                "actions": [
+                    {
+                        "module": "events",
+                        "status": "suggéré"
+                    },
+                    {
+                        "module": "crm",
+                        "status": "suggéré"
+                    }
+                ],
+                "next": {
+                    "type": "decision",
+                    "question": "Voulez-vous activer Événements et CRM pour les essayer ?",
+                    "confirm": "Activer",
+                    "cancel": "Pas maintenant"
+                }
+            },
+            {
+                "label": "Suivis",
+                "prompt": "Quelles soumissions attendent encore une réponse ?",
+                "reply": "Six soumissions n’ont pas eu de réponse depuis deux semaines. Voici un message de suivi que je peux leur envoyer.",
+                "actions": [
+                    {
+                        "module": "crm",
+                        "status": "6 soumissions"
+                    }
+                ],
+                "next": {
+                    "type": "preview",
+                    "label": "Aperçu du suivi",
+                    "title": "Objet : notre proposition du 3 novembre",
+                    "body": "Bonjour, je reviens vers vous au sujet de notre proposition. Avez-vous eu le temps d’y jeter un œil ?",
+                    "confirm": "Envoyer les 6 suivis",
+                    "cancel": "Modifier"
+                }
+            },
+            {
+                "label": "Statistiques",
+                "prompt": "Comment les participants ont-ils trouvé le forum d’automne ?",
+                "reply": "Voici un résumé des 48 réponses. Le temps d’attente à l’accueil revient souvent dans les commentaires.",
+                "actions": [
+                    {
+                        "module": "satisfaction",
+                        "status": "48 réponses"
+                    }
+                ],
+                "next": {
+                    "type": "chart",
+                    "title": "Satisfaction · Forum d’automne",
+                    "rows": [
+                        {
+                            "label": "Très satisfaits",
+                            "value": 46
+                        },
+                        {
+                            "label": "Satisfaits",
+                            "value": 36
+                        },
+                        {
+                            "label": "Neutres",
+                            "value": 12
+                        },
+                        {
+                            "label": "Insatisfaits",
+                            "value": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "label": "Rappels",
+                "prompt": "Nos clients oublient souvent leur rendez-vous.",
+                "reply": "Un rappel automatique la veille pourrait réduire les absences. Voici à quoi il ressemblerait.",
+                "actions": [
+                    {
+                        "module": "booking",
+                        "status": "suggéré"
+                    },
+                    {
+                        "module": "automation",
+                        "status": "à confirmer"
+                    }
+                ],
+                "next": {
+                    "type": "preview",
+                    "label": "Aperçu du rappel",
+                    "title": "Rappel · la veille du rendez-vous",
+                    "body": "Bonjour, petit rappel de votre rendez-vous demain à 10 h. Besoin de le déplacer ? Utilisez le lien ci-dessous.",
+                    "confirm": "Activer le rappel",
+                    "cancel": "Modifier"
+                }
+            },
+            {
+                "label": "Portail usagers",
+                "prompt": "Nos membres nous écrivent souvent pour savoir où en est leur dossier.",
+                "reply": "Un portail leur permettrait de suivre leur dossier eux-mêmes. Voici ce qu’un membre y verrait.",
+                "actions": [
+                    {
+                        "module": "portals",
+                        "status": "suggéré"
+                    }
+                ],
+                "next": {
+                    "type": "preview",
+                    "label": "Aperçu du portail",
+                    "title": "Votre dossier · étape 2 sur 4",
+                    "body": "Documents reçus. Prochaine étape : rencontre d’évaluation, à planifier avec votre conseillère.",
+                    "confirm": "Activer Portails usagers",
+                    "cancel": "Plus tard"
+                }
+            },
+            {
+                "label": "Climat d’équipe",
+                "prompt": "Comment va le moral de l’équipe ce trimestre ?",
+                "reply": "Voici les résultats du dernier sondage anonyme, auquel 21 employés ont répondu. La charge de travail ressort comme point à surveiller.",
+                "actions": [
+                    {
+                        "module": "hr",
+                        "status": "21 réponses"
+                    }
+                ],
+                "next": {
+                    "type": "chart",
+                    "title": "Climat de travail · réponses favorables",
+                    "rows": [
+                        {
+                            "label": "Collaboration",
+                            "value": 88
+                        },
+                        {
+                            "label": "Reconnaissance",
+                            "value": 74
+                        },
+                        {
+                            "label": "Équilibre",
+                            "value": 69
+                        },
+                        {
+                            "label": "Charge de travail",
+                            "value": 62
+                        }
+                    ]
+                }
+            },
+            {
+                "label": "Factures en retard",
+                "prompt": "Quelles factures sont en retard ce mois-ci ?",
+                "reply": "Quatre factures ont dépassé leur échéance, pour un total de 3 250 $. Je peux préparer un rappel de paiement pour chaque client.",
+                "actions": [
+                    {
+                        "module": "finance",
+                        "status": "4 factures"
+                    }
+                ],
+                "next": {
+                    "type": "decision",
+                    "question": "Voulez-vous que je prépare les 4 rappels de paiement ?",
+                    "confirm": "Préparer les rappels",
+                    "cancel": "Pas maintenant"
+                }
+            },
+            {
+                "label": "Page d’inscription",
+                "prompt": "Il nous faudrait une page d’inscription pour la soirée bénéfice.",
+                "reply": "Je peux préparer une page avec un formulaire d’inscription relié à Événements.",
+                "actions": [
+                    {
+                        "module": "sites",
+                        "status": "suggéré"
+                    },
+                    {
+                        "module": "events",
+                        "status": "suggéré"
+                    }
+                ],
+                "next": {
+                    "type": "decision",
+                    "question": "Voulez-vous que je prépare un brouillon de la page ?",
+                    "confirm": "Préparer le brouillon",
+                    "cancel": "Plus tard"
+                }
+            }
+        ],
+        "heroChrome": {
+            "home": "Accueil",
+            "search": "Rechercher",
+            "help": "Aide",
+            "greeting": "Bonjour,",
+            "modules": "Modules",
+            "composer": "Posez une question ou décrivez ce que vous voulez accomplir…",
+            "meetings": "Rendez-vous",
+            "today": "Aujourd’hui",
+            "tasks": "Tâches"
+        }
     },
     "footer": {
         "services": "Services",
         "contact": "Contact",
-        "about": "À propos",
+        "about": "À propos",
         "privacy": "Confidentialité",
-        "cta": "Parlez-nous de votre projet",
-        "rights": "© {year} Cobreo. Tous droits réservés.",
+        "cta": "Demander une démo",
+        "rights": "© {year} Cobreo. Tous droits réservés.",
         "terms": "Conditions",
         "cookies": "Cookies",
         "followUs": "Suivez-nous",
-        "linkedin": "Cobreo sur LinkedIn"
+        "linkedin": "Cobreo sur LinkedIn",
+        "modules": "Modules"
     },
     "cookiesBanner": {
-        "title": "Nous respectons votre vie privée",
-        "body": "Nous utilisons des cookies essentiels au fonctionnement du site et, avec votre accord, des cookies pour mesurer l’audience et améliorer nos services.",
-        "policyLink": "Politique de cookies",
-        "accept": "Tout accepter",
-        "reject": "Essentiels seulement",
+        "title": "Nous respectons votre vie privée",
+        "body": "Nous utilisons des cookies essentiels au fonctionnement du site et, avec votre accord, des cookies pour mesurer l’audience et améliorer nos services.",
+        "policyLink": "Politique de cookies",
+        "accept": "Tout accepter",
+        "reject": "Essentiels seulement",
         "manage": "Personnaliser",
         "save": "Enregistrer",
         "necessaryTitle": "Essentiels",
-        "necessaryBody": "Requis pour la sécurité, la navigation et la mémorisation de vos préférences.",
-        "analyticsTitle": "Mesure d’audience",
-        "analyticsBody": "Nous aident à comprendre l’utilisation du site de façon agrégée.",
+        "necessaryBody": "Requis pour la sécurité, la navigation et la mémorisation de vos préférences.",
+        "analyticsTitle": "Mesure d’audience",
+        "analyticsBody": "Nous aident à comprendre l’utilisation du site de façon agrégée.",
         "marketingTitle": "Marketing",
-        "marketingBody": "Permettent de mesurer des campagnes ou contenus promotionnels, le cas échéant."
+        "marketingBody": "Permettent de mesurer des campagnes ou contenus promotionnels, le cas échéant."
     },
     "legal": {
         "privacy": {
-            "title": "Politique de confidentialité",
-            "updated": "Dernière mise à jour : 6 octobre 2026",
-            "intro": "Chez Cobreo (cobreo.ca), nous protégeons les renseignements personnels que vous nous confiez. Cette politique explique quelles données nous collectons, pourquoi, et quels sont vos droits en vertu du droit applicable au Québec et au Canada, ainsi que des principes du RGPD lorsque pertinent.",
+            "title": "Politique de confidentialité",
+            "updated": "Dernière mise à jour : 6 octobre 2026",
+            "intro": "Chez Cobreo (cobreo.ca), nous protégeons les renseignements personnels que vous nous confiez. Cette politique explique quelles données nous collectons, pourquoi, et quels sont vos droits en vertu du droit applicable au Québec et au Canada, ainsi que des principes du RGPD lorsque pertinent.",
             "sections": [
                 {
-                    "title": "1. Responsable du traitement",
-                    "body": "Cobreo est responsable des renseignements personnels traités via cobreo.ca.\n\nCourriel : contact@cobreo.ca\n\nSite : https://cobreo.ca"
+                    "title": "1. Responsable du traitement",
+                    "body": "Cobreo est responsable des renseignements personnels traités via cobreo.ca.\n\nCourriel : contact@cobreo.ca\n\nSite : https://cobreo.ca"
                 },
                 {
-                    "title": "2. Données que nous collectons",
-                    "body": "Nous pouvons collecter : identité et coordonnées (nom, courriel, téléphone, entreprise) lorsque vous remplissez un formulaire ; le contenu de vos messages ou réponses au diagnostic ; des données techniques de navigation (adresse IP, type d’appareil, pages consultées) via des cookies ou outils d’analyse si vous y consentez ; et les informations nécessaires à l’administration sécurisée de nos outils internes."
+                    "title": "2. Données que nous collectons",
+                    "body": "Nous pouvons collecter : identité et coordonnées (nom, courriel, téléphone, entreprise) lorsque vous remplissez un formulaire ; le contenu de vos messages ou réponses au diagnostic ; des données techniques de navigation (adresse IP, type d’appareil, pages consultées) via des cookies ou outils d’analyse si vous y consentez ; et les informations nécessaires à l’administration sécurisée de nos outils internes."
                 },
                 {
-                    "title": "3. Finalités",
-                    "body": "Nous utilisons vos données pour répondre à vos demandes, fournir nos services, améliorer le site et nos processus, assurer la sécurité, respecter nos obligations légales, et — uniquement avec consentement lorsque requis — mesurer l’audience ou mener des communications pertinentes."
+                    "title": "3. Finalités",
+                    "body": "Nous utilisons vos données pour répondre à vos demandes, fournir nos services, améliorer le site et nos processus, assurer la sécurité, respecter nos obligations légales, et — uniquement avec consentement lorsque requis — mesurer l’audience ou mener des communications pertinentes."
                 },
                 {
-                    "title": "4. Bases et conservation",
-                    "body": "Selon le contexte, le traitement repose sur votre consentement, l’exécution de mesures précontractuelles ou contractuelles, ou notre intérêt légitime (sécurité, amélioration du service), dans le respect des lois applicables.\n\nNous conservons les données seulement aussi longtemps que nécessaire aux finalités décrites, puis les supprimons ou anonymisons, sauf obligation légale contraire."
+                    "title": "4. Bases et conservation",
+                    "body": "Selon le contexte, le traitement repose sur votre consentement, l’exécution de mesures précontractuelles ou contractuelles, ou notre intérêt légitime (sécurité, amélioration du service), dans le respect des lois applicables.\n\nNous conservons les données seulement aussi longtemps que nécessaire aux finalités décrites, puis les supprimons ou anonymisons, sauf obligation légale contraire."
                 },
                 {
-                    "title": "5. Partage et sous-traitants",
-                    "body": "Nous ne vendons pas vos renseignements personnels. Nous pouvons les partager avec des fournisseurs qui nous aident à héberger le site, envoyer des courriels ou exploiter notre infrastructure (par ex. hébergement, base de données, messagerie), uniquement dans la mesure nécessaire et selon des engagements de confidentialité appropriés.\n\nCertains fournisseurs peuvent être situés à l’extérieur du Québec ou du Canada ; dans ce cas, nous prenons des mesures raisonnables pour protéger vos données."
+                    "title": "5. Partage et sous-traitants",
+                    "body": "Nous ne vendons pas vos renseignements personnels. Nous pouvons les partager avec des fournisseurs qui nous aident à héberger le site, envoyer des courriels ou exploiter notre infrastructure (par ex. hébergement, base de données, messagerie), uniquement dans la mesure nécessaire et selon des engagements de confidentialité appropriés.\n\nCertains fournisseurs peuvent être situés à l’extérieur du Québec ou du Canada ; dans ce cas, nous prenons des mesures raisonnables pour protéger vos données."
                 },
                 {
-                    "title": "6. Vos droits",
-                    "body": "Selon la loi applicable, vous pouvez demander l’accès, la rectification, la suppression, la limitation, la portabilité ou le retrait de votre consentement. Pour exercer vos droits : contact@cobreo.ca.\n\nVous pouvez aussi déposer une plainte auprès de la Commission d’accès à l’information du Québec ou de l’autorité compétente."
+                    "title": "6. Vos droits",
+                    "body": "Selon la loi applicable, vous pouvez demander l’accès, la rectification, la suppression, la limitation, la portabilité ou le retrait de votre consentement. Pour exercer vos droits : contact@cobreo.ca.\n\nVous pouvez aussi déposer une plainte auprès de la Commission d’accès à l’information du Québec ou de l’autorité compétente."
                 },
                 {
-                    "title": "7. Boîte de courriel connectée",
-                    "body": "L’application Cobreo (app.cobreo.ca) est distincte du site cobreo.ca. Une organisation cliente peut connecter une ou plusieurs de ses boîtes, Gmail ou Outlook.\n\nCobreo demande l’accès en lecture et l’accès d’envoi. Avec Gmail, les autorisations sont openid, l’adresse du compte, https://www.googleapis.com/auth/gmail.readonly et https://www.googleapis.com/auth/gmail.send. Avec Outlook, les autorisations sont Mail.Read et Mail.Send. Cobreo ne demande pas de modifier, d’étiqueter ni de supprimer des messages.\n\nCobreo lit chaque boîte pour afficher, sur la fiche d’une personne déjà inscrite dans cette organisation, un message dont un participant — autre que l’une de ces boîtes — a exactement le courriel de cette personne. La fiche montre la date, les participants, le titre et le texte. Un message qui ne correspond à personne n’est pas copié dans Cobreo et reste dans la boîte.\n\nUne personne de l’organisation peut répondre depuis la fiche. S’il y a plusieurs boîtes, elle choisit l’adresse d’envoi. Cobreo envoie seulement ce texte, depuis cette adresse. Cobreo n’envoie pas de message de sa propre initiative.\n\nCes données servent uniquement à ces fonctions, visibles dans l’application. Cobreo ne les vend pas, ne les utilise pas pour la publicité, et ne les transmet pas à des tiers, sauf aux fournisseurs qui hébergent l’application, pour la sécurité, ou si la loi l’exige.\n\nL’usage des données obtenues par les API Google respecte la politique Google API Services User Data Policy, y compris les exigences Limited Use. Le personnel de Cobreo ne lit pas ces messages, sauf si l’organisation le demande pour obtenir de l’aide, si la sécurité l’exige, ou si la loi l’exige.\n\nDéconnecter une boîte arrête les lectures et les envois suivants depuis cette adresse. Les messages déjà déposés sur une fiche restent les données de cette organisation. Une demande d’accès, de rectification ou de suppression se fait à contact@cobreo.ca.\n\nLes données de l’application sont hébergées au Canada (région Montréal)."
+                    "title": "7. Boîte de courriel connectée",
+                    "body": "L’application Cobreo (app.cobreo.ca) est distincte du site cobreo.ca. Une organisation cliente peut connecter une ou plusieurs de ses boîtes, Gmail ou Outlook.\n\nCobreo demande l’accès en lecture et l’accès d’envoi. Avec Gmail, les autorisations sont openid, l’adresse du compte, https://www.googleapis.com/auth/gmail.readonly et https://www.googleapis.com/auth/gmail.send. Avec Outlook, les autorisations sont Mail.Read et Mail.Send. Cobreo ne demande pas de modifier, d’étiqueter ni de supprimer des messages.\n\nCobreo lit chaque boîte pour afficher, sur la fiche d’une personne déjà inscrite dans cette organisation, un message dont un participant — autre que l’une de ces boîtes — a exactement le courriel de cette personne. La fiche montre la date, les participants, le titre et le texte. Un message qui ne correspond à personne n’est pas copié dans Cobreo et reste dans la boîte.\n\nUne personne de l’organisation peut répondre depuis la fiche. S’il y a plusieurs boîtes, elle choisit l’adresse d’envoi. Cobreo envoie seulement ce texte, depuis cette adresse. Cobreo n’envoie pas de message de sa propre initiative.\n\nCes données servent uniquement à ces fonctions, visibles dans l’application. Cobreo ne les vend pas, ne les utilise pas pour la publicité, et ne les transmet pas à des tiers, sauf aux fournisseurs qui hébergent l’application, pour la sécurité, ou si la loi l’exige.\n\nL’usage des données obtenues par les API Google respecte la politique Google API Services User Data Policy, y compris les exigences Limited Use. Le personnel de Cobreo ne lit pas ces messages, sauf si l’organisation le demande pour obtenir de l’aide, si la sécurité l’exige, ou si la loi l’exige.\n\nDéconnecter une boîte arrête les lectures et les envois suivants depuis cette adresse. Les messages déjà déposés sur une fiche restent les données de cette organisation. Une demande d’accès, de rectification ou de suppression se fait à contact@cobreo.ca.\n\nLes données de l’application sont hébergées au Canada (région Montréal)."
                 },
                 {
-                    "title": "8. Cookies",
-                    "body": "Consultez notre Politique de cookies pour le détail des catégories et de vos choix."
+                    "title": "8. Cookies",
+                    "body": "Consultez notre Politique de cookies pour le détail des catégories et de vos choix."
                 },
                 {
-                    "title": "9. Modifications",
-                    "body": "Nous pouvons mettre à jour cette politique. La date en tête de page indique la version en vigueur. En cas de changement important, nous adapterons l’avis sur le site au besoin."
+                    "title": "9. Modifications",
+                    "body": "Nous pouvons mettre à jour cette politique. La date en tête de page indique la version en vigueur. En cas de changement important, nous adapterons l’avis sur le site au besoin."
                 }
             ]
         },
         "terms": {
-            "title": "Conditions d’utilisation",
-            "updated": "Dernière mise à jour : 6 octobre 2026",
-            "intro": "En utilisant cobreo.ca ou l’application Cobreo (app.cobreo.ca), vous acceptez les présentes conditions. Si vous n’êtes pas d’accord, veuillez ne pas utiliser le site ni l’application.",
+            "title": "Conditions d’utilisation",
+            "updated": "Dernière mise à jour : 6 octobre 2026",
+            "intro": "En utilisant cobreo.ca ou l’application Cobreo (app.cobreo.ca), vous acceptez les présentes conditions. Si vous n’êtes pas d’accord, veuillez ne pas utiliser le site ni l’application.",
             "sections": [
                 {
-                    "title": "1. Objet du site",
-                    "body": "Le site présente les services de Cobreo et permet de nous contacter ou d’amorcer un diagnostic. Le contenu est fourni à titre informatif et ne constitue pas un conseil juridique, financier ou technique personnalisé tant qu’un contrat distinct n’est pas conclu."
+                    "title": "1. Objet du site",
+                    "body": "Le site présente les services de Cobreo et permet de nous contacter ou d’amorcer un diagnostic. Le contenu est fourni à titre informatif et ne constitue pas un conseil juridique, financier ou technique personnalisé tant qu’un contrat distinct n’est pas conclu."
                 },
                 {
-                    "title": "2. Utilisation acceptable",
-                    "body": "Vous vous engagez à utiliser le site de façon licite, à ne pas tenter d’en compromettre la sécurité, à ne pas soumettre de contenu illégal ou trompeur, et à ne pas utiliser de moyens automatisés abusifs (scraping excessif, spam)."
+                    "title": "2. Utilisation acceptable",
+                    "body": "Vous vous engagez à utiliser le site de façon licite, à ne pas tenter d’en compromettre la sécurité, à ne pas soumettre de contenu illégal ou trompeur, et à ne pas utiliser de moyens automatisés abusifs (scraping excessif, spam)."
                 },
                 {
-                    "title": "3. Propriété intellectuelle",
-                    "body": "Les textes, marques, logos, designs et autres éléments du site appartiennent à Cobreo ou à ses concédants. Toute reproduction non autorisée est interdite, sauf usage personnel non commercial raisonnable."
+                    "title": "3. Propriété intellectuelle",
+                    "body": "Les textes, marques, logos, designs et autres éléments du site appartiennent à Cobreo ou à ses concédants. Toute reproduction non autorisée est interdite, sauf usage personnel non commercial raisonnable."
                 },
                 {
-                    "title": "4. Formulaires et communications",
-                    "body": "Les informations que vous nous transmettez doivent être exactes. Nous pouvons refuser ou ignorer les demandes abusives. Un échange via le site ne crée pas automatiquement une relation contractuelle de prestation."
+                    "title": "4. Formulaires et communications",
+                    "body": "Les informations que vous nous transmettez doivent être exactes. Nous pouvons refuser ou ignorer les demandes abusives. Un échange via le site ne crée pas automatiquement une relation contractuelle de prestation."
                 },
                 {
-                    "title": "5. Application et boîtes de courriel",
-                    "body": "L’application permet à une organisation de connecter une ou plusieurs de ses boîtes, Gmail ou Outlook. L’organisation autorise Cobreo à lire ces boîtes et à envoyer, depuis l’adresse qu’une personne de l’organisation choisit, la réponse que cette personne écrit. Cobreo n’envoie pas de message de sa propre initiative.\n\nL’organisation reste responsable du contenu envoyé et du choix de l’adresse. Déconnecter une boîte arrête les lectures et les envois suivants depuis cette adresse."
+                    "title": "5. Application et boîtes de courriel",
+                    "body": "L’application permet à une organisation de connecter une ou plusieurs de ses boîtes, Gmail ou Outlook. L’organisation autorise Cobreo à lire ces boîtes et à envoyer, depuis l’adresse qu’une personne de l’organisation choisit, la réponse que cette personne écrit. Cobreo n’envoie pas de message de sa propre initiative.\n\nL’organisation reste responsable du contenu envoyé et du choix de l’adresse. Déconnecter une boîte arrête les lectures et les envois suivants depuis cette adresse."
                 },
                 {
-                    "title": "6. Disponibilité et limitation de responsabilité",
-                    "body": "Nous nous efforçons de maintenir le site disponible et exact, sans garantir une disponibilité ininterrompue ni l’absence d’erreurs. Dans les limites permises par la loi, Cobreo ne saurait être responsable des dommages indirects résultant de l’usage du site."
+                    "title": "6. Disponibilité et limitation de responsabilité",
+                    "body": "Nous nous efforçons de maintenir le site disponible et exact, sans garantir une disponibilité ininterrompue ni l’absence d’erreurs. Dans les limites permises par la loi, Cobreo ne saurait être responsable des dommages indirects résultant de l’usage du site."
                 },
                 {
-                    "title": "7. Liens externes",
-                    "body": "Le site peut contenir des liens vers des sites tiers. Nous n’en contrôlons pas le contenu et n’assumons pas leur responsabilité."
+                    "title": "7. Liens externes",
+                    "body": "Le site peut contenir des liens vers des sites tiers. Nous n’en contrôlons pas le contenu et n’assumons pas leur responsabilité."
                 },
                 {
-                    "title": "8. Droit applicable",
-                    "body": "Ces conditions sont régies par les lois du Québec et du Canada applicables. Tout litige sera soumis aux tribunaux compétents du Québec, sous réserve des droits impératifs dont vous pourriez bénéficier."
+                    "title": "8. Droit applicable",
+                    "body": "Ces conditions sont régies par les lois du Québec et du Canada applicables. Tout litige sera soumis aux tribunaux compétents du Québec, sous réserve des droits impératifs dont vous pourriez bénéficier."
                 },
                 {
-                    "title": "9. Contact",
-                    "body": "Questions : contact@cobreo.ca"
+                    "title": "9. Contact",
+                    "body": "Questions : contact@cobreo.ca"
                 }
             ]
         },
         "cookies": {
-            "title": "Politique de cookies",
-            "updated": "Dernière mise à jour : 12 août 2026",
-            "intro": "Cette page explique comment cobreo.ca utilise des cookies et technologies similaires, et comment gérer vos préférences.",
+            "title": "Politique de cookies",
+            "updated": "Dernière mise à jour : 12 août 2026",
+            "intro": "Cette page explique comment cobreo.ca utilise des cookies et technologies similaires, et comment gérer vos préférences.",
             "sections": [
                 {
-                    "title": "1. Qu’est-ce qu’un cookie ?",
-                    "body": "Un cookie est un petit fichier déposé sur votre appareil. Il peut être nécessaire au fonctionnement du site ou servir à la mesure d’audience et à l’amélioration de l’expérience, selon vos choix."
+                    "title": "1. Qu’est-ce qu’un cookie ?",
+                    "body": "Un cookie est un petit fichier déposé sur votre appareil. Il peut être nécessaire au fonctionnement du site ou servir à la mesure d’audience et à l’amélioration de l’expérience, selon vos choix."
                 },
                 {
-                    "title": "2. Catégories utilisées",
-                    "body": "Essentiels : sécurité, charge du site, mémorisation de votre consentement et préférences de base. Toujours actifs.\n\nMesure d’audience : statistiques agrégées et rejeu de session (PostHog), activés seulement avec votre accord. Les champs de formulaires et le contenu sensible du diagnostic sont masqués dans les enregistrements.\n\nMarketing : mesure de campagnes ou contenus promotionnels le cas échéant (activés seulement avec votre accord)."
+                    "title": "2. Catégories utilisées",
+                    "body": "Essentiels : sécurité, charge du site, mémorisation de votre consentement et préférences de base. Toujours actifs.\n\nMesure d’audience : statistiques agrégées et rejeu de session (PostHog), activés seulement avec votre accord. Les champs de formulaires et le contenu sensible du diagnostic sont masqués dans les enregistrements.\n\nMarketing : mesure de campagnes ou contenus promotionnels le cas échéant (activés seulement avec votre accord)."
                 },
                 {
-                    "title": "3. Base légale et consentement",
-                    "body": "Les cookies non essentiels sont déposés uniquement après votre consentement via le bandeau. Vous pouvez le retirer en effaçant les cookies de votre navigateur ou en nous contactant pour réinitialiser vos préférences (suppression de la clé locale de consentement)."
+                    "title": "3. Base légale et consentement",
+                    "body": "Les cookies non essentiels sont déposés uniquement après votre consentement via le bandeau. Vous pouvez le retirer en effaçant les cookies de votre navigateur ou en nous contactant pour réinitialiser vos préférences (suppression de la clé locale de consentement)."
                 },
                 {
-                    "title": "4. Durée",
-                    "body": "La durée varie selon le cookie (session ou persistant). Votre choix de consentement est mémorisé localement sur votre appareil afin d’éviter de vous redemander à chaque visite."
+                    "title": "4. Durée",
+                    "body": "La durée varie selon le cookie (session ou persistant). Votre choix de consentement est mémorisé localement sur votre appareil afin d’éviter de vous redemander à chaque visite."
                 },
                 {
-                    "title": "5. Gestion de vos choix",
-                    "body": "Via le bandeau cookies au premier passage, ou en effaçant les données du site dans votre navigateur. Vous pouvez aussi restreindre les cookies via les réglages du navigateur ; certaines fonctions du site pourraient alors être limitées."
+                    "title": "5. Gestion de vos choix",
+                    "body": "Via le bandeau cookies au premier passage, ou en effaçant les données du site dans votre navigateur. Vous pouvez aussi restreindre les cookies via les réglages du navigateur ; certaines fonctions du site pourraient alors être limitées."
                 },
                 {
-                    "title": "6. Plus d’information",
-                    "body": "Voir aussi notre Politique de confidentialité. Contact : contact@cobreo.ca"
+                    "title": "6. Plus d’information",
+                    "body": "Voir aussi notre Politique de confidentialité. Contact : contact@cobreo.ca"
                 }
             ]
         }
     },
     "contact": {
         "title": "Contact",
-        "heroTitle": "Parlons de votre prochain projet.",
-        "subtitle": "Nous serions ravis d’échanger. Écrivez-nous — on vous répond sous un jour ouvrable.",
-        "metaDescription": "Contactez Cobreo pour discuter d’un projet applicatif, d’automatisation ou d’amélioration de vos opérations.",
+        "heroTitle": "Parlons de votre prochain projet.",
+        "subtitle": "Nous serons contents d’échanger. Écrivez-nous et on vous répond sous un jour ouvrable.",
+        "metaDescription": "Contactez Cobreo pour discuter d’un projet applicatif, d’automatisation ou d’amélioration de vos opérations.",
         "eyebrow": "Contact",
-        "formTitle": "Parlez-nous de votre projet",
-        "requiredNote": "Les champs marqués d’un * sont obligatoires.",
+        "formTitle": "Parlez-nous de votre projet",
+        "requiredNote": "Les champs marqués d’un * sont obligatoires.",
         "name": "Nom",
         "email": "Courriel",
         "company": "Entreprise",
@@ -382,182 +519,182 @@
         "messagePlaceholder": "",
         "submit": "Envoyer",
         "submitting": "Envoi…",
-        "success": "Merci — votre message a bien été reçu. Nous vous répondrons sous un jour ouvrable.",
-        "successTitle": "Merci de nous avoir contactés.",
+        "success": "Merci, votre message a bien été reçu. Nous vous répondrons sous un jour ouvrable.",
+        "successTitle": "Merci de nous avoir contactés.",
         "error": "Une erreur est survenue. Réessayez ou écrivez-nous à contact@cobreo.ca.",
-        "needName": "Indiquez votre nom (au moins 2 caractères).",
-        "needEmail": "Indiquez une adresse courriel valide.",
-        "needMessage": "Ajoutez un message (au moins 10 caractères).",
-        "needConsent": "Veuillez accepter la politique de confidentialité pour envoyer le formulaire.",
-        "privacyPrefix": "J’accepte que les renseignements transmis soient traités conformément à la",
-        "privacyLink": "politique de confidentialité",
-        "privacySuffix": "de Cobreo.",
-        "sideTitle": "Nous joindre",
+        "needName": "Indiquez votre nom (au moins 2 caractères).",
+        "needEmail": "Indiquez une adresse courriel valide.",
+        "needMessage": "Ajoutez un message (au moins 10 caractères).",
+        "needConsent": "Veuillez accepter la politique de confidentialité pour envoyer le formulaire.",
+        "privacyPrefix": "J’accepte que les renseignements transmis soient traités conformément à la",
+        "privacyLink": "politique de confidentialité",
+        "privacySuffix": "de Cobreo.",
+        "sideTitle": "Nous joindre",
         "sideEmailLabel": "Courriel",
         "sideEmail": "contact@cobreo.ca",
-        "sideDiagnosticLabel": "Outil d’analyse",
-        "sideDiagnosticBody": "Cartographiez vos opérations avant un premier échange.",
-        "sideDiagnosticCta": "Commencer l’analyse",
+        "sideDiagnosticLabel": "Outil d’analyse",
+        "sideDiagnosticBody": "Cartographiez vos opérations avant un premier échange.",
+        "sideDiagnosticCta": "Commencer l’analyse",
         "sideSocialLabel": "LinkedIn",
-        "sideSocialLink": "Suivre Cobreo sur LinkedIn"
+        "sideSocialLink": "Suivre Cobreo sur LinkedIn"
     },
     "diagnostic": {
-        "title": "Outil d'analyse",
-        "subtitle": "Quelques questions simples sur votre façon de travailler — pour repérer où il pourrait y avoir des opportunités d'amélioration.",
-        "toolEyebrow": "Outil d'analyse",
-        "contextProgress": "Contexte {current} sur {total}",
+        "title": "Outil d'analyse",
+        "subtitle": "Quelques questions simples sur votre façon de travailler — pour repérer où il pourrait y avoir des opportunités d'amélioration.",
+        "toolEyebrow": "Outil d'analyse",
+        "contextProgress": "Contexte {current} sur {total}",
         "contextContinue": "Continuer",
-        "dimensionMapTitle": "Votre entreprise",
-        "dimensionMapBody": "Pour chaque partie, indiquez si elle fait partie de votre activité, si vous souhaitez l’explorer, ou si ce n’est pas pertinent pour l’instant.",
+        "dimensionMapTitle": "Votre entreprise",
+        "dimensionMapBody": "Pour chaque partie, indiquez si elle fait partie de votre activité, si vous souhaitez l’explorer, ou si ce n’est pas pertinent pour l’instant.",
         "dimensionMapContinue": "Continuer",
-        "dimensionMapNeedAll": "Indiquez un statut pour chaque partie pour continuer.",
-        "dimensionSelectTitle": "Quelles parties voulez-vous approfondir ?",
-        "dimensionSelectBody": "Nous recommandons d’en choisir jusqu’à trois. Vous pouvez aussi en explorer davantage.",
+        "dimensionMapNeedAll": "Indiquez un statut pour chaque partie pour continuer.",
+        "dimensionSelectTitle": "Quelles parties voulez-vous approfondir ?",
+        "dimensionSelectBody": "Nous recommandons d’en choisir jusqu’à trois. Vous pouvez aussi en explorer davantage.",
         "dimensionSelectRecommended": "Recommandé",
-        "dimensionSelectContinue": "Explorer ces parties",
-        "dimensionSelectNeedOne": "Choisissez au moins une partie pour continuer.",
-        "radarOtherPlaceholder": "Précisez en quelques mots (optionnel)",
-        "radarNeedAnswer": "Choisissez au moins une option pour continuer.",
+        "dimensionSelectContinue": "Explorer ces parties",
+        "dimensionSelectNeedOne": "Choisissez au moins une partie pour continuer.",
+        "radarOtherPlaceholder": "Précisez en quelques mots (optionnel)",
+        "radarNeedAnswer": "Choisissez au moins une option pour continuer.",
         "qualifyContinue": "Continuer",
         "deepDiveContinue": "Continuer",
-        "resultOpportunitiesTitle": "Pistes à explorer",
-        "resultNoticedTitle": "Ce que nous avons remarqué",
+        "resultOpportunitiesTitle": "Pistes à explorer",
+        "resultNoticedTitle": "Ce que nous avons remarqué",
         "resultWhyLabel": "Pourquoi",
-        "resultGainLabel": "Gain potentiel",
+        "resultGainLabel": "Gain potentiel",
         "resultGain": {
             "low": "Faible",
             "moderate": "Modéré",
             "important": "Important"
         },
         "resultLevel": {
-            "watch": "À surveiller",
+            "watch": "À surveiller",
             "possible": "Possible",
             "clear": "Claire"
         },
-        "resultHealthyTitle": "Peu de friction prioritaire",
-        "resultEarlyTitle": "Trop tôt pour structurer davantage",
-        "localeFrOnlyNote": "L’outil d’analyse est disponible en français pour le moment.",
-        "stagesTitle": "Quelles parties de votre entreprise souhaitez-vous explorer ?",
-        "stagesBody": "Sélectionnez les étapes à approfondir. Nous poserons seulement des questions sur ces zones — situations observables, sans jargon.",
-        "stagesPickHint": "Choisissez au moins une section pour continuer.",
-        "stagesSelected": "{count} section(s) sélectionnée(s)",
-        "stagesCta": "Commencer les questions",
+        "resultHealthyTitle": "Peu de friction prioritaire",
+        "resultEarlyTitle": "Trop tôt pour structurer davantage",
+        "localeFrOnlyNote": "L’outil d’analyse est disponible en français pour le moment.",
+        "stagesTitle": "Quelles parties de votre entreprise souhaitez-vous explorer ?",
+        "stagesBody": "Sélectionnez les étapes à approfondir. Nous poserons seulement des questions sur ces zones — situations observables, sans jargon.",
+        "stagesPickHint": "Choisissez au moins une section pour continuer.",
+        "stagesSelected": "{count} section(s) sélectionnée(s)",
+        "stagesCta": "Commencer les questions",
         "stageHints": {
-            "acquisition": "Demandes entrantes, suivis, canaux",
-            "conversion": "Soumissions, statuts, double saisie",
-            "delivery": "Travail principal et tâches répétitives",
-            "coordination": "Visibilité, handoffs, messages",
-            "admin": "Facturation, feuilles de calcul",
-            "tools": "Allers-retours entre logiciels",
-            "team": "Continuité et dépendance aux personnes"
+            "acquisition": "Demandes entrantes, suivis, canaux",
+            "conversion": "Soumissions, statuts, double saisie",
+            "delivery": "Travail principal et tâches répétitives",
+            "coordination": "Visibilité, handoffs, messages",
+            "admin": "Facturation, feuilles de calcul",
+            "tools": "Allers-retours entre logiciels",
+            "team": "Continuité et dépendance aux personnes"
         },
-        "introTitle": "Prenez quelques minutes pour faire le tour de votre entreprise.",
-        "introBody": "Nous vous poserons des questions simples sur votre façon de travailler afin de repérer où vous pourriez gagner du temps, simplifier certaines tâches ou améliorer vos opérations. À la fin, vous aurez un aperçu des opportunités qui ressortent de vos réponses.",
+        "introTitle": "Prenez quelques minutes pour faire le tour de votre entreprise.",
+        "introBody": "Nous vous poserons des questions simples sur votre façon de travailler afin de repérer où vous pourriez gagner du temps, simplifier certaines tâches ou améliorer vos opérations. À la fin, vous aurez un aperçu des opportunités qui ressortent de vos réponses.",
         "introCta": "Commencer",
-        "sectorTitle": "Dans quel contexte travaillez-vous ?",
-        "sectorBody": "Cela adapte seulement le vocabulaire — les questions restent les mêmes.",
+        "sectorTitle": "Dans quel contexte travaillez-vous ?",
+        "sectorBody": "Cela adapte seulement le vocabulaire — les questions restent les mêmes.",
         "sectors": {
-            "generic": "Général / autre",
+            "generic": "Général / autre",
             "construction": "Construction",
-            "clinic": "Clinique / santé",
-            "professional": "Services professionnels"
+            "clinic": "Clinique / santé",
+            "professional": "Services professionnels"
         },
         "stages": {
-            "acquisition": "Acquisition et demandes",
-            "conversion": "Vente et conversion",
-            "delivery": "Production et livraison",
+            "acquisition": "Acquisition et demandes",
+            "conversion": "Vente et conversion",
+            "delivery": "Production et livraison",
             "coordination": "Coordination",
-            "admin": "Facturation et administration",
-            "tools": "Outils et technologies",
+            "admin": "Facturation et administration",
+            "tools": "Outils et technologies",
             "team": "Équipe"
         },
         "stagesSector": {
             "construction": {
-                "acquisition": "Demandes et soumissions",
-                "conversion": "Estimation et contrats",
-                "delivery": "Chantier et réalisation",
-                "coordination": "Coordination de chantier",
-                "admin": "Facturation et admin"
+                "acquisition": "Demandes et soumissions",
+                "conversion": "Estimation et contrats",
+                "delivery": "Chantier et réalisation",
+                "coordination": "Coordination de chantier",
+                "admin": "Facturation et admin"
             },
             "clinic": {
-                "acquisition": "Demandes et rendez-vous",
-                "conversion": "Admission et prise en charge",
-                "delivery": "Prestation clinique",
-                "coordination": "Coordination de l'équipe",
-                "admin": "Facturation et dossiers"
+                "acquisition": "Demandes et rendez-vous",
+                "conversion": "Admission et prise en charge",
+                "delivery": "Prestation clinique",
+                "coordination": "Coordination de l'équipe",
+                "admin": "Facturation et dossiers"
             },
             "professional": {
-                "acquisition": "Leads et demandes",
-                "conversion": "Propositions et mandats",
-                "delivery": "Livraison du mandat",
-                "coordination": "Coordination interne",
-                "admin": "Facturation et admin"
+                "acquisition": "Leads et demandes",
+                "conversion": "Propositions et mandats",
+                "delivery": "Livraison du mandat",
+                "coordination": "Coordination interne",
+                "admin": "Facturation et admin"
             }
         },
-        "progress": "Question {current} sur {total}",
+        "progress": "Question {current} sur {total}",
         "next": "Continuer",
         "back": "Retour",
-        "previousQuestion": "Question précédente",
+        "previousQuestion": "Question précédente",
         "skip": "Passer",
         "editAnswer": "Modifier",
         "skippedLabel": "Passée",
-        "needAnswer": "Choisissez une réponse pour continuer.",
-        "needChannel": "Cochez au moins un canal pour continuer.",
-        "stagesNeedPick": "Sélectionnez au moins une section pour commencer.",
-        "captureNeedCompany": "Indiquez le nom de l’entreprise.",
-        "captureNeedPhone": "Indiquez un numéro de téléphone valide.",
-        "captureNeedName": "Indiquez votre nom.",
-        "multiSelectHint": "Cochez tous les canaux qui s’appliquent.",
+        "needAnswer": "Choisissez une réponse pour continuer.",
+        "needChannel": "Cochez au moins un canal pour continuer.",
+        "stagesNeedPick": "Sélectionnez au moins une section pour commencer.",
+        "captureNeedCompany": "Indiquez le nom de l’entreprise.",
+        "captureNeedPhone": "Indiquez un numéro de téléphone valide.",
+        "captureNeedName": "Indiquez votre nom.",
+        "multiSelectHint": "Cochez tous les canaux qui s’appliquent.",
         "submit": "Envoyer",
         "submitting": "Envoi…",
-        "success": "Merci — vos réponses sont enregistrées. Nous vous rappellerons sous peu.",
-        "error": "Une erreur est survenue. Réessayez ou contactez-nous.",
-        "resultTitle": "Ce que nous avons repéré",
-        "resultIntro": "À partir de vos réponses, voici les zones où des frictions semblent se répéter — et où un outil bien conçu pourrait vous faire gagner du temps.",
-        "resultPriority": "Signaux les plus marquants",
-        "resultOther": "Autres zones couvertes",
+        "success": "Merci — vos réponses sont enregistrées. Nous vous rappellerons sous peu.",
+        "error": "Une erreur est survenue. Réessayez ou contactez-nous.",
+        "resultTitle": "Ce que nous avons repéré",
+        "resultIntro": "À partir de vos réponses, voici les zones où des frictions semblent se répéter — et où un outil bien conçu pourrait vous faire gagner du temps.",
+        "resultPriority": "Signaux les plus marquants",
+        "resultOther": "Autres zones couvertes",
         "resultProgressLabel": "Résultats",
-        "resultNote": "Ces résultats portent uniquement sur les aspects explorés.",
-        "resultCta": "Voir mes résultats",
-        "viewResultsCta": "Voir mes résultats",
-        "resumeCta": "Reprendre l'analyse",
-        "resumeTitle": "Vous avez une analyse en cours",
-        "resumeBody": "Souhaitez-vous continuer là où vous vous êtes arrêté, ou recommencer depuis le début ?",
+        "resultNote": "Ces résultats portent uniquement sur les aspects explorés.",
+        "resultCta": "Voir mes résultats",
+        "viewResultsCta": "Voir mes résultats",
+        "resumeCta": "Reprendre l'analyse",
+        "resumeTitle": "Vous avez une analyse en cours",
+        "resumeBody": "Souhaitez-vous continuer là où vous vous êtes arrêté, ou recommencer depuis le début ?",
         "resumeContinue": "Continuer",
-        "resumeRestart": "Recommencer depuis le début",
-        "restartCta": "Reprendre le questionnaire",
-        "doneTitle": "C’est noté",
-        "doneBody": "Merci — nous avons bien reçu votre demande. Vous pouvez fermer cette page ou revenir à l’accueil.",
-        "doneHomeCta": "Retour à l’accueil",
+        "resumeRestart": "Recommencer depuis le début",
+        "restartCta": "Reprendre le questionnaire",
+        "doneTitle": "C’est noté",
+        "doneBody": "Merci — nous avons bien reçu votre demande. Vous pouvez fermer cette page ou revenir à l’accueil.",
+        "doneHomeCta": "Retour à l’accueil",
         "captureEyebrow": "Suite",
-        "captureTitle": "Vous voulez en discuter?",
-        "captureBody": "Si vous le souhaitez, on peut reprendre vos résultats avec vous et regarder quelles pistes valent réellement la peine d’être approfondies.",
+        "captureTitle": "Vous voulez en discuter ?",
+        "captureBody": "Si vous le souhaitez, on peut reprendre vos résultats avec vous et regarder quelles pistes valent réellement la peine d’être approfondies.",
         "captureBenefit1": "",
         "captureBenefit2": "",
         "captureBenefit3": "",
         "captureName": "Nom",
         "captureCompany": "Entreprise",
-        "captureContact": "Courriel ou téléphone",
+        "captureContact": "Courriel ou téléphone",
         "capturePhone": "Téléphone",
-        "captureSubmit": "Me contacter au sujet de mes résultats",
-        "captureReassure": "Vos coordonnées serviront à vous contacter au sujet de cette analyse.",
-        "captureNeedContact": "Indiquez un courriel ou un téléphone valide.",
-        "radarSelectInstruction": "Sélectionnez tout ce qui s’applique.",
+        "captureSubmit": "Me contacter au sujet de mes résultats",
+        "captureReassure": "Vos coordonnées serviront à vous contacter au sujet de cette analyse.",
+        "captureNeedContact": "Indiquez un courriel ou un téléphone valide.",
+        "radarSelectInstruction": "Sélectionnez tout ce qui s’applique.",
         "optionalNotePlaceholder": "Facultatif",
-        "optionalNoteContinue": "Voir mes résultats",
-        "exploreCta": "Explorer ces opportunités avec nous",
+        "optionalNoteContinue": "Voir mes résultats",
+        "exploreCta": "Explorer ces opportunités avec nous",
         "bands": {
-            "high": "Forte friction",
-            "moderate": "Friction notable",
-            "some": "Friction légère",
-            "low": "Peu de friction"
+            "high": "Forte friction",
+            "moderate": "Friction notable",
+            "some": "Friction légère",
+            "low": "Peu de friction"
         },
-        "bandLegendTitle": "Comment lire les niveaux",
+        "bandLegendTitle": "Comment lire les niveaux",
         "bandHints": {
-            "high": "Beaucoup de friction dans vos réponses — zone à traiter en premier.",
-            "moderate": "Des frictions répétées : ça mérite une discussion concrète.",
-            "some": "Quelques indices, moins urgents que les zones prioritaires.",
-            "low": "Peu de friction détectée ici pour le moment."
+            "high": "Beaucoup de friction dans vos réponses — zone à traiter en premier.",
+            "moderate": "Des frictions répétées : ça mérite une discussion concrète.",
+            "some": "Quelques indices, moins urgents que les zones prioritaires.",
+            "low": "Peu de friction détectée ici pour le moment."
         },
         "answers": {
             "frequency": {
@@ -565,269 +702,263 @@
                 "rarely": "Rarement",
                 "sometimes": "Parfois",
                 "often": "Souvent",
-                "very_often": "Très souvent"
+                "very_often": "Très souvent"
             },
             "agreement": {
-                "not_at_all": "Pas du tout",
+                "not_at_all": "Pas du tout",
                 "little": "Peu",
                 "somewhat": "Moyennement",
                 "a_lot": "Beaucoup",
-                "completely": "Tout à fait"
+                "completely": "Tout à fait"
             },
             "ease": {
-                "very_hard": "Très difficile",
+                "very_hard": "Très difficile",
                 "hard": "Difficile",
                 "acceptable": "Acceptable",
                 "easy": "Facile",
-                "very_easy": "Très facile"
+                "very_easy": "Très facile"
             },
             "yesPartialNo": {
                 "yes": "Oui",
-                "partial": "En partie",
+                "partial": "En partie",
                 "no": "Non"
             },
             "channels": {
-                "phone": "Téléphone / appels",
+                "phone": "Téléphone / appels",
                 "email": "Courriel",
-                "web_form": "Formulaire web",
-                "messaging": "Texto / messagerie",
-                "social": "Réseaux sociaux",
+                "web_form": "Formulaire web",
+                "messaging": "Texto / messagerie",
+                "social": "Réseaux sociaux",
                 "referral": "Références",
-                "walk_in": "Sur place / sans rendez-vous",
+                "walk_in": "Sur place / sans rendez-vous",
                 "other": "Autre"
             }
         },
         "questions": {
-            "acquisition_entry_01": "Par quels canaux recevez-vous vos nouvelles demandes ?",
-            "acquisition_followup_01": "À quelle fréquence des suivis de demandes sont-ils oubliés ou retardés ?",
-            "acquisition_retype_01": "Devez-vous ressaisir les mêmes informations d'une demande à un autre outil ?",
-            "conversion_docs_01": "Créez-vous encore des soumissions ou propositions de façon très répétitive ?",
-            "conversion_status_01": "Est-il facile de savoir où en est chaque opportunité en cours ?",
-            "conversion_duplicate_01": "Les mêmes données client sont-elles saisies à plusieurs endroits avant la vente ?",
-            "delivery_manual_01": "Des tâches répétitives sont-elles encore réalisées manuellement autour du travail principal ?",
-            "delivery_manual_fu": "Cette situation concerne-t-elle plusieurs personnes dans l'équipe ?",
-            "delivery_admin_01": "Combien de travail administratif entoure encore la réalisation du travail ?",
-            "delivery_info_01": "À quelle fréquence devez-vous chercher une information pour pouvoir poursuivre le travail ?",
-            "coordination_chat_01": "Les messages (courriel, texto, chat) servent-ils souvent de système de gestion du travail ?",
-            "coordination_updates_01": "Devez-vous demander régulièrement des mises à jour pour savoir où en sont les dossiers ?",
-            "coordination_handoff_01": "Lorsqu'une personne est absente, est-il facile pour quelqu'un d'autre de reprendre son travail ?",
-            "admin_billing_01": "La préparation de la facturation demande-t-elle encore beaucoup d'étapes manuelles ?",
-            "admin_sheets_01": "Utilisez-vous des feuilles de calcul pour consolider des informations provenant de plusieurs endroits ?",
-            "admin_duplicate_01": "Certaines informations doivent-elles être saisies à plus d'un endroit pour l'admin ou la facturation ?",
-            "tools_switch_01": "Vos employés doivent-ils passer d'un logiciel à l'autre pour accomplir une même tâche ?",
-            "tools_transfer_01": "Certaines informations doivent-elles être transférées manuellement entre plusieurs outils ?",
-            "tools_transfer_fu": "Ces transferts manuels se produisent-ils de façon régulière dans la semaine ?",
-            "tools_overlap_01": "Plusieurs de vos outils remplissent-ils des fonctions similaires ?",
-            "team_absence_01": "Lorsqu'un employé est absent, est-il facile pour quelqu'un d'autre de reprendre son travail ?",
-            "team_memory_01": "Certains rappels ou suivis reposent-ils principalement sur la mémoire des personnes ?"
+            "acquisition_entry_01": "Par quels canaux recevez-vous vos nouvelles demandes ?",
+            "acquisition_followup_01": "À quelle fréquence des suivis de demandes sont-ils oubliés ou retardés ?",
+            "acquisition_retype_01": "Devez-vous ressaisir les mêmes informations d'une demande à un autre outil ?",
+            "conversion_docs_01": "Créez-vous encore des soumissions ou propositions de façon très répétitive ?",
+            "conversion_status_01": "Est-il facile de savoir où en est chaque opportunité en cours ?",
+            "conversion_duplicate_01": "Les mêmes données client sont-elles saisies à plusieurs endroits avant la vente ?",
+            "delivery_manual_01": "Des tâches répétitives sont-elles encore réalisées manuellement autour du travail principal ?",
+            "delivery_manual_fu": "Cette situation concerne-t-elle plusieurs personnes dans l'équipe ?",
+            "delivery_admin_01": "Combien de travail administratif entoure encore la réalisation du travail ?",
+            "delivery_info_01": "À quelle fréquence devez-vous chercher une information pour pouvoir poursuivre le travail ?",
+            "coordination_chat_01": "Les messages (courriel, texto, chat) servent-ils souvent de système de gestion du travail ?",
+            "coordination_updates_01": "Devez-vous demander régulièrement des mises à jour pour savoir où en sont les dossiers ?",
+            "coordination_handoff_01": "Lorsqu'une personne est absente, est-il facile pour quelqu'un d'autre de reprendre son travail ?",
+            "admin_billing_01": "La préparation de la facturation demande-t-elle encore beaucoup d'étapes manuelles ?",
+            "admin_sheets_01": "Utilisez-vous des feuilles de calcul pour consolider des informations provenant de plusieurs endroits ?",
+            "admin_duplicate_01": "Certaines informations doivent-elles être saisies à plus d'un endroit pour l'admin ou la facturation ?",
+            "tools_switch_01": "Vos employés doivent-ils passer d'un logiciel à l'autre pour accomplir une même tâche ?",
+            "tools_transfer_01": "Certaines informations doivent-elles être transférées manuellement entre plusieurs outils ?",
+            "tools_transfer_fu": "Ces transferts manuels se produisent-ils de façon régulière dans la semaine ?",
+            "tools_overlap_01": "Plusieurs de vos outils remplissent-ils des fonctions similaires ?",
+            "team_absence_01": "Lorsqu'un employé est absent, est-il facile pour quelqu'un d'autre de reprendre son travail ?",
+            "team_memory_01": "Certains rappels ou suivis reposent-ils principalement sur la mémoire des personnes ?"
         },
         "blurbs": {
             "acquisition": {
-                "low": "Peu de signaux de friction sur l'entrée des demandes. Cette zone semble relativement fluide selon vos réponses.",
-                "some": "Quelques signaux suggèrent que l'entrée ou le suivi des demandes pourrait mériter un regard.",
-                "moderate": "Vos réponses indiquent des frictions possibles autour de l'accueil et du suivi des demandes.",
-                "high": "Plusieurs signaux suggèrent que le traitement des demandes entrantes pourrait être simplifié ou mieux structuré."
+                "low": "Peu de signaux de friction sur l'entrée des demandes. Cette zone semble relativement fluide selon vos réponses.",
+                "some": "Quelques signaux suggèrent que l'entrée ou le suivi des demandes pourrait mériter un regard.",
+                "moderate": "Vos réponses indiquent des frictions possibles autour de l'accueil et du suivi des demandes.",
+                "high": "Plusieurs signaux suggèrent que le traitement des demandes entrantes pourrait être simplifié ou mieux structuré."
             },
             "conversion": {
-                "low": "Peu de friction détectée entre la demande et la conversion.",
-                "some": "Certains signes indiquent que la conversion (soumissions, statuts) pourrait être allégée.",
-                "moderate": "Vos réponses suggèrent des opportunités autour des propositions, validations ou double saisie.",
-                "high": "Plusieurs réponses indiquent un potentiel élevé pour simplifier la conversion des demandes en mandats."
+                "low": "Peu de friction détectée entre la demande et la conversion.",
+                "some": "Certains signes indiquent que la conversion (soumissions, statuts) pourrait être allégée.",
+                "moderate": "Vos réponses suggèrent des opportunités autour des propositions, validations ou double saisie.",
+                "high": "Plusieurs réponses indiquent un potentiel élevé pour simplifier la conversion des demandes en mandats."
             },
             "delivery": {
-                "low": "La réalisation du travail semble peu freinée par des tâches manuelles selon vos réponses.",
-                "some": "Quelques frictions autour de la production ou de l'accès à l'information pourraient être explorées.",
-                "moderate": "Vos réponses suggèrent que certaines tâches autour de la livraison mériteraient une analyse plus approfondie.",
-                "high": "Plusieurs signaux indiquent que la production et les tâches répétitives autour du travail pourraient être simplifiées."
+                "low": "La réalisation du travail semble peu freinée par des tâches manuelles selon vos réponses.",
+                "some": "Quelques frictions autour de la production ou de l'accès à l'information pourraient être explorées.",
+                "moderate": "Vos réponses suggèrent que certaines tâches autour de la livraison mériteraient une analyse plus approfondie.",
+                "high": "Plusieurs signaux indiquent que la production et les tâches répétitives autour du travail pourraient être simplifiées."
             },
             "coordination": {
-                "low": "La coordination semble relativement claire d'après vos réponses.",
-                "some": "Quelques signes de suivi manuel ou de manque de visibilité apparaissent.",
-                "moderate": "Vos réponses suggèrent que la coordination et la visibilité du travail pourraient être renforcées.",
-                "high": "Plusieurs signaux indiquent une dépendance aux messages, à la mémoire ou aux mises à jour manuelles."
+                "low": "La coordination semble relativement claire d'après vos réponses.",
+                "some": "Quelques signes de suivi manuel ou de manque de visibilité apparaissent.",
+                "moderate": "Vos réponses suggèrent que la coordination et la visibilité du travail pourraient être renforcées.",
+                "high": "Plusieurs signaux indiquent une dépendance aux messages, à la mémoire ou aux mises à jour manuelles."
             },
             "admin": {
-                "low": "Peu de friction administrative détectée.",
-                "some": "Certaines étapes de facturation ou de consolidation pourraient être allégées.",
-                "moderate": "Vos réponses indiquent un potentiel modéré pour simplifier l'administration autour du travail.",
-                "high": "Plusieurs signaux suggèrent des frictions importantes autour de la facturation, des feuilles de calcul ou de la double saisie."
+                "low": "Peu de friction administrative détectée.",
+                "some": "Certaines étapes de facturation ou de consolidation pourraient être allégées.",
+                "moderate": "Vos réponses indiquent un potentiel modéré pour simplifier l'administration autour du travail.",
+                "high": "Plusieurs signaux suggèrent des frictions importantes autour de la facturation, des feuilles de calcul ou de la double saisie."
             },
             "tools": {
-                "low": "L'environnement logiciel ne ressort pas comme une source majeure de friction.",
-                "some": "Quelques chevauchements ou transferts manuels pourraient être intéressants à examiner.",
-                "moderate": "Vos réponses suggèrent un potentiel de simplification de l'environnement logiciel.",
-                "high": "Plusieurs signaux indiquent des transferts manuels, des allers-retours entre outils ou des chevauchements."
+                "low": "L'environnement logiciel ne ressort pas comme une source majeure de friction.",
+                "some": "Quelques chevauchements ou transferts manuels pourraient être intéressants à examiner.",
+                "moderate": "Vos réponses suggèrent un potentiel de simplification de l'environnement logiciel.",
+                "high": "Plusieurs signaux indiquent des transferts manuels, des allers-retours entre outils ou des chevauchements."
             },
             "team": {
-                "low": "Peu de friction liée à la reprise du travail ou aux suivis basés sur la mémoire.",
-                "some": "Quelques signes de dépendance aux personnes apparaissent.",
-                "moderate": "Vos réponses suggèrent qu'il pourrait être utile d'explorer la continuité du travail en équipe.",
-                "high": "Plusieurs signaux indiquent une forte dépendance aux personnes ou à la mémoire pour faire avancer le travail."
+                "low": "Peu de friction liée à la reprise du travail ou aux suivis basés sur la mémoire.",
+                "some": "Quelques signes de dépendance aux personnes apparaissent.",
+                "moderate": "Vos réponses suggèrent qu'il pourrait être utile d'explorer la continuité du travail en équipe.",
+                "high": "Plusieurs signaux indiquent une forte dépendance aux personnes ou à la mémoire pour faire avancer le travail."
             }
         }
     },
     "about": {
         "title": "À propos de Cobreo",
-        "metaDescription": "Cobreo conçoit des solutions applicatives sur mesure : analyse, design et développement pour un impact opérationnel mesurable.",
-        "eyebrow": "À propos",
-        "heroTitle": "Des partenaires pour améliorer vos opérations.",
-        "heroBody": "Cobreo conçoit des solutions applicatives sur mesure. Nous allions analyse, design et développement pour livrer un impact mesurable — sans jargon, avec des livrables concrets.",
-        "originEyebrow": "Origine",
-        "originTitle": "Pourquoi nous avons fondé Cobreo.",
-        "originBody1": "Au fil de nos parcours, un constat revenait souvent — des entreprises solides composent encore avec des processus lourds, des tâches manuelles et des outils mal adaptés à leur façon de travailler.",
-        "originBody2": "Nous avons créé Cobreo pour aider les entreprises à repérer ces occasions d’amélioration, puis concevoir des solutions simples, ancrées dans leur réalité, et capables de créer une valeur concrète. Les outils d’IA disponibles aujourd’hui nous permettent d’explorer, d’itérer et de prototyper plus rapidement — sans perdre le contrôle sur les décisions et la qualité du résultat.",
-        "foundersEyebrow": "Fondateurs",
-        "foundersTitle": "Les personnes derrière Cobreo.",
-        "foundersBody": "Des gens passionnés, unis par le même sens de l’efficacité — et la volonté de faire une vraie différence pour les PME.",
-        "founder1Name": "Dérick Paradis",
+        "metaDescription": "Cobreo est une plateforme de modules pour les organisations, conçue à Lévis (Québec) par Nicolas Stoltz et Dérick Paradis. Activez ce dont vous avez besoin.",
+        "heroTitle": "Nous rendons le travail quotidien plus simple.",
+        "heroBody": "Cobreo est une plateforme de modules pour les organisations. Vous activez ce dont vous avez besoin, et nous développons sur mesure ce qui manque.",
+        "originTitle": "Pourquoi Cobreo existe.",
+        "originBody1": "Au fil de nos parcours, nous avons souvent vu des organisations solides freinées par des processus lourds, du travail manuel et des outils mal adaptés à leur façon de travailler.",
+        "originBody2": "Nous avons créé Cobreo pour leur offrir des outils qui collent à leur réalité : une plateforme qu’on compose module par module, et des modules sur mesure quand rien n’existe encore.",
+        "foundersTitle": "Les personnes derrière Cobreo.",
+        "foundersBody": "Une petite équipe unie par le souci de rendre le travail quotidien plus simple et plus utile.",
+        "founder1Name": "Dérick Paradis",
         "founder1Role": "Cofondateur",
-        "founder1Bio": "Produit, design et développement : clarifier le besoin, prototyper vite, et livrer des outils que les équipes ont vraiment envie d’utiliser.",
-        "founder1Experience": "Parcours en développement et design — notamment en santé et en éducation.",
-        "founder2Name": "Nicolas Stoltz",
+        "founder1Bio": "Produit, design et développement. Clarifier le besoin, prototyper rapidement, et livrer des outils que les équipes ont envie d’utiliser.",
+        "founder1Experience": "Parcours en développement et design, notamment en santé et en éducation.",
+        "founder2Name": "Nicolas Stoltz",
         "founder2Role": "Cofondateur",
-        "founder2Bio": "Développement et mise en œuvre : transformer une intention claire en solution fiable, maintenable, et adaptée au quotidien.",
-        "founder2Experience": "Parcours en finance, restauration et automatisation.",
-        "approachEyebrow": "Approche",
-        "approachTitle": "Aller plus vite, sans prendre de raccourcis.",
-        "approachBody": "Notre expérience en design et en développement nous permet de savoir où concentrer nos efforts. Les nouveaux outils d’IA nous permettent d’explorer, de prototyper et de valider des solutions beaucoup plus rapidement. Nous les utilisons comme un accélérateur, tout en gardant le contrôle sur les décisions, la conception et la qualité du produit final.",
-        "workEyebrow": "Méthode",
-        "workTitle": "Comment nous travaillons.",
-        "workBody": "Nous identifions les meilleures opportunités, validons avant de construire, livrons des outils adaptés à vos opérations, puis les faisons évoluer avec vous.",
-        "workLink": "Voir nos services",
-        "ctaTitle": "Discutons de votre contexte.",
-        "ctaBody": "Un échange court pour clarifier vos priorités et voir comment on peut aider.",
-        "ctaContact": "Parlez-nous de votre projet",
-        "ctaDiagnostic": "Ouvrir l’outil d’analyse"
+        "founder2Bio": "Développement et mise en œuvre. Transformer une intention claire en solution fiable, maintenable et adaptée au quotidien.",
+        "founder2Experience": "Parcours en finance, restauration et automatisation.",
+        "approachTitle": "Accélérer sans sacrifier la qualité.",
+        "approachBody": "Notre expérience en design et en développement nous aide à savoir où concentrer nos efforts. Les outils d’IA nous permettent d’explorer, de prototyper et de valider plus rapidement, tout en gardant le contrôle sur les décisions et la qualité du produit final.",
+        "workBody": "Pour chaque organisation, nous cherchons d’abord où le gain est le plus clair, nous validons l’approche avant de construire, puis nous faisons évoluer la plateforme avec vous.",
+        "workLink": "Voir les modules",
+        "ctaTitle": "Parlons de votre projet.",
+        "ctaBody": "Un échange court pour clarifier vos priorités et voir comment on peut aider.",
+        "ctaContact": "Demander une démo",
+        "ctaDiagnostic": "Ouvrir l’outil d’analyse"
     },
     "services": {
         "title": "Services",
-        "metaDescription": "Analyse opérationnelle, conception d’applications, automatisation et accompagnement évolutif — la méthode Cobreo.",
+        "metaDescription": "Analyse opérationnelle, conception d’applications, automatisation et accompagnement évolutif avec la méthode Cobreo.",
         "eyebrow": "Services",
-        "heroTitle": "Des outils sur mesure pour soutenir votre croissance.",
-        "heroBody": "Nous simplifions vos opérations en libérant vos équipes et en automatisant les tâches répétitives — de l’analyse à la mise en production.",
+        "heroTitle": "Des outils sur mesure pour soutenir votre croissance.",
+        "heroBody": "Nous simplifions vos opérations en libérant vos équipes et en automatisant les tâches répétitives, de l’analyse jusqu’à la mise en production.",
         "processEyebrow": "Méthode",
-        "processTitle": "De la friction à un outil utile.",
-        "processBody": "On avance étape par étape — sans jargon, avec des livrables concrets à chaque fois.",
+        "processTitle": "De la friction à un outil utile.",
+        "processBody": "On avance étape par étape, avec des livrables concrets à chaque fois.",
         "step1Bold": "Identifier",
-        "step1Rest": "les meilleures opportunités.",
-        "step1Body": "On cartographie vos processus et on cible là où le gain de temps et de clarté est le plus élevé.",
+        "step1Rest": "les meilleures opportunités.",
+        "step1Body": "On cartographie vos processus et on cible là où le gain de temps et de clarté est le plus élevé.",
         "step2Bold": "Valider",
-        "step2Rest": "les solutions avant de les développer.",
-        "step2Body": "Prototypes et tests rapides pour confirmer la direction avant d’investir dans le développement.",
+        "step2Rest": "les solutions avant de les développer.",
+        "step2Body": "Prototypes et tests rapides pour confirmer la direction avant d’investir dans le développement.",
         "step3Bold": "Développer",
-        "step3Rest": "des outils adaptés à vos besoins.",
-        "step3Body": "Conception et construction d’applications concrètes, pensées pour le quotidien de vos équipes.",
-        "step4Bold": "Faire évoluer",
-        "step4Rest": "votre solution au rythme de votre entreprise.",
-        "step4Body": "Ajustements, nouvelles capacités et suivi — pour que l’outil grandisse avec vous.",
-        "domainsEyebrow": "Domaines d’impact",
-        "domainsTitle": "Où nous créons de la valeur.",
-        "domainsBody": "Des solutions conçues pour simplifier vos opérations, soutenir vos équipes et accompagner votre croissance.",
+        "step3Rest": "des outils adaptés à vos besoins.",
+        "step3Body": "Conception et construction d’applications concrètes, pensées pour le quotidien de vos équipes.",
+        "step4Bold": "Faire évoluer",
+        "step4Rest": "votre solution au rythme de votre entreprise.",
+        "step4Body": "Ajustements, nouvelles capacités et suivi, pour que l’outil grandisse avec vous.",
+        "domainsEyebrow": "Domaines d’impact",
+        "domainsTitle": "Où nous créons de la valeur.",
+        "domainsBody": "Des solutions conçues pour simplifier vos opérations, soutenir vos équipes et accompagner votre croissance.",
         "domain1Title": "Opérations",
-        "domain1Body": "Éliminez les étapes inutiles et fluidifiez le travail de vos équipes.",
-        "domain1Hint": "Gestion des demandes, gestion documentaire, suivi des dossiers, approbations internes.",
+        "domain1Body": "Éliminez les étapes inutiles et fluidifiez le travail de vos équipes.",
+        "domain1Hint": "Gestion des demandes, gestion documentaire, suivi des dossiers, approbations internes.",
         "domain2Title": "Automatisation",
-        "domain2Body": "Réduisez les manipulations manuelles et gagnez du temps au quotidien.",
-        "domain2Hint": "Rappels automatiques, génération de documents, synchronisation de données, notifications, intégration entre logiciels.",
+        "domain2Body": "Réduisez les manipulations manuelles et gagnez du temps au quotidien.",
+        "domain2Hint": "Rappels automatiques, génération de documents, synchronisation de données, notifications, intégration entre logiciels.",
         "domain3Title": "Information",
-        "domain3Body": "Regroupez vos données au même endroit pour travailler plus efficacement.",
-        "domain3Hint": "Tableaux de bord, indicateurs de performance, analyse des coûts, rapports, données centralisées.",
-        "domain4Title": "Expérience client",
-        "domain4Body": "Des outils simples qui facilitent les échanges avec vos clients.",
-        "domain4Hint": "Portail client, prise de rendez-vous, suivi des demandes, formulaires, espace membre.",
-        "domain5Title": "Prise de décision",
-        "domain5Body": "Des tableaux de bord conçus autour des indicateurs qui comptent.",
-        "domain5Hint": "Rapports en temps réel, analyses financières, prévisions, alertes personnalisées, suivi des objectifs.",
-        "domain6Title": "Outils sur mesure",
-        "domain6Body": "Des solutions qui grandissent avec votre entreprise.",
-        "domain6Hint": "Sites web, outils internes, CRM spécialisés, évaluation 360°, gestion des inspections.",
-        "ctaTitle": "Prêt à améliorer vos opérations ?",
-        "ctaBody": "Parlez-nous de votre projet, ou commencez par repérer des opportunités avec l’outil d’analyse.",
-        "ctaContact": "Parlez-nous de votre projet",
-        "ctaDiagnostic": "Découvrir des opportunités d’amélioration"
+        "domain3Body": "Regroupez vos données au même endroit pour travailler plus efficacement.",
+        "domain3Hint": "Tableaux de bord, indicateurs de performance, analyse des coûts, rapports, données centralisées.",
+        "domain4Title": "Expérience client",
+        "domain4Body": "Des outils simples qui facilitent les échanges avec vos clients.",
+        "domain4Hint": "Portail client, prise de rendez-vous, suivi des demandes, formulaires, espace membre.",
+        "domain5Title": "Prise de décision",
+        "domain5Body": "Des tableaux de bord conçus autour des indicateurs qui comptent.",
+        "domain5Hint": "Rapports en temps réel, analyses financières, prévisions, alertes personnalisées, suivi des objectifs.",
+        "domain6Title": "Outils sur mesure",
+        "domain6Body": "Des solutions qui grandissent avec votre entreprise.",
+        "domain6Hint": "Sites web, outils internes, CRM spécialisés, évaluation 360°, gestion des inspections.",
+        "ctaTitle": "Prêt à améliorer vos opérations ?",
+        "ctaBody": "Parlez-nous de votre projet, ou commencez par repérer des opportunités avec l’outil d’analyse.",
+        "ctaContact": "Parlez-nous de votre projet",
+        "ctaDiagnostic": "Découvrir des opportunités d’amélioration"
     },
     "admin": {
         "loginTitle": "Connexion",
         "email": "Courriel",
-        "password": "Mot de passe",
-        "submit": "Se connecter",
+        "password": "Mot de passe",
+        "submit": "Se connecter",
         "leads": "Demandes",
         "contacts": "Contacts",
         "logout": "Déconnexion",
-        "changePassword": "Changer le mot de passe",
-        "passwordCurrent": "Mot de passe actuel",
-        "passwordNew": "Nouveau mot de passe",
-        "passwordConfirm": "Confirmer le nouveau mot de passe",
-        "passwordSave": "Enregistrer le mot de passe",
-        "passwordChanged": "Mot de passe mis à jour.",
-        "passwordTooShort": "Le nouveau mot de passe doit avoir au moins 8 caractères.",
-        "passwordMismatch": "La confirmation ne correspond pas.",
-        "passwordCurrentInvalid": "Mot de passe actuel incorrect.",
-        "passwordChangeFailed": "Impossible de changer le mot de passe. Réessayez.",
-        "empty": "Aucune entrée pour le moment.",
+        "changePassword": "Changer le mot de passe",
+        "passwordCurrent": "Mot de passe actuel",
+        "passwordNew": "Nouveau mot de passe",
+        "passwordConfirm": "Confirmer le nouveau mot de passe",
+        "passwordSave": "Enregistrer le mot de passe",
+        "passwordChanged": "Mot de passe mis à jour.",
+        "passwordTooShort": "Le nouveau mot de passe doit avoir au moins 8 caractères.",
+        "passwordMismatch": "La confirmation ne correspond pas.",
+        "passwordCurrentInvalid": "Mot de passe actuel incorrect.",
+        "passwordChangeFailed": "Impossible de changer le mot de passe. Réessayez.",
+        "empty": "Aucune entrée pour le moment.",
         "phone": "Téléphone",
         "company": "Entreprise",
         "summary": "Résumé",
-        "language": "Langue du formulaire",
-        "diagnosticVersion": "Version du diagnostic",
-        "sessionTitle": "Session du formulaire",
+        "language": "Langue du formulaire",
+        "diagnosticVersion": "Version du diagnostic",
+        "sessionTitle": "Session du formulaire",
         "sessionDuration": "Durée",
-        "sessionSteps": "Étapes complétées",
-        "sessionResume": "Reprise d’une session",
-        "sessionCompletedAt": "Complété le",
+        "sessionSteps": "Étapes complétées",
+        "sessionResume": "Reprise d’une session",
+        "sessionCompletedAt": "Complété le",
         "yes": "Oui",
         "no": "Non",
-        "bands": "Zones repérées",
+        "bands": "Zones repérées",
         "opportunitiesTitle": "Opportunités",
-        "resultKind": "Type de résultat",
-        "resultKindHealthy": "Peu de friction prioritaire",
-        "resultKindEarly": "Trop tôt pour structurer",
-        "resultKindOpportunities": "Opportunités identifiées",
+        "resultKind": "Type de résultat",
+        "resultKindHealthy": "Peu de friction prioritaire",
+        "resultKindEarly": "Trop tôt pour structurer",
+        "resultKindOpportunities": "Opportunités identifiées",
         "opportunityLevel": {
-            "watch": "À surveiller",
+            "watch": "À surveiller",
             "possible": "Possible",
             "clear": "Claire",
-            "improvement": "À améliorer",
-            "emerging": "À préparer",
-            "exploration": "À explorer",
-            "healthy": "Fonctionne bien"
+            "improvement": "À améliorer",
+            "emerging": "À préparer",
+            "exploration": "À explorer",
+            "healthy": "Fonctionne bien"
         },
         "opportunityGain": {
-            "low": "Gain faible",
-            "moderate": "Gain modéré",
-            "important": "Gain important"
+            "low": "Gain faible",
+            "moderate": "Gain modéré",
+            "important": "Gain important"
         },
-        "qaTitle": "Questions et réponses",
-        "noDetail": "Aucun détail",
-        "contactMessage": "Message du formulaire de contact",
+        "qaTitle": "Questions et réponses",
+        "noDetail": "Aucun détail",
+        "contactMessage": "Message du formulaire de contact",
         "analyticsTab": "Analytics",
         "analyticsTitle": "Utilisation",
-        "analyticsIntro": "Vue d’ensemble du funnel diagnostic / contact, croisée avec PostHog et le CRM.",
-        "analyticsOpenPosthog": "Ouvrir PostHog",
-        "analyticsMissingKey": "Ajoutez POSTHOG_PERSONAL_API_KEY (et optionnellement POSTHOG_PROJECT_ID) dans Netlify / .env pour afficher les métriques PostHog ici. Le CRM ci-dessous reste disponible.",
-        "analyticsQueryFailed": "La requête PostHog a échoué. Vérifiez la clé personnelle et les permissions du projet.",
-        "analyticsVisitors": "Visiteurs (30 j)",
-        "analyticsStarted": "Diagnostics démarrés",
-        "analyticsCompleted": "Diagnostics terminés",
-        "analyticsCompletedNoLead": "{count} sans demande enregistrée",
-        "analyticsLeadsTracked": "Leads trackés (PH)",
-        "analyticsLeadSplit": "Diagnostic {diagnostic} · Contact {contact}",
-        "analyticsLastDays": "Sur {days} jours",
-        "analyticsCrmTitle": "CRM local",
+        "analyticsIntro": "Vue d’ensemble du funnel diagnostic / contact, croisée avec PostHog et le CRM.",
+        "analyticsOpenPosthog": "Ouvrir PostHog",
+        "analyticsMissingKey": "Ajoutez POSTHOG_PERSONAL_API_KEY (et optionnellement POSTHOG_PROJECT_ID) dans Netlify / .env pour afficher les métriques PostHog ici. Le CRM ci-dessous reste disponible.",
+        "analyticsQueryFailed": "La requête PostHog a échoué. Vérifiez la clé personnelle et les permissions du projet.",
+        "analyticsVisitors": "Visiteurs (30 j)",
+        "analyticsStarted": "Diagnostics démarrés",
+        "analyticsCompleted": "Diagnostics terminés",
+        "analyticsCompletedNoLead": "{count} sans demande enregistrée",
+        "analyticsLeadsTracked": "Leads trackés (PH)",
+        "analyticsLeadSplit": "Diagnostic {diagnostic} · Contact {contact}",
+        "analyticsLastDays": "Sur {days} jours",
+        "analyticsCrmTitle": "CRM local",
         "analyticsCrmContacts": "Contacts",
-        "analyticsCrmLeads": "Demandes (leads)",
-        "analyticsCrmOrphans": "Contacts sans lead",
-        "analyticsCrmOrphansHint": "Créés sans ligne dans Demandes — souvent un échec d’écriture après le contact.",
-        "analyticsCrmNoBooking": "Diagnostics sans RDV",
-        "analyticsCrmNoBookingHint": "Leads diagnostic sans réservation liée.",
-        "analyticsCrmDiagnostic": "Leads diagnostic",
-        "analyticsCrmContactForm": "Leads contact",
+        "analyticsCrmLeads": "Demandes (leads)",
+        "analyticsCrmOrphans": "Contacts sans lead",
+        "analyticsCrmOrphansHint": "Créés sans ligne dans Demandes — souvent un échec d’écriture après le contact.",
+        "analyticsCrmNoBooking": "Diagnostics sans RDV",
+        "analyticsCrmNoBookingHint": "Leads diagnostic sans réservation liée.",
+        "analyticsCrmDiagnostic": "Leads diagnostic",
+        "analyticsCrmContactForm": "Leads contact",
         "analyticsCrmBookings": "Réservations",
-        "analyticsCrmContactSubs": "Messages contact",
-        "analyticsOrphanListTitle": "Contacts sans demande visible",
-        "analyticsOrphanListHint": "Ces personnes existent dans contacts mais n’apparaissent pas dans l’onglet Demandes.",
-        "analyticsColName": "Nom / courriel",
-        "analyticsColDate": "Créé le",
+        "analyticsCrmContactSubs": "Messages contact",
+        "analyticsOrphanListTitle": "Contacts sans demande visible",
+        "analyticsOrphanListHint": "Ces personnes existent dans contacts mais n’apparaissent pas dans l’onglet Demandes.",
+        "analyticsColName": "Nom / courriel",
+        "analyticsColDate": "Créé le",
         "colTitle": "Titre",
         "colContact": "Contact",
         "colSource": "Source",
@@ -838,11 +969,11 @@
         "viewDetail": "Détail",
         "hideDetail": "Masquer",
         "delete": "Supprimer",
-        "deleteConfirm": "Supprimer « {title} » ? Cette action est irréversible.",
-        "actionError": "Impossible d’effectuer cette action. Réessayez.",
+        "deleteConfirm": "Supprimer « {title} » ? Cette action est irréversible.",
+        "actionError": "Impossible d’effectuer cette action. Réessayez.",
         "statuses": {
             "new": "Nouveau",
-            "in_progress": "En cours",
+            "in_progress": "En cours",
             "won": "Converti",
             "archived": "Archivé"
         },
@@ -850,77 +981,77 @@
             "diagnostic": "Diagnostic",
             "contact_form": "Contact",
             "manual": "Manuel",
-            "diagnostic_booking": "Réservation diagnostic"
+            "diagnostic_booking": "Réservation diagnostic"
         },
         "bookingTab": "Réservation",
         "bookingTitle": "Réservation",
-        "bookingIntro": "Configurez les créneaux offerts après le diagnostic. Les invitations partent par courriel (.ics) ; le lien Meet vient de BOOKING_MEET_LINK dans .env.",
+        "bookingIntro": "Configurez les créneaux offerts après le diagnostic. Les invitations partent par courriel (.ics) ; le lien Meet vient de BOOKING_MEET_LINK dans .env.",
         "bookingAvailability": "Disponibilités",
-        "bookingAvailabilityHint": "Ces règles génèrent les créneaux de 15 min proposés aux prospects.",
-        "bookingRuleName": "Nom de la règle",
-        "bookingTimezone": "Fuseau horaire",
-        "bookingDuration": "Durée (minutes)",
-        "bookingBuffer": "Tampon (minutes)",
-        "bookingNotice": "Préavis minimum (minutes)",
-        "bookingHorizon": "Horizon (jours)",
-        "bookingMaxSlots": "Créneaux max affichés",
-        "bookingWeekdays": "Jours ouverts",
-        "bookingWindows": "Plages horaires",
+        "bookingAvailabilityHint": "Ces règles génèrent les créneaux de 15 min proposés aux prospects.",
+        "bookingRuleName": "Nom de la règle",
+        "bookingTimezone": "Fuseau horaire",
+        "bookingDuration": "Durée (minutes)",
+        "bookingBuffer": "Tampon (minutes)",
+        "bookingNotice": "Préavis minimum (minutes)",
+        "bookingHorizon": "Horizon (jours)",
+        "bookingMaxSlots": "Créneaux max affichés",
+        "bookingWeekdays": "Jours ouverts",
+        "bookingWindows": "Plages horaires",
         "bookingWindowStart": "Début",
         "bookingWindowEnd": "Fin",
-        "bookingAddWindow": "Ajouter une plage",
+        "bookingAddWindow": "Ajouter une plage",
         "bookingRemoveWindow": "Retirer",
-        "bookingRuleActive": "Règle active",
-        "bookingSaveRule": "Enregistrer les disponibilités",
-        "bookingUpcoming": "Prochaines réservations",
-        "bookingUpcomingEmpty": "Aucune réservation à venir.",
+        "bookingRuleActive": "Règle active",
+        "bookingSaveRule": "Enregistrer les disponibilités",
+        "bookingUpcoming": "Prochaines réservations",
+        "bookingUpcomingEmpty": "Aucune réservation à venir.",
         "bookingSaved": "Enregistré.",
-        "bookingInvalid": "Vérifiez les champs (durée ≥ 5 min, au moins un jour et des plages HH:MM).",
-        "crmAddLead": "Ajouter un lead",
+        "bookingInvalid": "Vérifiez les champs (durée ≥ 5 min, au moins un jour et des plages HH:MM).",
+        "crmAddLead": "Ajouter un lead",
         "crmEdit": "Modifier",
-        "crmEditLeadTitle": "Modifier le lead",
+        "crmEditLeadTitle": "Modifier le lead",
         "crmSaveEdits": "Enregistrer",
-        "crmAddLeadTitle": "Nouveau lead (prospection)",
-        "crmAddLeadHint": "Pour les entreprises que vous contactez — hors formulaire ou diagnostic.",
-        "crmSaveLead": "Créer le lead",
+        "crmAddLeadTitle": "Nouveau lead (prospection)",
+        "crmAddLeadHint": "Pour les entreprises que vous contactez — hors formulaire ou diagnostic.",
+        "crmSaveLead": "Créer le lead",
         "crmCancel": "Annuler",
         "crmCompany": "Entreprise",
         "crmPerson": "Personne",
         "crmRole": "Rôle",
-        "crmRolePlaceholder": "Ex. propriétaire, ops, finance…",
-        "crmTitle": "Titre du lead",
-        "crmTitlePlaceholder": "Ex. Acme — premier appel",
+        "crmRolePlaceholder": "Ex. propriétaire, ops, finance…",
+        "crmTitle": "Titre du lead",
+        "crmTitlePlaceholder": "Ex. Acme — premier appel",
         "crmPhone": "Téléphone",
         "crmEmail": "Courriel",
         "crmNotes": "Notes",
-        "crmNextStep": "Prochaine action",
-        "crmNextStepPlaceholder": "Ex. rappeler jeudi, envoyer exemples…",
+        "crmNextStep": "Prochaine action",
+        "crmNextStepPlaceholder": "Ex. rappeler jeudi, envoyer exemples…",
         "crmDueDate": "Échéance",
-        "crmNeedContact": "Indiquez un téléphone ou un courriel.",
-        "crmInvalid": "Entreprise et personne sont requis.",
-        "crmPanelTitle": "Suivi CRM",
+        "crmNeedContact": "Indiquez un téléphone ou un courriel.",
+        "crmInvalid": "Entreprise et personne sont requis.",
+        "crmPanelTitle": "Suivi CRM",
         "crmPeople": "Personnes",
-        "crmPeopleEmpty": "Aucune personne ajoutée pour l’instant.",
-        "crmImportContact": "Ajouter « {name} » comme personne",
+        "crmPeopleEmpty": "Aucune personne ajoutée pour l’instant.",
+        "crmImportContact": "Ajouter « {name} » comme personne",
         "crmPrimary": "Principal",
-        "crmAddPerson": "Ajouter la personne",
-        "crmNoPerson": "Sans personne liée",
-        "crmWhatsNext": "Prochaines actions",
-        "crmNextEmpty": "Rien de planifié — ajoutez la prochaine étape.",
-        "crmAddNextStep": "Ajouter l’action",
+        "crmAddPerson": "Ajouter la personne",
+        "crmNoPerson": "Sans personne liée",
+        "crmWhatsNext": "Prochaines actions",
+        "crmNextEmpty": "Rien de planifié — ajoutez la prochaine étape.",
+        "crmAddNextStep": "Ajouter l’action",
         "crmMarkDone": "Fait",
         "crmReopen": "Rouvrir",
         "crmAppointments": "Rendez-vous",
-        "crmAppointmentsEmpty": "Aucun rendez-vous planifié.",
-        "crmAppointmentTitle": "Titre du RDV",
-        "crmLocationOrLink": "Lieu ou lien",
-        "crmAddAppointment": "Planifier le RDV",
-        "crmActivity": "Discussions / rencontres",
-        "crmActivityEmpty": "Aucun échange noté.",
+        "crmAppointmentsEmpty": "Aucun rendez-vous planifié.",
+        "crmAppointmentTitle": "Titre du RDV",
+        "crmLocationOrLink": "Lieu ou lien",
+        "crmAddAppointment": "Planifier le RDV",
+        "crmActivity": "Discussions / rencontres",
+        "crmActivityEmpty": "Aucun échange noté.",
         "crmActivityKind": "Type",
         "crmActivitySummary": "Résumé",
-        "crmLogActivity": "Noter l’échange",
-        "crmNoInboundDetail": "Lead manuel — utilisez le suivi CRM ci-dessous.",
+        "crmLogActivity": "Noter l’échange",
+        "crmNoInboundDetail": "Lead manuel — utilisez le suivi CRM ci-dessous.",
         "crmActivityKinds": {
             "call": "Appel",
             "meeting": "Rencontre",
@@ -939,5 +1070,574 @@
             "cancelled": "Annulé",
             "no_show": "Absent"
         }
+    },
+    "scenes": {
+        "columns": [
+            "Nom",
+            "Type",
+            "Statut"
+        ],
+        "nav": [
+            "CRM",
+            "Événements",
+            "Réservations"
+        ],
+        "crmLabel": "CRM",
+        "on": "Activé",
+        "off": "Inactif",
+        "catalogLabel": "Modules",
+        "calendarLabel": "Réservations",
+        "days": [
+            "Lun",
+            "Mar",
+            "Mer",
+            "Jeu",
+            "Ven"
+        ],
+        "customLabel": "Modules privés",
+        "customColumns": [
+            "Module",
+            "Portée",
+            "Statut"
+        ],
+        "storeLabel": "Boutique",
+        "storeColumns": [
+            "Module",
+            "Origine",
+            "Statut"
+        ],
+        "assistantLabel": "Assistant",
+        "assistantPrompt": "Comment activer le suivi des réservations ?",
+        "assistantReply": "Activez Réservations, puis reliez-le au CRM. Je peux vous montrer les étapes.",
+        "billingLabel": "Modules activés",
+        "billingColumns": [
+            "Module",
+            "Place",
+            "Statut"
+        ],
+        "surveyQuestion": "Comment s’est passée votre dernière visite ?",
+        "crm": [
+            {
+                "title": "Horizon Bois",
+                "meta": "Organisation",
+                "status": "Suivi"
+            },
+            {
+                "title": "Inès Marchand",
+                "meta": "Personne",
+                "status": "Nouveau",
+                "statusAlt": "En cours"
+            },
+            {
+                "title": "Clinique des Érables",
+                "meta": "Organisation",
+                "status": "Suivi"
+            },
+            {
+                "title": "Groupe Sorel",
+                "meta": "Organisation",
+                "status": "Nouveau",
+                "appear": true
+            }
+        ],
+        "picker": [
+            {
+                "name": "CRM",
+                "state": "on"
+            },
+            {
+                "name": "Événements",
+                "state": "turn-on"
+            },
+            {
+                "name": "Satisfaction",
+                "state": "off"
+            },
+            {
+                "name": "Réservations",
+                "state": "on"
+            },
+            {
+                "name": "Tâches",
+                "state": "off"
+            }
+        ],
+        "calendar": [
+            {
+                "day": 0,
+                "time": "09:00",
+                "title": "Visite"
+            },
+            {
+                "day": 2,
+                "time": "14:00",
+                "title": "Atelier"
+            },
+            {
+                "day": 3,
+                "time": "11:00",
+                "title": "Revue",
+                "appear": true
+            }
+        ],
+        "events": [
+            {
+                "title": "Forum d’automne",
+                "meta": "12 novembre",
+                "status": "Inscriptions ouvertes"
+            },
+            {
+                "title": "Atelier du jeudi",
+                "meta": "20 novembre",
+                "status": "Préparation"
+            },
+            {
+                "title": "Visite de site",
+                "meta": "3 décembre",
+                "status": "Brouillon",
+                "appear": true
+            }
+        ],
+        "survey": [
+            {
+                "name": "Claire M.",
+                "text": "L’accueil était clair, et le suivi aussi."
+            },
+            {
+                "name": "Julien P.",
+                "text": "Le délai avant le rendez-vous était long."
+            },
+            {
+                "name": "Nadia K.",
+                "text": "Simple du début à la fin.",
+                "appear": true
+            }
+        ],
+        "custom": [
+            {
+                "title": "Suivi de chantier",
+                "meta": "Privé",
+                "status": "Disponible"
+            },
+            {
+                "title": "Portail intervenant",
+                "meta": "Publié",
+                "status": "Disponible"
+            },
+            {
+                "title": "Grille d’inspection",
+                "meta": "Privé",
+                "status": "En relecture",
+                "appear": true
+            }
+        ],
+        "store": [
+            {
+                "title": "Portail intervenant",
+                "meta": "Publié",
+                "status": "Disponible"
+            },
+            {
+                "title": "Inscriptions",
+                "meta": "Publié",
+                "status": "Disponible"
+            },
+            {
+                "title": "Suivi de chantier",
+                "meta": "Privé",
+                "status": "Réservé à l’organisation"
+            }
+        ],
+        "billing": [
+            {
+                "title": "CRM",
+                "meta": "Activé",
+                "status": "Facturé"
+            },
+            {
+                "title": "Réservations",
+                "meta": "Activé",
+                "status": "Facturé"
+            },
+            {
+                "title": "Événements",
+                "meta": "Non activé",
+                "status": "Hors plateforme"
+            },
+            {
+                "title": "Tâches",
+                "meta": "Non activé",
+                "status": "Hors plateforme"
+            }
+        ],
+        "records": {
+            "automation": {
+                "columns": [
+                    "Action",
+                    "Déclencheur",
+                    "Statut"
+                ],
+                "rows": [
+                    {
+                        "title": "Rappel de rendez-vous",
+                        "meta": "Réservations",
+                        "status": "Actif"
+                    },
+                    {
+                        "title": "Confirmation d’inscription",
+                        "meta": "Événements",
+                        "status": "Actif"
+                    },
+                    {
+                        "title": "Accusé de réception",
+                        "meta": "CRM",
+                        "status": "Brouillon",
+                        "appear": true
+                    }
+                ]
+            },
+            "sites": {
+                "columns": [
+                    "Page",
+                    "Emplacement",
+                    "Statut"
+                ],
+                "rows": [
+                    {
+                        "title": "Page d’accueil",
+                        "meta": "Public",
+                        "status": "Publiée"
+                    },
+                    {
+                        "title": "Inscription",
+                        "meta": "Public",
+                        "status": "Brouillon"
+                    },
+                    {
+                        "title": "Confirmation",
+                        "meta": "Public",
+                        "status": "Publiée",
+                        "appear": true
+                    }
+                ]
+            },
+            "portals": {
+                "columns": [
+                    "Espace",
+                    "Organisation",
+                    "Statut"
+                ],
+                "rows": [
+                    {
+                        "title": "Espace client",
+                        "meta": "Horizon Bois",
+                        "status": "Ouvert"
+                    },
+                    {
+                        "title": "Espace intervenant",
+                        "meta": "Clinique des Érables",
+                        "status": "Ouvert"
+                    },
+                    {
+                        "title": "Espace fournisseur",
+                        "meta": "Groupe Sorel",
+                        "status": "Invitation",
+                        "appear": true
+                    }
+                ]
+            },
+            "hr": {
+                "columns": [
+                    "Personne",
+                    "Dossier",
+                    "Statut"
+                ],
+                "rows": [
+                    {
+                        "title": "Inès Marchand",
+                        "meta": "Arrivée",
+                        "status": "En cours"
+                    },
+                    {
+                        "title": "Marc Pelletier",
+                        "meta": "Dossier",
+                        "status": "À jour"
+                    },
+                    {
+                        "title": "Sofia Nguyen",
+                        "meta": "Absence",
+                        "status": "À venir",
+                        "appear": true
+                    }
+                ]
+            },
+            "finance": {
+                "columns": [
+                    "Pièce",
+                    "Organisation",
+                    "Statut"
+                ],
+                "rows": [
+                    {
+                        "title": "Facture d’octobre",
+                        "meta": "Horizon Bois",
+                        "status": "Envoyée"
+                    },
+                    {
+                        "title": "Dépense d’atelier",
+                        "meta": "Studio Marin",
+                        "status": "À revoir"
+                    },
+                    {
+                        "title": "Paiement reçu",
+                        "meta": "Clinique des Érables",
+                        "status": "Rapproché",
+                        "appear": true
+                    }
+                ]
+            },
+            "tasks": {
+                "columns": [
+                    "Tâche",
+                    "Lié à",
+                    "Statut"
+                ],
+                "rows": [
+                    {
+                        "title": "Préparer la salle",
+                        "meta": "Événements",
+                        "status": "En cours"
+                    },
+                    {
+                        "title": "Relire les réponses",
+                        "meta": "Satisfaction",
+                        "status": "À faire"
+                    },
+                    {
+                        "title": "Confirmer le jeudi",
+                        "meta": "Réservations",
+                        "status": "À faire",
+                        "appear": true
+                    }
+                ]
+            }
+        },
+        "search": "Rechercher"
+    },
+    "modules": {
+        "metaTitle": "Modules · Cobreo",
+        "metaDescription": "Les modules Cobreo : CRM, événements, satisfaction, réservations, et d’autres que vous activez selon votre façon de travailler.",
+        "title": "Les modules",
+        "body": "Vous activez un ou plusieurs modules selon ce dont votre équipe a besoin.",
+        "restTitle": "Les autres modules",
+        "restBody": "Ils s’activent de la même façon, seuls ou avec d’autres modules.",
+        "extendTitle": "Demandez-nous de développer le module ou le plugin que vous souhaitez.",
+        "extendBody": "Une fois Cobreo en place, la plateforme continue d’évoluer. Nous ajoutons des modules et publions des mises à jour, et votre organisation en profite sans travail supplémentaire de votre côté.",
+        "items": [
+            {
+                "id": "crm",
+                "name": "CRM",
+                "tagline": "Toute l’équipe voit l’historique de chaque contact et sait qui s’occupe de la prochaine relance.",
+                "points": [
+                    {
+                        "title": "Partenaires et commanditaires",
+                        "body": "Suivez chaque relation, du premier contact au renouvellement."
+                    },
+                    {
+                        "title": "Soumissions sans réponse",
+                        "body": "Repérez les soumissions qui attendent une réponse et relancez au bon moment."
+                    },
+                    {
+                        "title": "Historique des échanges",
+                        "body": "Appels, courriels et notes, regroupés par organisme."
+                    },
+                    {
+                        "title": "Contacts partagés",
+                        "body": "Une seule liste de contacts, à jour pour toute l’équipe."
+                    }
+                ],
+                "scene": "crm"
+            },
+            {
+                "id": "events",
+                "name": "Événements",
+                "tagline": "Des inscriptions jusqu’au jour de l’événement, tout se gère au même endroit.",
+                "points": [
+                    {
+                        "title": "Billetterie",
+                        "body": "Vendez ou distribuez vos billets et suivez leur utilisation."
+                    },
+                    {
+                        "title": "Formulaires d’inscription",
+                        "body": "Créez le formulaire et partagez le lien en quelques minutes."
+                    },
+                    {
+                        "title": "Suivi des inscriptions",
+                        "body": "Voyez qui est inscrit et quels dossiers sont incomplets."
+                    },
+                    {
+                        "title": "Messages aux participants",
+                        "body": "Envoyez les consignes et les rappels à toutes les personnes inscrites."
+                    }
+                ],
+                "scene": "events"
+            },
+            {
+                "id": "satisfaction",
+                "name": "Satisfaction",
+                "tagline": "Après chaque service, vous savez ce que les gens en ont pensé et à qui faire un suivi.",
+                "points": [
+                    {
+                        "title": "Sondages automatiques",
+                        "body": "Un sondage part dès qu’un service est terminé. Vous pouvez aussi en envoyer à tout moment."
+                    },
+                    {
+                        "title": "Réactions négatives repérées",
+                        "body": "Les commentaires mécontents ressortent, pour que vous puissiez y répondre vite."
+                    },
+                    {
+                        "title": "Portrait de votre clientèle",
+                        "body": "Voyez, au fil du temps, qui fait appel à vous et ce que ces personnes demandent."
+                    },
+                    {
+                        "title": "Résultats en graphiques",
+                        "body": "Suivez l’évolution des réponses dans des graphiques clairs."
+                    }
+                ],
+                "scene": "survey"
+            },
+            {
+                "id": "booking",
+                "name": "Réservations",
+                "tagline": "Vos clients prennent rendez-vous en ligne, dans les plages horaires que vous ouvrez.",
+                "points": [
+                    {
+                        "title": "Gestion des rendez-vous",
+                        "body": "Confirmez, déplacez ou annulez un rendez-vous en quelques clics."
+                    },
+                    {
+                        "title": "Disponibilités",
+                        "body": "Ouvrez vos plages horaires et évitez les doubles réservations."
+                    },
+                    {
+                        "title": "Rappels automatiques",
+                        "body": "Un rappel part avant chaque rendez-vous pour réduire les absences."
+                    }
+                ],
+                "scene": "calendar"
+            },
+            {
+                "id": "automation",
+                "name": "Automatisation",
+                "tagline": "Les tâches répétitives se déclenchent d’elles-mêmes, sans que personne ait à y penser.",
+                "points": [
+                    {
+                        "title": "Relances",
+                        "body": "Une relance part quand une demande reste sans réponse."
+                    },
+                    {
+                        "title": "Réponses automatiques",
+                        "body": "Chaque formulaire reçu obtient une réponse immédiate."
+                    },
+                    {
+                        "title": "Actions planifiées",
+                        "body": "Déclenchez une action à une date précise ou quand un dossier change de statut."
+                    }
+                ],
+                "scene": "records"
+            },
+            {
+                "id": "sites",
+                "name": "Sites et pages publiques",
+                "tagline": "Votre équipe publie elle-même une page pour chaque campagne, activité ou annonce.",
+                "points": [
+                    {
+                        "title": "Sans développeur",
+                        "body": "Rédigez, modifiez et publiez le contenu vous-mêmes."
+                    },
+                    {
+                        "title": "Pages temporaires",
+                        "body": "Fixez une date de fin : la page se retire d’elle-même."
+                    },
+                    {
+                        "title": "Pages interactives",
+                        "body": "Ajoutez un formulaire, une inscription ou une prise de rendez-vous."
+                    }
+                ],
+                "scene": "records"
+            },
+            {
+                "id": "portals",
+                "name": "Portails usagers",
+                "tagline": "Vos usagers suivent leur dossier et échangent avec vous dans leur propre espace.",
+                "points": [
+                    {
+                        "title": "Messagerie",
+                        "body": "Chaque échange reste rattaché au dossier de la personne."
+                    },
+                    {
+                        "title": "Échange de fichiers",
+                        "body": "Déposez et recevez des documents sans passer par le courriel."
+                    },
+                    {
+                        "title": "Étapes du dossier",
+                        "body": "L’usager voit où en est son dossier et ce qu’il lui reste à faire."
+                    },
+                    {
+                        "title": "Documentation",
+                        "body": "Donnez à chaque usager accès aux guides et aux documents utiles."
+                    }
+                ],
+                "scene": "records"
+            },
+            {
+                "id": "hr",
+                "name": "Ressources humaines",
+                "tagline": "Évaluations et climat de travail, avec la possibilité de répondre de façon anonyme.",
+                "points": [
+                    {
+                        "title": "Évaluations",
+                        "body": "Préparez et suivez les évaluations annuelles de l’équipe."
+                    },
+                    {
+                        "title": "Climat de travail",
+                        "body": "Mesurez régulièrement comment l’équipe se sent au travail."
+                    },
+                    {
+                        "title": "Commentaires anonymisés",
+                        "body": "Les employés s’expriment sans que leur nom soit associé à leurs réponses."
+                    }
+                ],
+                "scene": "records"
+            },
+            {
+                "id": "finance",
+                "name": "Finances",
+                "tagline": "Suivez la facturation et les échéances sans tenir de tableur à part.",
+                "points": [
+                    {
+                        "title": "Factures et remboursements",
+                        "body": "Remplissez factures et demandes de remboursement sans ressaisir les mêmes informations."
+                    },
+                    {
+                        "title": "Vue d’ensemble",
+                        "body": "Facturation, paiements et soldes regroupés dans une même vue."
+                    },
+                    {
+                        "title": "Prévisions",
+                        "body": "Anticipez les échéances et les montants à venir."
+                    }
+                ],
+                "scene": "records"
+            }
+        ],
+        "demoLink": "Voir ce module en démo"
+    },
+    "notFound": {
+        "code": "404",
+        "title": "Cette page n’existe pas.",
+        "body": "Le lien est peut-être ancien, ou l’adresse a été saisie de façon inexacte.",
+        "home": "Retour à l’accueil",
+        "modules": "Voir les modules"
     }
 }

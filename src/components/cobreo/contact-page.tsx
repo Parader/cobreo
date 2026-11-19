@@ -22,7 +22,7 @@ export function ContactPage() {
     const bodyStagger = staggerContainer(reduce, 0.16, 0.2);
 
     return (
-        <div className="relative overflow-x-clip bg-[#efedea]">
+        <div className="relative overflow-x-clip bg-white">
             <MarketingAtmosphere />
 
             <div className="relative z-10 mx-auto max-w-container px-4 pb-24 pt-12 md:px-8 md:pb-32 md:pt-16">

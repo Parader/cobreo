@@ -7,7 +7,8 @@ import { FileCheck02, Menu01, XClose } from "@untitledui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { getAdminSlug } from "@/lib/admin-path";
-import { DiagnosticEntryButton } from "@/components/cobreo/diagnostic/diagnostic-entry-button";
+import { APP_URL } from "@/lib/marketing";
+import { DemoButton } from "@/components/cobreo/marketing/demo-button";
 import { getDiagnosticStatus, type DiagnosticStatus } from "@/lib/diagnostic/v7/persistence";
 import { AnalyticsEvents } from "@/lib/analytics/events";
 import { trackEvent } from "@/lib/analytics/posthog";
@@ -17,10 +18,34 @@ import { cx } from "@/utils/cx";
 const focusRing =
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d6b97]";
 
-function isNavActive(pathname: string | null, href: string) {
+type NavHref = string | { pathname: string; hash?: string };
+
+function hrefPath(href: NavHref) {
+    return typeof href === "string" ? href : href.pathname;
+}
+
+function hrefKey(href: NavHref) {
+    if (typeof href === "string") return href;
+    return href.hash ? `${href.pathname}#${href.hash}` : href.pathname;
+}
+
+function isNavActive(pathname: string | null, href: NavHref) {
     if (!pathname) return false;
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(`${href}/`);
+    if (typeof href === "object" && href.hash) return false;
+    const path = hrefPath(href);
+    if (path === "/") return pathname === "/";
+    return pathname === path || pathname.startsWith(`${path}/`);
+}
+
+/** Same-page hash links (e.g. Modules on the home page) glide instead of jumping. */
+function scrollToHash(e: React.MouseEvent, pathname: string | null, href: NavHref) {
+    if (typeof href !== "object" || !href.hash || pathname !== href.pathname) return;
+    const target = document.getElementById(href.hash);
+    if (!target) return;
+    e.preventDefault();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${href.hash}`);
 }
 
 function navLinkClassName(active: boolean) {
@@ -74,6 +99,7 @@ export function SiteHeader() {
         const onScroll = () => {
             const y = window.scrollY;
             const delta = y - lastY.current;
+            /* Transparent at the hero; solidify after a short scroll. */
             setAtTop(y < 12);
             if (y < 48) {
                 setHidden(false);
@@ -109,7 +135,7 @@ export function SiteHeader() {
     const effectivelyHidden = hidden && !headerFocused && !menuOpen;
 
     const links = [
-        { href: "/services" as const, label: t("services") },
+        { href: { pathname: "/", hash: "modules" } as const, label: t("modules") },
         { href: "/a-propos" as const, label: t("about") },
         { href: "/contact" as const, label: t("contact") },
     ];
@@ -131,7 +157,7 @@ export function SiteHeader() {
                 "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,backdrop-filter,border-color,transform,box-shadow] duration-300 ease-out",
                 atTop && !menuOpen
                     ? "border-transparent bg-transparent shadow-none backdrop-blur-none"
-                    : "border-[#171717]/10 bg-[#efedea]/90 shadow-[0_1px_0_rgba(23,23,23,0.06)] backdrop-blur-xl",
+                    : "border-[#171717]/08 bg-white/90 shadow-[0_1px_0_rgba(37,51,83,0.06)] backdrop-blur-md",
                 effectivelyHidden ? "-translate-y-full" : "translate-y-0",
             )}
         >
@@ -150,15 +176,16 @@ export function SiteHeader() {
                     >
                         <Image src="/images/cobreologo.svg" alt="Cobreo" fill className="object-contain object-left" priority />
                     </Link>
-                    <nav className="hidden items-center gap-3 lg:gap-4 md:flex" aria-label={t("primaryNav")}>
+                    <nav className="hidden items-center gap-3 lg:flex lg:gap-4" aria-label={t("primaryNav")}>
                         {links.map((link) => {
                             const active = isNavActive(pathname, link.href);
                             return (
                                 <Link
-                                    key={link.href}
+                                    key={hrefKey(link.href)}
                                     href={link.href}
                                     className={navLinkClassName(active)}
                                     aria-current={active ? "page" : undefined}
+                                    onClick={(e) => scrollToHash(e, pathname, link.href)}
                                 >
                                     {link.label}
                                 </Link>
@@ -184,21 +211,29 @@ export function SiteHeader() {
                     >
                         {t("lang")}
                     </Link>
-                    <div className="hidden sm:block">
-                        <DiagnosticEntryButton
-                            variant="ghost"
-                            size="md"
-                            surface="header"
-                            ctaId="header_diagnostic"
-                            idleLabel={t("diagnostic")}
-                            iconLeading={<FileCheck02 className="size-5" />}
-                            className={isNavActive(pathname, "/diagnostic") ? "bg-[#4d6b97]/10" : undefined}
-                        />
-                    </div>
+                    <a
+                        href={APP_URL}
+                        className={cx("hidden rounded-md px-2 py-1.5 text-base font-semibold text-[#404040] lg:inline", focusRing)}
+                    >
+                        {t("login")}
+                    </a>
+                    <Link
+                        href="/diagnostic"
+                        className={cx(
+                            "hidden rounded-md px-2 py-1.5 text-base font-semibold lg:inline",
+                            focusRing,
+                            isNavActive(pathname, "/diagnostic") ? "text-[#253353]" : "text-[#404040] hover:text-[#171717]",
+                        )}
+                    >
+                        {t("diagnostic")}
+                    </Link>
+                    <DemoButton ctaId="header_demo" surface="header" size="md" className="max-sm:px-3">
+                        {t("cta")}
+                    </DemoButton>
                     <button
                         type="button"
                         className={cx(
-                            "inline-flex size-10 items-center justify-center rounded-lg text-[#404040] transition-colors duration-100 ease-linear hover:bg-[#171717]/5 md:hidden",
+                            "inline-flex size-10 items-center justify-center rounded-lg text-[#404040] transition-colors duration-100 ease-linear hover:bg-[#171717]/5 lg:hidden",
                             focusRing,
                         )}
                         aria-expanded={menuOpen}
@@ -214,23 +249,32 @@ export function SiteHeader() {
             {menuOpen ? (
                 <div
                     id={menuId}
-                    className="border-t border-[#171717]/10 bg-[#efedea] px-4 py-4 md:hidden"
+                    className="border-t border-[#171717]/08 bg-white px-4 py-4 lg:hidden"
                 >
                     <nav className="flex flex-col gap-1.5" aria-label={t("primaryNav")}>
+                        <DemoButton ctaId="header_demo_mobile" surface="header_mobile" size="md" className="mb-2 w-full">
+                            {t("cta")}
+                        </DemoButton>
                         {links.map((link) => {
                             const active = isNavActive(pathname, link.href);
                             return (
                                 <Link
-                                    key={link.href}
+                                    key={hrefKey(link.href)}
                                     href={link.href}
                                     className={mobileNavLinkClassName(active)}
                                     aria-current={active ? "page" : undefined}
-                                    onClick={() => setMenuOpen(false)}
+                                    onClick={(e) => {
+                                        setMenuOpen(false);
+                                        scrollToHash(e, pathname, link.href);
+                                    }}
                                 >
                                     {link.label}
                                 </Link>
                             );
                         })}
+                        <a href={APP_URL} className={mobileNavLinkClassName(false)} onClick={() => setMenuOpen(false)}>
+                            {t("login")}
+                        </a>
                         <Link
                             href="/diagnostic"
                             className={cx(

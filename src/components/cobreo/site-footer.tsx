@@ -3,12 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { MessageChatSquare } from "@untitledui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import { getAdminSlug } from "@/lib/admin-path";
 import { LINKEDIN_URL } from "@/lib/seo";
 import { LinkedIn } from "@/components/foundations/social-icons";
-import { CobreoButton } from "@/components/cobreo/cobreo-button";
+import { DemoButton } from "@/components/cobreo/marketing/demo-button";
 
 export function SiteFooter() {
     const t = useTranslations("footer");
@@ -35,10 +34,10 @@ export function SiteFooter() {
                         </div>
                         <nav className="flex flex-wrap items-center gap-x-9 gap-y-4 text-sm font-semibold text-[#efedea]" aria-label="Footer">
                             <Link
-                                href="/services"
+                                href={{ pathname: "/", hash: "modules" }}
                                 className="opacity-90 transition duration-100 ease-linear hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a6b5cb]"
                             >
-                                {t("services")}
+                                {t("modules")}
                             </Link>
                             <Link
                                 href="/a-propos"
@@ -74,15 +73,9 @@ export function SiteFooter() {
                             </a>
                         </div>
                     </div>
-                    <CobreoButton
-                        href="/contact"
-                        variant="primary"
-                        size="xl"
-                        iconLeading={<MessageChatSquare className="size-5" />}
-                        analytics={{ ctaId: "footer_contact", destination: "contact", surface: "footer" }}
-                    >
+                    <DemoButton ctaId="footer_demo" surface="footer" variant="inverse">
                         {t("cta")}
-                    </CobreoButton>
+                    </DemoButton>
                 </div>
                 <hr className="border-white/10" />
                 <div className="flex flex-col justify-between gap-4 text-sm text-white/50 md:flex-row">

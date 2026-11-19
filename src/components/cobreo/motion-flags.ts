@@ -8,7 +8,7 @@
  *                 src/components/cobreo/layers-*.tsx src/components/cobreo/home-page.tsx
  *                 (or delete layers-* files and set flag false)
  */
-export const LAYERS_MOTION_EXPERIMENT = true;
+export const LAYERS_MOTION_EXPERIMENT = false;
 
 /**
  * Shader / particle logo textures (hero rings, watermarks).

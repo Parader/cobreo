@@ -144,6 +144,21 @@ export function CobreoButton({
     );
 
     if (href) {
+        const external = href.startsWith("http://") || href.startsWith("https://");
+        if (external) {
+            return (
+                <a
+                    href={href}
+                    className={classes}
+                    onClick={() => {
+                        handleAnalytics();
+                    }}
+                >
+                    {inner}
+                </a>
+            );
+        }
+
         return (
             <Link
                 href={href}

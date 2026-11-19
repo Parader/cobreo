@@ -13,6 +13,7 @@ export function DiagnosticEntryButton({
     idleLabel,
     surface = "unknown",
     ctaId = "diagnostic_entry",
+    glaze = true,
     ...props
 }: ButtonProps & {
     iconTrailing?: ComponentProps<typeof CobreoButton>["iconTrailing"];
@@ -20,6 +21,8 @@ export function DiagnosticEntryButton({
     idleLabel?: ReactNode;
     surface?: string;
     ctaId?: string;
+    /** Periodic shine. Off on the quieter marketing pages. */
+    glaze?: boolean;
 }) {
     const t = useTranslations("home");
     const td = useTranslations("diagnostic");
@@ -40,7 +43,7 @@ export function DiagnosticEntryButton({
     return (
         <CobreoButton
             href="/diagnostic"
-            glaze
+            glaze={glaze}
             iconTrailing={iconTrailing}
             analytics={{
                 ctaId,

@@ -1,34 +1,48 @@
-"use client";
+import Link from "next/link";
 
-import { ArrowLeft } from "@untitledui/icons";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/base/buttons/button";
+const copy = {
+    fr: {
+        code: "404",
+        title: "Cette page n’existe pas.",
+        body: "Le lien est peut-être ancien, ou l’adresse a été saisie de façon inexacte.",
+        home: "Retour à l’accueil",
+    },
+    en: {
+        code: "404",
+        title: "This page does not exist.",
+        body: "The link may be out of date, or the address may have been typed incorrectly.",
+        home: "Back to home",
+    },
+} as const;
 
 export default function NotFound() {
-    const router = useRouter();
+    const t = copy.fr;
 
     return (
-        <section className="flex min-h-screen items-start bg-primary py-16 md:items-center md:py-24">
-            <div className="mx-auto max-w-container grow px-4 md:px-8">
-                <div className="flex w-full max-w-3xl flex-col gap-8 md:gap-12">
-                    <div className="flex flex-col gap-4 md:gap-6">
-                        <div className="flex flex-col gap-3">
-                            <span className="text-md font-semibold text-brand-secondary">404 error</span>
-                            <h1 className="text-display-md font-semibold text-primary md:text-display-lg lg:text-display-xl">We can’t find that page</h1>
-                        </div>
-                        <p className="text-lg text-tertiary md:text-xl">Sorry, the page you are looking for doesn&apos;t exist or has been moved.</p>
-                    </div>
-
-                    <div className="flex flex-col-reverse gap-3 sm:flex-row">
-                        <Button color="secondary" size="xl" iconLeading={ArrowLeft} onClick={() => router.back()}>
-                            Go back
-                        </Button>
-                        <Button size="xl" onClick={() => router.back()}>
-                            Take me home
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <html lang="fr">
+            <body
+                style={{
+                    margin: 0,
+                    background: "#ffffff",
+                    color: "#171717",
+                    fontFamily: '"SN Pro Variable", ui-sans-serif, sans-serif',
+                }}
+            >
+                <main style={{ maxWidth: 640, margin: "0 auto", padding: "96px 24px" }}>
+                    <p style={{ color: "#4d6b97", fontWeight: 600 }}>{t.code}</p>
+                    <h1 style={{ fontSize: 40, fontWeight: 400, letterSpacing: "-0.03em", lineHeight: 1.15 }}>{t.title}</h1>
+                    <p style={{ fontSize: 18, lineHeight: 1.5, color: "#404040" }}>{t.body}</p>
+                    <p style={{ marginTop: 28 }}>
+                        <Link href="/fr" style={{ color: "#253353", fontWeight: 600 }}>
+                            {t.home}
+                        </Link>
+                        <span style={{ color: "#a3a3a3" }}> · </span>
+                        <Link href="/en" style={{ color: "#253353", fontWeight: 600 }}>
+                            {copy.en.home}
+                        </Link>
+                    </p>
+                </main>
+            </body>
+        </html>
     );
 }

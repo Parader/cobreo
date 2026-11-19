@@ -47,7 +47,7 @@ export default async function LocaleLayout({
             </head>
             <body className="bg-primary antialiased">
                 <div
-                    className={cx("min-h-dvh bg-[#efedea] font-body text-[#171717] antialiased")}
+                    className={cx("min-h-dvh bg-white font-body text-[#171717] antialiased")}
                     style={{ fontFamily: '"SN Pro Variable", ui-sans-serif, sans-serif' }}
                 >
                     <RouteProvider>

@@ -39,6 +39,15 @@ body {
     font-kerning: normal;
 }
 
+/* Avoid lone last words / punctuation on headings and body copy */
+:where(h1, h2, h3, h4) {
+    text-wrap: balance;
+}
+
+:where(p) {
+    text-wrap: pretty;
+}
+
 /* Hide the default expand arrow on Safari.  */
 details summary::-webkit-details-marker {
     display: none;
@@ -141,4 +150,166 @@ input[type="search"]::-webkit-search-cancel-button {
     --background-color-active: #f6f7f9;
     --background-color-quaternary: #e4e7ec;
     color-scheme: light;
+}
+
+/*
+  Marketing enter: 12px / 400ms, once, when the section is in view.
+  Scenes inside a shown section may reveal a row or swap a status.
+*/
+[data-enter][data-in="false"] {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+[data-enter][data-in="true"] {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 400ms ease,
+        transform 400ms ease;
+}
+
+[data-enter] [data-appear] {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+[data-enter][data-in="true"] [data-appear] {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 400ms ease 180ms,
+        transform 400ms ease 180ms;
+}
+
+[data-status="to"] {
+    opacity: 0;
+}
+
+[data-enter][data-in="true"] [data-status="from"] {
+    animation: cobreo-status-out 400ms ease 700ms forwards;
+}
+
+[data-enter][data-in="true"] [data-status="to"] {
+    animation: cobreo-status-in 400ms ease 700ms forwards;
+}
+
+[data-switch="on"] .cobreo-knob,
+[data-switch="pending"] .cobreo-knob {
+    transform: translateX(0);
+}
+
+[data-switch="on"] .cobreo-knob {
+    transform: translateX(16px);
+}
+
+[data-enter][data-in="true"] [data-switch="pending"] {
+    background: #253353;
+    transition: background-color 400ms ease 500ms;
+}
+
+[data-enter][data-in="true"] [data-switch="pending"] .cobreo-knob {
+    transform: translateX(16px);
+    transition: transform 400ms ease 500ms;
+}
+
+.cobreo-live [data-appear] {
+    animation: cobreo-status-in 400ms ease 180ms both;
+}
+
+.cobreo-live [data-status="from"] {
+    animation: cobreo-status-out 400ms ease 700ms forwards;
+}
+
+.cobreo-live [data-status="to"] {
+    animation: cobreo-status-in 400ms ease 700ms both;
+}
+
+@keyframes cobreo-status-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes cobreo-status-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.cobreo-swap-from {
+    animation: cobreo-status-out 420ms ease 1.7s forwards;
+}
+
+.cobreo-swap-to {
+    opacity: 0;
+    animation: cobreo-status-in 420ms ease 1.7s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-enter][data-in="false"],
+    [data-enter] [data-appear],
+    [data-status="to"],
+    .cobreo-live [data-appear] {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    [data-status="from"],
+    .cobreo-live [data-status="from"],
+    .cobreo-swap-from {
+        display: none;
+    }
+
+    .cobreo-swap-to,
+    .cobreo-live [data-status="to"] {
+        opacity: 1;
+        animation: none;
+        transform: none;
+    }
+
+    [data-switch="pending"] {
+        background: #253353;
+    }
+
+    [data-switch="on"] .cobreo-knob,
+    [data-switch="pending"] .cobreo-knob {
+        transform: translateX(16px);
+    }
+}
+
+/* Anchor links glide (respecting reduced motion). */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Hero mark: a slow band of light travels across the symbol, and its halo breathes. */
+@keyframes cobreo-sheen {
+    0%,
+    100% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes cobreo-glow {
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: scale(0.98);
+    }
+    50% {
+        opacity: 0.75;
+        transform: scale(1.02);
+    }
 }

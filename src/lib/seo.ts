@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n/routing";
+import en from "@/messages/en.json";
+import fr from "@/messages/fr.json";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cobreo.ca";
 
@@ -73,8 +75,23 @@ export const LINKEDIN_URL = "https://www.linkedin.com/company/cobreo";
 const sameAs: string[] = [LINKEDIN_URL];
 
 const descriptions: Record<Locale, string> = {
-    fr: "Cobreo est un studio québécois qui conçoit des solutions applicatives et automatise les processus d’affaires des PME afin d’améliorer leurs opérations.",
-    en: "Cobreo is a Quebec studio that designs software solutions and automates business processes for small and mid-sized companies to improve their operations.",
+    fr: "Cobreo est une plateforme que l’on compose à partir de modules. Les données de l’application sont hébergées au Canada.",
+    en: "Cobreo is a platform you compose from modules. Application data is hosted in Canada.",
+};
+
+type ModuleCopy = { id: string; name: string; tagline: string };
+
+/** One "Module — what it does" line per module, from the landing-page copy. */
+function moduleFeatureList(locale: Locale): string[] {
+    const items = (locale === "fr" ? fr : en).modules.items as ModuleCopy[];
+    return items
+        .filter((item) => item.id !== "tasks")
+        .map((item) => `${item.name} — ${item.tagline}`.replace(/[\u00a0\u202f]/g, " "));
+}
+
+export type FaqItem = {
+    question: string;
+    answer: string;
 };
 
 /**
@@ -84,6 +101,9 @@ const descriptions: Record<Locale, string> = {
  */
 export function siteJsonLd(locale: Locale) {
     const organizationId = `${siteUrl}/#organization`;
+    const websiteId = `${siteUrl}/#website`;
+    const softwareId = `${siteUrl}/#software`;
+    const description = descriptions[locale];
 
     return {
         "@context": "https://schema.org",
@@ -97,12 +117,11 @@ export function siteJsonLd(locale: Locale) {
                 url: siteUrl,
                 logo: {
                     "@type": "ImageObject",
-                    url: `${siteUrl}/og/default.png?v=7`,
-                    width: 1200,
-                    height: 630,
+                    url: `${siteUrl}/images/cobreologo.svg`,
+                    contentUrl: `${siteUrl}/images/cobreologo.svg`,
                 },
                 image: `${siteUrl}/og/default.png?v=7`,
-                description: descriptions[locale],
+                description,
                 email: "contact@cobreo.ca",
                 knowsLanguage: ["fr-CA", "en-CA"],
                 areaServed: { "@type": "Country", name: "Canada" },
@@ -117,19 +136,84 @@ export function siteJsonLd(locale: Locale) {
                     contactType: "customer support",
                     email: "contact@cobreo.ca",
                     availableLanguage: ["French", "English"],
+                    url: `${siteUrl}/${locale}/contact`,
                 },
                 ...(sameAs.length > 0 ? { sameAs } : {}),
             },
             {
                 "@type": "WebSite",
-                "@id": `${siteUrl}/#website`,
+                "@id": websiteId,
                 url: siteUrl,
                 name: "Cobreo",
                 alternateName: "Cobreo.ca",
-                description: descriptions[locale],
+                description,
                 inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
                 publisher: { "@id": organizationId },
             },
+            {
+                "@type": "SoftwareApplication",
+                "@id": softwareId,
+                name: "Cobreo",
+                applicationCategory: "BusinessApplication",
+                operatingSystem: "Web",
+                url: siteUrl,
+                description,
+                inLanguage: ["fr-CA", "en-CA"],
+                provider: { "@id": organizationId },
+                publisher: { "@id": organizationId },
+                isAccessibleForFree: false,
+                countriesSupported: "CA",
+                featureList: moduleFeatureList(locale),
+            },
+        ],
+    };
+}
+
+/** FAQPage graph for the landing page only. */
+export function faqPageJsonLd(locale: Locale, items: FaqItem[]) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/${locale}#faq`,
+        url: `${siteUrl}/${locale}`,
+        inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
+        mainEntity: items.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+            },
+        })),
+    };
+}
+
+export type FounderSchema = { name: string; jobTitle: string; image: string };
+
+/** About page graph: the page, and the founders as people working for the Cobreo organization. */
+export function aboutPageJsonLd(locale: Locale, founders: FounderSchema[]) {
+    const organizationId = `${siteUrl}/#organization`;
+    const url = `${siteUrl}/${locale}/a-propos`;
+    const people = founders.map((founder) => ({
+        "@type": "Person",
+        "@id": `${siteUrl}/#${founder.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-")}`,
+        name: founder.name,
+        jobTitle: founder.jobTitle,
+        image: `${siteUrl}${founder.image}`,
+        worksFor: { "@id": organizationId },
+    }));
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "AboutPage",
+                "@id": `${url}#page`,
+                url,
+                inLanguage: locale === "fr" ? "fr-CA" : "en-CA",
+                about: { "@id": organizationId },
+            },
+            { "@id": organizationId, founder: people.map((person) => ({ "@id": person["@id"] })) },
+            ...people,
         ],
     };
 }
